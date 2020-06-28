@@ -12,7 +12,7 @@ gem 'turbolinks', '~> 5.2'
 gem 'jbuilder', '~> 2.10'
 gem 'bcrypt', '~> 3.1'
 gem 'pry', '~> 0.13'
-#gem 'secure_headers', '~> 6.3'
+gem 'secure_headers', '~> 6.3'
 gem 'dotenv', '~> 2.7'
 gem 'foreman', '~> 0.87'
 gem 'delayed_job_active_record', '~> 4.1'
@@ -35,8 +35,8 @@ group :development, :test do
 end
 
 group :development do
-  gem 'rubocop', "~> 0.86", require: false
-  gem 'rubocop-faker', "~> 1.1", require: false
+  gem 'rubocop', require: false
+  gem 'rubocop-faker', require: false
   gem 'web-console', '~> 4.0'
   gem 'listen', '~> 3.2'
   gem 'spring', '~> 2.1'
