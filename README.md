@@ -1,15 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+TeamDiagnosticV2: A fresh start to TeamDiagnostic.
 
-Things you may want to cover:
+Rails conventions are followed as well as possible.
 
-* Ruby version
+# Dependencies
 
-* System dependencies
+* Ruby 2.7.0
+* Rails 6.0
 
-* Configuration
+# Configuration
+
+* Environment variables are configured in: `.env`
+* Rails credentials are used
+
 
 * Database creation
 
