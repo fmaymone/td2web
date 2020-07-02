@@ -12,7 +12,7 @@ gem 'turbolinks', '~> 5.2'
 gem 'jbuilder', '~> 2.10'
 gem 'bcrypt', '~> 3.1'
 gem 'pry', '~> 0.13'
-gem 'secure_headers', '~> 6.3'
+#gem 'secure_headers', '~> 6.3'
 gem 'dotenv', '~> 2.7'
 gem 'foreman', '~> 0.87'
 gem 'delayed_job_active_record', '~> 4.1'
@@ -32,24 +32,18 @@ gem 'bootsnap', '~> 1.4', require: false
 
 group :development, :test do
   gem 'byebug', '~> 11.1', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'factory_bot_rails', '~> 6.0'
+  gem 'faker', '~> 2.13'
 end
 
 group :development do
-  gem 'rubocop', require: false
-  gem 'rubocop-faker', require: false
+  gem 'rubocop', "~> 0.86", require: false
+  gem 'rubocop-faker', "~> 1.1", require: false
   gem 'web-console', '~> 4.0'
   gem 'listen', '~> 3.2'
   gem 'spring', '~> 2.1'
   gem 'spring-watcher-listen', '~> 2.0'
   gem 'bundler-audit', '~> 0.7'
-  gem 'faker', '~> 2.13'
-  gem 'factory_bot_rails', '~> 6.0'
-  gem 'rspec', '~> 3.9'
-  gem 'warden-rspec-rails', '~> 0.2'
-  gem 'rails-controller-testing', '~> 1.0'
-  gem 'rspec-rails', '~> 4.0'
-  gem 'simplecov', '~> 0.18'
-  gem 'rspec_junit_formatter', '~> 0.4'
   gem 'action-cable-testing', '~> 0.6'
   gem 'annotate', '~> 3.1'
   gem 'pessimize', '~> 0.4'
@@ -59,7 +53,16 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 3.33'
-  gem 'selenium-webdriver', '~> 3.142'
-  gem 'webdrivers', '~> 4.4'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'rails-controller-testing'
+  gem 'rspec'
+  gem 'rspec-core'
+  gem 'rspec-expectations'
+  gem 'rspec-mocks'
+  gem 'rspec-rails'
+  gem 'rspec-support'
+  gem 'rspec_junit_formatter'
+  gem 'simplecov'
+  gem 'warden-rspec-rails'
 end

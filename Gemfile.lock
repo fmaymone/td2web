@@ -68,7 +68,6 @@ GEM
     ast (2.4.1)
     audited (4.9.0)
       activerecord (>= 4.2, < 6.1)
-    awesome_print (1.8.0)
     bcrypt (3.1.13)
     bindex (0.8.1)
     bootsnap (1.4.6)
@@ -86,7 +85,6 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
-    childprocess (3.0.0)
     coderay (1.1.3)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
@@ -100,7 +98,7 @@ GEM
       delayed_job (> 2.0.3)
       rack-protection (>= 1.5.5)
       sinatra (>= 1.4.4)
-    diff-lcs (1.4.2)
+    diff-lcs (1.4.4)
     docile (1.3.2)
     dotenv (2.7.5)
     erubi (1.9.0)
@@ -113,12 +111,27 @@ GEM
       i18n (>= 1.6, < 2)
     ffi (1.13.1)
     foreman (0.87.1)
+    formatador (0.2.5)
     froala-editor-sdk (1.4.0)
       mime-types (~> 3.1)
       mini_magick (~> 4.5)
       wysiwyg-rails (~> 3.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    guard (2.16.2)
+      formatador (>= 0.2.4)
+      listen (>= 2.7, < 4.0)
+      lumberjack (>= 1.0.12, < 2.0)
+      nenv (~> 0.1)
+      notiffany (~> 0.0)
+      pry (>= 0.9.12)
+      shellany (~> 0.0)
+      thor (>= 0.18.1)
+    guard-compat (1.2.1)
+    guard-rspec (4.7.3)
+      guard (~> 2.1)
+      guard-compat (~> 1.1)
+      rspec (>= 2.99.0, < 4.0)
     i18n (1.8.3)
       concurrent-ruby (~> 1.0)
     image_processing (1.11.0)
@@ -140,6 +153,7 @@ GEM
     loofah (2.6.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
+    lumberjack (1.2.6)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (0.3.3)
@@ -156,9 +170,13 @@ GEM
     msgpack (1.3.3)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    nenv (0.3.0)
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
+    notiffany (0.1.3)
+      nenv (~> 0.1)
+      shellany (~> 0.0)
     parallel (1.19.2)
     parser (2.7.1.4)
       ast (~> 2.4.1)
@@ -172,6 +190,9 @@ GEM
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
+    pry-inline (1.0.7)
+      pry (> 0.10.0)
+      unicode (~> 0.4.4)
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (4.0.5)
@@ -266,7 +287,6 @@ GEM
     ruby-vips (2.0.17)
       ffi (~> 1.9)
     ruby2_keywords (0.0.2)
-    rubyzip (2.3.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -277,9 +297,8 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    selenium-webdriver (3.142.7)
-      childprocess (>= 0.5, < 4.0)
-      rubyzip (>= 1.2.2)
+    semantic_range (2.3.0)
+    shellany (0.0.1)
     simplecov (0.18.5)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -309,6 +328,7 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
+    unicode (0.4.4.4)
     unicode-display_width (1.7.0)
     warden-rspec-rails (0.2.0)
     web-console (4.0.3)
@@ -316,14 +336,11 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webdrivers (4.4.1)
-      nokogiri (~> 1.6)
-      rubyzip (>= 1.3.0)
-      selenium-webdriver (>= 3.0, < 4.0)
-    webpacker (4.2.2)
-      activesupport (>= 4.2)
+    webpacker (5.1.1)
+      activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
-      railties (>= 4.2)
+      railties (>= 5.2)
+      semantic_range (>= 2.3.0)
     websocket-driver (0.7.2)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -331,60 +348,63 @@ GEM
       railties (>= 3.2, < 7.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.3.0)
+    zeitwerk (2.3.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  aasm (~> 5.0)
-  action-cable-testing (~> 0.6)
-  annotate (~> 3.1)
-  audited (~> 4.9)
-  awesome_print (~> 1.8)
-  bcrypt (~> 3.1)
-  bootsnap (~> 1.4)
-  bundler-audit (~> 0.7)
-  byebug (~> 11.1)
-  capybara (~> 3.33)
-  delayed_job_active_record (~> 4.1)
-  delayed_job_web (~> 1.4)
-  dotenv (~> 2.7)
-  factory_bot_rails (~> 6.0)
-  faker (~> 2.13)
-  foreman (~> 0.87)
-  froala-editor-sdk (~> 1.4)
-  image_processing (~> 1.11)
-  jbuilder (~> 2.10)
-  letter_opener (~> 1.7)
-  letter_opener_web (~> 1.4)
-  listen (~> 3.2)
-  mini_magick (~> 4.10)
-  pessimize (~> 0.4)
-  pg (~> 1.2)
-  pg_search (~> 2.3)
-  pry (~> 0.13)
-  pry-rails (~> 0.3)
-  puma (~> 4.3)
-  pundit (~> 2.1)
-  rack-mini-profiler (~> 2.0)
-  rails (~> 6.0)
-  rails-controller-testing (~> 1.0)
-  rspec (~> 3.9)
-  rspec-rails (~> 4.0)
-  rspec_junit_formatter (~> 0.4)
-  rubocop (~> 0.86)
-  rubocop-faker (~> 1.1)
-  sass-rails (~> 6.0)
-  selenium-webdriver (~> 3.142)
-  simplecov (~> 0.18)
-  spring (~> 2.1)
-  spring-watcher-listen (~> 2.0)
-  turbolinks (~> 5.2)
-  warden-rspec-rails (~> 0.2)
-  web-console (~> 4.0)
-  webdrivers (~> 4.4)
-  webpacker (~> 4.2)
+  aasm
+  action-cable-testing
+  annotate
+  audited
+  bcrypt
+  bootsnap
+  bundler-audit
+  byebug
+  capybara
+  delayed_job_active_record
+  delayed_job_web
+  dotenv
+  factory_bot_rails
+  faker
+  foreman
+  froala-editor-sdk
+  guard-rspec
+  image_processing
+  jbuilder
+  letter_opener
+  letter_opener_web
+  listen
+  mini_magick
+  pessimize
+  pg
+  pg_search
+  pry
+  pry-inline
+  pry-rails
+  puma
+  pundit
+  rack-mini-profiler
+  rails
+  rails-controller-testing
+  rspec
+  rspec-core
+  rspec-expectations
+  rspec-mocks
+  rspec-rails
+  rspec-support
+  rspec_junit_formatter
+  rubocop
+  rubocop-faker
+  sass-rails
+  simplecov
+  spring
+  spring-watcher-listen
+  turbolinks
+  warden-rspec-rails
+  web-console
+  webpacker
 
 RUBY VERSION
    ruby 2.7.0p0
