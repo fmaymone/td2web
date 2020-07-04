@@ -48,3 +48,10 @@ group :backend do
     end
   end
 end
+
+guard :rubocop do
+  # watch(%r{.+\.rb$})
+  watch(%r{(?:.+/)?\.rubocop(?:_todo)?\.yml$}) { |m| File.dirname(m[0]) }
+  watch(/.+\.rb/)
+  # watch(/(?:.+\/)?\.rubocop(?:_todo)?\.yml$/) { |m| File.dirname(m[0]) }
+end

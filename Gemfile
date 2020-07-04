@@ -41,6 +41,7 @@ group :development do
   gem 'annotate'
   gem 'bundler-audit'
   gem 'guard-rspec', require: false
+  gem 'guard-rubocop', require: false
   gem 'letter_opener'
   gem 'letter_opener_web'
   gem 'listen'
