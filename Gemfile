@@ -34,11 +34,14 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'rubocop', require: false
+  gem 'rubocop-faker', require: false
 end
 
 group :development do
   gem 'action-cable-testing'
   gem 'annotate'
+  gem 'brakeman'
   gem 'bundler-audit'
   gem 'guard-rspec', require: false
   gem 'guard-rubocop', require: false
@@ -47,8 +50,6 @@ group :development do
   gem 'listen'
   gem 'pessimize'
   gem 'rack-mini-profiler', require: false
-  gem 'rubocop', require: false
-  gem 'rubocop-faker', require: false
   gem 'spring'
   gem 'spring-watcher-listen'
   gem 'web-console'
