@@ -5,7 +5,7 @@ require 'spec_helper'
 require File.expand_path('../config/environment', __dir__)
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
-require 'devise'
+# require 'devise'
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
 
 begin
@@ -16,7 +16,7 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 Delayed::Worker.delay_jobs = false
 RSpec.configure do |config|
-  config.include Devise::Test::ControllerHelpers, type: :controller
+  # config.include Devise::Test::ControllerHelpers, type: :controller
   config.include RequestSpecHelper, type: :request
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
