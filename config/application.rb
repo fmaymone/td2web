@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require_relative 'version'
 require_relative 'boot'
 
 require 'rails/all'
@@ -15,6 +16,8 @@ module Teamdiagnostic
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
+
+    config.hosts = nil # Allow any domain (see: https://github.com/rails/rails/pull/33145)
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

@@ -1,1 +1,13 @@
 <h1>Home</h1>
+
+
+<h2><%= current_organization&.name || 'Unaffiliated User!' %> </h2>
+
+<p>
+  Host: <%= request.host %>
+</p>
+<p>
+  Org: <%= @current_organization&.name %>
+</p>
+
+<%= link_to('Organizations', organizations_path) %>
