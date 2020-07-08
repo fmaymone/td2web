@@ -37,7 +37,9 @@ yarn-debug.log*
 .env*
 
 /config/credentials/development.key
-
+/config/credentials/staging.key
 /config/credentials/production.key
+
 coverage/
 spec/examples.txt
+
