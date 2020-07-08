@@ -8,6 +8,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations.json
   def index
     @organizations = Organization.all
+    @page_title = 'Teamdiagnostic Organizations'
   end
 
   # GET /organizations/1

@@ -32,9 +32,11 @@
             <td><%= organization.domain %></td>
             <td><%= organization.description %></td>
             <td><%= organization.active %></td>
-            <td><%= link_to 'Show', organization %></td>
-            <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
-            <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td>
+              <%= link_to 'Show', organization, class: 'btn btn-sm btn-primary'%>
+              <%= link_to 'Edit', edit_organization_path(organization), class: 'btn btn-sm btn-primary' %>
+              <%= link_to 'Destroy', organization, { method: :delete, data: { confirm: 'Are you sure?' } } %>
+            </td>
           </tr>
         <% end %>
       </tbody>
@@ -44,6 +46,6 @@
 
 <div class="row">
   <div class="col-md-6">
-    <%= link_to 'New Organization', new_organization_path %>
+    <%= link_to 'Add Organization', new_organization_path, class: 'btn btn-primary' %>
   </div>
 </div>

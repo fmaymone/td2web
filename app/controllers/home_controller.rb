@@ -2,5 +2,7 @@
 
 # Dashboard/root Controller
 class HomeController < ApplicationController
-  def index; end
+  def index
+    @page_title = 'TeamDiagnostic Home'
+  end
 end
