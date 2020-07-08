@@ -66,7 +66,7 @@ RSpec.describe '/organizations', type: :request do
 
       it 'redirects to the created organization' do
         post organizations_url, params: { organization: valid_attributes }
-        expect(response).to redirect_to(organization_url(Organization.last))
+        expect(response).to redirect_to(organization_url(assigns[:organization]))
       end
     end
 
