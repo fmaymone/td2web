@@ -83,5 +83,5 @@ test:
 production:
   <<: *default
   database: tdv2_prod
-  username: teamdiagnostic
-  password: <%= ENV['TEAMDIAGNOSTIC_DATABASE_PASSWORD'] %>
+  #username: teamdiagnostic
+  #password: <%= ENV['TEAMDIAGNOSTIC_DATABASE_PASSWORD'] %>
