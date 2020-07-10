@@ -1,0 +1,56 @@
+<% mini_form = translation.locale.present? && translation.tempid.present? && translation.key.present? %>
+<% context = nil unless defined?(context) %>
+
+<%= form_for(translation, remote: true, html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <% if translation.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert" style="">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only"><%= 'Close'.t %></span></button>
+      <b><%= 'Errors prohibited this translation from being saved'.t %>.</b>
+
+      <ul>
+      <% translation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :tempid %>
+  <%= hidden_field_tag :context, context %>
+
+  <% if translation.locale.present? %>
+    <%= f.hidden_field :locale %>
+  <% else %>
+    <div class="row form-group">
+      <%= f.label :locale, class: 'col-2 control-label' %>
+      <div class="col-10">
+        <%= f.select :locale, grouped_options_for_select(@service.locale_grouped_options, translation.locale), include_blank: true, class: 'form-control' %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if translation.key.present? || ( translation.locale.present? && translation.key.present? ) %>
+    <%= f.hidden_field :key %>
+  <% else %>
+    <div class="row form-group">
+      <%= f.label :key, 'Key'.t, class: 'col-2 control-label' %>
+      <div class="col-12">
+        <%= f.text_area :key, class: 'form-control' %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row form-group">
+    <%= f.label :value, 'Value'.t, class: 'col-2 control-label' unless mini_form %>
+    <div class="col-12">
+      <%= f.text_area :value, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-offset-2 col-10">
+      <%= f.submit 'Save'.t, class: 'btn btn-primary' %>
+      <%= link_to('Cancel'.t, :back, class: 'translation--form--cancel-button') %>
+    </div>
+  </div>
+<% end %>

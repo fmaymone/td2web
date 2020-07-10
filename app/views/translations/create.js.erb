@@ -1,0 +1,23 @@
+(function(){
+  let domid = '#translation--<%= @translation.tempid %>';
+  <% if @translation.valid? %>
+    <% if @first_of_its_name %>
+      let formrowid = '#translations--table--key-row--';
+      let parentid = '#translations--table--body';
+      $(formrowid).remove();
+      $(parentid).prepend('<%= escape_javascript(render(partial: 'translations_key_row', locals: {key: @translation.key, collection: [ @translation ], locale: @translation.locale, context: @context })) %>');
+      $(parentid).prepend('<%= escape_javascript(render(partial: 'translations_key_row', locals: {key: '', collection: [ ], locale: @context, context: @context})) %>');
+      <% if @context.empty? %>
+        let newdomid = '#translation--<%= @translation.id %>';
+        $(newdomid).parent().prepend('<%= escape_javascript(render(partial: 'translation', locals: {translation: @blank_translation, locale: @context, context: @context})) %>');
+    <% end %>
+    <% else %>
+      $(domid).html('<%= escape_javascript(render(partial: 'translation', locals: {translation: @translation, locale: @context, context: @context})) %>');
+      <% if @context.empty? %>
+        $(domid).parent().prepend('<%= escape_javascript(render(partial: 'translation', locals: {translation: @blank_translation, locale: @context, context: @context})) %>');
+      <% end %>
+    <% end %>
+  <% else %>
+    $(domid).html('<%= escape_javascript(render(partial: 'ajax_form', locals: {translation: @translation, context: @context})) %>');
+  <% end %>
+})();

@@ -1,0 +1,16 @@
+<% context = nil unless defined?(context) %>
+
+<div id="translation--<%= translation_id = ( translation.id || Digest::UUID.uuid_v4 ) %>">
+  <blockquote class="blockquote">
+    <%= translation.value %>
+    <footer class="blockquote-footer">
+      <%= translation.locale %>
+      <% if translation.value %>
+        <%= link_to('Edit'.t, edit_application_translation_path(id: translation.id, context: context), remote: true, class: 'btn btn-sm btn-primary') %>
+        <%= link_to('Delete'.t, application_translation_path(id: translation.id, context: context), method: :delete, remote: true, data: {confirm: 'Are you sure you want to delete this translation?'.t}, class: 'btn btn-sm btn-warning', title: 'Delete translation'.t) %>
+      <% else %>
+        <%= link_to('Add'.t, new_application_translation_path({id: translation_id, context: context, application_translation: {locale: translation.locale, key: translation.key}}), remote: true, class: 'btn btn-sm btn-success', title: 'Add Translation'.t) %>
+      <% end %>
+    </footer>
+  </blockquote>
+</div>

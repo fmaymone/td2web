@@ -1,0 +1,9 @@
+(function(){
+  let domid = '#translation--<%= @translation.id %>';
+  let oldcontent = $(domid).html();
+  $(domid).html('<%= escape_javascript(render(partial: 'ajax_form', locals: {translation: @translation})) %>');
+  $(domid + ' a.translation--form--cancel-button').on('click', function(e){
+    e.preventDefault();
+    $(domid).html(oldcontent);
+  })
+})();

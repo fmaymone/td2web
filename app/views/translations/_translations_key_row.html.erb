@@ -1,0 +1,12 @@
+<% add_button = false unless defined?(add_button) %>
+<% context = nil unless defined?(context) %>
+
+<tr id="translations--table--key-row--<%= key.gsub(/\s/,'-') %>" class="translations--table--key-row">
+  <td width="50%">
+    <%= key %>
+  </td>
+  <td class="translations--table--translations-list">
+    <%= render partial: 'translation', collection: [ApplicationTranslation.new(key: key, locale: locale)], locals: {context: context} if collection.empty? || locale.nil? %>
+    <%= render partial: 'translation', collection: collection, locals: {context: context} %>
+  </td>
+</tr>

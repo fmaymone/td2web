@@ -6,7 +6,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <h1>Organizations</h1>
+    <h1><%= 'Organizations'.t %></h1>
   </div>
 </div>
 
@@ -17,6 +17,7 @@
         <tr>
           <th>Name</th>
           <th>Slug</th>
+          <th>Locale</th>
           <th>Domain</th>
           <th>Description</th>
           <th>Active</th>
@@ -28,14 +29,15 @@
         <% @organizations.each do |organization| %>
           <tr>
             <td><%= organization.name %></td>
+            <td><%= organization.locale %></td>
             <td><%= organization.slug %></td>
             <td><%= organization.domain %></td>
             <td><%= organization.description %></td>
             <td><%= organization.active %></td>
             <td>
-              <%= link_to 'Show', organization, class: 'btn btn-sm btn-primary'%>
-              <%= link_to 'Edit', edit_organization_path(organization), class: 'btn btn-sm btn-primary' %>
-              <%= link_to 'Destroy', organization, { method: :delete, data: { confirm: 'Are you sure?' } } %>
+              <%= link_to 'Show'.t, organization, class: 'btn btn-sm btn-primary'%>
+              <%= link_to 'Edit'.t, edit_organization_path(organization), class: 'btn btn-sm btn-primary' %>
+              <%= link_to 'Destroy'.t, organization, { method: :delete, data: { confirm: 'Are you sure?'.t } } %>
             </td>
           </tr>
         <% end %>
@@ -46,6 +48,6 @@
 
 <div class="row">
   <div class="col-md-6">
-    <%= link_to 'Add Organization', new_organization_path, class: 'btn btn-primary' %>
+    <%= link_to 'Add Organization'.t, new_organization_path, class: 'btn btn-primary' %>
   </div>
 </div>

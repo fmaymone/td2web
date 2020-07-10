@@ -1,0 +1,14 @@
+(function(){
+  let domid = '#translation--<%= @translation.id %>';
+  let parentid = $(domid).parent()
+  <% if @first_of_its_name %>
+    let keyrowid = '#translations--table--key-row--<%= @translation.key.gsub(/\s/,'') %>';
+    $(keyrowid).remove();
+  <% else %>
+    $(domid).remove();
+    <% if @context.present? %>
+      $(parentid).prepend('<%= escape_javascript(render(partial: 'translation', locals: {translation: @blank_translation, locale: @context, context: @context})) %>');
+    <% end %>
+  <% end %>
+})();
+

@@ -1,0 +1,24 @@
+<table class="table">
+  <thead>
+    <tr>
+      <% Translation.new.attributes.keys.each do |k| %>
+        <th><%= k %></th>
+      <% end %>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% translations.all.each do |xtn| %>
+      <tr>
+        <% xtn.attributes.to_a.each do |k| %>
+          <td><%= k[1] %></td>
+        <% end %>
+        <td>
+          <%= link_to 'Show'.t, application_translation_path(xtn), class: 'btn btn-sm btn-primary' %>
+          <%= link_to 'Edit'.t, edit_application_translation_path(xtn), class: 'btn btn-sm btn-primary' %>
+          <%= link_to 'Delete'.t, application_translation_path(xtn), method: :destroy, class: 'btn btn-sm btn-primary' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
