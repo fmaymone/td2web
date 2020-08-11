@@ -68,6 +68,7 @@ AllCops:
     - 'bin/**/*'
     - 'db/migrate/**/*'
     - 'db/schema.rb'
+    - 'config/initializers/i18n_active_record.rb'
   # Default formatter will be used if no `-f/--format` option is given.
   DefaultFormatter: progress
   # Cop names are displayed in offense messages by default. Change behavior
@@ -1881,7 +1882,7 @@ Metrics/AbcSize:
   Reference:
     - http://c2.com/cgi/wiki?AbcMetric
     - https://en.wikipedia.org/wiki/ABC_Software_Metric
-  Enabled: true
+  Enabled: false
   VersionAdded: '0.27'
   # The ABC size is a calculated magnitude, so this number can be an Integer or
   # a Float.
@@ -1913,7 +1914,7 @@ Metrics/BlockNesting:
 
 Metrics/ClassLength:
   Description: 'Avoid classes longer than 100 lines of code.'
-  Enabled: true
+  Enabled: false
   VersionAdded: '0.25'
   CountComments: false  # count full line comments?
   Max: 100
@@ -1923,7 +1924,7 @@ Metrics/CyclomaticComplexity:
   Description: >-
                  A complexity metric that is strongly correlated to the number
                  of test cases needed to validate a method.
-  Enabled: true
+  Enabled: false
   VersionAdded: '0.25'
   VersionChanged: '0.81'
   IgnoredMethods: []
@@ -1932,7 +1933,7 @@ Metrics/CyclomaticComplexity:
 Metrics/MethodLength:
   Description: 'Avoid methods longer than 10 lines of code.'
   StyleGuide: '#short-methods'
-  Enabled: true
+  Enabled: false
   VersionAdded: '0.25'
   VersionChanged: '0.59.2'
   CountComments: false  # count full line comments?
@@ -1941,7 +1942,7 @@ Metrics/MethodLength:
 
 Metrics/ModuleLength:
   Description: 'Avoid modules longer than 100 lines of code.'
-  Enabled: true
+  Enabled: false
   VersionAdded: '0.31'
   CountComments: false  # count full line comments?
   Max: 100
@@ -1958,7 +1959,7 @@ Metrics/PerceivedComplexity:
   Description: >-
                  A complexity metric geared towards measuring complexity for a
                  human reader.
-  Enabled: true
+  Enabled: false
   VersionAdded: '0.25'
   VersionChanged: '0.81'
   IgnoredMethods: []

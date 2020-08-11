@@ -2,8 +2,6 @@
 
 group :backend do
   guard :rspec, cmd: 'NO_TEST_COVERAGE=true bundle exec rspec ' do
-    # guard :rspec, :version => 2, :cli => "--color --drb -r rspec/instafail -f RSpec::Instafail NO_TEST_COVERAGE=true", :bundler => false, :all_after_pass => false, :all_on_start => false, :keep_failed => false do
-
     require 'guard/rspec/dsl'
     dsl = Guard::RSpec::Dsl.new(self)
 
@@ -50,8 +48,6 @@ group :backend do
 end
 
 guard :rubocop do
-  # watch(%r{.+\.rb$})
   watch(%r{(?:.+/)?\.rubocop(?:_todo)?\.yml$}) { |m| File.dirname(m[0]) }
   watch(/.+\.rb/)
-  # watch(/(?:.+\/)?\.rubocop(?:_todo)?\.yml$/) { |m| File.dirname(m[0]) }
 end

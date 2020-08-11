@@ -1,0 +1,8 @@
+(function(){
+  let domid = '#translation--<%= @translation.id %>';
+  <% if @translation.valid? %>
+    $(domid).html('<%= escape_javascript(render(partial: 'translation', locals: {translation: @translation})) %>');
+  <% else %>
+    $(domid).html('<%= escape_javascript(render(partial: 'ajax_form', locals: {translation: @translation})) %>');
+  <% end %>
+})();

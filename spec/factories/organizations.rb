@@ -12,6 +12,7 @@
 #  active      :boolean          default(FALSE)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  locale      :string           default("en")
 #
 FactoryBot.define do
   factory :organization do

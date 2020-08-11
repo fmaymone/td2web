@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1><%= 'Manage Translations'.t %></h1>
+    </div>
+  </div>
+
+  <div class="row bg-light">
+    <div class="col">
+      <p>
+        <a class='btn btn-sm btn-primary' role="button" data-toggle='collapse' href='#translations--well-supported--listing' title='<%= 'Toggle display of minimally supported languages'.t %>'><%= @well_supported.size %></a>
+        <span class='translations--filter-header'><%= 'Well Supported Languages'.t %></span>
+        <p id='translations--well-supported--listing' class='collapse' aria-expanded="true">
+          <% @well_supported.each do |lang| %>
+            <%= link_to(application_translations_path(@search.params(tlocale: lang['locale'], paginate: 'false'))) do %>
+              <span style="white-space: nowrap;">
+                <b><%= lang['english_name'] %></b> <tt><%= lang['locale'] %></tt> (<%= lang['count'] %>)
+              </span>
+            <% end %>
+          <% end %>
+        </p>
+      </div>
+      <div class="col">
+        <a class='btn btn-sm btn-primary' role="button" data-toggle='collapse' href='#translations--minimally-supported--listing' title='<%= 'Toggle display of minimally supported languages'.t%>'><%= @minimally_supported.size %> </a>
+        <span class='translations--filter-header'><%= 'Partially Supported Languages'.t %></span>
+        <p id='translations--minimally-supported--listing' class='collapse' aria-expanded="false">
+          <% @minimally_supported.each do |lang| %>
+            <%= link_to(application_translations_path(@search.params(tlocale: lang['locale'], paginate: 'false'))) do %>
+              <span style="white-space: nowrap;">
+                <b><%= lang['english_name'] %></b> <tt><%= lang['locale'] %></tt> (<%= lang['count'] %>)
+              </span>
+            <% end %>
+          <% end %>
+        </p>
+      </p>
+    </div>
+  </div>
+
+  <div id="translations--search-bar" class="row sticky-top bg-light">
+    <div class="col">
+      <%= form_tag(application_translations_path, method: :get) do %>
+        <div class="row">
+          <div class="col-4">
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 form-group">
+            <%= select_tag('tlocale', supported_languages_for_select(@search.params[:tlocale]), include_blank: 'Target Locale'.t, class: 'form-control', aria: { label: 'Target Locale'.t }) %>
+          </div>
+          <div class="col-md-6 form-group">
+            <%= text_field_tag('q', @search.options[:search], class: 'form-control', placeholder: 'Search'.t, aria: { label: 'Search text'.t }) %>
+          </div>
+          <div id="translations--search--missing--control" class="col-md-2 form-group <%= 'invisible' if !@search.options[:tlocale] %>">
+            <%= check_box_tag('missing', 'true', @search.options[:missing], class: '', aria: {label: 'Show only missing translations'.t }) %>
+              <%= label_tag('missing', 'Missing'.t, class: 'form-check-label') %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2">
+            <%= link_to 'Reset'.t, application_translations_path, class: "btn btn-sm btn-secondary", role: "button", title: 'Reset search'.t %>
+          </div>
+          <div cass="col-2">
+            <%= link_to('Export'.t, application_translations_path(@search.options.merge(format: 'csv')), role: 'button', class: 'btn btn-sm btn-primary', title: 'Export search to CSV'.t) %>
+          </div>
+          <div class="offset-md-6 col-md-2">
+            <%= submit_tag 'Search'.t, class: 'form-control btn-primary' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th><%= 'Source'.t %>: <b>EN</b></th>
+            <th><%= 'Target'.t %>: <b><%= @search&.options[:tlocale]&.upcase %></b></th>
+          </tr>
+        </thead>
+        <tbody id="translations--table--body">
+          <%= render partial: 'translations_key_row', locals: { key: '', collection: [], locale: @search&.options[:tlocale], context: @context } %>
+          <% @translations.each do |key, xltns| %>
+            <%= render partial: 'translations_key_row', locals: { key: key, collection: xltns, locale: @search&.options[:tlocale], context: @context } %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
