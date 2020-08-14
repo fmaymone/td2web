@@ -2,14 +2,14 @@
 
 require 'rails_helper'
 
-RSpec.describe 'organizations/show', type: :view do
-  include_context 'default_organization'
+RSpec.describe 'tenants/show', type: :view do
+  include_context 'default_tenant'
   before(:each) do
-    @organization = assign(:organization, default_organization)
+    @tenant = assign(:tenant, default_tenant)
   end
 
   it 'renders attributes in <p>' do
     render
-    expect(rendered).to match(default_organization.slug)
+    expect(rendered).to match(default_tenant.slug)
   end
 end

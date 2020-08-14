@@ -2,16 +2,16 @@
 
 require 'rails_helper'
 
-RSpec.describe 'organizations/index', type: :view do
-  let(:organization1) { create(:organization) }
-  let(:organization2) { create(:organization) }
+RSpec.describe 'tenants/index', type: :view do
+  let(:tenant1) { create(:tenant) }
+  let(:tenant2) { create(:tenant) }
   before(:each) do
-    assign(:organizations, [organization1, organization2])
+    assign(:tenants, [tenant1, tenant2])
   end
 
-  it 'renders a list of organizations' do
+  it 'renders a list of tenants' do
     render
-    assert_select 'tr>td', text: organization1.name, count: 1
-    assert_select 'tr>td', text: organization2.name, count: 1
+    assert_select 'tr>td', text: tenant1.name, count: 1
+    assert_select 'tr>td', text: tenant2.name, count: 1
   end
 end

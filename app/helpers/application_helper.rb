@@ -2,8 +2,8 @@
 
 # Misc view helpers
 module ApplicationHelper
-  def current_organization
-    @current_organization
+  def current_tenant
+    @current_tenant
   end
 
   def page_title

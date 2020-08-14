@@ -7,40 +7,40 @@
 <div class="row">
   <div class="col-md-8">
     <h1>
-      <%= @organization.name %>
+      <%= @tenant.name %>
     </h1>
 
     <p>
       <strong>Slug:</strong>
-      <%= @organization.slug %>
+      <%= @tenant.slug %>
     </p>
 
     <p>
       <strong>Locale:</strong>
-      <%= @organization.locale %>
+      <%= @tenant.locale %>
     </p>
 
     <p>
       <strong>Domain:</strong>
-      <%= @organization.domain %>
+      <%= @tenant.domain %>
     </p>
 
     <p>
       <strong>Description:</strong>
-      <%= @organization.description %>
+      <%= @tenant.description %>
     </p>
 
     <p>
       <strong>Active:</strong>
-      <%= @organization.active %>
+      <%= @tenant.active %>
     </p>
   </div>
 </div>
 
 <div class="row">
   <div class="col-4">
-    <%= link_to I18n.t('Edit'), edit_organization_path(@organization), class: 'btn btn-primary' %>
-    <%= link_to I18n.t('Back'), organizations_path, class: 'btn btn-light' %>
+    <%= link_to I18n.t('Edit'), edit_tenant_path(@tenant), class: 'btn btn-primary' %>
+    <%= link_to I18n.t('Back'), tenants_path, class: 'btn btn-light' %>
   </div>
 </div>
 

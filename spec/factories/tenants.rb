@@ -2,7 +2,7 @@
 
 # == Schema Information
 #
-# Table name: organizations
+# Table name: tenants
 #
 #  id          :uuid             not null, primary key
 #  name        :string
@@ -15,7 +15,7 @@
 #  locale      :string           default("en")
 #
 FactoryBot.define do
-  factory :organization do
+  factory :tenant do
     sequence :name do |n|
       Faker::Company.name + "-#{n}"
     end

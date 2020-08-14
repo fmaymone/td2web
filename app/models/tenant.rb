@@ -2,7 +2,7 @@
 
 # == Schema Information
 #
-# Table name: organizations
+# Table name: tenants
 #
 #  id          :uuid             not null, primary key
 #  name        :string
@@ -14,7 +14,7 @@
 #  updated_at  :datetime         not null
 #  locale      :string           default("en")
 #
-class Organization < ApplicationRecord
+class Tenant < ApplicationRecord
   ### Concerns
   audited
 
@@ -27,8 +27,8 @@ class Organization < ApplicationRecord
   scope :active, -> { where(active: true) }
 
   ### Class Methods
-  def self.default_org
-    Organization.active.where(slug: 'default').first
+  def self.default_tenant
+    Tenant.active.where(slug: 'default').first
   end
 
   ### Instance Methods

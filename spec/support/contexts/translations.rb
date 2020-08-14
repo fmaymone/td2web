@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.shared_context 'translations', shared_context: :metadate do
-  let(:default_organization) { create(:organization) }
+  let(:default_tenant) { create(:tenant) }
   let(:language1) {  create(:globalize_language) }
   let(:language2) {  create(:globalize_language) }
   let(:language3) {  create(:globalize_language) }

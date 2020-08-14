@@ -18,8 +18,8 @@ Dir[File.join(__dir__, 'seed', '*.rb')].sort.each { |file| require file }
 
 puts "=== Seeding Database ===\n\n"
 
-### Default Organization
-if (seeder = Seeds::Organizations.new).call
+### Default Tenants
+if (seeder = Seeds::Tenants.new).call
   puts 'OK'
 else
   puts 'FAILED: ' + seeder.errors.join(', ')

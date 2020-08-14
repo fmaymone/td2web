@@ -1,13 +1,13 @@
-<div class="row" id="new_organization">
+<div class="row" id="edit_tenant">
   <div class="col-md-12">
     <div class="row">
       <div class="col-md-12">
-        <h1>New Organization</h1>
+        <h1><%= 'Edit'.t %> <i><%= @tenant.name %></i></h1>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
-        <%= render 'form', organization: @organization %>
+        <%= render 'form', tenant: @tenant %>
       </div>
     </div>
   </div>

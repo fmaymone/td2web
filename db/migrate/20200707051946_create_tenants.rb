@@ -1,6 +1,6 @@
-class CreateOrganizations < ActiveRecord::Migration[6.0]
+class CreateTenants < ActiveRecord::Migration[6.0]
   def change
-    create_table :organizations, id: :uuid do |t|
+    create_table :tenants, id: :uuid do |t|
       t.string :name
       t.string :slug
       t.string :domain
@@ -8,6 +8,6 @@ class CreateOrganizations < ActiveRecord::Migration[6.0]
       t.boolean :active, default: false
       t.timestamps
     end
-    add_index :organizations, [:domain, :active]
+    add_index :tenants, [:domain, :active]
   end
 end

@@ -2,11 +2,11 @@
 
 # Rails application base controller
 class ApplicationController < ActionController::Base
-  before_action :current_organization
+  before_action :current_tenant
   before_action :current_locale
 
-  def current_organization
-    @current_organization ||= set_current_organization
+  def current_tenant
+    @current_tenant ||= set_current_tenant
   end
 
   def current_locale
@@ -19,19 +19,19 @@ class ApplicationController < ActionController::Base
   def set_locale
     I18n.locale = if params.include? :locale
                     params[:locale]
-                  elsif current_organization
-                    current_organization.locale
+                  elsif current_tenant
+                    current_tenant.locale
                   else
                     'en'
                   end
   end
 
-  def set_current_organization
-    @current_organization = organization_from_hostname
+  def set_current_tenant
+    @current_tenant = tenant_from_hostname
   end
 
-  # Lookup and return Organization by request domain, or Organization.default_or
-  def organization_from_hostname
-    Organization.active.where(domain: request.host).first || Organization.default_org
+  # Lookup and return Tenant by request domain, or Organization.default_tenant
+  def tenant_from_hostname
+    Tenant.active.where(domain: request.host).first || Tenant.default_tenant
   end
 end

@@ -1,14 +1,14 @@
 <h1>Home</h1>
 
 
-<h2><%= current_organization&.name || 'Unaffiliated User!' %> </h2>
+<h2><%= current_tenant&.name || 'Unaffiliated User!' %> </h2>
 
 <p>
   Host: <%= request.host %>
 </p>
 <p>
-  Org: <%= @current_organization&.name %>
+  Org: <%= @current_tenant&.name %>
 </p>
 
-<%= link_to(I18n.t('Organizations'), organizations_path) %>
+<%= link_to(I18n.t('Tenants'), tenants_path) %>
 

@@ -2,25 +2,25 @@
 
 require 'rails_helper'
 
-RSpec.describe 'organizations/edit', type: :view do
-  include_context 'default_organization'
+RSpec.describe 'tenants/edit', type: :view do
+  include_context 'default_tenant'
   before(:each) do
-    @organization = assign(:organization, default_organization)
+    @tenant = assign(:tenant, default_tenant)
   end
 
-  it 'renders the edit organization form' do
+  it 'renders the edit tenant form' do
     render
 
-    assert_select 'form[action=?][method=?]', organization_path(@organization), 'post' do
-      assert_select 'input[name=?]', 'organization[name]'
+    assert_select 'form[action=?][method=?]', tenant_path(@tenant), 'post' do
+      assert_select 'input[name=?]', 'tenant[name]'
 
-      assert_select 'input[name=?]', 'organization[slug]'
+      assert_select 'input[name=?]', 'tenant[slug]'
 
-      assert_select 'input[name=?]', 'organization[domain]'
+      assert_select 'input[name=?]', 'tenant[domain]'
 
-      assert_select 'textarea[name=?]', 'organization[description]'
+      assert_select 'textarea[name=?]', 'tenant[description]'
 
-      assert_select 'input[name=?]', 'organization[active]'
+      assert_select 'input[name=?]', 'tenant[active]'
     end
   end
 end

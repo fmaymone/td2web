@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 2020_08_08_191107) do
     t.index ["tr_key", "language_id"], name: "idx_4871324_globalize_translations_tr_key_index"
   end
 
-  create_table "organizations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "tenants", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.string "slug"
     t.string "domain"
@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 2020_08_08_191107) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "locale", default: "en"
-    t.index ["domain", "active"], name: "index_organizations_on_domain_and_active"
+    t.index ["domain", "active"], name: "index_tenants_on_domain_and_active"
   end
 
   create_table "translations", force: :cascade do |t|

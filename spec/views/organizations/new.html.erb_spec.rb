@@ -2,9 +2,9 @@
 
 require 'rails_helper'
 
-RSpec.describe 'organizations/new', type: :view do
+RSpec.describe 'tenants/new', type: :view do
   before(:each) do
-    assign(:organization, Organization.new(
+    assign(:tenant, Tenant.new(
                             name: 'MyString',
                             slug: 'MyString',
                             domain: 'MyString',
@@ -13,19 +13,19 @@ RSpec.describe 'organizations/new', type: :view do
                           ))
   end
 
-  it 'renders new organization form' do
+  it 'renders new tenant form' do
     render
 
-    assert_select 'form[action=?][method=?]', organizations_path, 'post' do
-      assert_select 'input[name=?]', 'organization[name]'
+    assert_select 'form[action=?][method=?]', tenants_path, 'post' do
+      assert_select 'input[name=?]', 'tenant[name]'
 
-      assert_select 'input[name=?]', 'organization[slug]'
+      assert_select 'input[name=?]', 'tenant[slug]'
 
-      assert_select 'input[name=?]', 'organization[domain]'
+      assert_select 'input[name=?]', 'tenant[domain]'
 
-      assert_select 'textarea[name=?]', 'organization[description]'
+      assert_select 'textarea[name=?]', 'tenant[description]'
 
-      assert_select 'input[name=?]', 'organization[active]'
+      assert_select 'input[name=?]', 'tenant[active]'
     end
   end
 end

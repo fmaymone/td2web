@@ -6,9 +6,9 @@ RSpec.describe HomeController, type: :controller do
   render_views
 
   describe 'GET #index' do
-    let(:organization) { create(:organization, slug: 'default') unless Organization.find_by_slug('default') }
+    let(:tenant) { create(:tenant, slug: 'default') unless Tenant.find_by_slug('default') }
     before(:each) do
-      organization
+      tenant
     end
     it 'should should succeed' do
       get :index
