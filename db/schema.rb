@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_08_191107) do
+ActiveRecord::Schema.define(version: 2020_08_14_220853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -100,6 +100,16 @@ ActiveRecord::Schema.define(version: 2020_08_08_191107) do
     t.string "namespace", limit: 255
     t.index ["table_name", "item_id", "language_id"], name: "idx_4871324_globalize_translations_table_name_index"
     t.index ["tr_key", "language_id"], name: "idx_4871324_globalize_translations_tr_key_index"
+  end
+
+  create_table "roles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "slug", null: false
+    t.string "name", null: false
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_roles_on_name", unique: true
+    t.index ["slug"], name: "index_roles_on_slug", unique: true
   end
 
   create_table "tenants", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

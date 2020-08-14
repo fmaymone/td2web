@@ -1,5 +1,18 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: translations
+#
+#  id             :bigint           not null, primary key
+#  locale         :string           not null
+#  key            :string           not null
+#  value          :text             not null
+#  interpolations :text
+#  is_proc        :boolean          default(FALSE)
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
 # Decorator for the Translation class
 class ApplicationTranslation < I18n::Backend::ActiveRecord::Translation
   ## CONSTANTS

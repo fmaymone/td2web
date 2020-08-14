@@ -20,7 +20,6 @@
 #  pluralization         :string(255)
 #  scope                 :string(1)
 #
-# Supported and optionally Supported Languages
 class GlobalizeLanguage < ApplicationRecord
   ### Concerns
   audited

@@ -1,0 +1,20 @@
+---
+:roles:
+  :version: 1
+  :key: :slug
+  :data:
+  - :name: Administrator
+    :slug: admin
+    :description: System Administrator
+  - :name: Staff
+    :slug: staff
+    :description: Tenant Staff
+  - :name: Translator
+    :slug: translator
+    :description: Staff account lmited to Translation management.
+  - :name: Facilitator
+    :slug: facilitator
+    :description: Team lead and/or Diagnostic Facilitator
+  - :name: Member
+    :slug: member
+    :description: Unprivileged account for Diagnostic participation

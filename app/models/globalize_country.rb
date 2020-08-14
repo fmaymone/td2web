@@ -15,7 +15,6 @@
 #  currency_decimal_sep   :string(2)
 #  number_grouping_scheme :string(255)
 #
-# Country Records
 class GlobalizeCountry < ApplicationRecord
   ### Concerns
   audited

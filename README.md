@@ -37,8 +37,9 @@ RAILS_MASTER_KEY=XXX   # see config/credentials/ENVIRONMENT.key
 
 Credentials are set for all environments
 
+## Database
 
-## Database 
+
 
 # Testing
 
@@ -49,5 +50,19 @@ During development, run `bundle exec guard` in a dedicated terminal for automate
 
 # Services (job queues, cache servers, search engines, etc.)
 
+* Puma web server
+* DelayedJob workers
+* Postgresql RDMS
+
 # Deployment instructions
 
+Update constants in `bin/deploy` as needed for  configuration:
+
+* PASS_COMMAND_STAGING
+* STAGING_REMOTE
+* STAGING_APP
+* PASS_COMMAND_PROD
+* PROD_REMOTE
+* PROD_APP
+
+`bin/deploy (staging|prod)`

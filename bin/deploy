@@ -28,6 +28,11 @@ staging)
   git log $last_tag.. --oneline
   ;;
 prod)
+  #####
+  echo "!!! Production deployments not supported"
+  exit
+  ####
+
   echo "** Deploying to Production"
   last_tag=$(git rev-list -n 1 prod-current)
   tag="prod-$date_str"

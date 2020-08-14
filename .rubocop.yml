@@ -1906,7 +1906,7 @@ Metrics/BlockLength:
 Metrics/BlockNesting:
   Description: 'Avoid excessive block nesting.'
   StyleGuide: '#three-is-the-number-thou-shalt-count'
-  Enabled: true
+  Enabled: false
   VersionAdded: '0.25'
   VersionChanged: '0.47'
   CountBlocks: false
@@ -2262,7 +2262,7 @@ Security/YAMLLoad:
                  Prefer usage of `YAML.safe_load` over `YAML.load` due to potential
                  security issues. See reference for more information.
   Reference: 'https://ruby-doc.org/stdlib-2.7.0/libdoc/yaml/rdoc/YAML.html#module-YAML-label-Security'
-  Enabled: true
+  Enabled: false
   VersionAdded: '0.47'
   SafeAutoCorrect: false
 

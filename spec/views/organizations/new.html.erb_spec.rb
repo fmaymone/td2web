@@ -5,12 +5,12 @@ require 'rails_helper'
 RSpec.describe 'tenants/new', type: :view do
   before(:each) do
     assign(:tenant, Tenant.new(
-                            name: 'MyString',
-                            slug: 'MyString',
-                            domain: 'MyString',
-                            description: 'MyText',
-                            active: false
-                          ))
+                      name: 'MyString',
+                      slug: 'MyString',
+                      domain: 'MyString',
+                      description: 'MyText',
+                      active: false
+                    ))
   end
 
   it 'renders new tenant form' do
