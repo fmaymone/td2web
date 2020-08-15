@@ -1,0 +1,10 @@
+<% 
+    render_params = {
+      'confirmed' => @resource&.unconfirmed_email?,
+      'unconfirmed_email' => @resource.unconfirmed_email,
+      'email' => @resource.email,
+      'url' => unlock_url(@resource, unlock_token: @token),
+      'name' => @resource.name
+  }
+%>
+<%= Liquid::Template.parse('emailtemplate--html--email_changed'.t).render(render_params).html_safe %>

@@ -2,7 +2,7 @@
   <% if tenant.errors.any? %>
     <div class="alert alert-danger alert-dismissable" role="alert">
       <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only"><%= 'Close'.t %></span></button>
-      <h4><%= 'Errors prohibited this Tenant from being saved'.t %>.</h4>
+      <h4><%= 'Errors prohibited changes from being saved'.t %>.</h4>
 
       <ul>
       <% tenant.errors.full_messages.each do |msg| %>

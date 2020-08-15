@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col">
       <h1><%= 'Manage Translations'.t %></h1>
+      <%#= link_to('Reload'.t, reload_application_translations_path) %>
     </div>
   </div>
 
@@ -64,7 +65,7 @@
             <%= link_to('Export'.t, application_translations_path(@search.options.merge(format: 'csv')), role: 'button', class: 'btn btn-sm btn-primary', title: 'Export search to CSV'.t) %>
           </div>
           <div class="offset-md-6 col-md-2">
-            <%= submit_tag 'Search'.t, class: 'form-control btn-primary' %>
+            <%= submit_tag 'Search'.t, class: 'form-control btn-primary' %><br/>
           </div>
         </div>
       <% end %>

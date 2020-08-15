@@ -1,0 +1,143 @@
+<%= bootstrap_form_for(user, remote: false) do |form| %>
+  <% if user.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only"><%= 'Close'.t %></span></button>
+      <h4><%= 'Errors prevented changes from being saved'.t %>.</h4>
+
+      <ul>
+      <% user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <fieldset>
+    <legend><%= 'Account'.t %></legend>
+    <div class="form-row">
+      <div class="col-sm-6">
+        <%= form.text_field :username, label: 'Username'.t, required: true %>
+      </div>
+      <div class="col-sm-6">
+        <%= form.select :role_id, roles_for_select(user), label: 'Role'.t, required: true, include_blank: true%>
+      </div>
+    </div>
+    <%= form.email_field :email, label: 'Email'.t, required: true %>
+    <% if @user.new_record? %>
+      <div class="form-row">
+        <div class="col-sm-6">
+          <%= form.password_field :password, label: 'Password'.t, required: user.new_record?, autocomplete: 'new-password' %>
+        </div>
+        <div class="col-sm-6">
+          <%= form.password_field :password_confirmation, label: 'Password Confirmation'.t, required: user.new_record?, autocomplete: 'new-password' %>
+        </div>
+      </div>
+    <% end %>
+    <div class="form-row">
+      <div class="col-sm-4">
+        <%= form.select :locale, locales_for_select(user), label: 'Locale'.t, required: true %>
+      </div>
+      <div class="col-sm-8">
+        <%= form.time_zone_select :timezone , nil, { label: 'Timezone'.t, required: true } %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend><%= 'Profile'.t %></legend>
+    <%= fields_for 'user[user_profile_attributes]', user.user_profile do |profile| %>
+      <div class="form-row">
+        <div class="col-sm-12 form-group">
+          <%= profile.label :company, 'Company'.t %>
+          <%= profile.text_field :company, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-sm-6 form-group">
+          <%= profile.label :title, 'Position/Title'.t %>
+          <%= profile.text_field :title, class: 'form-control' %>
+        </div>
+        <div class="col-sm-6 form-group">
+          <%= profile.label :department, 'Department'.t %>
+          <%= profile.text_field :department, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-sm-2 form-group">
+          <%= profile.label :prefix, 'Prefix'.t %>
+          <%= profile.text_field :prefix, class: 'form-control' %>
+        </div>
+        <div class="col-sm-3 form-group">
+          <%= profile.label :first_name, 'First Name'.t %>
+          <%= profile.text_field :first_name, class: 'form-control' %>
+        </div>
+        <div class="col-sm-2 form-group">
+          <%= profile.label :middle_name, 'Middle'.t %>
+          <%= profile.text_field :middle_name, class: 'form-control' %>
+        </div>
+        <div class="col-sm-3 form-group">
+          <%= profile.label :last_name, 'Last Name'.t %>
+          <%= profile.text_field :last_name, class: 'form-control', required: true %>
+        </div>
+        <div class="col-sm-2 form-group">
+          <%= profile.label :pronoun, 'Pronoun'.t, required: true %>
+          <%= profile.select :pronoun, options_for_select([['They'.t, 'they'],['He'.t, 'he'], ['She'.t,'she']], user.user_profile&.pronoun), {}, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-sm-6 form-group">
+          <%= profile.label :country, 'Country'.t %>
+          <%= profile.select :country, countries_for_select(user.user_profile), { allow_blank: false }, { class: 'form-control' } %>
+        </div>
+      </div>
+      <% if policy(user).edit_staff_notes? %>
+        <div class="form-row">
+          <div class="col">
+            <%= profile.label :staff_notes, 'Staff Notes'.t %>
+            <%= profile.text_area :staff_notes, { rows: 4 ,class: 'form-control', aria: {describedby: 'staff_notes_helpblock'} } %>
+            <small id="staff_notes_helpblock" class="form-text text-muted"><%= 'Only visible to staff'.t %></small>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </fieldset>
+
+  <fieldset>
+    <legend>
+      <%= 'Consent'.t %>
+      <%= link_to('View Agreements'.t, request_consent_path, class: 'btn btn-sm btn-info') %>
+    </legend>
+    <% if policy(user).update_consent? %>
+      <%= fields_for 'user[user_profile_attributes][consent]', OpenStruct.new(user.user_profile&.consent) do |consent| %>
+        <div class="form-row" style="padding-left: 2em;">
+          <div class="col form-group form-check">
+            <%= consent.check_box :eula, class: 'form-check-input' %>
+            <%= consent.label :eula, 'Accepts the website terms and conditions'.t, class: 'form-check-label' %>
+          </div>
+          <div class="col form-group form-check">
+            <%= consent.check_box :cookies_required, class: 'form-check-input' %>
+            <%= consent.label :cookies_required, 'Permits the use of website cookies'.t, class: 'form-check-label' %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p class="lead">
+        <strong><%= 'Permits the use of website cookies'.t %></strong>
+        <span class="badge badge-<%= @user.consent_granted?(:cookies) ? 'success' : 'warning' %>">
+          <%= @user.consent_granted?('cookies') ? 'Yes'.t : 'No'.t %>
+        </span><br/>
+        <strong><%= 'Accepts the website terms and conditions'.t %></strong>
+        <span class="badge badge-<%= @user.consent_granted?(:eula) ? 'success' : 'warning' %>">
+          <%= @user.consent_granted?('eula') ? 'Yes'.t : 'No'.t %>
+        </span>
+      </p>
+    <% end %>
+  </fieldset>
+
+  <div class="form-row">
+    <%= form.submit 'Submit'.t, class: 'btn btn-primary' %>
+    <br/>
+    <%= link_to('Cancel'.t, :back, class: 'btn btn-light') %>
+  </div>
+<% end %>

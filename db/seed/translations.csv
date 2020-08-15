@@ -4481,3 +4481,641 @@ en,Show only missing translations,Show only missing translations
 en,Target Locale,Target Locale
 en,Toggle display of minimally supported languages,Toggle display of minimally supported languages
 en,Update Translation,Update Translation
+en,Add Tenant,Add Tenant
+en,Errors prohibited this Tenant from being saved,Errors prohibited this Tenant from being saved
+en,New Tenant,New Tenant
+en,Tenants,Tenants
+en,Log in to Team Diagnostic,Log in to Team Diagnostic
+en,Login,Login
+en,Password,Password
+en,Log in,Log in
+en,You need to sign in or sign up before continuing,You need to sign in or sign up before continuing
+en,Invalid Login or password,Invalid Login or password
+en,Logout,Logout
+en,Signed in successfully,Signed in successfully
+en,Manage User Accounts,Manage User Accounts
+en,Username,Username
+en,Email,Email
+en,Locale,Locale
+en,Status,Status
+en,Actions,Actions
+en,Created,Created
+en,Locked,Locked
+en,Confirmed,Confirmed
+en,Lock,Lock
+en,Are you sure you want to lock this account?,Are you sure you want to lock this account?
+en,Dashboard,Dashboard
+en,Users,Users
+en,Translations,Translations
+en,Time Zone,Time Zone
+en,Create New User,Create New User
+en,Role,Role
+en,Submit,Submit
+en,Overview,Overview
+en,Translator,Translator
+en,Edit User Account,Edit User Account
+en,User account updated,User account updated
+en,Facilitator,Facilitator
+en,User was locked,User was locked
+en,Administrator,Administrator
+en,Reload,Reload
+en,Unconfirmed,Unconfirmed
+en,Unlock,Unlock
+en,Timezone,Timezone
+en,Afar,Afar
+en,Abkhazian,Abkhazian
+ab,Abkhazian,аҧсуа бызшәа
+en,Afrikaans,Afrikaans
+af,Afrikaans,Afrikaans
+en,Akan,Akan
+en,Amharic,Amharic
+am,Amharic,አማርኛ
+en,Arabic,Arabic
+ar,Arabic,العربية
+en,Aragonese,Aragonese
+en,Assamese,Assamese
+en,Avaric,Avaric
+en,Avestan,Avestan
+en,Aymara,Aymara
+en,Azerbaijani,Azerbaijani
+az,Azerbaijani,azərbaycan
+en,Bashkir,Bashkir
+en,Bambara,Bambara
+bm,Bambara,Bamanankan
+en,Belarusian,Belarusian
+be,Belarusian,Беларуская
+en,Bengali,Bengali
+en,Bislama,Bislama
+en,Tibetan,Tibetan
+en,Bosnian,Bosnian
+en,Breton,Breton
+en,Bulgarian,Bulgarian
+bg,Bulgarian,Български
+en,Catalan,Catalan
+ca,Catalan,Català
+en,Czech,Czech
+cs,Czech,čeština
+en,Chamorro,Chamorro
+en,Chechen,Chechen
+en,Slavic,Slavic
+en,Chuvash,Chuvash
+en,Cornish,Cornish
+en,Corsican,Corsican
+en,Cree,Cree
+en,Welsh,Welsh
+cy,Welsh,Cymraeg
+en,Danish,Danish
+da,Danish,Dansk
+en,German,German
+de,German,Deutsch
+en,Divehi,Divehi
+en,Dzongkha,Dzongkha
+en,Greek,Greek
+el,Greek,Ελληνικά
+en,English,English
+en,Esperanto,Esperanto
+en,Estonian,Estonian
+et,Estonian,Eesti
+en,Basque,Basque
+eu,Basque,euskera
+en,Ewe,Ewe
+ee,Ewe,Ɛʋɛ
+en,Faroese,Faroese
+en,Persian,Persian
+fa,Persian,فارسی
+en,Fijian,Fijian
+en,Finnish,Finnish
+fi,Finnish,suomi
+en,French,French
+fr,French,français
+en,Frisian,Frisian
+en,Fulah,Fulah
+ff,Fulah,"Fulfulde, Pulaar, Pular"
+en,Gaelic,Gaelic
+en,Irish,Irish
+ga,Irish,Gaeilge
+en,Gallegan,Gallegan
+gl,Gallegan,Galego
+en,Manx,Manx
+en,Guarani,Guarani
+en,Gujarati,Gujarati
+en,Haitian; Haitian Creole,Haitian; Haitian Creole
+en,Hausa,Hausa
+ha,Hausa,Hausa
+en,Serbo-Croatian,Serbo-Croatian
+en,Hebrew,Hebrew
+he,Hebrew,עברית
+en,Herero,Herero
+en,Hindi,Hindi
+hi,Hindi,हिंदी
+en,Hiri Motu,Hiri Motu
+en,Croatian,Croatian
+hr,Croatian,Hrvatski
+en,Hungarian,Hungarian
+hu,Hungarian,Magyar
+en,Armenian,Armenian
+hy,Armenian,Հայերեն
+en,Igbo,Igbo
+en,Ido,Ido
+en,Yi,Yi
+en,Inuktitut,Inuktitut
+en,Interlingue,Interlingue
+en,Interlingua,Interlingua
+en,Indonesian,Indonesian
+id,Indonesian,Bahasa indonesia
+en,Inupiaq,Inupiaq
+en,Icelandic,Icelandic
+is,Icelandic,Íslenska
+en,Italian,Italian
+it,Italian,italiano
+en,Javanese,Javanese
+en,Japanese,Japanese
+ja,Japanese,日本語
+en,Kalaallisut,Kalaallisut
+en,Kannada,Kannada
+kn,Kannada,ಕನ್ನಡ
+en,Kashmiri,Kashmiri
+en,Georgian,Georgian
+en,Kanuri,Kanuri
+en,Kazakh,Kazakh
+kk,Kazakh,Қазақ
+en,Khmer,Khmer
+en,Kikuyu,Kikuyu
+en,Kinyarwanda,Kinyarwanda
+rw,Kinyarwanda,Kinyarwanda
+en,Kirghiz,Kirghiz
+ky,Kirghiz,Кыргыз
+en,Komi,Komi
+en,Kongo,Kongo
+en,Korean,Korean
+ko,Korean,한국어
+en,Kuanyama,Kuanyama
+en,Kurdish,Kurdish
+en,Lao,Lao
+en,Latin,Latin
+en,Latvian,Latvian
+lv,Latvian,Latviešu
+en,Limburgish,Limburgish
+en,Lingala,Lingala
+en,Lithuanian,Lithuanian
+lt,Lithuanian,Lietuviškai
+en,Letzeburgesch,Letzeburgesch
+en,Luba-Katanga,Luba-Katanga
+en,Ganda,Ganda
+en,Marshall,Marshall
+en,Malayalam,Malayalam
+en,Marathi,Marathi
+en,Macedonian,Macedonian
+mk,Macedonian,Македонски
+en,Malagasy,Malagasy
+en,Maltese,Maltese
+mt,Maltese,Malti
+en,Moldavian,Moldavian
+en,Mongolian,Mongolian
+en,Maori,Maori
+en,Malay,Malay
+ms,Malay,Bahasa melayu
+en,Burmese,Burmese
+en,Nauru,Nauru
+en,Navajo,Navajo
+en,Ndebele,Ndebele
+en,Ndonga,Ndonga
+en,Nepali,Nepali
+en,Dutch,Dutch
+nl,Dutch,Nederlands
+en,Norwegian Nynorsk,Norwegian Nynorsk
+en,Norwegian Bokmål,Norwegian Bokmål
+en,Norwegian,Norwegian
+no,Norwegian,Norsk
+en,Chichewa; Nyanja,Chichewa; Nyanja
+en,Occitan,Occitan
+en,Ojibwa,Ojibwa
+en,Oriya,Oriya
+en,Oromo,Oromo
+en,Ossetian; Ossetic,Ossetian; Ossetic
+en,Panjabi,Panjabi
+en,Pali,Pali
+en,Polish,Polish
+pl,Polish,Polski
+en,Portuguese,Portuguese
+pt,Portuguese,português
+en,Pushto,Pushto
+ps,Pushto,پښتو
+en,Quechua,Quechua
+en,Raeto-Romance,Raeto-Romance
+en,Romanian,Romanian
+ro,Romanian,Română
+en,Rundi,Rundi
+rn,Rundi,Kirundi
+en,Russian,Russian
+ru,Russian,Pyccĸий
+en,Sango,Sango
+en,Sanskrit,Sanskrit
+en,Sinhalese,Sinhalese
+en,Slovak,Slovak
+sk,Slovak,Slovenčina
+en,Slovenian,Slovenian
+sl,Slovenian,Slovenščina
+en,Northern Sami,Northern Sami
+en,Samoan,Samoan
+en,Shona,Shona
+en,Sindhi,Sindhi
+en,Somali,Somali
+so,Somali,Somali
+en,Sotho,Sotho
+en,Spanish (Latin America),Spanish (Latin America)
+es,Spanish (Latin America),Español
+en,Albanian,Albanian
+sq,Albanian,shqip
+en,Sardinian,Sardinian
+en,Serbian,Serbian
+sr,Serbian,Srpski
+en,Swati,Swati
+en,Sundanese,Sundanese
+en,Swahili,Swahili
+sw,Swahili,Kiswahili
+en,Swedish,Swedish
+sv,Swedish,svenska
+en,Tahitian,Tahitian
+en,Tamil,Tamil
+en,Tatar,Tatar
+en,Telugu,Telugu
+te,Telugu,తెలుగు
+en,Tajik,Tajik
+en,Tagalog,Tagalog
+en,Thai,Thai
+th,Thai,ภาษาไทย
+en,Tigrinya,Tigrinya
+en,Tonga,Tonga
+en,Tswana,Tswana
+en,Tsonga,Tsonga
+en,Turkmen,Turkmen
+en,Turkish,Turkish
+tr,Turkish,Tϋrkçe
+en,Twi,Twi
+en,Uighur,Uighur
+en,Ukrainian,Ukrainian
+uk,Ukrainian,Українська
+en,Urdu,Urdu
+ur,Urdu,اردو
+en,Uzbek,Uzbek
+uz,Uzbek,o'zbek
+en,Venda,Venda
+en,Vietnamese,Vietnamese
+vi,Vietnamese,Tiếng Việt
+en,Volapük,Volapük
+en,Walloon,Walloon
+en,Wolof,Wolof
+wo,Wolof,Wolof
+en,Xhosa,Xhosa
+en,Yiddish,Yiddish
+en,Zhuang,Zhuang
+en,Chinese,Chinese
+zh,Chinese,中文
+en,Zulu,Zulu
+zu,Zulu,isiZulu
+en,Traditional Chinese,Traditional Chinese
+en,Simplified Chinese,Simplified Chinese
+en,English (Leaders),English (Leaders)
+en,Spanish (Spain),Spanish (Spain)
+ex,Spanish (Spain),Español
+en,English (Deloitte),English (Deloitte)
+en,English (Organizations),English (Organizations)
+og,English (Organizations),English (Organizations)
+en,English (Family Tribes),English (Family Tribes)
+en,English (Deloitte Full),English (Deloitte Full)
+en,French (Canadian),French (Canadian)
+fx,French (Canadian),French (Canadian)
+en,English (Team 360),English (Team 360)
+tx,English (Team 360),English (Team 360)
+en,Test Drive,Test Drive
+td,Test Drive,Test Drive
+en,English (United Kingdom),English (United Kingdom)
+gb,English (United Kingdom),English (United Kingdom)
+en,Portuguese (Portugal),Portuguese (Portugal)
+po,Portuguese (Portugal),português
+en,Password Confirmation,Password Confirmation
+en,User was unlocked,User was unlocked
+en,Prefix,Prefix
+en,First Name,First Name
+en,Middle Name,Middle Name
+en,Last Name,Last Name
+en,Suffix,Suffix
+en,They,They
+en,He,He
+en,She,She
+en,Pronoun,Pronoun
+en,Name,Name
+en,Middle,Middle
+en,Country,Country
+en,Andorra,Andorra
+en,United Arab Emirates,United Arab Emirates
+en,Afghanistan,Afghanistan
+en,Antigua and Barbuda,Antigua and Barbuda
+en,Anguilla,Anguilla
+en,Albania,Albania
+en,Armenia,Armenia
+en,Netherlands Antilles,Netherlands Antilles
+en,Angola,Angola
+en,Antarctica,Antarctica
+en,Argentina,Argentina
+en,American Samoa,American Samoa
+en,Austria,Austria
+en,Australia,Australia
+en,Aruba,Aruba
+en,Azerbaijan,Azerbaijan
+en,Bosnia and Herzegovina,Bosnia and Herzegovina
+en,Barbados,Barbados
+en,Bangladesh,Bangladesh
+en,Belgium,Belgium
+en,Burkina Faso,Burkina Faso
+en,Bulgaria,Bulgaria
+en,Bahrain,Bahrain
+en,Burundi,Burundi
+en,Benin,Benin
+en,Bermuda,Bermuda
+en,Brunei Darussalam,Brunei Darussalam
+en,Bolivia,Bolivia
+en,Brazil,Brazil
+en,Bahamas,Bahamas
+en,Bhutan,Bhutan
+en,Bouvet Island,Bouvet Island
+en,Botswana,Botswana
+en,Belarus,Belarus
+en,Belize,Belize
+en,Canada,Canada
+en,Cocos  Islands,Cocos  Islands
+en,Congo,Congo
+en,Central African Republic,Central African Republic
+en,Switzerland,Switzerland
+en,Cote D'Ivoire,Cote D'Ivoire
+en,Cook Islands,Cook Islands
+en,Chile,Chile
+en,Cameroon,Cameroon
+en,China,China
+en,Colombia,Colombia
+en,Costa Rica,Costa Rica
+en,Serbia and Montenegro,Serbia and Montenegro
+en,Cuba,Cuba
+en,Cape Verde,Cape Verde
+en,Christmas Island,Christmas Island
+en,Cyprus,Cyprus
+en,Czech Republic,Czech Republic
+en,Germany,Germany
+en,Djibouti,Djibouti
+en,Denmark,Denmark
+en,Dominica,Dominica
+en,Dominican Republic,Dominican Republic
+en,Algeria,Algeria
+en,Ecuador,Ecuador
+en,Estonia,Estonia
+en,Egypt,Egypt
+en,Western Sahara,Western Sahara
+en,Eritrea,Eritrea
+en,Spain,Spain
+en,Ethiopia,Ethiopia
+en,Finland,Finland
+en,Fiji,Fiji
+en,Falkland Islands,Falkland Islands
+en,Micronesia,Micronesia
+en,Faeroe Islands,Faeroe Islands
+en,France,France
+en,Gabon,Gabon
+en,United Kingdom,United Kingdom
+en,Grenada,Grenada
+en,Georgia,Georgia
+en,French Guiana,French Guiana
+en,Ghana,Ghana
+en,Gibraltar,Gibraltar
+en,Greenland,Greenland
+en,Gambia,Gambia
+en,Guinea,Guinea
+en,Guadaloupe,Guadaloupe
+en,Equatorial Guinea,Equatorial Guinea
+en,Greece,Greece
+en,South Georgia and the South Sandwich Islands,South Georgia and the South Sandwich Islands
+en,Guatemala,Guatemala
+en,Guam,Guam
+en,Guinea-Bissau,Guinea-Bissau
+en,Guyana,Guyana
+en,Hong Kong,Hong Kong
+en,Heard and McDonald Islands,Heard and McDonald Islands
+en,Honduras,Honduras
+en,Hrvatska,Hrvatska
+en,Haiti,Haiti
+en,Hungary,Hungary
+en,Indonesia,Indonesia
+en,Ireland,Ireland
+en,Israel,Israel
+en,India,India
+en,British Indian Ocean Territory,British Indian Ocean Territory
+en,Iraq,Iraq
+en,Iran,Iran
+en,Iceland,Iceland
+en,Italy,Italy
+en,Jamaica,Jamaica
+en,Jordan,Jordan
+en,Japan,Japan
+en,Kenya,Kenya
+en,Kyrgyz Republic,Kyrgyz Republic
+en,Cambodia,Cambodia
+en,Kiribati,Kiribati
+en,Comoros,Comoros
+en,St. Kitts and Nevis,St. Kitts and Nevis
+en,Korea,Korea
+en,Kuwait,Kuwait
+en,Cayman Islands,Cayman Islands
+en,Kazakhstan,Kazakhstan
+en,Lao People's Democratic Republic,Lao People's Democratic Republic
+en,Lebanon,Lebanon
+en,St. Lucia,St. Lucia
+en,Liechtenstein,Liechtenstein
+en,Sri Lanka,Sri Lanka
+en,Liberia,Liberia
+en,Lesotho,Lesotho
+en,Lithuania,Lithuania
+en,Luxembourg,Luxembourg
+en,Latvia,Latvia
+en,Libyan Arab Jamahiriya,Libyan Arab Jamahiriya
+en,Morocco,Morocco
+en,Monaco,Monaco
+en,Moldova,Moldova
+en,Madagascar,Madagascar
+en,Marshall Islands,Marshall Islands
+en,Macedonia,Macedonia
+en,Mali,Mali
+en,Myanmar,Myanmar
+en,Mongolia,Mongolia
+en,Macao,Macao
+en,Northern Mariana Islands,Northern Mariana Islands
+en,Martinique,Martinique
+en,Mauritania,Mauritania
+en,Montserrat,Montserrat
+en,Malta,Malta
+en,Mauritius,Mauritius
+en,Maldives,Maldives
+en,Malawi,Malawi
+en,Mexico,Mexico
+en,Malaysia,Malaysia
+en,Mozambique,Mozambique
+en,Namibia,Namibia
+en,New Caledonia,New Caledonia
+en,Niger,Niger
+en,Norfolk Island,Norfolk Island
+en,Nigeria,Nigeria
+en,Nicaragua,Nicaragua
+en,Netherlands,Netherlands
+en,Norway,Norway
+en,Nepal,Nepal
+en,Niue,Niue
+en,New Zealand,New Zealand
+en,Oman,Oman
+en,Panama,Panama
+en,Peru,Peru
+en,French Polynesia,French Polynesia
+en,Papua New Guinea,Papua New Guinea
+en,Philippines,Philippines
+en,Pakistan,Pakistan
+en,Poland,Poland
+en,St. Pierre and Miquelon,St. Pierre and Miquelon
+en,Pitcairn Island,Pitcairn Island
+en,Puerto Rico,Puerto Rico
+en,Palestinian Territory,Palestinian Territory
+en,Portugal,Portugal
+en,Palau,Palau
+en,Paraguay,Paraguay
+en,Qatar,Qatar
+en,Reunion,Reunion
+en,Romania,Romania
+en,Russian Federation,Russian Federation
+en,Rwanda,Rwanda
+en,Saudi Arabia,Saudi Arabia
+en,Solomon Islands,Solomon Islands
+en,Seychelles,Seychelles
+en,Sudan,Sudan
+en,Sweden,Sweden
+en,Singapore,Singapore
+en,St. Helena,St. Helena
+en,Slovenia,Slovenia
+en,Svalbard & Jan Mayen Islands,Svalbard & Jan Mayen Islands
+en,Slovakia,Slovakia
+en,Sierra Leone,Sierra Leone
+en,San Marino,San Marino
+en,Senegal,Senegal
+en,Somalia,Somalia
+en,Suriname,Suriname
+en,Sao Tome and Principe,Sao Tome and Principe
+en,El Salvador,El Salvador
+en,Syrian Arab Republic,Syrian Arab Republic
+en,Swaziland,Swaziland
+en,Turks and Caicos Islands,Turks and Caicos Islands
+en,Chad,Chad
+en,French Southern Territories,French Southern Territories
+en,Togo,Togo
+en,Thailand,Thailand
+en,Tajikistan,Tajikistan
+en,Tokelau,Tokelau
+en,Timor-Leste,Timor-Leste
+en,Turkmenistan,Turkmenistan
+en,Tunisia,Tunisia
+en,Turkey,Turkey
+en,Trinidad and Tobago,Trinidad and Tobago
+en,Tuvalu,Tuvalu
+en,Taiwan,Taiwan
+en,Tanzania,Tanzania
+en,Ukraine,Ukraine
+en,Uganda,Uganda
+en,United States Minor Outlying Islands,United States Minor Outlying Islands
+en,United States of America,United States of America
+en,Uruguay,Uruguay
+en,Uzbekistan,Uzbekistan
+en,Holy See,Holy See
+en,St. Vincent and the Grenadines,St. Vincent and the Grenadines
+en,Venezuela,Venezuela
+en,British Virgin Islands,British Virgin Islands
+en,US Virgin Islands,US Virgin Islands
+en,Viet Nam,Viet Nam
+en,Vanuatu,Vanuatu
+en,Wallis and Futuna Islands,Wallis and Futuna Islands
+en,Samoa,Samoa
+en,Yemen,Yemen
+en,Mayotte,Mayotte
+en,South Africa,South Africa
+en,Zambia,Zambia
+en,Zimbabwe,Zimbabwe
+en,"Email was already confirmed, please try signing in","Email was already confirmed, please try signing in"
+en,"There was a problem, please see below.","There was a problem, please see below."
+en,A message will soon appear in your email inbox with a link to confirm your email address,A message will soon appear in your email inbox with a link to confirm your email address
+en,A message with a confirmation link has been sent to your email address. Please follow the link to activate your account,A message with a confirmation link has been sent to your email address. Please follow the link to activate your account
+en,Accepts the website terms and conditions,Accepts the website terms and conditions
+en,Account Details,Account Details
+en,Account,Account
+en,Are you sure you want to unlock this account?,Are you sure you want to unlock this account?
+en,Change my password,Change my password
+en,Change your password,Change your password
+en,Company,Company
+en,Confirmation token can't be blank,Confirmation token can't be blank
+en,Consent,Consent
+en,Department,Department
+en,Didn't receive confirmation instructions?,Didn't receive confirmation instructions?
+en,Didn't receive unlock instructions?,Didn't receive unlock instructions?
+en,Don't like these emails?,Don't like these emails?
+en,Email can't be blank,Email can't be blank
+en,Email not found,Email not found
+en,Errors prevented changes from being saved,Errors prevented changes from being saved
+en,Errors prevented this translation from being saved,Errors prevented this translation from being saved
+en,Errors prohibited changes from being saved,Errors prohibited changes from being saved
+en,Forgot your password?,Forgot your password?
+en,Granted,Granted
+en,I accept the website terms and conditions,I accept the website terms and conditions
+en,I agree,I agree
+en,No,No
+en,Only visible to staff,Only visible to staff
+en,Password confirmation doesn't match Password,Password confirmation doesn't match Password
+en,Password is too short (minimum is 8 characters),Password is too short (minimum is 8 characters)
+en,Permits the use of website cookies,Permits the use of website cookies
+en,Please Wait,Please Wait
+en,Please review site terms and conditions,Please review site terms and conditions
+en,Position/Title,Position/Title
+en,Problems accessing your account?,Problems accessing your account?
+en,Profile,Profile
+en,Register Your Teamdiagnostic Account,Register Your Teamdiagnostic Account
+en,Register,Register
+en,Resend confirmation instructions,Resend confirmation instructions
+en,Resend email,Resend email
+en,Resend unlock instructions,Resend unlock instructions
+en,Reset password token is invalid,Reset password token is invalid
+en,Revoked,Revoked
+en,Send me instructions,Send me instructions
+en,Sign up,Sign up
+en,Staff Notes,Staff Notes
+en,Staff,Staff
+en,TeamDiagnostic Tenants,TeamDiagnostic Tenants
+en,Thank you for registering!,Thank you for registering!
+en,Thank you for registering,Thank you for registering
+en,There was a problem,There was a problem
+en,Unaffiliated User!,Unaffiliated User!
+en,Unsubscribe,Unsubscribe
+en,Update My Profile,Update My Profile
+en,User Agreements and Consent,User Agreements and Consent
+en,View Agreements,View Agreements
+en,We are setting up your account,We are setting up your account
+en,We are setting up your account.,We are setting up your account.
+en,Yes,Yes
+en,You will receive an email with instructions for how to confirm your email address in a few minutes,You will receive an email with instructions for how to confirm your email address in a few minutes
+en,You will receive an email with instructions for how to unlock your account in a few minutes,You will receive an email with instructions for how to unlock your account in a few minutes
+en,You will receive an email with instructions on how to reset your password in a few minutes,You will receive an email with instructions on how to reset your password in a few minutes
+en,Your password has been changed successfully. You are now signed in,Your password has been changed successfully. You are now signed in
+en,Your preferences were updated,Your preferences were updated
+en,confirmation_instructions_subject,TeamDiagnostic Account Confirmation
+en,consent-header-text,consent-header-text
+en,email_changed_subject,About Your TeamDiagnostic Account Email Address
+en,emailtemplate--html--confirmation_instructions,emailtemplate--html--confirmation_instructions
+en,emailtemplate--html--password_change,emailtemplate--html--password_change
+en,emailtemplate--html--reset_password_instructions,emailtemplate--html--reset_password_instructions
+en,emailtemplate--html--unlock_instructions,emailtemplate--html--unlock_instructions
+en,password_change_subject,Change your TeamDiagnostic Account Password
+en,reset_password_instructions_subject,Reset Your TeamDiagnostic Account Password
+en,Didn't receive confirmation instructions?,Didn't receive confirmation instructions?
+en,Didn't receive unlock instructions?,Didn't receive unlock instructions?
+en,unlock_instructions_subject,Unlock Your TeamDiagnostic Account

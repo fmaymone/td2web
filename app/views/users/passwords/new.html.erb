@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col">
+    <h2><%= 'Forgot your password?'.t %></h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render 'devise/shared/error_messages', resource: resource %>
+      <div class="form-group col-sm-6">
+        <%= f.label :email, 'Email'.t %>
+        <%= f.text_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', aria: { required: true } %>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <%= f.submit 'Send me instructions'.t, class: 'btn btn-primary' %>
+        </div>
+        <div class="col-sm-3">
+          <%= link_to 'Back'.t, :back, class: "btn btn-light" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

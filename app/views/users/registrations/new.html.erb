@@ -1,0 +1,98 @@
+<div class="row">
+  <div class="col">
+    <h2><%= 'Register Your Teamdiagnostic Account'.t %></h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), remote: false) do |form| %>
+      <%= render 'devise/shared/error_messages', resource: resource %>
+
+      <fieldset>
+        <legend><%= 'Account Details'.t %></legend>
+        <div class="form-row">
+          <div class="col-sm-6">
+            <%= form.text_field :username, label: 'Username'.t, required: true, autofocus: true %>
+          </div>
+        </div>
+        <%= form.email_field :email, label: 'Email'.t, required: true %>
+        <div class="form-row">
+          <div class="col-sm-6">
+            <%= form.password_field :password, label: 'Password'.t, required: true, autocomplete: 'new-password' %>
+          </div>
+          <div class="col-sm-6">
+            <%= form.password_field :password_confirmation, label: 'Password Confirmation'.t, required: true, autocomplete: 'new-password' %>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-sm-4">
+            <%= form.select :locale, locales_for_select(resource), label: 'Locale'.t, required: true %>
+          </div>
+          <div class="col-sm-8">
+            <%= form.time_zone_select :timezone , nil, { label: 'Timezone'.t, required: true } %>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><%= 'Profile'.t %></legend>
+        <%= fields_for 'user[user_profile_attributes]', resource.user_profile do |profile| %>
+          <div class="form-row">
+            <div class="col-sm-2 form-group">
+              <%= profile.label :prefix, 'Prefix'.t %>
+              <%= profile.text_field :prefix, class: 'form-control' %>
+            </div>
+            <div class="col-sm-3 form-group">
+              <%= profile.label :first_name, 'First Name'.t %>
+              <%= profile.text_field :first_name, class: 'form-control' %>
+            </div>
+            <div class="col-sm-2 form-group">
+              <%= profile.label :middle_name, 'Middle'.t %>
+              <%= profile.text_field :middle_name, class: 'form-control' %>
+            </div>
+            <div class="col-sm-3 form-group">
+              <%= profile.label :last_name, 'Last Name'.t %>
+              <%= profile.text_field :last_name, class: 'form-control', required: true %>
+            </div>
+            <div class="col-sm-2 form-group">
+              <%= profile.label :pronoun, 'Pronoun'.t, required: true %>
+              <%= profile.select :pronoun, options_for_select([['They'.t, 'they'],['He'.t, 'he'], ['She'.t,'she']], resource.user_profile&.pronoun), {}, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-sm-6 form-group">
+              <%= profile.label :title, 'Position/Title'.t %>
+              <%= profile.text_field :title, class: 'form-control' %>
+            </div>
+            <div class="col-sm-6 form-group">
+              <%= profile.label :department, 'Department'.t %>
+              <%= profile.text_field :department, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-sm-12 form-group">
+              <%= profile.label :company, 'Company'.t %>
+              <%= profile.text_field :company, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-sm-6 form-group">
+              <%= profile.label :country, 'Country'.t %>
+              <%= profile.select :country, countries_for_select(resource.user_profile), { allow_blank: false }, { class: 'form-control' } %>
+            </div>
+          </div>
+        <% end %>
+      </fieldset>
+
+      <div class="row">
+        <div class="col-sm-2">
+          <%= form.submit 'Register'.t, class: 'btn btn-primary' %>
+        </div>
+        <div class="col-sm-3">
+          <%= link_to 'Back'.t, :back, class: "btn btn-light" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

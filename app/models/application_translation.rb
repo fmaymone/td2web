@@ -13,10 +13,9 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
-# Decorator for the Translation class
 class ApplicationTranslation < I18n::Backend::ActiveRecord::Translation
   ## CONSTANTS
-  PERMITTED_PARAMS = %w[key value locale].freeze
+  ALLOWED_PARAMS = %w[key value locale].freeze
 
   ### Extensions and Concerns
   audited

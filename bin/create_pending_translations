@@ -3,6 +3,6 @@
 export tmpfile='tmp/pending_translations.csv'
 
 [ -e $tmpfile ] && rm $tmpfile
-git diff master.. app/views | grep -oE "'[^']+'\.t" | sort | uniq | sed -e "s/^'//" -e "s/'.t//" | awk '{print "en" "," "\"" $0 "\"" "," "\"" $0 "\""}' > $tmpfile
+git diff $1.. app/views | grep -oE "'[^']+'\.t" | sort | uniq | sed -e "s/^'//" -e "s/'.t//" | awk '{print "en" "," "\"" $0 "\"" "," "\"" $0 "\""}' > $tmpfile
 bundle exec rake i18n:import FILE=$tmpfile
 bundle exec rake i18n:export

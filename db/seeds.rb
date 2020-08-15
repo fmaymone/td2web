@@ -22,15 +22,22 @@ puts "=== Seeding Database ===\n\n"
 if (seeder = Seeds::Tenants.new).call
   puts 'OK'
 else
-  puts 'FAILED: ' + seeder.errors.join(', ')
+  puts "FAILED: #{seeder.errors.join(', ')}"
 end
 
-## Default Translations
+### Default Translations
 if (seeder = Seeds::Translations.new).call
   puts 'OK'
 else
-  puts 'FAILED: ' + seeder.errors.join(', ')
+  puts "FAILED: #{seeder.errors.join(', ')}"
 end
 
 ### Default Roles
 Seeds::Roles.new.call
+
+### Default Users
+if (seeder = Seeds::Users.new).call
+  puts 'OK'
+else
+  puts "FAILED: #{seeder.errors.join(', ')}"
+end

@@ -2,9 +2,12 @@
 
 # Translation and i18n Management
 class TranslationsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_translation, only: %i[show edit update destroy]
+  after_action :verify_authorized
 
   def index
+    authorize ApplicationTranslation
     @search = TranslationServices::Search.new(params)
     @translations = @search.matching_plus_missing.group_by(&:key)
     @well_supported = ApplicationTranslation.well_supported_languages
@@ -19,6 +22,7 @@ class TranslationsController < ApplicationController
   end
 
   def new
+    authorize ApplicationTranslation
     @context = params[:context]
     @service = TranslationServices::Creator.new(params)
     @translation = @service.object
@@ -26,6 +30,7 @@ class TranslationsController < ApplicationController
   end
 
   def create
+    authorize ApplicationTranslation
     @context = params[:context]
     @service = TranslationServices::Creator.new(params)
     @result = @service.call
@@ -47,19 +52,23 @@ class TranslationsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    authorize @translation
+  end
 
   def edit
+    authorize @translation
     @context = params[:context]
     @service = TranslationServices::Updater.new(params[:id])
     @translation = @service.object
   end
 
   def update
+    authorize @translation
     @context = params[:context]
     @service = TranslationServices::Updater.new(params[:id], params)
-    @result = @service.call
     @translation = @service.object
+    @result = @service.call
     respond_to do |format|
       if @result
         I18n.backend.reload!
@@ -74,6 +83,7 @@ class TranslationsController < ApplicationController
   end
 
   def destroy
+    authorize @translation
     @context = params[:context]
     @blank_translation = new_blank_translation(@translation)
     @blank_translation.locale = @context if @context.present?
@@ -85,6 +95,13 @@ class TranslationsController < ApplicationController
       format.js
     end
   end
+
+  # def reload
+  # I18n.backend.reload!
+  # respond_to do |format|
+  # format.html { redirect_to application_translations_path }
+  # end
+  # end
 
   private
 

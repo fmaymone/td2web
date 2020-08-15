@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <p class="lead">
+        <%= 'consent-header-text'.t  %>
+      </p>
+    </div>
+  </div>
+  <%= form_tag(grant_consent_path, method: :post, remote: false) do %>
+    <% @pending.each do |consent| %>
+      <div class="row">
+        <div class="col">
+          <br/>
+          <div class="card">
+            <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <div class="card-body">
+              <h5 class="card-title"><%= consent.humanize.titlecase %></h5>
+              <div class="card-text">
+                <% begin %>
+                  <%= render partial: "consent_#{consent}.#{current_locale}.html" %>
+                <% rescue %>
+                  <%= render partial: "consent_#{consent}.en.html" %>
+                <% end %>
+                <hr/>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group custom-control custom-switch consent-switch">
+                      <%= hidden_field_tag consent.to_sym, '0' %>
+                      <%= check_box_tag consent.to_sym, '1', current_user.consent_granted?(consent), class: 'custom-control-input', id: "#{consent}_checkbox" %>
+                      <label class="custom-control-label" for="<%= consent %>_checkbox"><%= 'I agree'.t %></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <br/>
+    <%= submit_tag 'Submit'.t, class: "btn btn-primary" %>
+  <% end %>
+</div>

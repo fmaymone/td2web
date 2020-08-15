@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+  <%= link_to('Dashboard'.t, root_path) %>
+  <%= link_to('Tenants'.t, tenants_path) %>
+  <%= link_to('Users'.t, users_path) %>
+  <%= link_to('Translations'.t, application_translations_path) %>
+<% end %>
+<%= render partial: 'shared/login_items' %>

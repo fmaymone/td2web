@@ -22,6 +22,7 @@ Environment variables are configured in: `.env`
 APPLICATION_DOMAIN=localhost
 APPLICATION_HOST="localhost:3000"
 APPLICATION_PROTOCOL="http"
+EMAIL_REPLY_TO='tda@localhost'
 LANG=en_US-UTF-8
 RACK_ENV=development
 RAILS_ENV=development
@@ -35,11 +36,13 @@ RAILS_MASTER_KEY=XXX   # see config/credentials/ENVIRONMENT.key
 
 ### Rails credentials
 
-Credentials are set for all environments
+This application uses encrypted credentials.
+
+Set the encryption key with ENV: `RAILS_MASTER_KEY`
+
+Edit credentials with `bundle exec rails credentials:edit --environment RAILS_ENV`
 
 ## Database
-
-
 
 # Testing
 

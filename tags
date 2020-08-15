@@ -1,0 +1,262 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+<=>	./app/models/role.rb	/^  def <=>(other)$/;"	f
+Application	./config/application.rb	/^  class Application < Rails::Application$/;"	c	class:Teamdiagnostic
+ApplicationCable	./app/channels/application_cable/channel.rb	/^module ApplicationCable$/;"	m
+ApplicationCable	./app/channels/application_cable/connection.rb	/^module ApplicationCable$/;"	m
+ApplicationController	./app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationHelper	./app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+ApplicationJob	./app/jobs/application_job.rb	/^class ApplicationJob < ActiveJob::Base$/;"	c
+ApplicationMailer	./app/mailers/application_mailer.rb	/^class ApplicationMailer < ActionMailer::Base$/;"	c
+ApplicationPolicy	./app/policies/application_policy.rb	/^class ApplicationPolicy$/;"	c
+ApplicationRecord	./app/models/application_record.rb	/^class ApplicationRecord < ActiveRecord::Base$/;"	c
+ApplicationTranslation	./app/models/application_translation.rb	/^class ApplicationTranslation < I18n::Backend::ActiveRecord::Translation$/;"	c
+ApplicationTranslationPolicy	./app/policies/application_translation_policy.rb	/^class ApplicationTranslationPolicy < ApplicationPolicy$/;"	c
+Channel	./app/channels/application_cable/channel.rb	/^  class Channel < ActionCable::Channel::Base$/;"	c	class:ApplicationCable
+Connection	./app/channels/application_cable/connection.rb	/^  class Connection < ActionCable::Connection::Base$/;"	c	class:ApplicationCable
+Consent	./app/models/concerns/user_profiles/consent.rb	/^  module Consent$/;"	m	class:UserProfiles
+ConsentUnauthorizedError	./app/models/concerns/user_profiles/consent.rb	/^      class ConsentUnauthorizedError < StandardError; end$/;"	c	class:UserProfiles.Consent
+Creator	./app/services/translation_services/creator.rb	/^  class Creator$/;"	c	class:TranslationServices
+Creator	./app/services/user_services/creator.rb	/^  class Creator$/;"	c	class:UserServices
+CsvExporter	./app/services/translation_services/csv_exporter.rb	/^  class CsvExporter$/;"	c	class:TranslationServices
+CsvImporter	./app/services/translation_services/csv_importer.rb	/^  class CsvImporter$/;"	c	class:TranslationServices
+Devise	./app/models/concerns/users/devise.rb	/^  module Devise$/;"	m	class:Users
+GlobalizeCountry	./app/models/globalize_country.rb	/^class GlobalizeCountry < ApplicationRecord$/;"	c
+GlobalizeLanguage	./app/models/globalize_language.rb	/^class GlobalizeLanguage < ApplicationRecord$/;"	c
+HomeController	./app/controllers/home_controller.rb	/^class HomeController < ApplicationController$/;"	c
+Profiles	./app/models/concerns/users/profiles.rb	/^  module Profiles$/;"	m	class:Users
+RequestSpecHelper	./spec/support/request_spec_helper.rb	/^module RequestSpecHelper$/;"	m
+Role	./app/models/role.rb	/^class Role < ApplicationRecord$/;"	c
+Roles	./app/models/concerns/users/roles.rb	/^  module Roles$/;"	m	class:Users
+Scope	./app/policies/application_policy.rb	/^  class Scope$/;"	c	class:ApplicationPolicy
+Scope	./app/policies/application_translation_policy.rb	/^  class Scope$/;"	c	class:ApplicationTranslationPolicy
+Scope	./app/policies/tenant_policy.rb	/^  class Scope < Scope$/;"	c	class:TenantPolicy
+Scope	./app/policies/user_policy.rb	/^  class Scope < Scope$/;"	c	class:UserPolicy
+Search	./app/services/translation_services/search.rb	/^  class Search$/;"	c	class:TranslationServices
+Search	./app/services/user_services/search.rb	/^  class Search$/;"	c	class:UserServices
+Seedable	./app/models/concerns/seeds/seedable.rb	/^  module Seedable$/;"	m	class:Seeds
+Seeds	./app/models/concerns/seeds/seedable.rb	/^module Seeds$/;"	m
+String	./config/initializers/i18n_active_record.rb	/^class String$/;"	c
+Teamdiagnostic	./config/application.rb	/^module Teamdiagnostic$/;"	m
+Teamdiagnostic	./config/version.rb	/^module Teamdiagnostic$/;"	m
+Tenant	./app/models/tenant.rb	/^class Tenant < ApplicationRecord$/;"	c
+TenantPolicy	./app/policies/tenant_policy.rb	/^class TenantPolicy < ApplicationPolicy$/;"	c
+TenantsController	./app/controllers/tenants_controller.rb	/^class TenantsController < ApplicationController$/;"	c
+TenantsHelper	./app/helpers/tenants_helper.rb	/^module TenantsHelper$/;"	m
+TranslationServices	./app/services/translation_services/creator.rb	/^module TranslationServices$/;"	m
+TranslationServices	./app/services/translation_services/csv_exporter.rb	/^module TranslationServices$/;"	m
+TranslationServices	./app/services/translation_services/csv_importer.rb	/^module TranslationServices$/;"	m
+TranslationServices	./app/services/translation_services/search.rb	/^module TranslationServices$/;"	m
+TranslationServices	./app/services/translation_services/updater.rb	/^module TranslationServices$/;"	m
+TranslationsController	./app/controllers/translations_controller.rb	/^class TranslationsController < ApplicationController$/;"	c
+TranslationsHelper	./app/helpers/translations_helper.rb	/^module TranslationsHelper$/;"	m
+Updater	./app/services/translation_services/updater.rb	/^  class Updater$/;"	c	class:TranslationServices
+User	./app/models/user.rb	/^class User < ApplicationRecord$/;"	c
+UserPolicy	./app/policies/user_policy.rb	/^class UserPolicy < ApplicationPolicy$/;"	c
+UserProfile	./app/models/user_profile.rb	/^class UserProfile < ApplicationRecord$/;"	c
+UserProfiles	./app/models/concerns/user_profiles/consent.rb	/^module UserProfiles$/;"	m
+UserServices	./app/services/user_services/creator.rb	/^module UserServices$/;"	m
+UserServices	./app/services/user_services/search.rb	/^module UserServices$/;"	m
+UserTest	./test/models/user_test.rb	/^class UserTest < ActiveSupport::TestCase$/;"	c
+Users	./app/controllers/users/confirmations_controller.rb	/^class Users::ConfirmationsController < Devise::ConfirmationsController$/;"	c
+Users	./app/controllers/users/omniauth_callbacks_controller.rb	/^class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController$/;"	c
+Users	./app/controllers/users/passwords_controller.rb	/^class Users::PasswordsController < Devise::PasswordsController$/;"	c
+Users	./app/controllers/users/registrations_controller.rb	/^class Users::RegistrationsController < Devise::RegistrationsController$/;"	c
+Users	./app/controllers/users/sessions_controller.rb	/^class Users::SessionsController < Devise::SessionsController$/;"	c
+Users	./app/controllers/users/unlocks_controller.rb	/^class Users::UnlocksController < Devise::UnlocksController$/;"	c
+Users	./app/models/concerns/users/devise.rb	/^module Users$/;"	m
+Users	./app/models/concerns/users/profiles.rb	/^module Users$/;"	m
+Users	./app/models/concerns/users/roles.rb	/^module Users$/;"	m
+UsersController	./app/controllers/users_controller.rb	/^class UsersController < ApplicationController$/;"	c
+UsersHelper	./app/helpers/users_helper.rb	/^module UsersHelper$/;"	m
+activate_bundler	./bin/bundle	/^  def activate_bundler$/;"	f
+activation_error_handling	./bin/bundle	/^  def activation_error_handling$/;"	f
+admin	./app/models/role.rb	/^    def admin$/;"	f	class:Role
+admin?	./app/models/role.rb	/^  def admin?$/;"	f
+admins	./app/models/concerns/users/roles.rb	/^      def admins$/;"	f	class:Users.Roles
+allowed_params	./app/policies/application_translation_policy.rb	/^  def allowed_params$/;"	f	class:ApplicationTranslationPolicy
+allowed_params	./app/policies/tenant_policy.rb	/^  def allowed_params$/;"	f	class:TenantPolicy
+allowed_params	./app/policies/user_policy.rb	/^  def allowed_params$/;"	f	class:UserPolicy
+apply_pagination	./app/services/user_services/search.rb	/^    def apply_pagination$/;"	f	class:UserServices.Search
+apply_sort	./app/services/user_services/search.rb	/^    def apply_sort$/;"	f	class:UserServices.Search
+authorize_consent!	./app/controllers/application_controller.rb	/^  def authorize_consent!$/;"	f
+build_options	./app/services/translation_services/search.rb	/^    def build_options(params = {})$/;"	f	class:TranslationServices
+bundler_requirement	./bin/bundle	/^  def bundler_requirement$/;"	f
+bundler_version	./bin/bundle	/^  def bundler_version$/;"	f
+call	./app/services/translation_services/creator.rb	/^    def call$/;"	f	class:TranslationServices
+call	./app/services/translation_services/csv_exporter.rb	/^    def call$/;"	f	class:TranslationServices.CsvExporter
+call	./app/services/translation_services/csv_importer.rb	/^    def call(&block)$/;"	f	class:TranslationServices.CsvImporter
+call	./app/services/translation_services/search.rb	/^    def call$/;"	f	class:TranslationServices.Search
+call	./app/services/translation_services/updater.rb	/^    def call$/;"	f
+call	./app/services/user_services/creator.rb	/^    def call; end$/;"	f	class:UserServices
+call	./app/services/user_services/search.rb	/^    def call$/;"	f	class:UserServices.Search
+cli_arg_version	./bin/bundle	/^  def cli_arg_version$/;"	f
+collection	./app/services/translation_services/csv_exporter.rb	/^    def collection$/;"	f	class:TranslationServices.CsvExporter
+configure_permitted_parameters	./app/controllers/application_controller.rb	/^  def configure_permitted_parameters$/;"	f
+confirmed?	./app/models/user.rb	/^  def confirmed?$/;"	f	class:User
+consent	./app/controllers/users_controller.rb	/^  def consent$/;"	f	class:UsersController
+consent?	./app/policies/user_policy.rb	/^  def consent?$/;"	f	class:UserPolicy
+consent_granted?	./app/models/concerns/user_profiles/consent.rb	/^      def consent_granted?(key)$/;"	f	class:UserProfiles.Consent
+consent_granted?	./app/models/concerns/users/profiles.rb	/^      def consent_granted?(key)$/;"	f	class:Users.Profiles
+countries_for_select	./app/helpers/users_helper.rb	/^  def countries_for_select(user_profile = nil)$/;"	f	class:UsersHelper
+country_name	./app/models/concerns/users/profiles.rb	/^      def country_name$/;"	f	class:Users.Profiles
+country_name	./app/models/user_profile.rb	/^  def country_name$/;"	f	class:UserProfile
+create	./app/controllers/tenants_controller.rb	/^  def create$/;"	f	class:TenantsController
+create	./app/controllers/translations_controller.rb	/^  def create$/;"	f	class:TranslationsController
+create	./app/controllers/users/registrations_controller.rb	/^  def create$/;"	f	class:Users
+create	./app/controllers/users_controller.rb	/^  def create$/;"	f	class:UsersController
+create?	./app/policies/application_policy.rb	/^  def create?$/;"	f	class:ApplicationPolicy
+create?	./app/policies/application_translation_policy.rb	/^  def create?$/;"	f	class:ApplicationTranslationPolicy
+create?	./app/policies/tenant_policy.rb	/^  def create?$/;"	f	class:TenantPolicy
+create?	./app/policies/user_policy.rb	/^  def create?$/;"	f	class:UserPolicy
+creator_or_updater	./app/services/translation_services/csv_importer.rb	/^    def creator_or_updater(attrs)$/;"	f	class:TranslationServices
+current_locale	./app/controllers/application_controller.rb	/^  def current_locale$/;"	f	class:ApplicationController
+current_tenant	./app/controllers/application_controller.rb	/^  def current_tenant$/;"	f	class:ApplicationController
+current_tenant	./app/helpers/application_helper.rb	/^  def current_tenant$/;"	f	class:ApplicationHelper
+default_tenant	./app/models/tenant.rb	/^  def self.default_tenant$/;"	F	class:Tenant
+destroy	./app/controllers/tenants_controller.rb	/^  def destroy$/;"	f	class:TenantsController
+destroy	./app/controllers/translations_controller.rb	/^  def destroy$/;"	f	class:TranslationsController
+destroy	./app/controllers/users_controller.rb	/^  def destroy$/;"	f	class:UsersController
+destroy?	./app/policies/application_policy.rb	/^  def destroy?$/;"	f	class:ApplicationPolicy
+destroy?	./app/policies/application_translation_policy.rb	/^  def destroy?$/;"	f	class:ApplicationTranslationPolicy
+destroy?	./app/policies/tenant_policy.rb	/^  def destroy?$/;"	f	class:TenantPolicy
+destroy?	./app/policies/user_policy.rb	/^  def destroy?$/;"	f	class:UserPolicy
+edit	./app/controllers/tenants_controller.rb	/^  def edit$/;"	f	class:TenantsController
+edit	./app/controllers/translations_controller.rb	/^  def edit$/;"	f	class:TranslationsController
+edit	./app/controllers/users_controller.rb	/^  def edit$/;"	f	class:UsersController
+edit?	./app/policies/application_policy.rb	/^  def edit?$/;"	f	class:ApplicationPolicy
+edit?	./app/policies/application_translation_policy.rb	/^  def edit?$/;"	f	class:ApplicationTranslationPolicy
+edit?	./app/policies/tenant_policy.rb	/^  def edit?$/;"	f	class:TenantPolicy
+edit?	./app/policies/user_policy.rb	/^  def edit?$/;"	f	class:UserPolicy
+edit_staff_notes?	./app/policies/user_policy.rb	/^  def edit_staff_notes?$/;"	f	class:UserPolicy
+env_var_version	./bin/bundle	/^  def env_var_version$/;"	f
+facilitator	./app/models/role.rb	/^    def facilitator$/;"	f	class:Role
+facilitator?	./app/models/role.rb	/^  def facilitator?$/;"	f
+facilitators	./app/models/concerns/users/roles.rb	/^      def facilitators$/;"	f	class:Users.Roles
+filter_by_email	./app/services/user_services/search.rb	/^    def filter_by_email$/;"	f	class:UserServices.Search
+filter_by_username	./app/services/user_services/search.rb	/^    def filter_by_username$/;"	f	class:UserServices.Search
+filter_key	./app/services/translation_services/search.rb	/^    def filter_key(key = nil)$/;"	f	class:TranslationServices
+filter_locale	./app/services/translation_services/search.rb	/^    def filter_locale(locale = nil)$/;"	f	class:TranslationServices
+filter_order	./app/services/translation_services/search.rb	/^    def filter_order(order = nil)$/;"	f	class:TranslationServices
+filter_value	./app/services/translation_services/search.rb	/^    def filter_value(value = nil)$/;"	f	class:TranslationServices
+find_for_database_authentication	./app/models/user.rb	/^  def self.find_for_database_authentication(warden_condition)$/;"	F	class:User
+flash_alert_class	./app/helpers/application_helper.rb	/^  def flash_alert_class(type)$/;"	f
+gemfile	./bin/bundle	/^  def gemfile$/;"	f
+grant_consent	./app/controllers/home_controller.rb	/^  def grant_consent$/;"	f	class:HomeController
+grant_consent	./app/models/concerns/user_profiles/consent.rb	/^      def grant_consent(key)$/;"	f	class:UserProfiles.Consent
+included	./spec/support/request_spec_helper.rb	/^  def self.included(base)$/;"	F	class:RequestSpecHelper
+index	./app/controllers/home_controller.rb	/^  def index$/;"	f	class:HomeController
+index	./app/controllers/tenants_controller.rb	/^  def index$/;"	f	class:TenantsController
+index	./app/controllers/translations_controller.rb	/^  def index$/;"	f	class:TranslationsController
+index	./app/controllers/users_controller.rb	/^  def index$/;"	f	class:UsersController
+index?	./app/policies/application_policy.rb	/^  def index?$/;"	f	class:ApplicationPolicy
+index?	./app/policies/application_translation_policy.rb	/^  def index?$/;"	f	class:ApplicationTranslationPolicy
+index?	./app/policies/tenant_policy.rb	/^  def index?$/;"	f	class:TenantPolicy
+index?	./app/policies/user_policy.rb	/^  def index?$/;"	f	class:UserPolicy
+initialize	./app/policies/application_policy.rb	/^    def initialize(user, scope)$/;"	f	class:ApplicationPolicy.Scope
+initialize	./app/policies/application_policy.rb	/^  def initialize(user, record)$/;"	f	class:ApplicationPolicy
+initialize	./app/services/translation_services/creator.rb	/^    def initialize(params = {})$/;"	f	class:TranslationServices.Creator
+initialize	./app/services/translation_services/csv_exporter.rb	/^    def initialize(params = {})$/;"	f	class:TranslationServices.CsvExporter
+initialize	./app/services/translation_services/csv_importer.rb	/^    def initialize(csvdata)$/;"	f	class:TranslationServices.CsvImporter
+initialize	./app/services/translation_services/search.rb	/^    def initialize(params = nil)$/;"	f	class:TranslationServices.Search
+initialize	./app/services/translation_services/updater.rb	/^    def initialize(id, params = {})$/;"	f	class:TranslationServices.Updater
+initialize	./app/services/user_services/creator.rb	/^    def initialize(creator, params = {})$/;"	f	class:UserServices.Creator
+initialize	./app/services/user_services/search.rb	/^    def initialize(params = {}, scope = User, user = nil)$/;"	f	class:UserServices.Search
+input_validation_class	./app/helpers/application_helper.rb	/^  def input_validation_class(object, field)$/;"	f
+input_validation_feedback	./app/helpers/application_helper.rb	/^  def input_validation_feedback(object, field)$/;"	f
+invoked_as_script?	./bin/bundle	/^  def invoked_as_script?$/;"	f
+load_bundler!	./bin/bundle	/^  def load_bundler!$/;"	f
+load_seed_data	./app/models/concerns/seeds/seedable.rb	/^      def load_seed_data(yaml_path = nil)$/;"	f	class:Seeds.Seedable
+locale	./app/models/globalize_language.rb	/^  def locale$/;"	f	class:GlobalizeLanguage
+locale_grouped_options	./app/services/translation_services/creator.rb	/^    def locale_grouped_options$/;"	f	class:TranslationServices.locale_options
+locale_grouped_options	./app/services/translation_services/updater.rb	/^    def locale_grouped_options$/;"	f
+locale_options	./app/services/translation_services/creator.rb	/^    def locale_options$/;"	f	class:TranslationServices
+locale_options	./app/services/translation_services/updater.rb	/^    def locale_options$/;"	f
+locales_for_select	./app/helpers/users_helper.rb	/^  def locales_for_select(user = nil)$/;"	f	class:UsersHelper
+locked?	./app/models/user.rb	/^  def locked?$/;"	f	class:User
+lockfile	./bin/bundle	/^  def lockfile$/;"	f
+lockfile_version	./bin/bundle	/^  def lockfile_version$/;"	f
+matching_plus_missing	./app/services/translation_services/search.rb	/^    def matching_plus_missing$/;"	f	class:TranslationServices.Search
+matching_plus_missing_csv	./app/services/translation_services/search.rb	/^    def matching_plus_missing_csv$/;"	f	class:TranslationServices
+member	./app/models/role.rb	/^    def member$/;"	f	class:Role
+member?	./app/models/role.rb	/^  def member?$/;"	f
+members	./app/models/concerns/users/roles.rb	/^      def members$/;"	f	class:Users.Roles
+missing_translations	./app/services/translation_services/search.rb	/^    def missing_translations$/;"	f	class:TranslationServices
+module.exports	./babel.config.js	/^module.exports = function(api) {$/;"	f
+name	./app/models/concerns/users/profiles.rb	/^      def name$/;"	f	class:Users.Profiles
+new	./app/controllers/tenants_controller.rb	/^  def new$/;"	f	class:TenantsController
+new	./app/controllers/translations_controller.rb	/^  def new$/;"	f	class:TranslationsController
+new	./app/controllers/users_controller.rb	/^  def new$/;"	f	class:UsersController
+new?	./app/policies/application_policy.rb	/^  def new?$/;"	f	class:ApplicationPolicy
+new?	./app/policies/application_translation_policy.rb	/^  def new?$/;"	f	class:ApplicationTranslationPolicy
+new?	./app/policies/tenant_policy.rb	/^  def new?$/;"	f	class:TenantPolicy
+new?	./app/policies/user_policy.rb	/^  def new?$/;"	f	class:UserPolicy
+new_blank_translation	./app/controllers/translations_controller.rb	/^  def new_blank_translation(_translation)$/;"	f	class:TranslationsController
+owner?	./app/policies/application_policy.rb	/^  def owner?$/;"	f	class:ApplicationPolicy
+page_title	./app/helpers/application_helper.rb	/^  def page_title$/;"	f	class:ApplicationHelper
+paginate	./app/services/translation_services/search.rb	/^    def paginate$/;"	f	class:TranslationServices
+params	./app/services/translation_services/search.rb	/^    def params(new_options = {})$/;"	f	class:TranslationServices
+permitted_params	./app/services/user_services/creator.rb	/^    def permitted_params(params)$/;"	f	class:UserServices
+plugins	./postcss.config.js	/^  plugins: [$/;"	p	class:module.exports
+pronoun	./app/models/concerns/users/profiles.rb	/^      def pronoun$/;"	f	class:Users.Profiles
+query_scope	./app/services/user_services/search.rb	/^    def query_scope$/;"	f	class:UserServices.Search
+request_consent	./app/controllers/home_controller.rb	/^  def request_consent$/;"	f	class:HomeController
+required_consent_pending?	./app/models/concerns/user_profiles/consent.rb	/^      def required_consent_pending?$/;"	f	class:UserProfiles.Consent
+required_consent_pending?	./app/models/concerns/users/profiles.rb	/^      def required_consent_pending?$/;"	f	class:Users.Profiles
+resolve	./app/policies/application_policy.rb	/^    def resolve$/;"	f	class:ApplicationPolicy.Scope
+resolve	./app/policies/application_translation_policy.rb	/^    def resolve$/;"	f	class:ApplicationTranslationPolicy.Scope
+resolve	./app/policies/tenant_policy.rb	/^    def resolve$/;"	f	class:TenantPolicy.Scope
+resolve	./app/policies/user_policy.rb	/^    def resolve$/;"	f	class:UserPolicy.Scope
+revoke_consent	./app/models/concerns/user_profiles/consent.rb	/^      def revoke_consent(key)$/;"	f	class:UserProfiles.Consent
+roles_for_select	./app/helpers/users_helper.rb	/^  def roles_for_select(user = nil)$/;"	f	class:UsersHelper
+sanitize_search_params	./app/services/translation_services/search.rb	/^    def sanitize_search_params(params)$/;"	f	class:TranslationServices
+sanitized_options	./app/services/user_services/search.rb	/^    def sanitized_options(options = nil)$/;"	f	class:UserServices.Search
+search	./app/services/translation_services/search.rb	/^    def search(search = nil)$/;"	f	class:TranslationServices
+set_current_tenant	./app/controllers/application_controller.rb	/^  def set_current_tenant$/;"	f
+set_locale	./app/controllers/application_controller.rb	/^  def set_locale$/;"	f	class:ApplicationController
+set_tenant	./app/controllers/tenants_controller.rb	/^  def set_tenant$/;"	f	class:TenantsController
+set_translation	./app/controllers/translations_controller.rb	/^  def set_translation$/;"	f	class:TranslationsController
+set_user	./app/controllers/users_controller.rb	/^  def set_user$/;"	f	class:UsersController
+short_date	./app/helpers/application_helper.rb	/^  def short_date(date)$/;"	f
+show	./app/controllers/tenants_controller.rb	/^  def show$/;"	f	class:TenantsController
+show	./app/controllers/translations_controller.rb	/^  def show$/;"	f	class:TranslationsController
+show	./app/controllers/users/confirmations_controller.rb	/^  def show$/;"	f	class:Users
+show	./app/controllers/users_controller.rb	/^  def show$/;"	f	class:UsersController
+show?	./app/policies/application_policy.rb	/^  def show?$/;"	f	class:ApplicationPolicy
+show?	./app/policies/application_translation_policy.rb	/^  def show?$/;"	f	class:ApplicationTranslationPolicy
+show?	./app/policies/tenant_policy.rb	/^  def show?$/;"	f	class:TenantPolicy
+show?	./app/policies/user_policy.rb	/^  def show?$/;"	f	class:UserPolicy
+sign_in	./spec/support/request_spec_helper.rb	/^  def sign_in(resource)$/;"	f	class:RequestSpecHelper
+sign_out	./spec/support/request_spec_helper.rb	/^  def sign_out(resource)$/;"	f	class:RequestSpecHelper
+staff	./app/models/concerns/users/roles.rb	/^      def staff$/;"	f	class:Users.Roles
+staff	./app/models/role.rb	/^    def staff$/;"	f	class:Role
+staff?	./app/models/role.rb	/^  def staff?$/;"	f
+supported_languages	./app/models/application_translation.rb	/^    def supported_languages$/;"	f	class:ApplicationTranslation
+supported_languages_for_select	./app/helpers/translations_helper.rb	/^  def supported_languages_for_select(selected)$/;"	f	class:TranslationsHelper
+system!	./bin/setup	/^def system!(*args)$/;"	f
+t	./config/initializers/i18n_active_record.rb	/^  def t(options={})$/;"	f	class:String
+tenant_from_hostname	./app/controllers/application_controller.rb	/^  def tenant_from_hostname$/;"	f
+tenant_params	./app/controllers/tenants_controller.rb	/^  def tenant_params$/;"	f	class:TenantsController
+translator	./app/models/role.rb	/^    def translator$/;"	f	class:Role
+translator?	./app/models/role.rb	/^  def translator?$/;"	f
+translators	./app/models/concerns/users/roles.rb	/^      def translators$/;"	f	class:Users.Roles
+update	./app/controllers/tenants_controller.rb	/^  def update$/;"	f	class:TenantsController
+update	./app/controllers/translations_controller.rb	/^  def update$/;"	f	class:TranslationsController
+update	./app/controllers/users_controller.rb	/^  def update$/;"	f	class:UsersController
+update?	./app/policies/application_policy.rb	/^  def update?$/;"	f	class:ApplicationPolicy
+update?	./app/policies/application_translation_policy.rb	/^  def update?$/;"	f	class:ApplicationTranslationPolicy
+update?	./app/policies/tenant_policy.rb	/^  def update?$/;"	f	class:TenantPolicy
+update?	./app/policies/user_policy.rb	/^  def update?$/;"	f	class:UserPolicy
+update_consent	./app/controllers/users_controller.rb	/^  def update_consent$/;"	f	class:UsersController
+update_consent?	./app/policies/user_policy.rb	/^  def update_consent?$/;"	f	class:UserPolicy
+user_has_not_consented	./app/controllers/application_controller.rb	/^  def user_has_not_consented$/;"	f
+user_not_authorized	./app/controllers/application_controller.rb	/^  def user_not_authorized$/;"	f
+user_params	./app/controllers/users_controller.rb	/^  def user_params$/;"	f	class:UsersController
+user_set_password_path	./app/controllers/users/confirmations_controller.rb	/^  def user_set_password_path(resource)$/;"	f	class:Users
+user_timezone	./app/controllers/application_controller.rb	/^  def user_timezone(&block)$/;"	f	class:ApplicationController
+warden_scope	./spec/support/request_spec_helper.rb	/^  def warden_scope(resource)$/;"	f	class:RequestSpecHelper
+well_supported_languages	./app/models/application_translation.rb	/^    def well_supported_languages$/;"	f	class:ApplicationTranslation

@@ -2,6 +2,6 @@
 
 # Mailer base class
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com' # TODO: use Tenant configuration
+  default from: 'noreply@teamdiagnostic.com' # TODO: use Tenant configuration
   layout 'mailer'
 end

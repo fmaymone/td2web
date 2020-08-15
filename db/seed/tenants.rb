@@ -3,8 +3,7 @@
 module Seeds
   # Tenant seed data
   class Tenants
-    attr_reader :success
-    attr_reader :errors
+    attr_reader :success, :errors
 
     def initialize(message: nil)
       @message = message || 'Create default TCI tenant...'
@@ -32,7 +31,7 @@ module Seeds
 
     def log(message)
       puts message
-      Rails.logger.info message
+      Rails.logger.warn message
     end
   end
 end

@@ -8,15 +8,15 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-global.$ = require("jquery")
 
 // 3rd-Party Frameworks
+global.$ = require("jquery")
 require("bootstrap")
 
 // Application javascript components
 require("./src/translation_search")
 
-// Stylesheets
+// Application Stylesheets
 require("../stylesheets/application.scss")
 
 // Uncomment to copy all static images under ../images to the output folder and reference

@@ -1,0 +1,39 @@
+<div class="jumbotron">
+  <h1>
+    <%= @user.username %>
+  </h1>
+  <p class="lead">
+    <span class="badge badge-<%= @user.locked? ? 'danger' : 'success' %>"><%= @user.locked? ? 'Locked'.t : 'Active'.t %></span>
+    <span class="badge badge-primary"><%= @user.role.name.t %></span><br/>
+    <strong><%= 'Name'.t %></strong>: <%= @user.name %> (<%= @user.pronoun %>)<br/>
+    <strong><%= 'Company'.t %></strong>: <%= @user.user_profile&.company %><br/>
+    <strong><%= 'Department'.t %></strong>: <%= @user.user_profile&.department %><br/>
+    <strong><%= 'Position/Title'.t %></strong>: <%= @user.user_profile&.title %><br/>
+    <strong><%= 'Email'.t %></strong>: <%= @user.email %><br/>
+    <strong><%= 'Country'.t %></strong>: <%= @user.country_name.t %><br/>
+    <strong><%= 'Locale'.t %></strong>: <%= @user.locale %><br/>
+    <strong><%= 'Time Zone'.t %></strong>: <%= @user.timezone %>
+  </p>
+  <hr />
+  <% if policy(@user).edit_staff_notes? %>
+    <p>
+      <%= 'Staff Notes'.t %>:
+      <small class='text-muted'><%= @user.user_profile&.staff_notes %></small>
+    </p>
+    <hr />
+  <% end %>
+  <p class="lead">
+    <strong><%= 'Permits the use of website cookies'.t %></strong>
+    <span class="badge badge-<%= @user.consent_granted?(:cookies_required) ? 'success' : 'warning' %>">
+      <%= @user.consent_granted?(:cookies_required) ? 'Yes'.t : 'No'.t %>
+    </span><br/>
+    <strong><%= 'Accepts the website terms and conditions'.t %></strong>
+    <span class="badge badge-<%= @user.consent_granted?(:eula) ? 'success' : 'warning' %>">
+      <%= @user.consent_granted?(:eula) ? 'Yes'.t : 'No'.t %>
+    </span>
+  </p>
+
+  <hr />
+  <%= link_to('Edit'.t, edit_user_path(@user), class: 'btn btn-primary') %>
+  <%= link_to('Back'.t, users_path(@user), class: 'btn btn-info') %>
+</div>

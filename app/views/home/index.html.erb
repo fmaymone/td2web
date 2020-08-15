@@ -1,7 +1,7 @@
 <h1>Home</h1>
 
 
-<h2><%= current_tenant&.name || 'Unaffiliated User!' %> </h2>
+<h2><%= current_tenant&.name || 'Unaffiliated User!'.t %> </h2>
 
 <p>
   Host: <%= request.host %>
@@ -9,6 +9,3 @@
 <p>
   Org: <%= @current_tenant&.name %>
 </p>
-
-<%= link_to(I18n.t('Tenants'), tenants_path) %>
-

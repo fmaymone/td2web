@@ -13,7 +13,7 @@ namespace :i18n do
           value: value
         )
         print "*** #{locale} translation: '#{key}' ==> '#{value}' "
-        puts xltn.save! ? 'OK' : 'FAIL'
+        puts xltn.save ? 'OK' : 'FAIL'
       end
     rescue ActiveRecord::ActiveRecordError => e
       puts e.message
@@ -23,7 +23,6 @@ namespace :i18n do
 
   desc 'Export View Translations to CSV'
   task export: :environment do
-    require 'CSV'
     filename = ENV.fetch('FILE', 'db/seed/translations.csv')
     puts "*** Exporting translations to #{filename}..."
     File.open(filename, 'w') do |f|
@@ -42,16 +41,12 @@ namespace :i18n do
     begin
       TranslationServices::CsvImporter.new(File.read(filename)).call do |info|
         report << info
-        outc = case info[:status]
-               when :noop
-                 '.'
-               when :error
-                 '!'
-               when :updated
-                 '~'
-               when :new
-                 '+'
-               end
+        outc = {
+          noop: '.',
+          error: '!',
+          updated: '~',
+          new: '+'
+        }.fetch(info[:status], '?')
         print outc
       end
     rescue StandardError => e
@@ -70,5 +65,27 @@ namespace :i18n do
 
     puts "==> Started with #{initial_count} Translations"
     puts "==> Ended with #{end_count} Translations"
+  end
+
+  desc 'Create Locale Select Translations'
+  task generate_selects: :environment do
+    GlobalizeLanguage.all.each do |gl|
+      ApplicationTranslation.create(locale: 'en', key: gl.english_name, value: gl.english_name)
+      next unless gl.native_name.present?
+
+      ApplicationTranslation.create(locale: gl.iso_639_1, key: gl.english_name, value: gl.native_name)
+    rescue StandardError => e
+      puts "! Error: #{e}"
+      puts '=> Continuing...'
+      next
+    end
+
+    GlobalizeCountry.all.each do |gc|
+      ApplicationTranslation.create(locale: 'en', key: gc.english_name, value: gc.english_name)
+    rescue StandardError => e
+      puts "! Error: #{e}"
+      puts '=> Continuing...'
+      next
+    end
   end
 end

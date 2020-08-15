@@ -4,9 +4,28 @@ require 'rails_helper'
 
 RSpec.describe '/translations', type: :request do
   include_context 'translations'
+  include_context 'users'
 
   before(:each) do
     translations
+    sign_in translator
+  end
+
+  describe 'as an unauthenticated user' do
+    before(:each) { sign_out translator }
+
+    describe 'GET /index' do
+      it 'should redirect to login' do
+        get application_translations_url
+        expect(response).to redirect_to(new_user_session_url)
+      end
+    end
+    describe 'GET /new' do
+      it 'should redirect to login' do
+        get new_application_translation_url
+        expect(response).to redirect_to(new_user_session_url)
+      end
+    end
   end
 
   describe 'GET /index' do
@@ -64,6 +83,15 @@ RSpec.describe '/translations', type: :request do
         post application_translations_url, params: { application_translation: invalid_attributes }
         expect(response).to render_template(:new)
       end
+    end
+  end
+
+  describe 'GET /show' do
+    let(:translation) { translations.first }
+    it 'should display the translation' do
+      get application_translation_url(translation)
+      expect(response).to be_successful
+      expect(response).to render_template(:show)
     end
   end
 

@@ -1,0 +1,7 @@
+<% 
+    render_params = {
+      'url' => unlock_url(@resource, unlock_token: @token),
+      'name' => @resource.name
+  }
+%>
+<%= Liquid::Template.parse('emailtemplate--html--unlock_instructions'.t).render(render_params).html_safe %>

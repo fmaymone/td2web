@@ -1,0 +1,6 @@
+<% if user_signed_in? %>
+  <%= link_to('Profile'.t, edit_user_path(current_user)) %>
+  <%= link_to('Logout'.t, destroy_user_session_path, method: :delete) %>
+<% else %>
+  <%= link_to('Login'.t, new_user_session_path) unless controller.controller_name == 'sessions' %>
+<% end %>

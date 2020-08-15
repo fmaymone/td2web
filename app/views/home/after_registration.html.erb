@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col">
+    <div class="card">
+      <h5 class="card-header"><%= 'Thank you for registering!'.t %></h5>
+      <div class="card-body">
+        <h5 class="card-title"><%= 'Please Wait'.t %></h5>
+        <p class="card-text">
+          <%= 'We are setting up your account.'.t %><br/>
+          <%= 'A message will soon appear in your email inbox with a link to confirm your email address'.t %>
+        </p>
+        <%= link_to('Login'.t, new_user_session_path, class: 'btn btn-primary') %>
+      </div>
+    </div>
+  </div>
+</div>

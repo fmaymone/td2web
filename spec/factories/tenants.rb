@@ -27,5 +27,13 @@ FactoryBot.define do
     end
     description { Faker::Lorem.paragraph }
     active { true }
+
+    factory :default_tenant do
+      name { 'Default Tenant' }
+      slug { 'default' }
+      description { 'Site Administrator' }
+      domain { 'localhost' }
+      active { true }
+    end
   end
 end

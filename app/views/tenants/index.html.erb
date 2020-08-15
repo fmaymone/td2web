@@ -1,12 +1,9 @@
 <div class="row">
-  <div class="col-md-8">
-    <p id="notice"><%= notice %></p>
-  </div>
-</div>
-
-<div class="row">
   <div class="col-md-12">
-    <h1><%= 'Tenants'.t %></h1>
+    <h1>
+      <%= 'Tenants'.t %>
+      <small><%= link_to('Add'.t, new_tenant_path, class: 'btn btn-sm btn-primary') %></small>
+    </h1>
   </div>
 </div>
 
@@ -35,19 +32,13 @@
             <td><%= tenant.description %></td>
             <td><%= tenant.active %></td>
             <td>
-              <%= link_to 'Show'.t, tenant, class: 'btn btn-sm btn-primary'%>
+              <%= link_to 'Show'.t, tenant, class: 'btn btn-sm btn-info'%>
               <%= link_to 'Edit'.t, edit_tenant_path(tenant), class: 'btn btn-sm btn-primary' %>
-              <%= link_to 'Destroy'.t, tenant, { method: :delete, data: { confirm: 'Are you sure?'.t } } %>
+              <%= link_to 'Destroy'.t, tenant, { method: :delete, data: { confirm: 'Are you sure?'.t }, class: 'btn btn-sm btn-warning' } %>
             </td>
           </tr>
         <% end %>
       </tbody>
     </table>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-6">
-    <%= link_to 'Add Tenant'.t, new_tenant_path, class: 'btn btn-primary' %>
   </div>
 </div>

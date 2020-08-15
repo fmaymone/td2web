@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col">
+    <h1>
+      <% if  @user == current_user %>
+        <%= 'Update My Profile'.t %>
+      <% else %>
+        <%= 'Edit User Account'.t %>
+      <% end %>
+    </h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <%= render partial: 'form', locals: { user: @user } %>
+  </div>
+</div>

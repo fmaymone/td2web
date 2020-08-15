@@ -15,6 +15,9 @@
 #  locale      :string           default("en")
 #
 class Tenant < ApplicationRecord
+  ### Constants
+  ALLOWED_PARAMS = %w[name slug domain description active].freeze
+
   ### Concerns
   audited
 

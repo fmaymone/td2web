@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
-# Seed Rols
+# Seed Roles
 module Seeds
   # Role seed data
   class Roles
-    attr_reader :success
-    attr_reader :errors
+    attr_reader :success, :errors
 
     def initialize(message: nil)
       @message = message || 'Load Default Roles...'

@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col">
+    <h1><%= 'Manage User Accounts'.t %>
+    <small><%= link_to('Add'.t, new_user_path, class: 'btn btn-sm btn-primary') %></small>
+    </h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped users--table">
+      <thead>
+        <tr>
+          <th><%= 'Login'.t %></th>
+          <th><%= 'Locale'.t %>/<%='Time Zone'.t %></th>
+          <th><%= 'Status'.t %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td>
+              <strong>Username:</strong> <%= user.username %><br/>
+              <strong>Email:</strong> <%= link_to(user.email, 'mailto://' + user.email, target: '_blank') %>
+            </td>
+            <td>
+              <strong><%= user.locale %></strong>
+              <span class="text-nowrap"><%= user.timezone %></span>
+            </td>
+            <td>
+              <p>
+                <span class="badge badge-primary"><%= user.role.name.t %></span>
+                <span class="badge badge-<%= user.locked? ? 'danger' : 'success' %>"><%= user.locked? ? 'Locked'.t : 'Active'.t %></span>
+                <span class="badge badge-<%= user.confirmed? ? 'success' : 'warning' %>"><%= user.confirmed? ? 'Confirmed'.t : 'Unconfirmed'.t %></span>
+                <br/>
+                <strong><%= 'Created'.t %>:</strong> <span class="text-nowrap"><%= l(user.created_at, format: :long) %></span><br/>
+                <strong><%= 'Confirmed'.t %>:</strong> <span class="text-nowrap"><%= user.confirmed? ? l(user.confirmed_at, format: :long) : '-'  %></span><br/>
+                <strong><%= 'Locked'.t %>:</strong> <span class="text-nowrap"><%= user.locked? ? l(user.locked_at, format: :long) : '-'  %></span><br/>
+              </p>
+              <% if policy(user).edit_staff_notes? %>
+                <p>
+                  <small class="text-muted"><%= user.user_profile&.staff_notes %></small>
+                </p>
+              <% end %>
+            </td>
+            <td>
+              <p>
+                <%= link_to('Show'.t, user_path(user), class: 'btn btn-sm btn-info') %>
+                <%= link_to('Edit'.t, edit_user_path(user), class: 'btn btn-sm btn-primary') %>
+                <% if user.locked? %>
+                  <%= link_to('Unlock'.t, user_path(user, unlock: true), method: :delete, class: 'btn btn-sm btn-warning', data: { confirm: 'Are you sure you want to unlock this account?'.t } ) %>
+                <% else %>
+                  <%= link_to('Lock'.t, user_path(user), method: :delete, class: 'btn btn-sm btn-warning', data: { confirm: 'Are you sure you want to lock this account?'.t } ) %>
+                <% end %>
+              </p>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -18,10 +18,12 @@ class Role < ApplicationRecord
   TRANSLATOR_ROLE = 'translator'
   FACILITATOR_ROLE = 'facilitator'
   MEMBER_ROLE = 'member'
+  HIERARCHY = %w[ADMIN_ROLE STAFF_ROLE TRANSLATOR_ROLE FACILITATOR_ROLE MEMBER_ROLE].freeze
 
   ### Concerns
-  audited
+  include Comparable
   include Seeds::Seedable
+  audited
 
   ### Validations
   validates :name, presence: true, uniqueness: true
@@ -49,5 +51,35 @@ class Role < ApplicationRecord
     def member
       where(slug: MEMBER_ROLE).first
     end
+  end
+
+  ### Instance Methods
+
+  def admin?
+    slug == ADMIN_ROLE
+  end
+
+  def staff?
+    slug == STAFF_ROLE
+  end
+
+  def translator?
+    slug == TRANSLATOR_ROLE
+  end
+
+  def facilitator?
+    slug == FACILITATOR_ROLE
+  end
+
+  def member?
+    slug == MEMBER_ROLE
+  end
+
+  def <=>(other)
+    return 1 if other.nil?
+    return 1 if HIERARCHY.index(other.slug&.to_sym).nil?
+    return -1 if HIERARCHY.index(slug.to_sym).nil?
+
+    HIERARCHY.index(other.slug.to_sym) <=> HIERARCHY.index(slug.to_sym)
   end
 end

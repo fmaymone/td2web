@@ -20,7 +20,7 @@ staging)
   echo "  - Pushing code to Staging"
   git push $STAGING_REMOTE $tag:master
   echo "  - Running Migrations"
-  $PAAS_COMMAND_STAGING run rake db:migrate --app $STAGING_APP
+  $PAAS_COMMAND_STAGING run $STAGING_APP rake db:migrate
   git tag -f staging-current
   git push origin --tags -f
   echo " - Deploy Complete"
