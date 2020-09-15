@@ -34,7 +34,7 @@ module Seeds
         timezone: 'Pacific Time (US & Canada)',
         password: password,
         password_confirmation: password,
-        user_profile: {
+        user_profile_attributes: {
           first_name: 'Admin',
           last_name: 'Admin',
           country: 'USA'
