@@ -5043,79 +5043,81 @@ en,Mayotte,Mayotte
 en,South Africa,South Africa
 en,Zambia,Zambia
 en,Zimbabwe,Zimbabwe
-en,"Email was already confirmed, please try signing in","Email was already confirmed, please try signing in"
-en,"There was a problem, please see below.","There was a problem, please see below."
-en,A message will soon appear in your email inbox with a link to confirm your email address,A message will soon appear in your email inbox with a link to confirm your email address
-en,A message with a confirmation link has been sent to your email address. Please follow the link to activate your account,A message with a confirmation link has been sent to your email address. Please follow the link to activate your account
-en,Accepts the website terms and conditions,Accepts the website terms and conditions
-en,Account Details,Account Details
 en,Account,Account
-en,Are you sure you want to unlock this account?,Are you sure you want to unlock this account?
-en,Change my password,Change my password
-en,Change your password,Change your password
-en,Company,Company
-en,Confirmation token can't be blank,Confirmation token can't be blank
+en,Profile,Profile
 en,Consent,Consent
-en,Department,Department
+en,I accept the website terms and conditions,I accept the website terms and conditions
+en,Accepts the website terms and conditions,Accepts the website terms and conditions
+en,Permits the use of website cookies,Permits the use of website cookies
+en,Yes,Yes
+en,No,No
+en,TeamDiagnostic Tenants,TeamDiagnostic Tenants
+en,Update My Profile,Update My Profile
+en,Sign up,Sign up
+en,Forgot your password?,Forgot your password?
 en,Didn't receive confirmation instructions?,Didn't receive confirmation instructions?
 en,Didn't receive unlock instructions?,Didn't receive unlock instructions?
-en,Don't like these emails?,Don't like these emails?
-en,Email can't be blank,Email can't be blank
-en,Email not found,Email not found
+en,Staff Notes,Staff Notes
+en,Only visible to staff,Only visible to staff
+en,Company,Company
+en,Department,Department
+en,Staff,Staff
+en,Please review site terms and conditions,Please review site terms and conditions
+en,Are you sure you want to unlock this account?,Are you sure you want to unlock this account?
 en,Errors prevented changes from being saved,Errors prevented changes from being saved
 en,Errors prevented this translation from being saved,Errors prevented this translation from being saved
 en,Errors prohibited changes from being saved,Errors prohibited changes from being saved
-en,Forgot your password?,Forgot your password?
-en,Granted,Granted
-en,I accept the website terms and conditions,I accept the website terms and conditions
-en,I agree,I agree
-en,No,No
-en,Only visible to staff,Only visible to staff
-en,Password confirmation doesn't match Password,Password confirmation doesn't match Password
-en,Password is too short (minimum is 8 characters),Password is too short (minimum is 8 characters)
-en,Permits the use of website cookies,Permits the use of website cookies
-en,Please Wait,Please Wait
-en,Please review site terms and conditions,Please review site terms and conditions
 en,Position/Title,Position/Title
+en,Unaffiliated User!,Unaffiliated User!
+en,User Agreements and Consent,User Agreements and Consent
+en,I agree,I agree
+en,Your preferences were updated,Your preferences were updated
+en,Granted,Granted
+en,Revoked,Revoked
+en,emailtemplate--html--reset_password_instructions,emailtemplate--html--reset_password_instructions
+en,emailtemplate--html--confirmation_instructions,emailtemplate--html--confirmation_instructions
+en,View Agreements,View Agreements
 en,Problems accessing your account?,Problems accessing your account?
-en,Profile,Profile
-en,Register Your Teamdiagnostic Account,Register Your Teamdiagnostic Account
-en,Register,Register
+en,Send me instructions,Send me instructions
+en,Email can't be blank,Email can't be blank
 en,Resend confirmation instructions,Resend confirmation instructions
 en,Resend email,Resend email
 en,Resend unlock instructions,Resend unlock instructions
-en,Reset password token is invalid,Reset password token is invalid
-en,Revoked,Revoked
-en,Send me instructions,Send me instructions
-en,Sign up,Sign up
-en,Staff Notes,Staff Notes
-en,Staff,Staff
-en,TeamDiagnostic Tenants,TeamDiagnostic Tenants
-en,Thank you for registering!,Thank you for registering!
-en,Thank you for registering,Thank you for registering
-en,There was a problem,There was a problem
-en,Unaffiliated User!,Unaffiliated User!
-en,Unsubscribe,Unsubscribe
-en,Update My Profile,Update My Profile
-en,User Agreements and Consent,User Agreements and Consent
-en,View Agreements,View Agreements
-en,We are setting up your account,We are setting up your account
-en,We are setting up your account.,We are setting up your account.
-en,Yes,Yes
-en,You will receive an email with instructions for how to confirm your email address in a few minutes,You will receive an email with instructions for how to confirm your email address in a few minutes
-en,You will receive an email with instructions for how to unlock your account in a few minutes,You will receive an email with instructions for how to unlock your account in a few minutes
 en,You will receive an email with instructions on how to reset your password in a few minutes,You will receive an email with instructions on how to reset your password in a few minutes
+en,Change your password,Change your password
+en,Change my password,Change my password
+en,Reset password token is invalid,Reset password token is invalid
 en,Your password has been changed successfully. You are now signed in,Your password has been changed successfully. You are now signed in
-en,Your preferences were updated,Your preferences were updated
-en,confirmation_instructions_subject,TeamDiagnostic Account Confirmation
-en,consent-header-text,consent-header-text
+en,Confirmation token can't be blank,Confirmation token can't be blank
+en,Email not found,Email not found
+en,You will receive an email with instructions for how to confirm your email address in a few minutes,You will receive an email with instructions for how to confirm your email address in a few minutes
+en,Register Your Teamdiagnostic Account,Register Your Teamdiagnostic Account
+en,Account Details,Account Details
+en,Register,Register
+en,"There was a problem, please see below.","There was a problem, please see below."
+en,There was a problem,There was a problem
+en,Password confirmation doesn't match Password,Password confirmation doesn't match Password
+en,Password is too short (minimum is 8 characters),Password is too short (minimum is 8 characters)
+en,Thank you for registering,Thank you for registering
+en,Please Wait,Please Wait
+en,We are setting up your account,We are setting up your account
+en,A message will soon appear in your email inbox with a link to confirm your email address,A message will soon appear in your email inbox with a link to confirm your email address
+en,Thank you for registering!,Thank you for registering!
+en,A message with a confirmation link has been sent to your email address. Please follow the link to activate your account,A message with a confirmation link has been sent to your email address. Please follow the link to activate your account
+en,Unsubscribe,Unsubscribe
+en,Don't like these emails?,Don't like these emails?
+en,"Email was already confirmed, please try signing in","Email was already confirmed, please try signing in"
 en,email_changed_subject,About Your TeamDiagnostic Account Email Address
-en,emailtemplate--html--confirmation_instructions,emailtemplate--html--confirmation_instructions
-en,emailtemplate--html--password_change,emailtemplate--html--password_change
-en,emailtemplate--html--reset_password_instructions,emailtemplate--html--reset_password_instructions
-en,emailtemplate--html--unlock_instructions,emailtemplate--html--unlock_instructions
+en,emailtemplate--html--email_changed,emailtemplate--html--email_changed
 en,password_change_subject,Change your TeamDiagnostic Account Password
-en,reset_password_instructions_subject,Reset Your TeamDiagnostic Account Password
-en,Didn't receive confirmation instructions?,Didn't receive confirmation instructions?
-en,Didn't receive unlock instructions?,Didn't receive unlock instructions?
+en,confirmation_instructions_subject,TeamDiagnostic Account Confirmation
 en,unlock_instructions_subject,Unlock Your TeamDiagnostic Account
+en,reset_password_instructions_subject,Reset Your TeamDiagnostic Account Password
+en,You will receive an email with instructions for how to unlock your account in a few minutes,You will receive an email with instructions for how to unlock your account in a few minutes
+en,consent-header-text,consent-header-text
+en,emailtemplate--html--password_change,emailtemplate--html--password_change
+en,emailtemplate--html--unlock_instructions,emailtemplate--html--unlock_instructions
+en,t receive confirmation instructions?,t receive confirmation instructions?
+en,t receive unlock instructions?,t receive unlock instructions?
+en,We are setting up your account.,We are setting up your account.
+en,Tenant was successfully updated,Tenant was successfully updated

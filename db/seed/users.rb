@@ -33,7 +33,12 @@ module Seeds
         locale: 'en',
         timezone: 'Pacific Time (US & Canada)',
         password: password,
-        password_confirmation: password
+        password_confirmation: password,
+        user_profile: {
+          first_name: 'Admin',
+          last_name: 'Admin',
+          country: 'USA'
+        }
       )
       @success = user0.save
       if @success
