@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_29_231528) do
+ActiveRecord::Schema.define(version: 2020_10_10_221215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -51,6 +51,20 @@ ActiveRecord::Schema.define(version: 2020_08_29_231528) do
     t.datetime "created_at", precision: 6
     t.datetime "updated_at", precision: 6
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
+  create_table "entitlements", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.boolean "account", default: true, null: false
+    t.boolean "active", default: true, null: false
+    t.uuid "role_id", null: false
+    t.string "reference", null: false
+    t.string "slug", null: false
+    t.text "description"
+    t.integer "quota"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["slug", "role_id", "reference", "active"], name: "index_entitlements_on_slug_and_role_id_and_reference_and_active"
+    t.index ["slug"], name: "index_entitlements_on_slug", unique: true
   end
 
   create_table "globalize_countries", id: :bigint, default: nil, force: :cascade do |t|
@@ -100,6 +114,49 @@ ActiveRecord::Schema.define(version: 2020_08_29_231528) do
     t.string "namespace", limit: 255
     t.index ["table_name", "item_id", "language_id"], name: "idx_4871324_globalize_translations_table_name_index"
     t.index ["tr_key", "language_id"], name: "idx_4871324_globalize_translations_tr_key_index"
+  end
+
+  create_table "grant_usages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "grant_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["grant_id"], name: "index_grant_usages_on_grant_id"
+  end
+
+  create_table "grants", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.boolean "active", default: true
+    t.uuid "user_id", null: false
+    t.string "reference", null: false
+    t.uuid "entitlement_id", null: false
+    t.uuid "grantor_id"
+    t.string "grantor_type"
+    t.integer "quota"
+    t.text "description"
+    t.text "staff_notes"
+    t.datetime "granted_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "reference"], name: "index_grants_on_user_id_and_reference"
+  end
+
+  create_table "invitations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "tenant_id"
+    t.boolean "active", default: true
+    t.string "token"
+    t.uuid "grantor_id"
+    t.string "grantor_type"
+    t.jsonb "entitlements"
+    t.string "email"
+    t.text "description"
+    t.string "redirect"
+    t.string "locale", default: "en"
+    t.string "i18n_key"
+    t.datetime "claimed_at"
+    t.uuid "claimed_by_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["claimed_by_id"], name: "index_invitations_on_claimed_by_id"
+    t.index ["tenant_id", "active", "token"], name: "index_invitations_on_tenant_id_and_active_and_token"
   end
 
   create_table "roles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

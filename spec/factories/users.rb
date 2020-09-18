@@ -31,7 +31,7 @@
 #  updated_at             :datetime         not null
 #
 FactoryBot.define do
-  factory :test_user, class: User do
+  factory :user, class: User do
     tenant { Tenant.default_tenant || create(:default_tenant) }
     role { Role.facilitator || create(:role, name: 'Facilitator', slug: 'facilitator') }
     username { Faker::Name.name }
@@ -40,6 +40,13 @@ FactoryBot.define do
     timezone { 'Pacific Time (US & Canada)' }
     password { 'Password123.' }
     password_confirmation { 'Password123.' }
+    # confirmed_at { DateTime.now }
     user_profile
+
+    factory :admin_user do
+      role { Role.admin || create(:admin_role) }
+      username { 'administrator1' }
+      email { 'administrator1@example.com' }
+    end
   end
 end

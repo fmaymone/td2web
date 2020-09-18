@@ -8,8 +8,8 @@ module UserServices
       username: ->(dir) { "users.username #{dir}" },
       email: ->(dir) { "users.email #{dir}" }
     }.freeze
-    MAX_PER_PAGE = 100
-    DEFAULT_PER_PAGE = 20
+    MAX_PER_PAGE = 1000
+    DEFAULT_PER_PAGE = 1000
 
     # Initialize User Search with search params, base scope, and searching user
     #

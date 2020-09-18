@@ -7,14 +7,14 @@
     <%- if controller_name != 'sessions' %>
       <%= link_to 'Log in'.t, new_session_path(resource_name), class: 'dropdown-item' %>
     <% end %>
-    <%- if devise_mapping.omniauthable? %>
-      <%- resource_class.omniauth_providers.each do |provider| %>
-        <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}".t, omniauth_authorize_path(resource_name, provider), class: 'dropdown-item' %>
-      <% end %>
-    <% end %>
-    <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-      <%= link_to 'Sign up'.t, new_registration_path(resource_name), class: 'dropdown-item' %>
-    <% end %>
+    <%#- if devise_mapping.omniauthable? %>
+      <%#- resource_class.omniauth_providers.each do |provider| %>
+        <%#= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}".t, omniauth_authorize_path(resource_name, provider), class: 'dropdown-item' %>
+      <%# end %>
+    <%# end %>
+    <%#- if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <%#= link_to 'Sign up'.t, new_registration_path(resource_name), class: 'dropdown-item' %>
+    <%# end %>
     <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
       <%= link_to 'Forgot your password?'.t, new_password_path(resource_name), class: 'dropdown-item' %>
     <% end %>

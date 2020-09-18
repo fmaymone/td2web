@@ -19,7 +19,6 @@ class Tenant < ApplicationRecord
   ALLOWED_PARAMS = %w[name slug domain description active].freeze
 
   ### Concerns
-  audited
 
   ### Validations
   validates :name, presence: true, uniqueness: true
@@ -28,6 +27,10 @@ class Tenant < ApplicationRecord
 
   ### Scopes
   scope :active, -> { where(active: true) }
+
+  ### Associations
+  has_many :users
+  has_many :invitations
 
   ### Class Methods
   def self.default_tenant

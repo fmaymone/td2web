@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>
+      <%= 'Invitations'.t %>
+      <small><%= link_to('Create'.t, new_invitation_path, class: 'btn btn-sm btn-primary') %></small>
+    </h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Email</th>
+          <th>Description</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @invitations.each do |invitation| %>
+          <tr>
+            <td>
+              <%= invitation_status(invitation) %>
+              <%= invitation_claimed_badge(invitation) %>
+              <span class="text-nowrap"><%= i18n_date_long invitation.created_at %></span><br/>
+            </td>
+            <td><%= mail_to(invitation.email) %></td>
+            <td width="40%">
+              <%= invitation.description %><br/>
+              <%= invitation_entitlement_list(invitation) %>
+            </td>
+            <td class="text-nowrap">
+              <%= link_to 'Show'.t, invitation, class: 'btn btn-sm btn-info' if policy(invitation).show? %>
+              <%= link_to 'Revoke'.t, invitation, { method: :delete, data: { confirm: 'Are you sure?'.t }, class: 'btn btn-sm btn-warning' } if policy(invitation).destroy? %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= paginate @invitations %>
+    </div>
+  </div>
+</div>

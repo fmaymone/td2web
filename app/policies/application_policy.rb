@@ -9,10 +9,6 @@ class ApplicationPolicy
     @record = record
   end
 
-  def owner?
-    record&.user == user
-  end
-
   def index?
     false
   end
@@ -39,6 +35,30 @@ class ApplicationPolicy
 
   def destroy?
     false
+  end
+
+  def admin?
+    user.admin?
+  end
+
+  def staff?
+    user.staff?
+  end
+
+  def translator?
+    user.translator?
+  end
+
+  def facilitator?
+    user.facilitator?
+  end
+
+  def member?
+    user.member?
+  end
+
+  def owner?
+    record.respond_to?(:user) && record.user.id == user.id
   end
 
   # Base Scope

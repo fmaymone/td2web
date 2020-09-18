@@ -1,0 +1,50 @@
+<%= bootstrap_form_for(entitlement, local: true, html: { role: 'form'}) do |f| %>
+  <%= render partial: 'shared/form_errors', locals: { subject: entitlement } %>
+
+  <div class="form-row">
+    <div class="col-3">
+      <div class="checkbox">
+        <label>
+          <%= f.check_box :active, label: 'Active'.t %>
+        </label>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="checkbox">
+        <label>
+          <%= f.check_box :account, label: 'Account Limited'.t %>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-sm-6 form-group">
+      <%= f.text_field :slug, label: 'Name'.t %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-sm-4 form-group">
+      <%= f.select :role_id, roles_for_select(entitlement) %> 
+    </div>
+    <div class="col-sm-6 form-group">
+      <%= f.select :reference, appcontext_for_select(entitlement), include_blank: true %> 
+    </div>
+    <div class="col-sm-2 form-group">
+      <%= f.number_field :quota, label: 'Quota'.t %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col form-group">
+      <%= f.text_field :description, label: 'Description'.t %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <%= f.submit 'Submit'.t, class: 'btn btn-primary' %>
+    <br/>
+    <%= link_to('Cancel'.t, :back, class: 'btn btn-light') %>
+  </div>
+<% end %>

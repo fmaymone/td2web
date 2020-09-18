@@ -3,5 +3,6 @@
     'url' => confirmation_url(@resource, confirmation_token: @token),
     'name' => @resource.name
   }
+  I18n.locale = @resource.locale
 %>
 <%= Liquid::Template.parse('emailtemplate--html--confirmation_instructions'.t).render(render_params).html_safe %>

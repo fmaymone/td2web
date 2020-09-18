@@ -16,11 +16,11 @@ class TenantPolicy < ApplicationPolicy
   end
 
   def index?
-    user.admin?
+    admin?
   end
 
   def new?
-    user.admin?
+    admin?
   end
 
   def create?
@@ -32,7 +32,7 @@ class TenantPolicy < ApplicationPolicy
   end
 
   def edit?
-    user.admin?
+    admin?
   end
 
   def update?

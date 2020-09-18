@@ -16,5 +16,17 @@ FactoryBot.define do
     sequence :name, &:to_s
     sequence :slug, &:to_s
     description { Faker::Lorem.sentence }
+    factory :admin_role do
+      name { 'Administrator' }
+      slug { Role::ADMIN_ROLE }
+    end
+    factory :staff_role do
+      name { 'Staff' }
+      slug { Role::STAFF_ROLE }
+    end
+    factory :facilitator_role do
+      name { 'Facilitator' }
+      slug { Role::FACILITATOR_ROLE }
+    end
   end
 end

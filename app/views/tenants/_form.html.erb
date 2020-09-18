@@ -1,16 +1,5 @@
 <%= form_for(tenant, local: true, html: { class: "form-horizontal", role: "form" }) do |f| %>
-  <% if tenant.errors.any? %>
-    <div class="alert alert-danger alert-dismissable" role="alert">
-      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only"><%= 'Close'.t %></span></button>
-      <h4><%= 'Errors prohibited changes from being saved'.t %>.</h4>
-
-      <ul>
-      <% tenant.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render partial: 'shared/form_errors', locals: { subject: tenant } %>
 
   <div class="form-group">
     <div class="col-offset-2 col-10">

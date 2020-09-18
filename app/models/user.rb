@@ -35,14 +35,13 @@ class User < ApplicationRecord
   ALLOWED_PARAMS = %w[username email locale timezone password password_confirmation].freeze
 
   ### Concerns and Extensions
-  audited
   include Users::Devise
   include Users::Roles
   include Users::Profiles
 
   ### Associations
   belongs_to :tenant
-  belongs_to :role
+  has_many :grants, dependent: :destroy
 
   ### Attributes
 
