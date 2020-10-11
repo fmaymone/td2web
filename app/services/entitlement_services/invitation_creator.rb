@@ -88,7 +88,7 @@ module EntitlementServices
     end
 
     def send_invitation
-      InvitationMailer.entitlement_invitation(@invitation).deliver
+      InvitationMailer.entitlement_invitation(@invitation).deliver_later
     end
 
     def sanitize_params(params)
