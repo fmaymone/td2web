@@ -115,11 +115,11 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: Rails.application.credentials[Rails.env.to_sym][:smtp].address,
-    port: Rails.application.credentials[Rails.env.to_sym][:smtp].port,
-    domain: Rails.application.credentials[Rails.env.to_sym][:smtp].domain,
-    user_name: Rails.application.credentials[Rails.env.to_sym][:smtp].user_name,
-    password: Rails.application.credentials[Rails.env.to_sym][:smtp].password,
+    address: Rails.application.credentials.config[:smtp][:address],
+    port: Rails.application.credentials.config[:smtp][:port],
+    domain: Rails.application.credentials.config[:smtp][:domain],
+    user_name: Rails.application.credentials.config[:smtp][:user_name],
+    password: Rails.application.credentials.config[:smtp][:password],
     authentication: 'plain',
     enable_starttls_auto: true
   }
