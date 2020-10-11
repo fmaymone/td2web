@@ -13,6 +13,7 @@ gem 'bcrypt'
 gem 'bootsnap', require: false
 gem 'bootstrap_form', '~> 4.0'
 gem 'countries'
+gem 'dalli'
 gem 'delayed_job_active_record'
 gem 'delayed_job_web'
 gem 'devise', git: 'https://github.com/Bellingham-DEV/devise.git', branch: 'tdv2-tweaks'

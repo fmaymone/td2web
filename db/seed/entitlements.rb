@@ -20,6 +20,7 @@ module Seeds
           active: true,
           account: false,
           role: Role.facilitator,
+          slug: 'register-facilitator',
           reference: 'Users::Registrations#',
           description: 'Account registration as a Facilitator',
           quota: 1

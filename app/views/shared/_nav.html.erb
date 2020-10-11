@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <% cache(@current_user, 'nav') do %>
+  <% cache([ @current_user || 'unknown', 'nav' ]) do %>
     <%= link_to('Dashboard'.t, root_path) %>
     <%= link_to('Tenants'.t, tenants_path) if policy(Tenant).index? %>
     <%= link_to('Users'.t, users_path) if policy(User).index? %>

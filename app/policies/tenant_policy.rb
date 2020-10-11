@@ -40,7 +40,7 @@ class TenantPolicy < ApplicationPolicy
   end
 
   def destroy?
-    edit?
+    Tenant.count > 1 && edit?
   end
 
   def allowed_params
