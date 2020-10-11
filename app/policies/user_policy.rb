@@ -8,15 +8,15 @@ class UserPolicy < ApplicationPolicy
       skope = scope
       case user
       when ->(u) { u.admin? }
-        skope.where(tenant: u.tenant)
+        skope.where(tenant: user.tenant)
       when ->(u) { u.staff? }
-        skope.where(tenant: u.tenant)
+        skope.where(tenant: user.tenant)
       when ->(u) { u.translator? }
-        skope.where(id: u.id)
+        skope.where(id: user.id)
       when ->(u) { u.facilitator? }
-        skope.where(id: u.id)
+        skope.where(id: user.id)
       when ->(u) { u.member? }
-        skope.where(id: u.id)
+        skope.where(id: user.id)
       else
         skope.where('1=0')
       end
@@ -24,19 +24,23 @@ class UserPolicy < ApplicationPolicy
   end
 
   def index?
-    user.admin? || user.staff?
+    admin? || staff?
   end
 
   def new?
-    user.admin? || user.staff?
+    admin? || staff?
   end
 
   def create?
-    user.admin? || user.staff?
+    admin? || staff?
   end
 
   def show?
-    user.admin? || user.staff?
+    user == record || admin? || staff?
+  end
+
+  def manage_grants?
+    admin? || staff?
   end
 
   def edit?
@@ -57,7 +61,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def destroy?
-    edit?
+    user.id != record.id && edit?
   end
 
   def edit_staff_notes?

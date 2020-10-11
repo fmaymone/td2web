@@ -1,0 +1,42 @@
+<%= bootstrap_form_for(service.invitation, local: true, html: { class: 'form-horizontal', role: 'form'}) do |form| %>
+  <%= render partial: 'shared/form_errors', locals: { subject: service.invitation } %>
+  <div class="form-row">
+    <div class="col-sm-6">
+      <%= form.email_field :email, label: 'Email'.t, required: true, autofocus: true %>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-sm-6">
+      <%= form.select :i18n_key, invitatation_message_template_options(service), label: 'Message Template'.t, required: true %>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-sm-6">
+      <%= form.text_area :description, label: 'Description'.t, required: false %>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-sm-6">
+      <%= form.select :redirect, options_for_invitation_redirect(service.invitation), label: 'Redirect'.t, required: false %>
+    </div>
+  </div>
+  <fieldset>
+    <legend><%= 'Entitlements'.t %></legend>
+    <% service.entitlement_options.each do |e_option| %>
+      <div class="form-row">
+        <div class="col-sm-6">
+          <%= check_box_tag 'invitation[entitlements][][id]', e_option[:id], e_option[:selected], id: "invitation_entitlement_#{e_option[:id]}"%>
+          <%= label_tag "invitation_entitlement_#{e_option[:id]}", e_option[:name] %>
+        </div>
+        <div class="col-sm-3">
+          <%= label_tag 'Quota'.t %>
+          <%= number_field_tag 'invitation[entitlements][][quota]', e_option[:quota] %>
+        </div>
+      </div>
+    <% end %>
+  </fieldset>
+  <div class="form-row">
+    <%= form.submit 'Submit'.t, class: 'btn btn-primary' %>&nbsp;
+    <%= link_to('Cancel'.t, :back, class: 'btn btn-light') %>
+  </div>
+<% end %>

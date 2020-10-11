@@ -1,0 +1,15 @@
+<div class="row" id="new_grant">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-12">
+        <h1><%= 'New Grant'.t %></h1>
+        <h2><%= 'Account'.t %>: <%= @user.name %></h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <%= render 'form', grant: @grant, user: @user %>
+      </div>
+    </div>
+  </div>
+</div>

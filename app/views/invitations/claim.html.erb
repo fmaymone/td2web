@@ -1,0 +1,36 @@
+<div class="jumbotron">
+  <h1 class="display-4"> <%= 'Claim my Invitation'.t %> </h1>
+  <hr/ >
+  <p class="lead">
+    <% if @service.valid? %>
+      You have been invited to gain access to features in TeamDiagnostic.
+      <br/>
+      Please click the 'Submit' button below to claim your invitation.
+    <% else %>
+      Enter a valid Token below and click the 'Submit' button to claim your TeamDiagnostic Invitation.
+    <% end %>
+  </p>
+  <%= form_tag(process_claim_invitations_path, method: :post, remote: false, role: 'form', class: 'form') do %>
+    <div class="form-row">
+      <div class="col-sm-6">
+        <p>
+          <% if @service.valid? %>
+            <%= hidden_field_tag :token, @service.token %>
+          <% else %>
+            <%= label_tag :token, 'Token'.t %>
+            <%= text_field_tag :token, @service.token, required: true, class: 'form-control form-control-lg' %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+    <hr/ >
+    <div class="form-row">
+      <div class="col-sm6">
+        <%= submit_tag 'Submit'.t, class: 'btn btn-lg btn-success' %>
+        <% if user_signed_in? %>
+          <%= link_to('Cancel'.t, root_path, class: 'btn btn-light') %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -17,7 +17,6 @@
 #
 class GlobalizeCountry < ApplicationRecord
   ### Concerns
-  audited
 
   ### Validations
   validates :english_name, presence: true, uniqueness: { case_sensitive: false }

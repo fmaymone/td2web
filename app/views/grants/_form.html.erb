@@ -1,0 +1,51 @@
+<%= bootstrap_form_for([user,grant ], remote: false) do |form| %>
+  <%= render partial: 'shared/form_errors', locals: { subject: grant } %>
+
+  <%= form.hidden_field :user_id %>
+  <%= form.hidden_field :grantor_id %>
+  <%= form.hidden_field :grantor_type %>
+
+  <div class="form-row">
+    <div class="col-sm-4 col-md-2">
+      <%= form.check_box :active, label: 'Active'.t %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-sm-6 form-group">
+      <%= form.select :entitlement_id, entitlements_for_select(grant), label: 'Entitlement'.t, required: true, include_blank: true %>
+    </div>
+    <% unless grant.new_record? %>
+      <div class="col-sm-4 form-group">
+        <%= form.text_field :reference, label: 'Reference'.t, required: true, include_blank: true %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-10">
+      <%= form.text_area :description, label: 'Description'.t, rows: 2 %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-sm-2 form-group">
+      <%= form.number_field :quota, required: true %>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <%= form.date_field :granted_at, label: 'Granted At'.t %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-10">
+      <%= form.text_area :staff_notes, label: 'Staff Notes'.t, rows: 2 %>
+    </div>
+  </div>
+
+
+  <div class="form-row">
+    <%= form.submit 'Submit'.t, class: 'btn btn-primary' %> &nbsp;
+    <%= link_to('Cancel'.t, :back, class: 'btn btn-light') %>
+  </div>
+<% end %>

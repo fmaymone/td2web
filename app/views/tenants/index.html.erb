@@ -12,26 +12,25 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Slug</th>
-          <th>Locale</th>
-          <th>Domain</th>
-          <th>Description</th>
-          <th>Active</th>
+          <th><%= 'Name'.t %></th>
+          <th><%= 'Slug'.t %></th>
+          <th><%= 'Locale'.t %></th>
+          <th><%= 'Domain'.t %></th>
+          <th><%= 'Description'.t %></th>
+          <th><%= 'Active'.t %></th>
           <th colspan="3"></th>
         </tr>
       </thead>
-
       <tbody>
         <% @tenants.each do |tenant| %>
           <tr>
             <td><%= tenant.name %></td>
-            <td><%= tenant.locale %></td>
             <td><%= tenant.slug %></td>
+            <td><%= tenant.locale %></td>
             <td><%= tenant.domain %></td>
             <td><%= tenant.description %></td>
             <td><%= tenant.active %></td>
-            <td>
+            <td class="text-nowrap">
               <%= link_to 'Show'.t, tenant, class: 'btn btn-sm btn-info'%>
               <%= link_to 'Edit'.t, edit_tenant_path(tenant), class: 'btn btn-sm btn-primary' %>
               <%= link_to 'Destroy'.t, tenant, { method: :delete, data: { confirm: 'Are you sure?'.t }, class: 'btn btn-sm btn-warning' } %>

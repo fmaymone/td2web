@@ -1,0 +1,36 @@
+<div class="jumbotron">
+  <%= invitation_claimed_badge(@invitation) %>
+  <span class="badge badge-primary" title='Locale'.t><%= @invitation.locale %></span>
+  <h1>
+    <%= 'Invitation'.t %>:
+    <small>
+      <%= @invitation.email %>
+    </small>
+  </h1>
+
+  <hr/>
+  <p class="lead">
+    <strong><%= 'Created'.t %></strong>:
+    <span class="text-nowrap"><%= i18n_date_long @invitation.created_at %></span>
+    <br/>
+    <% if @invitation.claimed? %>
+      <strong><%= 'Claimed'.t %></strong>:
+      <span class="text-nowrap"><%= i18n_date_long @invitation.created_at %></span>
+      <br/>
+    <% end %>
+    <strong><%= 'Grantor'.t %></strong>: <%= @invitation.grantor.name %>
+    <br/>
+  </p>
+  <hr/>
+  <p class="lead">
+    <%= @invitation.description %>
+  </p>
+  <hr/>
+  <h4><%= 'Entitlements'.t %></h4>
+  <p class="lead">
+    <%= invitation_entitlement_list(@invitation) %>
+  </p>
+  <hr/>
+  <%= link_to('Edit'.t, edit_invitation_path(@invitation), class: 'btn btn-primary') %>
+  <%= link_to('Back'.t, invitations_path(@invitation), class: 'btn btn-light') %>
+</div>

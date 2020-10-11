@@ -10,12 +10,12 @@ RSpec.describe Users::ConfirmationsController, type: :controller do
 
   describe 'GET #show' do
     let(:user_with_password) do
-      user = build(:test_user)
+      user = build(:user)
       user.save
       user
     end
     let(:user_without_password) do
-      user = build(:test_user)
+      user = build(:user)
       user.encrypted_password = ''
       user.save(validate: false)
       user

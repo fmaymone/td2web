@@ -7,6 +7,10 @@ module Users
 
     included do
       devise :database_authenticatable, :async, :registerable, :recoverable, :rememberable, :validatable, :confirmable, :lockable, :trackable
+
+      def active?
+        active_for_authentication?
+      end
     end
 
     attr_accessor :login

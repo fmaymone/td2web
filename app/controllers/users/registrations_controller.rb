@@ -7,6 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
+    invitation
     build_resource
     resource.role = Role.facilitator
     yield resource if block_given?
@@ -15,17 +16,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    authorizer
+
     allowed_params = User::ALLOWED_PARAMS + [{ user_profile_attributes: UserProfile::ALLOWED_PARAMS }]
     custom_sign_up_params = params.require(:user).permit(*allowed_params)
 
     build_resource(custom_sign_up_params)
-
-    resource.role = Role.facilitator
+    resource.role = authorizer.invitation_role
     resource.tenant = current_tenant
-
     resource.save
 
     if resource.persisted?
+      EntitlementServices::InvitationClaim.new(tenant: @current_tenant, token: @invitation.token, user: resource).call
       if resource.active_for_authentication?
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
@@ -43,19 +45,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    # super
+    raise 'Unsupported'
+  end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    # super
+    raise 'Unsupported'
+  end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    # super
+    raise 'Unsupported'
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -99,5 +104,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
   def after_inactive_sign_up_path_for(_resource)
     after_registration_path
+  end
+
+  # Require a valid and unclaimed invitation for the current tenant
+  def invitation
+    @invitation ||= begin
+      required_entitlement = Entitlement.where(slug: 'register-facilitator').first
+      raise ActiveRecord::RecordNotFound unless required_entitlement.present?
+
+      @current_tenant.invitations.unclaimed.find(params[:invitation_id])
+    end
+  end
+
+  def authorizer
+    invitation
+    params[:token] = @invitation.token
+    authorizer = EntitlementServices::Authorizer.new(user: nil, params: params, tenant: @current_tenant, reference: 'Users::Registrations#')
+    raise ActiveRecord::RecordNotFound unless authorizer.call
+
+    authorizer
   end
 end

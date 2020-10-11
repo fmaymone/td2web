@@ -5,16 +5,18 @@ module UserProfiles
   module Consent
     extend ActiveSupport::Concern
 
+    ### Constants
+    CONSENT_PARAMS = %w[eula cookies_required].freeze
+    REQUIRED_CONSENTS = %w[eula cookies_required].freeze
+
+    # Consent Error
+    class ConsentUnauthorizedError < StandardError; end
+
     included do
-      CONSENT_PARAMS = %w[eula cookies_required].freeze
-      REQUIRED_CONSENTS = %w[eula cookies_required].freeze
-
-      # Consent Error
-      class ConsentUnauthorizedError < StandardError; end
-
       serialize :consent
 
       def required_consents_pending
+        self.consent ||= {}
         REQUIRED_CONSENTS.select do |key|
           expired_date = if (revoked_date = consent.fetch("#{key}_revoked_at", nil))
                            revoked_date

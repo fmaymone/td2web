@@ -19,7 +19,16 @@ Rails.application.routes.draw do
   post 'grant_consent', to: 'home#grant_consent'
   get 'after_registration', to: 'home#after_registration'
 
-  resources :translations, as: :application_translations, alias: :translations
+  resources :entitlements
+  resources :invitations do
+    collection do
+      get 'claim', to: 'invitations#claim'
+      post 'process_claim', to: 'invitations#process_claim'
+    end
+  end
   resources :tenants
-  resources :users
+  resources :translations, as: :application_translations, alias: :translations
+  resources :users do
+    resources :grants
+  end
 end

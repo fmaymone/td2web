@@ -41,3 +41,10 @@ if (seeder = Seeds::Users.new).call
 else
   puts "FAILED: #{seeder.errors.join(', ')}"
 end
+
+### Entitlements
+if (seeder = Seeds::Entitlements.new).call
+  puts 'OK'
+else
+  puts "FAILED: #{seeder.errors.join(', ')}"
+end

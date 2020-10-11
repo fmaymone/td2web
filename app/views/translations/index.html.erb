@@ -14,7 +14,7 @@
         <p id='translations--well-supported--listing' class='collapse' aria-expanded="true">
           <% @well_supported.each do |lang| %>
             <%= link_to(application_translations_path(@search.params(tlocale: lang['locale'], paginate: 'false'))) do %>
-              <span style="white-space: nowrap;">
+              <span class="text-nowrap">
                 <b><%= lang['english_name'] %></b> <tt><%= lang['locale'] %></tt> (<%= lang['count'] %>)
               </span>
             <% end %>
@@ -27,7 +27,7 @@
         <p id='translations--minimally-supported--listing' class='collapse' aria-expanded="false">
           <% @minimally_supported.each do |lang| %>
             <%= link_to(application_translations_path(@search.params(tlocale: lang['locale'], paginate: 'false'))) do %>
-              <span style="white-space: nowrap;">
+              <span class="text-nowrap">
                 <b><%= lang['english_name'] %></b> <tt><%= lang['locale'] %></tt> (<%= lang['count'] %>)
               </span>
             <% end %>

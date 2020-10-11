@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'rails_helper'
+
 RSpec.describe TranslationServices::CsvExporter do
   include_context 'translations'
 

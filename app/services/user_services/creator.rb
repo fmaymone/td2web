@@ -17,7 +17,7 @@ module UserServices
       @creator = creator
 
       permitted = if params.is_a?(ActionController::Parameters)
-                    params.require('application_translation').permit(PERMITTED_PARAMS) if params[:application_translation].present?
+                    params.require('user').permit(PERMITTED_PARAMS) if params[:application_translation].present?
                   else
                     params
                   end

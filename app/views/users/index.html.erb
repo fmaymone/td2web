@@ -29,7 +29,7 @@
               <span class="text-nowrap"><%= user.timezone %></span>
             </td>
             <td>
-              <p>
+              <p class="text-nowrap">
                 <span class="badge badge-primary"><%= user.role.name.t %></span>
                 <span class="badge badge-<%= user.locked? ? 'danger' : 'success' %>"><%= user.locked? ? 'Locked'.t : 'Active'.t %></span>
                 <span class="badge badge-<%= user.confirmed? ? 'success' : 'warning' %>"><%= user.confirmed? ? 'Confirmed'.t : 'Unconfirmed'.t %></span>
@@ -47,12 +47,12 @@
             <td>
               <p>
                 <%= link_to('Show'.t, user_path(user), class: 'btn btn-sm btn-info') %>
-                <%= link_to('Edit'.t, edit_user_path(user), class: 'btn btn-sm btn-primary') %>
+                <%= link_to('Edit'.t, edit_user_path(user), class: 'btn btn-sm btn-primary') if policy(user).edit? %>
                 <% if user.locked? %>
                   <%= link_to('Unlock'.t, user_path(user, unlock: true), method: :delete, class: 'btn btn-sm btn-warning', data: { confirm: 'Are you sure you want to unlock this account?'.t } ) %>
                 <% else %>
                   <%= link_to('Lock'.t, user_path(user), method: :delete, class: 'btn btn-sm btn-warning', data: { confirm: 'Are you sure you want to lock this account?'.t } ) %>
-                <% end %>
+                <% end if policy(user).destroy? %>
               </p>
             </td>
           </tr>

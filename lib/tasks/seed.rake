@@ -17,5 +17,16 @@ namespace :db do
         puts "FAILED: #{seeder.errors.join(', ')}"
       end
     end
+
+    desc 'Entitlements'
+    task entitlements: :environment do
+      require_relative '../../db/seed/entitlements'
+
+      if (seeder = Seeds::Entitlements.new).call
+        puts 'OK'
+      else
+        puts "FAILED: #{seeder.errors.join(', ')}"
+      end
+    end
   end
 end

@@ -2,6 +2,9 @@
   <h1>
     <%= @user.username %>
   </h1>
+
+  <hr />
+  <h4><%= 'Account'.t %></h4>
   <p class="lead">
     <span class="badge badge-<%= @user.locked? ? 'danger' : 'success' %>"><%= @user.locked? ? 'Locked'.t : 'Active'.t %></span>
     <span class="badge badge-primary"><%= @user.role.name.t %></span><br/>
@@ -14,14 +17,17 @@
     <strong><%= 'Locale'.t %></strong>: <%= @user.locale %><br/>
     <strong><%= 'Time Zone'.t %></strong>: <%= @user.timezone %>
   </p>
-  <hr />
+
   <% if policy(@user).edit_staff_notes? %>
+    <hr />
     <p>
       <%= 'Staff Notes'.t %>:
       <small class='text-muted'><%= @user.user_profile&.staff_notes %></small>
     </p>
-    <hr />
   <% end %>
+
+  <hr />
+  <h4><%= 'Consent'.t %></h4>
   <p class="lead">
     <strong><%= 'Permits the use of website cookies'.t %></strong>
     <span class="badge badge-<%= @user.consent_granted?(:cookies_required) ? 'success' : 'warning' %>">
@@ -33,7 +39,39 @@
     </span>
   </p>
 
+  <% if policy(@user).manage_grants? %>
+    <hr />
+    <p class="lead">
+      <h4>
+        <%= 'Grants'.t %>
+        <small><%= link_to('Add'.t, new_user_grant_path(@user), class: 'btn btn-sm btn-primary') %></small>
+      </h4>
+      <% if @user.grants.any? %>
+        <% @user.grants.each do |grant| %>
+          <p>
+            <span class="badge badge-<%= grant.effective? ? 'success' : 'secondary' %>"><%= grant.effective? ? 'Active'.t : 'Inactive'.t %></span>
+            <strong><%= grant.entitlement.description %></strong>
+            <span class="badge badge-<%= grant.over_quota? ? 'warning' : 'success' %>"><%= grant.usage_count %>/<%= grant.quota %></span>
+            <%= grant.description %></small>
+            <small><%= grant.staff_notes %></small>
+            &mdash;
+            <span class="text-nowrap">
+              <%= link_to('Edit'.t, edit_user_grant_path(@user, grant), class: 'badge badge-primary') %>
+              <% if grant.active? %>
+                <%= link_to('Deactivate'.t, user_grant_path(user_id: @user.id, id: grant.id, deactivate: true), method: :delete, data: { confirm: 'Are you sure?'.t }, class: 'badge badge-warning') %>
+              <% else %>
+                <%= link_to('Remove'.t, user_grant_path(@user, grant), method: :delete, data: { confirm: 'Are you sure?'.t }, class: 'badge badge-danger') %>
+              <% end %>
+            </span>
+          </p>
+        <% end %>
+      <% else %>
+        <strong><%= 'None'.t %>
+      <% end %>
+    </p>
+  <% end %>
+
   <hr />
   <%= link_to('Edit'.t, edit_user_path(@user), class: 'btn btn-primary') %>
-  <%= link_to('Back'.t, users_path(@user), class: 'btn btn-info') %>
+  <%= link_to('Back'.t, users_path(@user), class: 'btn btn-light') %>
 </div>

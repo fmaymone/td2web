@@ -57,4 +57,28 @@ module ApplicationHelper
       end
     end
   end
+
+  def active_badge(active, pill: false)
+    html_classes = %w[badge]
+    html_classes << (active ? 'badge-success' : 'badge-secondary')
+    html_classes << 'badge-pill' if pill
+    html_classes = html_classes.join(' ')
+    content_tag(:span, class: html_classes) do
+      active ? 'Active'.t : 'Inactive'.t
+    end
+  end
+
+  def account_limited(limited, pill: false)
+    html_classes = %w[badge]
+    html_classes << (limited ? 'badge-success' : 'badge-secondary')
+    html_classes << 'badge-pill' if pill
+    html_classes = html_classes.join(' ')
+    content_tag(:span, class: html_classes) do
+      limited ? 'Limited'.t : 'Unregistered'.t
+    end
+  end
+
+  def i18n_date_long(date)
+    I18n.l(date, format: :long, locale: @current_locale)
+  end
 end

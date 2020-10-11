@@ -18,16 +18,19 @@ class Role < ApplicationRecord
   TRANSLATOR_ROLE = 'translator'
   FACILITATOR_ROLE = 'facilitator'
   MEMBER_ROLE = 'member'
-  HIERARCHY = %w[ADMIN_ROLE STAFF_ROLE TRANSLATOR_ROLE FACILITATOR_ROLE MEMBER_ROLE].freeze
+  HIERARCHY = [ADMIN_ROLE, STAFF_ROLE, TRANSLATOR_ROLE, FACILITATOR_ROLE, MEMBER_ROLE].freeze
 
   ### Concerns
   include Comparable
   include Seeds::Seedable
-  audited
 
   ### Validations
   validates :name, presence: true, uniqueness: true
   validates :slug, presence: true, uniqueness: true
+
+  ### Associations
+  has_many :users
+  has_many :entitlements
 
   ### Class Methods
 
@@ -77,9 +80,9 @@ class Role < ApplicationRecord
 
   def <=>(other)
     return 1 if other.nil?
-    return 1 if HIERARCHY.index(other.slug&.to_sym).nil?
-    return -1 if HIERARCHY.index(slug.to_sym).nil?
+    return 1 if HIERARCHY.index(other.slug).nil?
+    return -1 if HIERARCHY.index(slug).nil?
 
-    HIERARCHY.index(other.slug.to_sym) <=> HIERARCHY.index(slug.to_sym)
+    HIERARCHY.index(other.slug) <=> HIERARCHY.index(slug)
   end
 end

@@ -1,7 +1,11 @@
 const TranslationSearch = () => {
   const localeSelectId = 'tlocale'
   const missingControlId = 'translations--search--missing--control'
-  document.getElementById(localeSelectId).addEventListener('change', (e) => {
+
+  const localeSelect = document.getElementById(localeSelectId);
+  if ( localeSelect === null ) return;
+
+  localeSelect.addEventListener('change', (e) => {
     let control = e.target
     let selectedLocale = control.options[control.selectedIndex].value
     if (selectedLocale === '') {

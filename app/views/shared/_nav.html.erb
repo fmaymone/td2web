@@ -1,7 +1,13 @@
 <% if user_signed_in? %>
-  <%= link_to('Dashboard'.t, root_path) %>
-  <%= link_to('Tenants'.t, tenants_path) %>
-  <%= link_to('Users'.t, users_path) %>
-  <%= link_to('Translations'.t, application_translations_path) %>
+  <% cache(@current_user, 'nav') do %>
+    <%= link_to('Dashboard'.t, root_path) %>
+    <%= link_to('Tenants'.t, tenants_path) if policy(Tenant).index? %>
+    <%= link_to('Users'.t, users_path) if policy(User).index? %>
+    <%= link_to('Translations'.t, application_translations_path) if policy(ApplicationTranslation).index? %>
+    <%= link_to('Entitlements'.t, entitlements_path) if policy(Entitlement).index?  %>
+    <%= link_to('Invitations'.t, invitations_path) if policy(Invitation).index? %>
+    <%= render partial: 'shared/login_items' %>
+  <% end %>
+<% else %>
+  <%= render partial: 'shared/login_items' %>
 <% end %>
-<%= render partial: 'shared/login_items' %>

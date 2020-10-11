@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def index
     authorize User
-    search = UserServices::Search.new(params, User, current_user)
+    search = UserServices::Search.new(params, policy_scope(User), current_user)
     @users = search.call
     @page_title = 'Manage User Accounts'.t
   end
@@ -87,6 +87,6 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = policy_scope(User).find(params[:id])
   end
 end

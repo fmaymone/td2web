@@ -7,7 +7,7 @@ RSpec.describe UsersController, type: :controller do
   include_context 'users'
 
   let(:valid_attributes) do
-    attributes_for(:test_user, role_id: facilitator_role.id)
+    attributes_for(:user, role_id: facilitator_role.id)
   end
   let(:invalid_attributes) { valid_attributes.merge(username: nil) }
 
@@ -105,7 +105,7 @@ RSpec.describe UsersController, type: :controller do
   describe 'GET #show' do
     describe 'Logged in as an Admin' do
       before(:each) { sign_in admin }
-      let(:user) { create(:user, valid_attributes) }
+      let(:user) { full_featured_user }
       it 'is successful' do
         get :show, params: { id: user.id }
         expect(response).to render_template(:show)
@@ -116,7 +116,7 @@ RSpec.describe UsersController, type: :controller do
   describe 'GET #edit' do
     describe 'Logged in as an Admin' do
       before(:each) { sign_in admin }
-      let(:user) { create(:user, valid_attributes) }
+      let(:user) { staff }
       it 'is successful' do
         get :edit, params: { id: user.id }
         expect(response).to render_template(:edit)
@@ -127,7 +127,7 @@ RSpec.describe UsersController, type: :controller do
   describe 'PUT #update' do
     describe 'Logged in as an Admin' do
       before(:each) { sign_in admin }
-      let(:user) { create(:user, valid_attributes) }
+      let(:user) { staff }
       let(:new_username) { '12341212' }
       let(:new_valid_attributes) { { username: new_username } }
       let(:new_invalid_attributes) { { username: nil } }
@@ -153,7 +153,7 @@ RSpec.describe UsersController, type: :controller do
     describe 'DELETE #destroy' do
       describe 'Logged in as an Admin' do
         before(:each) { sign_in admin }
-        let(:user) { create(:user, valid_attributes) }
+        let(:user) { staff }
         it 'will lock a user account' do
           user
           count = User.count

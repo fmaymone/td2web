@@ -5074,8 +5074,19 @@ en,I agree,I agree
 en,Your preferences were updated,Your preferences were updated
 en,Granted,Granted
 en,Revoked,Revoked
-en,emailtemplate--html--reset_password_instructions,emailtemplate--html--reset_password_instructions
-en,emailtemplate--html--confirmation_instructions,emailtemplate--html--confirmation_instructions
+en,emailtemplate--html--reset_password_instructions,"<p>Hello {{name}}!</p>
+
+<p>Someone requested a link to change your password. You can do this through the link below.</p>
+
+<p><a href=""{{url}}"">{{url}}</a></p>
+
+<p>If you didn't request this, please ignore this email.</p>
+
+<p>Your password won't change until you access thge link above and create a new one.</p>
+"
+en,emailtemplate--html--password_change,"<p>Hello {{name}}!</p>
+
+<p>We are contacting you to notify you that your password has been changed.</p>"
 en,View Agreements,View Agreements
 en,Problems accessing your account?,Problems accessing your account?
 en,Send me instructions,Send me instructions
@@ -5108,16 +5119,104 @@ en,Unsubscribe,Unsubscribe
 en,Don't like these emails?,Don't like these emails?
 en,"Email was already confirmed, please try signing in","Email was already confirmed, please try signing in"
 en,email_changed_subject,About Your TeamDiagnostic Account Email Address
-en,emailtemplate--html--email_changed,emailtemplate--html--email_changed
 en,password_change_subject,Change your TeamDiagnostic Account Password
 en,confirmation_instructions_subject,TeamDiagnostic Account Confirmation
 en,unlock_instructions_subject,Unlock Your TeamDiagnostic Account
 en,reset_password_instructions_subject,Reset Your TeamDiagnostic Account Password
 en,You will receive an email with instructions for how to unlock your account in a few minutes,You will receive an email with instructions for how to unlock your account in a few minutes
 en,consent-header-text,consent-header-text
-en,emailtemplate--html--password_change,emailtemplate--html--password_change
-en,emailtemplate--html--unlock_instructions,emailtemplate--html--unlock_instructions
+en,emailtemplate--html--confirmation_instructions,"<p>Welcome {{ name }}!</p>
+
+<p>Please confirm your account email address by following the link below</p>
+
+<p>
+<a href=""{{url}}"">{{url}}</a>
+</p>
+"
+en,emailtemplate--html--email_changed,"<p>Hello {{name}}!</p>
+
+{% if confirmed == true %}
+<p>We are contacting you to notify you that your email is being changed to {{unconfirmed_email}}</p>
+{% else %}
+<p>We are contacting you to notify you that your email has been changed to {{email}}</p>
+{% endif %}"
+en,Email was not locked,Email was not locked
 en,t receive confirmation instructions?,t receive confirmation instructions?
 en,t receive unlock instructions?,t receive unlock instructions?
 en,We are setting up your account.,We are setting up your account.
 en,Tenant was successfully updated,Tenant was successfully updated
+en,Reference,Reference
+en,Entitlements,Entitlements
+en,Description,Description
+en,Quota,Quota
+en,Invitation sent,Invitation sent
+en,must be present,must be present
+en,entitlements-index-description,"Entitlements are references to functions within TeamDiagnostic. Users are granted Entitlements with Grant records. Grants inform 
+ the system that User accounts are allowed to perform special functions in the system like creating accounts, teams, and reports. <br/>
+Entitlements and Grants may have quotas, tracked internally by Usages, which limit the number of times a feature can be used."
+en,Account Limited,Account Limited
+en,Inactive,Inactive
+en,Enabled,Enabled
+en,Disabled,Disabled
+en,Unregistered,Unregistered
+en,New Entitlement,New Entitlement
+en,Limited,Limited
+en,Entitlement,Entitlement
+en,Edit Entitlement,Edit Entitlement
+en,You are not authorized to perform this action,you are not authorized to perform this action
+en,Entitlement was updated,Entitlement was updated
+en,Entitlement was destroyed,Entitlement was destroyed
+en,Entitlement was successfully created,Entitlement was successfully created
+en,You are not entitled to perform this action,You are not entitled to perform this action
+en,None,None
+en,Grants,Grants
+en,Grant added,Grant added
+en,Grant was updated,Grant was updated
+en,New Grant,New Grant
+en,Granted At,Granted At
+en,you are not authorized to perform this action,You are not authorized to perform this action
+en,Edit Grant,Edit Grant
+en,Remove,Remove
+en,Grant was removed,Grant was removed
+en,Deactivate,Deactivate
+en,Grant was deactivated,Grant was deactivated
+en,Reactivate,Reactivate
+en,invitation-message-subject,Your TeamDiagnostic Invitation
+en,Invitations,Invitations
+en,New Invitation,New Invitation
+en,Message Template,Message Template
+en,has an invalid reference,has an invalid reference
+en,Unclaimed,Unclaimed
+en,Create,Create
+en,Invitation,Invitation
+en,Grantor,Grantor
+en,Limit,Limit
+en,Edit Invitation,Edit Invitation
+en,Invitation was deactivated,Invitation was deactivated
+en,Deactivated,Deactivated
+en,Revoke,Revoke
+en,Redirect,Redirect
+en,Register Account,Register Account
+en,invitation-message-register-facilitator,"Welcome to TeamDiagnostic!
+<p>
+Please follow the following link to register your account on www.teamdiagnostic.com.
+</p>
+
+<p>
+<a href=""{{ invitation_link }}"">{{ invitation_link }}</a>
+</p>"
+en,Claim my Invitation,Claim my Invitation
+en,Token,Token
+en,Invitation claimed,Invitation claimed
+en,Invitation not found,Invitation not found
+en,You are already signed in,You are already signed in
+en,Claimed,Claimed
+en,emailtemplate--html--unlock_instructions,"<p>Hello {{name}}!</p>
+
+<p>Your account has been locked due to an excessive number of unsuccessful sign in attempts.</p>
+
+<p>Click the link below to unlock your account.</p>
+
+<p><a href=""{{url}}"">{{url}}</a>"
+en,Slug,Slug
+en,Domain,Domain
