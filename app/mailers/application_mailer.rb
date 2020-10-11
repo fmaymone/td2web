@@ -2,6 +2,6 @@
 
 # Mailer base class
 class ApplicationMailer < ActionMailer::Base
-  default from: 'noreply@teamdiagnostic.com' # TODO: use Tenant configuration
+  default from: ENV.fetch('EMAIL_REPLY_TO', 'noreply@teamdiagnostic.com')
   layout 'mailer'
 end
