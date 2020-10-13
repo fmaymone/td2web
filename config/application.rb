@@ -22,11 +22,11 @@ module Teamdiagnostic
 
     ### Custom Application Configuration
     application_host_and_port = ENV.fetch('APPLICATION_HOST', 'localhost:3000')
-    application_host = application_host_and_port.split(':').first
-    application_port = application_host_and_port.split(':').last
+    application_host = application_host_and_port.split(':')[0]
+    application_port = application_host_and_port.split(':')[1]
     config.application_host_and_port = application_host_and_port
     config.application_host = application_host
-    config.application_port = application_port
+    config.application_port = application_port if application_port
     config.email_reply_to = ENV.fetch('EMAIL_REPLY_TO', 'XXX')
 
     config.hosts = nil # Allow any domain (see: https://github.com/rails/rails/pull/33145)
