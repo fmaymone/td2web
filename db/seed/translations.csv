@@ -5118,13 +5118,13 @@ en,A message with a confirmation link has been sent to your email address. Pleas
 en,Unsubscribe,Unsubscribe
 en,Don't like these emails?,Don't like these emails?
 en,"Email was already confirmed, please try signing in","Email was already confirmed, please try signing in"
+en,consent-header-text,Please review the following agreements and indicate your consent to proceed and use TeamDiagnostic.
 en,email_changed_subject,About Your TeamDiagnostic Account Email Address
 en,password_change_subject,Change your TeamDiagnostic Account Password
 en,confirmation_instructions_subject,TeamDiagnostic Account Confirmation
 en,unlock_instructions_subject,Unlock Your TeamDiagnostic Account
 en,reset_password_instructions_subject,Reset Your TeamDiagnostic Account Password
 en,You will receive an email with instructions for how to unlock your account in a few minutes,You will receive an email with instructions for how to unlock your account in a few minutes
-en,consent-header-text,consent-header-text
 en,emailtemplate--html--confirmation_instructions,"<p>Welcome {{ name }}!</p>
 
 <p>Please confirm your account email address by following the link below</p>
@@ -5220,3 +5220,4 @@ en,emailtemplate--html--unlock_instructions,"<p>Hello {{name}}!</p>
 <p><a href=""{{url}}"">{{url}}</a>"
 en,Slug,Slug
 en,Domain,Domain
+en,Your account has been unlocked successfully. Please sign in to continue,Your account has been unlocked successfully. Please sign in to continue
