@@ -103,6 +103,7 @@ class Invitation < ApplicationRecord
 
   def template_params
     {
+      'domain' => tenant.domain,
       'email' => email,
       'invitation_link' => Rails.application.routes.url_helpers
                                 .claim_invitations_url(token: token, host: Rails.application.config.application_host_and_port)

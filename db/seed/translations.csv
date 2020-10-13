@@ -5199,7 +5199,7 @@ en,Redirect,Redirect
 en,Register Account,Register Account
 en,invitation-message-register-facilitator,"Welcome to TeamDiagnostic!
 <p>
-Please follow the following link to register your account on www.teamdiagnostic.com.
+Please follow the following link to register your TeamDiagnostic account at {{ domain }}
 </p>
 
 <p>
