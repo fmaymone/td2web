@@ -5,15 +5,16 @@ RSpec.shared_context 'entitlements', shared_context: :metadate do
   include_context 'roles'
 
   let(:registration_entitlement) do
-    Entitlement.create!(
-      active: true,
-      account: false,
-      role: facilitator_role,
-      reference: 'Users::Registrations#',
-      slug: 'register-facilitator',
-      quota: 1,
-      description: 'Register as an Teamdiagnostic facilitator'
-    )
+    Entitlement.where(slug: 'register-facilitator').first ||
+      Entitlement.create(
+        active: true,
+        account: false,
+        role: facilitator_role,
+        reference: 'Users::Registrations#',
+        slug: 'register-facilitator',
+        quota: 1,
+        description: 'Register as an Teamdiagnostic facilitator'
+      )
   end
 
   let(:entitlement_for_admins) { create(:entitlement, role: admin_role) }
