@@ -5,13 +5,13 @@ RSpec.shared_context 'entitlements', shared_context: :metadate do
   include_context 'roles'
 
   let(:registration_entitlement) do
-    Entitlement.where(slug: 'register-facilitator').first ||
+    Entitlement.where(slug: Entitlement::REGISTER_AS_FACILITATOR).first ||
       Entitlement.create(
         active: true,
         account: false,
         role: facilitator_role,
         reference: 'Users::Registrations#',
-        slug: 'register-facilitator',
+        slug: Entitlement::REGISTER_AS_FACILITATOR,
         quota: 1,
         description: 'Register as an Teamdiagnostic facilitator'
       )

@@ -8,6 +8,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   def new
     invitation
+    assign_invitation_locale
     build_resource
     resource.role = Role.facilitator
     yield resource if block_given?
@@ -16,7 +17,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    invitation
     authorizer
+    assign_invitation_locale
 
     allowed_params = User::ALLOWED_PARAMS + [{ user_profile_attributes: UserProfile::ALLOWED_PARAMS }]
     custom_sign_up_params = params.require(:user).permit(*allowed_params)
@@ -109,7 +112,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # Require a valid and unclaimed invitation for the current tenant
   def invitation
     @invitation ||= begin
-      required_entitlement = Entitlement.where(slug: 'register-facilitator').first
+      required_entitlement = Entitlement.where(slug: Entitlement::REGISTER_AS_FACILITATOR).first
       raise ActiveRecord::RecordNotFound unless required_entitlement.present?
 
       @current_tenant.invitations.unclaimed.find(params[:invitation_id])
@@ -123,5 +126,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     raise ActiveRecord::RecordNotFound unless authorizer.call
 
     authorizer
+  end
+
+  def assign_invitation_locale
+    invitation
+    I18n.locale = @invitation&.locale || 'en'
   end
 end

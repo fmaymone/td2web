@@ -54,6 +54,7 @@ class InvitationsController < ApplicationController
     authorize Invitation
     @token = params[:token]
     @service = EntitlementServices::InvitationClaim.new(token: @token, tenant: @current_tenant)
+    assign_invitation_locale(@service.invitation)
   end
 
   def process_claim
@@ -61,6 +62,7 @@ class InvitationsController < ApplicationController
     @token = params[:token]
     @service = EntitlementServices::InvitationClaim.new(token: @token, tenant: @current_tenant)
     @invitation = @service.invitation
+    assign_invitation_locale(@invitation)
     if @service.valid?
       @service.call
       redirect_to @service.redirect_url, notice: 'Invitation claimed'.t
@@ -78,5 +80,9 @@ class InvitationsController < ApplicationController
 
   def set_invitation
     @invitation = policy_scope(Invitation).find(params[:id])
+  end
+
+  def assign_invitation_locale(invitation)
+    I18n.locale = invitation&.locale || 'en'
   end
 end

@@ -18,6 +18,7 @@
 class Entitlement < ApplicationRecord
   ### Constants
   ALLOWED_PARAMS = %i[account active role_id reference slug description quota].freeze
+  REGISTER_AS_FACILITATOR = 'register-facilitator'
 
   ### Concerns
 
