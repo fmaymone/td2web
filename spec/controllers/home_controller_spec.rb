@@ -13,12 +13,12 @@ RSpec.describe HomeController, type: :controller do
       it 'should should succeed' do
         get :index
         expect(response).to have_http_status(:ok)
-        expect(response).to render_template(:index)
+        expect(response).to render_template(:index_facilitator)
       end
       it 'should succeed with a locale parameter' do
         get :index, params: { locale: 'en' }
         expect(response).to have_http_status(:ok)
-        expect(response).to render_template(:index)
+        expect(response).to render_template(:index_facilitator)
       end
     end
   end

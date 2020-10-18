@@ -1,0 +1,7 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to('Dashboard'.t, root_path) %></li>
+    <li class="breadcrumb-item"><%= link_to('Invitations'.t, invitations_path )%></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= ( @current_page || params[:action].humanize.t )%> </li>
+  </ol>
+</nav>

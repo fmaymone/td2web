@@ -12,12 +12,14 @@ class TenantsController < ApplicationController
     authorize Tenant
     @tenants = Tenant.all
     @page_title = 'TeamDiagnostic Tenants'.t
+    @current_page = 'List'.t
   end
 
   # GET /tenants/1
   # GET /tenants/1.json
   def show
     authorize @tenant
+    @current_page = @tenant.name
   end
 
   # GET /tenants/new
@@ -29,6 +31,7 @@ class TenantsController < ApplicationController
   # GET /tenants/1/edit
   def edit
     authorize @tenant
+    @current_page = @tenant.name
   end
 
   # POST /tenants
@@ -52,6 +55,7 @@ class TenantsController < ApplicationController
   # PATCH/PUT /tenants/1.json
   def update
     authorize Tenant
+    @current_page = @tenant.name
     respond_to do |format|
       if @tenant.update(tenant_params)
         format.html { redirect_to @tenant, notice: 'Tenant was successfully updated.'.t }

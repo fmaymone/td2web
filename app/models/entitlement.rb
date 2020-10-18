@@ -19,8 +19,10 @@ class Entitlement < ApplicationRecord
   ### Constants
   ALLOWED_PARAMS = %i[account active role_id reference slug description quota].freeze
   REGISTER_AS_FACILITATOR = 'register-facilitator'
+  CREATE_ORGANIZATION = 'create-organization'
 
   ### Concerns
+  include Seeds::Seedable
 
   ### Validations
   validates :role_id, presence: true

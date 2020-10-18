@@ -1,0 +1,49 @@
+<div class="row">
+  <div clas="col">
+    <%= render partial: 'breadcrumbs' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <h1><%= 'Organizations'.t %>
+    <small><%= link_to('Add'.t, new_organization_path, class: 'btn btn-sm btn-primary') %></small>
+  </h1>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <table class="table table-striped organizations--table">
+      <thead>
+        <tr>
+          <th><%= 'Name'.t %></th>
+          <th><%= 'Description'.t %></th>
+          <th ></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @organizations.each do |organization| %>
+          <tr>
+            <td>
+              <h4><%= organization.name %></h4>
+              <%= link_to(organization.url, organization.url) %><br/>
+              <%= organization.description %><br/>
+            </td>
+            <td>
+              <%= organization.industry %><br/>
+              <%= organization.revenue %><br/>
+              <span class="badge badge-primary"><%= organization.locale %></span>
+            </td>
+            <td class="text-nowrap">
+              <%= link_to('Show'.t, organization, class: 'btn btn-sm btn-info') if policy(organization).show? %>
+              <%= link_to('Edit'.t, edit_organization_path(organization), class: 'btn btn-sm btn-primary' )if policy(organization).edit? %>
+              <%= link_to('Delete'.t, organization, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-warning') if policy(organization).destroy? %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+</div>

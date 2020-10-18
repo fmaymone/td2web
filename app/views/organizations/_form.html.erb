@@ -1,0 +1,41 @@
+<%= bootstrap_form_for(organization, remote: false) do |form| %>
+  <%= render partial: 'shared/form_errors', locals: { subject: organization } %>
+
+  <div class="form-row">
+    <div class="col-sm-6">
+      <%= form.text_field :name, label: 'Name'.t, required: true %>
+    </div>
+    <div class="col-sm-4">
+      <%= form.select :locale, options_for_select(service.locale_options, organization.locale), label: 'Locale'.t, required: true %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-sm-12">
+      <%= form.text_area :description, label: 'Description'.t %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-sm-6">
+      <%= form.text_field :url, type: :url, label: 'Website'.t, required: true %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-sm-6">
+      <%= form.select :industry, options_for_select([[nil,nil]] + service.industry_options, organization.industry), label: 'Industry'.t, required: true %>
+    </div>
+    <div class="col-sm-6">
+      <%= form.select :revenue, options_for_select([[nil,nil]] + service.revenue_options, organization.revenue), label: 'Revenue'.t, required: true %>
+    </div>
+  </div>
+
+
+  <div class="form-row">
+    <%= form.submit 'Submit'.t, class: 'btn btn-primary' %>
+    <br/>
+    <%= link_to('Cancel'.t, :back, class: 'btn btn-light') %>
+  </div>
+
+<% end %>

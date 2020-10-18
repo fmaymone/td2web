@@ -23,6 +23,7 @@ Channel	./app/channels/application_cable/channel.rb	/^  class Channel < ActionCa
 Connection	./app/channels/application_cable/connection.rb	/^  class Connection < ActionCable::Connection::Base$/;"	c	class:ApplicationCable
 Consent	./app/models/concerns/user_profiles/consent.rb	/^  module Consent$/;"	m	class:UserProfiles
 ConsentUnauthorizedError	./app/models/concerns/user_profiles/consent.rb	/^    class ConsentUnauthorizedError < StandardError; end$/;"	c	class:UserProfiles.Consent
+Creator	./app/services/organization_services/creator.rb	/^  class Creator$/;"	c	class:OrganizationServices
 Creator	./app/services/translation_services/creator.rb	/^  class Creator$/;"	c	class:TranslationServices
 Creator	./app/services/user_services/creator.rb	/^  class Creator$/;"	c	class:UserServices
 CsvExporter	./app/services/translation_services/csv_exporter.rb	/^  class CsvExporter$/;"	c	class:TranslationServices
@@ -58,6 +59,17 @@ InvitationMailer	./app/mailers/invitation_mailer.rb	/^class InvitationMailer < A
 InvitationPolicy	./app/policies/invitation_policy.rb	/^class InvitationPolicy < ApplicationPolicy$/;"	c
 InvitationsController	./app/controllers/invitations_controller.rb	/^class InvitationsController < ApplicationController$/;"	c
 InvitationsHelper	./app/helpers/invitations_helper.rb	/^module InvitationsHelper$/;"	m
+Organization	./app/models/organization.rb	/^class Organization < ApplicationRecord$/;"	c
+OrganizationPolicy	./app/policies/organization_policy.rb	/^class OrganizationPolicy < ApplicationPolicy$/;"	c
+OrganizationServices	./app/services/organization_services/creator.rb	/^module OrganizationServices$/;"	m
+OrganizationServices	./app/services/organization_services/organization_updater.rb	/^module OrganizationServices$/;"	m
+OrganizationServices	./app/services/organization_services/updater.rb	/^module OrganizationServices$/;"	m
+OrganizationServices	./app/services/organization_services/validator.rb	/^module OrganizationServices$/;"	m
+OrganizationUpdater	./app/services/organization_services/organization_updater.rb	/^  class OrganizationUpdater$/;"	c	class:OrganizationServices
+OrganizationUser	./app/models/organization_user.rb	/^class OrganizationUser < ApplicationRecord$/;"	c
+Organizations	./app/models/concerns/users/organizations.rb	/^  module Organizations$/;"	m	class:Users
+OrganizationsController	./app/controllers/organizations_controller.rb	/^class OrganizationsController < ApplicationController$/;"	c
+OrganizationsHelper	./app/helpers/organizations_helper.rb	/^module OrganizationsHelper$/;"	m
 Profiles	./app/models/concerns/users/profiles.rb	/^  module Profiles$/;"	m	class:Users
 RequestSpecHelper	./spec/support/request_spec_helper.rb	/^module RequestSpecHelper$/;"	m
 Revocation	./app/services/entitlement_services/revocation.rb	/^  class Revocation$/;"	c	class:EntitlementServices
@@ -68,6 +80,7 @@ Scope	./app/policies/application_translation_policy.rb	/^  class Scope$/;"	c	cla
 Scope	./app/policies/entitlement_policy.rb	/^  class Scope < Scope$/;"	c	class:EntitlementPolicy
 Scope	./app/policies/grant_policy.rb	/^  class Scope < Scope$/;"	c	class:GrantPolicy
 Scope	./app/policies/invitation_policy.rb	/^  class Scope < Scope$/;"	c	class:InvitationPolicy
+Scope	./app/policies/organization_policy.rb	/^  class Scope < Scope$/;"	c	class:OrganizationPolicy
 Scope	./app/policies/tenant_policy.rb	/^  class Scope < Scope$/;"	c	class:TenantPolicy
 Scope	./app/policies/user_policy.rb	/^  class Scope < Scope$/;"	c	class:UserPolicy
 Search	./app/services/translation_services/search.rb	/^  class Search$/;"	c	class:TranslationServices
@@ -88,6 +101,7 @@ TranslationServices	./app/services/translation_services/search.rb	/^module Trans
 TranslationServices	./app/services/translation_services/updater.rb	/^module TranslationServices$/;"	m
 TranslationsController	./app/controllers/translations_controller.rb	/^class TranslationsController < ApplicationController$/;"	c
 TranslationsHelper	./app/helpers/translations_helper.rb	/^module TranslationsHelper$/;"	m
+Updater	./app/services/organization_services/updater.rb	/^  class Updater$/;"	c	class:OrganizationServices
 Updater	./app/services/translation_services/updater.rb	/^  class Updater$/;"	c	class:TranslationServices
 User	./app/models/user.rb	/^class User < ApplicationRecord$/;"	c
 UserPolicy	./app/policies/user_policy.rb	/^class UserPolicy < ApplicationPolicy$/;"	c
@@ -95,7 +109,6 @@ UserProfile	./app/models/user_profile.rb	/^class UserProfile < ApplicationRecord
 UserProfiles	./app/models/concerns/user_profiles/consent.rb	/^module UserProfiles$/;"	m
 UserServices	./app/services/user_services/creator.rb	/^module UserServices$/;"	m
 UserServices	./app/services/user_services/search.rb	/^module UserServices$/;"	m
-UserTest	./test/models/user_test.rb	/^class UserTest < ActiveSupport::TestCase$/;"	c
 Users	./app/controllers/users/confirmations_controller.rb	/^class Users::ConfirmationsController < Devise::ConfirmationsController$/;"	c
 Users	./app/controllers/users/omniauth_callbacks_controller.rb	/^class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController$/;"	c
 Users	./app/controllers/users/passwords_controller.rb	/^class Users::PasswordsController < Devise::PasswordsController$/;"	c
@@ -103,10 +116,12 @@ Users	./app/controllers/users/registrations_controller.rb	/^class Users::Registr
 Users	./app/controllers/users/sessions_controller.rb	/^class Users::SessionsController < Devise::SessionsController$/;"	c
 Users	./app/controllers/users/unlocks_controller.rb	/^class Users::UnlocksController < Devise::UnlocksController$/;"	c
 Users	./app/models/concerns/users/devise.rb	/^module Users$/;"	m
+Users	./app/models/concerns/users/organizations.rb	/^module Users$/;"	m
 Users	./app/models/concerns/users/profiles.rb	/^module Users$/;"	m
 Users	./app/models/concerns/users/roles.rb	/^module Users$/;"	m
 UsersController	./app/controllers/users_controller.rb	/^class UsersController < ApplicationController$/;"	c
 UsersHelper	./app/helpers/users_helper.rb	/^module UsersHelper$/;"	m
+Validator	./app/services/organization_services/validator.rb	/^  class Validator$/;"	c	class:OrganizationServices
 accessible_to	./app/services/app_context.rb	/^    def accessible_to(user)$/;"	f	class:AppContext
 account_limited	./app/helpers/application_helper.rb	/^  def account_limited(limited, pill: false)$/;"	f
 activate_bundler	./bin/bundle	/^  def activate_bundler$/;"	f
@@ -129,6 +144,9 @@ allowed_params	./app/policies/user_policy.rb	/^  def allowed_params$/;"	f	class:
 appcontext_for_select	./app/helpers/entitlements_helper.rb	/^  def appcontext_for_select(entitlement)$/;"	f	class:EntitlementsHelper
 apply_pagination	./app/services/user_services/search.rb	/^    def apply_pagination$/;"	f	class:UserServices.Search
 apply_sort	./app/services/user_services/search.rb	/^    def apply_sort$/;"	f	class:UserServices.Search
+assign_invitation_locale	./app/controllers/invitations_controller.rb	/^  def assign_invitation_locale(invitation)$/;"	f	class:InvitationsController
+assign_invitation_locale	./app/controllers/users/registrations_controller.rb	/^  def assign_invitation_locale$/;"	f	class:Users
+assign_membership!	./app/services/organization_services/creator.rb	/^    def assign_membership!$/;"	f	class:OrganizationServices.Creator
 assigned_entitlements	./app/models/invitation.rb	/^  def assigned_entitlements$/;"	f	class:Invitation
 authorize_consent!	./app/controllers/application_controller.rb	/^  def authorize_consent!$/;"	f
 authorize_entitlements!	./app/controllers/application_controller.rb	/^  def authorize_entitlements!(slug = nil)$/;"	f
@@ -140,11 +158,14 @@ bundler_requirement	./bin/bundle	/^  def bundler_requirement$/;"	f
 bundler_version	./bin/bundle	/^  def bundler_version$/;"	f
 call	./app/services/entitlement_services/authorizer.rb	/^    def call(slug = nil)$/;"	f	class:EntitlementServices.Authorizer
 call	./app/services/entitlement_services/grant.rb	/^    def call$/;"	f	class:EntitlementServices.Grant
-call	./app/services/entitlement_services/grant_usage.rb	/^    def call$/;"	f	class:EntitlementServices.GrantUsage
+call	./app/services/entitlement_services/grant_usage.rb	/^    def call(&_block)$/;"	f	class:EntitlementServices.GrantUsage
 call	./app/services/entitlement_services/invitation_claim.rb	/^    def call$/;"	f	class:EntitlementServices.InvitationClaim
 call	./app/services/entitlement_services/invitation_creator.rb	/^    def call$/;"	f	class:EntitlementServices.InvitationCreator
 call	./app/services/entitlement_services/invitation_deactivator.rb	/^    def call$/;"	f	class:EntitlementServices.InvitationDeactivator
 call	./app/services/entitlement_services/revocation.rb	/^    def call$/;"	f	class:EntitlementServices.Revocation
+call	./app/services/organization_services/creator.rb	/^    def call$/;"	f	class:OrganizationServices.Creator
+call	./app/services/organization_services/updater.rb	/^    def call$/;"	f	class:OrganizationServices.Updater
+call	./app/services/organization_services/validator.rb	/^    def call$/;"	f	class:OrganizationServices.Validator
 call	./app/services/translation_services/creator.rb	/^    def call$/;"	f	class:TranslationServices
 call	./app/services/translation_services/csv_exporter.rb	/^    def call$/;"	f	class:TranslationServices.CsvExporter
 call	./app/services/translation_services/csv_importer.rb	/^    def call(&block)$/;"	f	class:TranslationServices.CsvImporter
@@ -171,6 +192,7 @@ country_name	./app/models/user_profile.rb	/^  def country_name$/;"	f	class:UserP
 create	./app/controllers/entitlements_controller.rb	/^  def create$/;"	f	class:EntitlementsController
 create	./app/controllers/grants_controller.rb	/^  def create$/;"	f	class:GrantsController
 create	./app/controllers/invitations_controller.rb	/^  def create$/;"	f	class:InvitationsController
+create	./app/controllers/organizations_controller.rb	/^  def create$/;"	f	class:OrganizationsController
 create	./app/controllers/tenants_controller.rb	/^  def create$/;"	f	class:TenantsController
 create	./app/controllers/translations_controller.rb	/^  def create$/;"	f	class:TranslationsController
 create	./app/controllers/users/registrations_controller.rb	/^  def create$/;"	f	class:Users
@@ -180,8 +202,10 @@ create?	./app/policies/application_translation_policy.rb	/^  def create?$/;"	f	c
 create?	./app/policies/entitlement_policy.rb	/^  def create?$/;"	f	class:EntitlementPolicy
 create?	./app/policies/grant_policy.rb	/^  def create?$/;"	f	class:GrantPolicy
 create?	./app/policies/invitation_policy.rb	/^  def create?$/;"	f	class:InvitationPolicy
+create?	./app/policies/organization_policy.rb	/^  def create?$/;"	f	class:OrganizationPolicy
 create?	./app/policies/tenant_policy.rb	/^  def create?$/;"	f	class:TenantPolicy
 create?	./app/policies/user_policy.rb	/^  def create?$/;"	f	class:UserPolicy
+create_organization	./app/services/organization_services/creator.rb	/^    def create_organization$/;"	f	class:OrganizationServices.Creator
 creator_or_updater	./app/services/translation_services/csv_importer.rb	/^    def creator_or_updater(attrs)$/;"	f	class:TranslationServices
 current_locale	./app/controllers/application_controller.rb	/^  def current_locale$/;"	f	class:ApplicationController
 current_tenant	./app/controllers/application_controller.rb	/^  def current_tenant$/;"	f	class:ApplicationController
@@ -192,6 +216,7 @@ default_tenant	./app/models/tenant.rb	/^  def self.default_tenant$/;"	F	class:Te
 destroy	./app/controllers/entitlements_controller.rb	/^  def destroy$/;"	f	class:EntitlementsController
 destroy	./app/controllers/grants_controller.rb	/^  def destroy$/;"	f	class:GrantsController
 destroy	./app/controllers/invitations_controller.rb	/^  def destroy$/;"	f	class:InvitationsController
+destroy	./app/controllers/organizations_controller.rb	/^  def destroy$/;"	f	class:OrganizationsController
 destroy	./app/controllers/tenants_controller.rb	/^  def destroy$/;"	f	class:TenantsController
 destroy	./app/controllers/translations_controller.rb	/^  def destroy$/;"	f	class:TranslationsController
 destroy	./app/controllers/users/registrations_controller.rb	/^  def destroy$/;"	f	class:Users
@@ -201,11 +226,13 @@ destroy?	./app/policies/application_translation_policy.rb	/^  def destroy?$/;"	f
 destroy?	./app/policies/entitlement_policy.rb	/^  def destroy?$/;"	f	class:EntitlementPolicy
 destroy?	./app/policies/grant_policy.rb	/^  def destroy?$/;"	f	class:GrantPolicy
 destroy?	./app/policies/invitation_policy.rb	/^  def destroy?$/;"	f	class:InvitationPolicy
+destroy?	./app/policies/organization_policy.rb	/^  def destroy?$/;"	f	class:OrganizationPolicy
 destroy?	./app/policies/tenant_policy.rb	/^  def destroy?$/;"	f	class:TenantPolicy
 destroy?	./app/policies/user_policy.rb	/^  def destroy?$/;"	f	class:UserPolicy
 edit	./app/controllers/entitlements_controller.rb	/^  def edit$/;"	f	class:EntitlementsController
 edit	./app/controllers/grants_controller.rb	/^  def edit$/;"	f	class:GrantsController
 edit	./app/controllers/invitations_controller.rb	/^  def edit$/;"	f	class:InvitationsController
+edit	./app/controllers/organizations_controller.rb	/^  def edit$/;"	f	class:OrganizationsController
 edit	./app/controllers/tenants_controller.rb	/^  def edit$/;"	f	class:TenantsController
 edit	./app/controllers/translations_controller.rb	/^  def edit$/;"	f	class:TranslationsController
 edit	./app/controllers/users/registrations_controller.rb	/^  def edit$/;"	f	class:Users
@@ -215,6 +242,7 @@ edit?	./app/policies/application_translation_policy.rb	/^  def edit?$/;"	f	class
 edit?	./app/policies/entitlement_policy.rb	/^  def edit?$/;"	f	class:EntitlementPolicy
 edit?	./app/policies/grant_policy.rb	/^  def edit?$/;"	f	class:GrantPolicy
 edit?	./app/policies/invitation_policy.rb	/^  def edit?$/;"	f	class:InvitationPolicy
+edit?	./app/policies/organization_policy.rb	/^  def edit?$/;"	f	class:OrganizationPolicy
 edit?	./app/policies/tenant_policy.rb	/^  def edit?$/;"	f	class:TenantPolicy
 edit?	./app/policies/user_policy.rb	/^  def edit?$/;"	f	class:UserPolicy
 edit_staff_notes?	./app/policies/user_policy.rb	/^  def edit_staff_notes?$/;"	f	class:UserPolicy
@@ -260,6 +288,7 @@ index	./app/controllers/entitlements_controller.rb	/^  def index$/;"	f	class:Ent
 index	./app/controllers/grants_controller.rb	/^  def index$/;"	f	class:GrantsController
 index	./app/controllers/home_controller.rb	/^  def index$/;"	f	class:HomeController
 index	./app/controllers/invitations_controller.rb	/^  def index$/;"	f	class:InvitationsController
+index	./app/controllers/organizations_controller.rb	/^  def index$/;"	f	class:OrganizationsController
 index	./app/controllers/tenants_controller.rb	/^  def index$/;"	f	class:TenantsController
 index	./app/controllers/translations_controller.rb	/^  def index$/;"	f	class:TranslationsController
 index	./app/controllers/users_controller.rb	/^  def index$/;"	f	class:UsersController
@@ -268,8 +297,10 @@ index?	./app/policies/application_translation_policy.rb	/^  def index?$/;"	f	cla
 index?	./app/policies/entitlement_policy.rb	/^  def index?$/;"	f	class:EntitlementPolicy
 index?	./app/policies/grant_policy.rb	/^  def index?$/;"	f	class:GrantPolicy
 index?	./app/policies/invitation_policy.rb	/^  def index?$/;"	f	class:InvitationPolicy
+index?	./app/policies/organization_policy.rb	/^  def index?$/;"	f	class:OrganizationPolicy
 index?	./app/policies/tenant_policy.rb	/^  def index?$/;"	f	class:TenantPolicy
 index?	./app/policies/user_policy.rb	/^  def index?$/;"	f	class:UserPolicy
+industry_options	./app/services/organization_services/creator.rb	/^    def industry_options$/;"	f	class:OrganizationServices.Creator
 initialize	./app/policies/application_policy.rb	/^    def initialize(user, scope)$/;"	f	class:ApplicationPolicy.Scope
 initialize	./app/policies/application_policy.rb	/^  def initialize(user, record)$/;"	f	class:ApplicationPolicy
 initialize	./app/services/entitlement_services/authorizer.rb	/^    def initialize(tenant:, user: nil, params: nil, reference: nil)$/;"	f	class:EntitlementServices.Authorizer
@@ -279,6 +310,10 @@ initialize	./app/services/entitlement_services/invitation_claim.rb	/^    def ini
 initialize	./app/services/entitlement_services/invitation_creator.rb	/^    def initialize(grantor:, params: {})$/;"	f	class:EntitlementServices.InvitationCreator
 initialize	./app/services/entitlement_services/invitation_deactivator.rb	/^    def initialize(invitation)$/;"	f	class:EntitlementServices.InvitationDeactivator
 initialize	./app/services/entitlement_services/revocation.rb	/^    def initialize(grant:, grantor: nil)$/;"	f	class:EntitlementServices.Revocation
+initialize	./app/services/organization_services/creator.rb	/^    def initialize(user:, grantor: nil, params: {})$/;"	f	class:OrganizationServices.Creator
+initialize	./app/services/organization_services/organization_updater.rb	/^    def initialize(user:, params: {}); end$/;"	f	class:OrganizationServices.OrganizationUpdater
+initialize	./app/services/organization_services/updater.rb	/^    def initialize(user:, params: {})$/;"	f	class:OrganizationServices.Updater
+initialize	./app/services/organization_services/validator.rb	/^    def initialize(service, action: :create)$/;"	f	class:OrganizationServices.Validator
 initialize	./app/services/translation_services/creator.rb	/^    def initialize(params = {})$/;"	f	class:TranslationServices.Creator
 initialize	./app/services/translation_services/csv_exporter.rb	/^    def initialize(params = {})$/;"	f	class:TranslationServices.CsvExporter
 initialize	./app/services/translation_services/csv_importer.rb	/^    def initialize(csvdata)$/;"	f	class:TranslationServices.CsvImporter
@@ -286,6 +321,8 @@ initialize	./app/services/translation_services/search.rb	/^    def initialize(pa
 initialize	./app/services/translation_services/updater.rb	/^    def initialize(id, params = {})$/;"	f	class:TranslationServices.Updater
 initialize	./app/services/user_services/creator.rb	/^    def initialize(creator, params = {})$/;"	f	class:UserServices.Creator
 initialize	./app/services/user_services/search.rb	/^    def initialize(params = {}, scope = User, user = nil)$/;"	f	class:UserServices.Search
+initialize_organization	./app/services/organization_services/creator.rb	/^    def initialize_organization$/;"	f	class:OrganizationServices.Creator
+initialize_organization	./app/services/organization_services/updater.rb	/^    def initialize_organization$/;"	f	class:OrganizationServices.Updater
 input_validation_class	./app/helpers/application_helper.rb	/^  def input_validation_class(object, field)$/;"	f
 input_validation_feedback	./app/helpers/application_helper.rb	/^  def input_validation_feedback(object, field)$/;"	f
 invitatation_message_template_options	./app/helpers/entitlements_helper.rb	/^  def invitatation_message_template_options(service)$/;"	f	class:EntitlementsHelper
@@ -306,6 +343,7 @@ load_seed_data	./app/models/concerns/seeds/seedable.rb	/^      def load_seed_dat
 locale	./app/models/globalize_language.rb	/^  def locale$/;"	f	class:GlobalizeLanguage
 locale_grouped_options	./app/services/translation_services/creator.rb	/^    def locale_grouped_options$/;"	f	class:TranslationServices.locale_options
 locale_grouped_options	./app/services/translation_services/updater.rb	/^    def locale_grouped_options$/;"	f
+locale_options	./app/services/organization_services/creator.rb	/^    def locale_options$/;"	f	class:OrganizationServices.Creator
 locale_options	./app/services/translation_services/creator.rb	/^    def locale_options$/;"	f	class:TranslationServices
 locale_options	./app/services/translation_services/updater.rb	/^    def locale_options$/;"	f
 locales_for_select	./app/helpers/users_helper.rb	/^  def locales_for_select(user = nil)$/;"	f	class:UsersHelper
@@ -325,6 +363,7 @@ name	./app/models/concerns/users/profiles.rb	/^      def name$/;"	f	class:Users.
 new	./app/controllers/entitlements_controller.rb	/^  def new$/;"	f	class:EntitlementsController
 new	./app/controllers/grants_controller.rb	/^  def new$/;"	f	class:GrantsController
 new	./app/controllers/invitations_controller.rb	/^  def new$/;"	f	class:InvitationsController
+new	./app/controllers/organizations_controller.rb	/^  def new$/;"	f	class:OrganizationsController
 new	./app/controllers/tenants_controller.rb	/^  def new$/;"	f	class:TenantsController
 new	./app/controllers/translations_controller.rb	/^  def new$/;"	f	class:TranslationsController
 new	./app/controllers/users/registrations_controller.rb	/^  def new$/;"	f	class:Users
@@ -335,6 +374,7 @@ new?	./app/policies/application_translation_policy.rb	/^  def new?$/;"	f	class:A
 new?	./app/policies/entitlement_policy.rb	/^  def new?$/;"	f	class:EntitlementPolicy
 new?	./app/policies/grant_policy.rb	/^  def new?$/;"	f	class:GrantPolicy
 new?	./app/policies/invitation_policy.rb	/^  def new?$/;"	f	class:InvitationPolicy
+new?	./app/policies/organization_policy.rb	/^  def new?$/;"	f	class:OrganizationPolicy
 new?	./app/policies/tenant_policy.rb	/^  def new?$/;"	f	class:TenantPolicy
 new?	./app/policies/user_policy.rb	/^  def new?$/;"	f	class:UserPolicy
 new_blank_translation	./app/controllers/translations_controller.rb	/^  def new_blank_translation(_translation)$/;"	f	class:TranslationsController
@@ -343,6 +383,9 @@ normalized_entitlements	./app/services/entitlement_services/invitation_creator.r
 notice	./app/services/entitlement_services/invitation_deactivator.rb	/^    def notice$/;"	f	class:EntitlementServices.InvitationDeactivator
 options_for_accessible_to	./app/services/app_context.rb	/^    def options_for_accessible_to(user)$/;"	f
 options_for_invitation_redirect	./app/helpers/invitations_helper.rb	/^  def options_for_invitation_redirect(invitation)$/;"	f	class:InvitationsHelper
+organization_admin?	./app/policies/organization_policy.rb	/^  def organization_admin?$/;"	f	class:OrganizationPolicy
+organization_member?	./app/policies/organization_policy.rb	/^  def organization_member?$/;"	f	class:OrganizationPolicy
+organization_role	./app/models/concerns/users/organizations.rb	/^      def organization_role(organization)$/;"	f	class:Users.Organizations
 over_quota?	./app/models/grant.rb	/^  def over_quota?$/;"	f	class:Grant
 owner?	./app/policies/application_policy.rb	/^  def owner?$/;"	f	class:ApplicationPolicy
 page_title	./app/helpers/application_helper.rb	/^  def page_title$/;"	f	class:ApplicationHelper
@@ -351,12 +394,14 @@ params	./app/services/translation_services/search.rb	/^    def params(new_option
 permitted_params	./app/services/user_services/creator.rb	/^    def permitted_params(params)$/;"	f	class:UserServices
 plugins	./postcss.config.js	/^  plugins: [$/;"	p	class:module.exports
 policy_for_action	./app/services/app_context.rb	/^    def policy_for_action(reference)$/;"	f
+policy_method	./app/services/organization_services/validator.rb	/^    def policy_method$/;"	f	class:OrganizationServices.Validator.validate_access
 process_claim	./app/controllers/invitations_controller.rb	/^  def process_claim$/;"	f	class:InvitationsController
 process_claim?	./app/policies/invitation_policy.rb	/^  def process_claim?$/;"	f	class:InvitationPolicy
 process_limited_invitation	./app/services/entitlement_services/invitation_claim.rb	/^    def process_limited_invitation$/;"	f	class:EntitlementServices.InvitationClaim
 process_nonlimited_invitation	./app/services/entitlement_services/invitation_claim.rb	/^    def process_nonlimited_invitation$/;"	f	class:EntitlementServices.InvitationClaim
 pronoun	./app/models/concerns/users/profiles.rb	/^      def pronoun$/;"	f	class:Users.Profiles
 query_scope	./app/services/user_services/search.rb	/^    def query_scope$/;"	f	class:UserServices.Search
+record_scope	./app/controllers/organizations_controller.rb	/^  def record_scope$/;"	f	class:OrganizationsController
 redirect_url	./app/services/entitlement_services/invitation_claim.rb	/^    def redirect_url$/;"	f	class:EntitlementServices.InvitationClaim
 request_consent	./app/controllers/home_controller.rb	/^  def request_consent$/;"	f	class:HomeController
 required_consent_pending?	./app/models/concerns/user_profiles/consent.rb	/^      def required_consent_pending?$/;"	f	class:UserProfiles.Consent
@@ -368,16 +413,21 @@ resolve	./app/policies/application_translation_policy.rb	/^    def resolve$/;"	f
 resolve	./app/policies/entitlement_policy.rb	/^    def resolve$/;"	f	class:EntitlementPolicy.Scope
 resolve	./app/policies/grant_policy.rb	/^    def resolve$/;"	f	class:GrantPolicy.Scope
 resolve	./app/policies/invitation_policy.rb	/^    def resolve$/;"	f	class:InvitationPolicy.Scope
+resolve	./app/policies/organization_policy.rb	/^    def resolve$/;"	f	class:OrganizationPolicy.Scope
 resolve	./app/policies/tenant_policy.rb	/^    def resolve$/;"	f	class:TenantPolicy.Scope
 resolve	./app/policies/user_policy.rb	/^    def resolve$/;"	f	class:UserPolicy.Scope
 resolve_references	./app/services/entitlement_services/authorizer.rb	/^    def resolve_references(params)$/;"	f	class:EntitlementServices.Authorizer
 restore	./app/services/entitlement_services/revocation.rb	/^    def restore$/;"	f	class:EntitlementServices.Revocation
 restore_note	./app/services/entitlement_services/revocation.rb	/^    def restore_note$/;"	f	class:EntitlementServices.Revocation
+revenue_options	./app/services/organization_services/creator.rb	/^    def revenue_options$/;"	f	class:OrganizationServices.Creator
 revoke_consent	./app/models/concerns/user_profiles/consent.rb	/^      def revoke_consent(key)$/;"	f	class:UserProfiles.Consent
 revoke_consent	./app/models/concerns/users/profiles.rb	/^      def revoke_consent(key)$/;"	f	class:Users.Profiles
 revoke_note	./app/services/entitlement_services/revocation.rb	/^    def revoke_note$/;"	f	class:EntitlementServices.Revocation
 roles_for_select	./app/helpers/users_helper.rb	/^  def roles_for_select(user = nil)$/;"	f	class:UsersHelper
 sanitize_params	./app/services/entitlement_services/invitation_creator.rb	/^    def sanitize_params(params)$/;"	f	class:EntitlementServices.InvitationCreator.selected_entitlement.grantor_role_ids
+sanitize_params	./app/services/organization_services/creator.rb	/^    def sanitize_params(params = {})$/;"	f	class:OrganizationServices.Creator
+sanitize_params	./app/services/organization_services/organization_updater.rb	/^    def sanitize_params(params = {})$/;"	f	class:OrganizationServices.OrganizationUpdater
+sanitize_params	./app/services/organization_services/updater.rb	/^    def sanitize_params(params = {})$/;"	f	class:OrganizationServices.Updater.initialize_organization
 sanitize_search_params	./app/services/translation_services/search.rb	/^    def sanitize_search_params(params)$/;"	f	class:TranslationServices
 sanitized_options	./app/services/user_services/search.rb	/^    def sanitized_options(options = nil)$/;"	f	class:UserServices.Search
 search	./app/services/translation_services/search.rb	/^    def search(search = nil)$/;"	f	class:TranslationServices
@@ -391,6 +441,7 @@ set_invitation	./app/controllers/invitations_controller.rb	/^  def set_invitatio
 set_invitation	./app/services/entitlement_services/invitation_claim.rb	/^    def set_invitation$/;"	f	class:EntitlementServices.InvitationClaim
 set_locale	./app/controllers/application_controller.rb	/^  def set_locale$/;"	f	class:ApplicationController
 set_nil_invitation	./app/services/entitlement_services/invitation_claim.rb	/^    def set_nil_invitation$/;"	f	class:EntitlementServices.InvitationClaim
+set_organization	./app/controllers/organizations_controller.rb	/^  def set_organization$/;"	f	class:OrganizationsController
 set_page	./app/controllers/application_controller.rb	/^  def set_page$/;"	f
 set_tenant	./app/controllers/tenants_controller.rb	/^  def set_tenant$/;"	f	class:TenantsController
 set_translation	./app/controllers/translations_controller.rb	/^  def set_translation$/;"	f	class:TranslationsController
@@ -400,6 +451,7 @@ short_date	./app/helpers/application_helper.rb	/^  def short_date(date)$/;"	f
 show	./app/controllers/entitlements_controller.rb	/^  def show$/;"	f	class:EntitlementsController
 show	./app/controllers/grants_controller.rb	/^  def show$/;"	f	class:GrantsController
 show	./app/controllers/invitations_controller.rb	/^  def show$/;"	f	class:InvitationsController
+show	./app/controllers/organizations_controller.rb	/^  def show$/;"	f	class:OrganizationsController
 show	./app/controllers/tenants_controller.rb	/^  def show$/;"	f	class:TenantsController
 show	./app/controllers/translations_controller.rb	/^  def show$/;"	f	class:TranslationsController
 show	./app/controllers/users/confirmations_controller.rb	/^  def show$/;"	f	class:Users
@@ -409,6 +461,7 @@ show?	./app/policies/application_translation_policy.rb	/^  def show?$/;"	f	class
 show?	./app/policies/entitlement_policy.rb	/^  def show?$/;"	f	class:EntitlementPolicy
 show?	./app/policies/grant_policy.rb	/^  def show?$/;"	f	class:GrantPolicy
 show?	./app/policies/invitation_policy.rb	/^  def show?$/;"	f	class:InvitationPolicy
+show?	./app/policies/organization_policy.rb	/^  def show?$/;"	f	class:OrganizationPolicy
 show?	./app/policies/tenant_policy.rb	/^  def show?$/;"	f	class:TenantPolicy
 show?	./app/policies/user_policy.rb	/^  def show?$/;"	f	class:UserPolicy
 sign_in	./spec/support/request_spec_helper.rb	/^  def sign_in(resource)$/;"	f	class:RequestSpecHelper
@@ -433,6 +486,7 @@ translators	./app/models/concerns/users/roles.rb	/^      def translators$/;"	f	c
 update	./app/controllers/entitlements_controller.rb	/^  def update$/;"	f	class:EntitlementsController
 update	./app/controllers/grants_controller.rb	/^  def update$/;"	f	class:GrantsController
 update	./app/controllers/invitations_controller.rb	/^  def update$/;"	f	class:InvitationsController
+update	./app/controllers/organizations_controller.rb	/^  def update$/;"	f	class:OrganizationsController
 update	./app/controllers/tenants_controller.rb	/^  def update$/;"	f	class:TenantsController
 update	./app/controllers/translations_controller.rb	/^  def update$/;"	f	class:TranslationsController
 update	./app/controllers/users/registrations_controller.rb	/^  def update$/;"	f	class:Users
@@ -442,11 +496,13 @@ update?	./app/policies/application_translation_policy.rb	/^  def update?$/;"	f	c
 update?	./app/policies/entitlement_policy.rb	/^  def update?$/;"	f	class:EntitlementPolicy
 update?	./app/policies/grant_policy.rb	/^  def update?$/;"	f	class:GrantPolicy
 update?	./app/policies/invitation_policy.rb	/^  def update?$/;"	f	class:InvitationPolicy
+update?	./app/policies/organization_policy.rb	/^  def update?$/;"	f	class:OrganizationPolicy
 update?	./app/policies/tenant_policy.rb	/^  def update?$/;"	f	class:TenantPolicy
 update?	./app/policies/user_policy.rb	/^  def update?$/;"	f	class:UserPolicy
 update_consent?	./app/policies/user_policy.rb	/^  def update_consent?$/;"	f	class:UserPolicy
 update_consents	./app/models/concerns/user_profiles/consent.rb	/^      def update_consents(params)$/;"	f	class:UserProfiles.Consent
 update_consents	./app/models/concerns/users/profiles.rb	/^      def update_consents(params)$/;"	f	class:Users.Profiles
+update_organization	./app/services/organization_services/updater.rb	/^    def update_organization$/;"	f	class:OrganizationServices.Updater.initialize_organization
 usage_count	./app/models/grant.rb	/^  def usage_count$/;"	f	class:Grant
 use!	./app/models/grant.rb	/^  def use!$/;"	f	class:Grant
 user_and_entitlement_role	./app/models/grant.rb	/^  def user_and_entitlement_role$/;"	f	class:Grant
@@ -459,8 +515,16 @@ user_set_password_path	./app/controllers/users/confirmations_controller.rb	/^  d
 user_timezone	./app/controllers/application_controller.rb	/^  def user_timezone(&block)$/;"	f	class:ApplicationController
 valid?	./app/services/entitlement_services/grant.rb	/^    def valid?$/;"	f	class:EntitlementServices.Grant
 valid?	./app/services/entitlement_services/invitation_claim.rb	/^    def valid?(params = nil)$/;"	f	class:EntitlementServices.InvitationClaim
+valid?	./app/services/organization_services/creator.rb	/^    def valid?$/;"	f	class:OrganizationServices.Creator
+valid?	./app/services/organization_services/updater.rb	/^    def valid?$/;"	f	class:OrganizationServices.Updater
 valid_user?	./app/services/entitlement_services/invitation_claim.rb	/^    def valid_user?$/;"	f	class:EntitlementServices.InvitationClaim
 validate	./app/services/entitlement_services/grant.rb	/^    def validate$/;"	f	class:EntitlementServices.Grant
+validate	./app/services/organization_services/organization_updater.rb	/^    def validate$/;"	f	class:OrganizationServices.OrganizationUpdater
+validate	./app/services/organization_services/validator.rb	/^    def validate$/;"	f	class:OrganizationServices.Validator
+validate_access	./app/services/organization_services/organization_updater.rb	/^    def validate_access$/;"	f	class:OrganizationServices.OrganizationUpdater
+validate_access	./app/services/organization_services/validator.rb	/^    def validate_access$/;"	f	class:OrganizationServices.Validator
+validate_record	./app/services/organization_services/organization_updater.rb	/^    def validate_record$/;"	f	class:OrganizationServices.OrganizationUpdater.validate_access
+validate_record	./app/services/organization_services/validator.rb	/^    def validate_record$/;"	f	class:OrganizationServices.Validator.validate_access
 validate_roles	./app/services/entitlement_services/grant.rb	/^    def validate_roles$/;"	f	class:EntitlementServices.Grant
 warden_scope	./spec/support/request_spec_helper.rb	/^  def warden_scope(resource)$/;"	f	class:RequestSpecHelper
 well_supported_languages	./app/models/application_translation.rb	/^    def well_supported_languages$/;"	f	class:ApplicationTranslation

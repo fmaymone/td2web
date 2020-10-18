@@ -4,7 +4,13 @@ namespace :db do
   namespace :seed do
     desc 'Roles'
     task roles: :environment do
-      Role.load_seed_data
+      require_relative '../../db/seed/roles'
+
+      if (seeder = Seeds::Roles.new).call
+        puts 'OK'
+      else
+        puts "FAILED: #{seeder.errors.join(', ')}"
+      end
     end
 
     desc 'Users'

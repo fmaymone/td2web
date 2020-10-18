@@ -4,22 +4,22 @@
 #
 # Table name: invitations
 #
-#  id                 :uuid             not null, primary key
-#  tenant_id          :uuid
-#  active             :boolean          default(TRUE)
-#  token              :string
-#  grantor_id         :uuid
-#  grantor_type       :string
-#  entitlements       :jsonb
-#  email              :string
-#  description        :text
-#  redirect           :string
-#  locale             :string           default("en")
-#  i18n_key           :string
-#  claimed_at         :datetime
-#  claimed_by_user_id :uuid
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
+#  id            :uuid             not null, primary key
+#  tenant_id     :uuid
+#  active        :boolean          default(TRUE)
+#  token         :string
+#  grantor_id    :uuid
+#  grantor_type  :string
+#  entitlements  :jsonb
+#  email         :string
+#  description   :text
+#  redirect      :string
+#  locale        :string           default("en")
+#  i18n_key      :string
+#  claimed_at    :datetime
+#  claimed_by_id :uuid
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
 #
 FactoryBot.define do
   factory :invitation do

@@ -1,3 +1,8 @@
+<div class="row">
+  <div clas="col">
+    <%= render partial: 'breadcrumbs' %>
+  </div>
+</div>
 <div class="jumbotron">
   <%= invitation_claimed_badge(@invitation) %>
   <span class="badge badge-primary" title='Locale'.t><%= @invitation.locale %></span>

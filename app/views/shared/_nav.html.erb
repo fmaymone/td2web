@@ -1,13 +1,59 @@
-<% if user_signed_in? %>
-  <% cache([ @current_user || 'unknown', 'nav' ]) do %>
-    <%= link_to('Dashboard'.t, root_path) %>
-    <%= link_to('Tenants'.t, tenants_path) if policy(Tenant).index? %>
-    <%= link_to('Users'.t, users_path) if policy(User).index? %>
-    <%= link_to('Translations'.t, application_translations_path) if policy(ApplicationTranslation).index? %>
-    <%= link_to('Entitlements'.t, entitlements_path) if policy(Entitlement).index?  %>
-    <%= link_to('Invitations'.t, invitations_path) if policy(Invitation).index? %>
-    <%= render partial: 'shared/login_items' %>
-  <% end %>
-<% else %>
-  <%= render partial: 'shared/login_items' %>
-<% end %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">TeamDiagnostic</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+
+      <% if user_signed_in? %>
+        <% cache([ @current_user || 'unknown', 'nav' ]) do %>
+          <li class="nav-item <%= nav_item_class(:home) %>">
+            <%= link_to('Dashboard'.t, root_path, class: 'nav-link') %>
+          </li>
+          <% if policy(Tenant).index? %>
+            <li class="nav-item <%= nav_item_class(:tenants) %>">
+              <%= link_to('Tenants'.t, tenants_path, class: 'nav-link')  %>
+            </li>
+          <% end %>
+          <% if policy(User).index? %>
+            <li class="nav-item <%= nav_item_class(:users) %>">
+              <%= link_to('Users'.t, users_path, class: 'nav-link')  %>
+            </li>
+          <% end %>
+          <% if policy(ApplicationTranslation).index? %>
+            <li class="nav-item <%= nav_item_class(:translations) %>">
+              <%= link_to('Translations'.t, application_translations_path, class: 'nav-link')  %>
+            </li>
+          <% end %>
+          <% if policy(Entitlement).index? %>
+            <li class="nav-item <%= nav_item_class(:entitlements) %>">
+              <%= link_to('Entitlements'.t, entitlements_path, class: 'nav-link')  %>
+            </li>
+          <% end %>
+          <% if policy(Invitation).index? %>
+            <li class="nav-item <%= nav_item_class(:invitations) %>">
+              <%= link_to('Invitations'.t, invitations_path, class: 'nav-link')  %>
+            </li>
+          <% end %>
+          <% if policy(Organization).index? %>
+            <li class="nav-item <%= nav_item_class(:organizations) %>">
+              <%= link_to('Organizations'.t, organizations_path, class: 'nav-link')  %>
+            </li>
+          <% end %>
+          <li class="nav-item <%= nav_item_class(:users, :edit) %>">
+            <%= link_to('Profile'.t, edit_user_path(current_user), class: 'nav-link') %>
+          </li>
+          <li class="nav-item">
+            <%= link_to('Logout'.t, destroy_user_session_path, method: :delete, class: 'nav-link') %>
+          </li>
+        <% end %>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to('Login'.t, new_user_session_path, class: 'nav-link') unless controller.controller_name == 'sessions' %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+<hr/>

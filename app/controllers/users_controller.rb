@@ -11,13 +11,14 @@ class UsersController < ApplicationController
     search = UserServices::Search.new(params, policy_scope(User), current_user)
     @users = search.call
     @page_title = 'Manage User Accounts'.t
+    @current_page = 'List'.t
   end
 
   def new
     authorize User
     @user = User.new(tenant: current_tenant, user_profile: UserProfile.new)
     @show_validation_messages = false
-    @page_tile = 'New User Account'.t
+    @current_page = @page_title = 'New User Account'.t
   end
 
   def create
@@ -36,15 +37,16 @@ class UsersController < ApplicationController
 
   def show
     authorize @user
+    @current_page = @user.name
   end
 
   def edit
     authorize @user
     @page_title = 'Edit User Account'.t
+    @current_page = @user.name
   end
 
   def update
-    # TODO: Refactor to prevent privilege escalation
     authorize @user
     respond_to do |format|
       if @user.update(user_params)

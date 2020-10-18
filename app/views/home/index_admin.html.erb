@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-lg-9 jumbotron">
+    <h1 class="display-4"><%= 'Welcome %{name}'.t(name: @current_user.user_profile.first_name || @current_user.name) %></h1>
+    <p class="lead">
+      This is your TeamDiagnostic Application Dashboard.
+    </p>
+  </div>
+  <div class="col-lg-3">
+    <%= render partial: 'profile_card', locals: { user: @current_user } %>
+    <hr/>
+    <%= render partial: 'entitlement_card', locals: { user: @current_user } %>
+  </div>
+</div>

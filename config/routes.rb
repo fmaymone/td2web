@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       post 'process_claim', to: 'invitations#process_claim'
     end
   end
+  resources :organizations
   resources :tenants
   resources :translations, as: :application_translations, alias: :translations
   resources :users do

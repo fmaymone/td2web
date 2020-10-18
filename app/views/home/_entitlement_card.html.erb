@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title"><%= 'Entitlements'.t %></h5>
+    <p class="card-text">
+      <%= user.grants.empty? ? 'None'.t : '' %>
+      <% user.grants.each do |grant| %>
+        <p style="line-height: 0.8em;" >
+          <small>
+            <span class="badge-pill badge-info text-nowrap">
+              <%= grant.usage_count %> / <%= grant.quota %>
+            </span>
+            &nbsp;<strong><%= grant.entitlement.description %></strong>
+          </small>
+        </p>
+      <% end %>
+    </p>
+  </div>
+</div>

@@ -24,12 +24,14 @@ RSpec.describe EntitlementServices::Grant do
     end
     describe 'which is of too high privilege' do
       it 'should fail to create a grant' do
+        facilitator
         count = Grant.count
+        facilitator_grant_count = facilitator.grants.count
         service = EntitlementServices::Grant.new(user: staff, grantor: admin, entitlement: entitlement_for_admins)
         result = service.call
         refute(result)
         facilitator.reload
-        expect(facilitator.grants.count).to eq(0)
+        expect(facilitator.grants.count).to eq(facilitator_grant_count)
         expect(Grant.count).to eq(count)
       end
     end
@@ -38,23 +40,26 @@ RSpec.describe EntitlementServices::Grant do
   describe 'Staff granting an entitlement' do
     describe 'with an equal or lower entitlement role' do
       it 'should create a grant' do
+        facilitator
         count = Grant.count
         service = EntitlementServices::Grant.new(user: facilitator, grantor: staff, entitlement: entitlement_for_facilitators)
         result = service.call
         assert(result && result.valid?)
         facilitator.reload
-        expect(facilitator.grants.last).to eq(result)
+        expect(facilitator.grants.pluck(:id)).to include(result.id)
         expect(Grant.count).to eq(count + 1)
       end
     end
     describe 'with a higher role entitlement' do
       it 'should fail to create a grant' do
+        facilitator
         count = Grant.count
+        facilitator_grant_count = facilitator.grants.count
         service = EntitlementServices::Grant.new(user: facilitator, grantor: staff, entitlement: entitlement_for_admins)
         result = service.call
         refute(result)
         facilitator.reload
-        expect(facilitator.grants.count).to eq(0)
+        expect(facilitator.grants.count).to eq(facilitator_grant_count)
         expect(Grant.count).to eq(count)
       end
     end
