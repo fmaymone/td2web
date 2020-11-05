@@ -1,0 +1,19 @@
+---
+:entitlements:
+  :version: 1
+  :key: :slug
+  :data:
+  - :slug: <%= Entitlement::REGISTER_AS_FACILITATOR %>
+    :account: false
+    :role_id: <%= Role.facilitator.id %>
+    :reference: 'Users::Registrations#'
+    :description: 'Account registration as a Facilitator'
+    :quota: 1
+    :active: true
+  - :slug: <%= Entitlement::CREATE_ORGANIZATION %>
+    :account: true
+    :role_id: <%= Role.facilitator.id %>
+    :reference: <%= OrganizationServices::Creator::REFERENCE %>
+    :description: 'Create an Organization'
+    :quota: 1
+    :active: true

@@ -7,6 +7,7 @@ class HomeController < ApplicationController
 
   def index
     @page_title = 'TeamDiagnostic Home'.t
+    render roled_dashboard_partial_name
   end
 
   def request_consent
@@ -21,4 +22,10 @@ class HomeController < ApplicationController
   end
 
   def after_registration; end
+
+  private
+
+  def roled_dashboard_partial_name
+    "index_#{@current_user.role&.slug || 'default'}"
+  end
 end

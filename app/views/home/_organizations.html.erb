@@ -1,0 +1,9 @@
+<% if @current_user.organizations.any? %>
+  <%= render collection: @current_user.organizations.order(name: :desc), partial: 'organization' %>
+<% else %>
+  <p class="lead">
+    Now that you are registered, your next step is to create an Organization.
+    <hr class="my-4">
+    <%= link_to('Continue'.t, new_organization_path, class: 'btn btn-lg btn-success') %>
+  </p>
+<% end %>

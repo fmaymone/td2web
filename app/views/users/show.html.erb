@@ -1,3 +1,8 @@
+<div class="row">
+  <div clas="col">
+    <%= render partial: 'breadcrumbs' %>
+  </div>
+</div>
 <div class="jumbotron">
   <h1>
     <%= @user.username %>
@@ -73,5 +78,5 @@
 
   <hr />
   <%= link_to('Edit'.t, edit_user_path(@user), class: 'btn btn-primary') %>
-  <%= link_to('Back'.t, users_path(@user), class: 'btn btn-light') %>
+  <%= link_to('Back'.t, :back, class: 'btn btn-light') %>
 </div>

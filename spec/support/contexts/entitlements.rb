@@ -1,20 +1,18 @@
 # frozen_string_literal: true
 
+require_relative '../../../db/seed/entitlements'
+
 RSpec.shared_context 'entitlements', shared_context: :metadate do
-  include_context 'default_tenant'
-  include_context 'roles'
+  let(:entitlement_seed_data) { Seeds::Entitlements.new.call }
 
   let(:registration_entitlement) do
-    Entitlement.where(slug: Entitlement::REGISTER_AS_FACILITATOR).first ||
-      Entitlement.create(
-        active: true,
-        account: false,
-        role: facilitator_role,
-        reference: 'Users::Registrations#',
-        slug: Entitlement::REGISTER_AS_FACILITATOR,
-        quota: 1,
-        description: 'Register as an Teamdiagnostic facilitator'
-      )
+    entitlement_seed_data
+    Entitlement.where(slug: Entitlement::REGISTER_AS_FACILITATOR).first
+  end
+
+  let(:create_organization_entitlement) do
+    entitlement_seed_data
+    Entitlement.where(slug: Entitlement::CREATE_ORGANIZATION).first
   end
 
   let(:entitlement_for_admins) { create(:entitlement, role: admin_role) }

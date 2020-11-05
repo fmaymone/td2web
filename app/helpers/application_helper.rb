@@ -81,4 +81,17 @@ module ApplicationHelper
   def i18n_date_long(date)
     I18n.l(date, format: :long, locale: @current_locale)
   end
+
+  def sanitized_translation(key)
+    whitelisted = %w[ul li p b i h2 h3 strong small br hr]
+    sanitize key.t, tags: whitelisted
+  end
+
+  def nav_item_class(key, action = nil)
+    nav_item_active?(key, action) ? 'active' : ''
+  end
+
+  def nav_item_active?(key, action = nil)
+    params[:controller] == key.to_s && (action ? params[:action] == action.to_s : true)
+  end
 end

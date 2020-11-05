@@ -9,6 +9,7 @@ class InvitationsController < ApplicationController
   def index
     authorize Invitation
     @invitations = invitation_scope.order(created_at: :desc).page(@page)
+    @current_page = 'List'.t
   end
 
   def new
@@ -31,11 +32,13 @@ class InvitationsController < ApplicationController
 
   def show
     authorize @invitation
+    @current_page = @invitation.email
   end
 
   # Disabled by Policy
   def edit
     authorize @invitation
+    @current_page = @invitation.email
   end
 
   # Disabled by Policy

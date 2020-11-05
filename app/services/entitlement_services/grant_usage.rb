@@ -13,6 +13,8 @@ module EntitlementServices
     end
 
     def call(&_block)
+      return yield if privileged_user?
+
       if @grant
         if block_given? && !yield
           @errors << 'Grant unused because the referenced execution failed'
@@ -27,7 +29,13 @@ module EntitlementServices
 
     private
 
+    def privileged_user?
+      @user.admin? || @user.staff?
+    end
+
     def find_grant
+      return nil if privileged_user?
+
       grants = @user.grants.valid
                     .where(reference: @reference)
                     .order(granted_at: :asc)

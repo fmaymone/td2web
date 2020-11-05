@@ -49,12 +49,14 @@ RSpec.describe EntitlementServices::InvitationClaim do
         )
       end
       it 'it should create grants when called' do
+        facilitator
         count = Grant.count
+        facilitator_grant_count = facilitator.grants.count
         service.call
         facilitator.reload
         expect(service.errors).to be_empty
         expect(Grant.count).to eq(count + 2)
-        expect(facilitator.grants.count).to eq(2)
+        expect(facilitator.grants.count).to eq(facilitator_grant_count + 2)
       end
     end
   end

@@ -31,6 +31,7 @@ class Tenant < ApplicationRecord
   ### Associations
   has_many :users
   has_many :invitations
+  has_many :organizations
 
   ### Class Methods
   def self.default_tenant

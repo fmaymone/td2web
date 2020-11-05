@@ -5221,3 +5221,63 @@ en,emailtemplate--html--unlock_instructions,"<p>Hello {{name}}!</p>
 en,Slug,Slug
 en,Domain,Domain
 en,Your account has been unlocked successfully. Please sign in to continue,Your account has been unlocked successfully. Please sign in to continue
+en,TeamDiagnostic Home,TeamDiagnostic Home
+en,New Organization,New Organization
+en,Website,Website
+en,Industry,Industry
+en,Revenue,Revenue
+en,Agriculture,Agriculture
+en,Apparel,Apparel
+en,Banking,Banking
+en,Biotechnology,Biotechnology
+en,Chemicals,Chemicals
+en,Communication,Communication
+en,Construction,Construction
+en,Consulting,Consulting
+en,Education,Education
+en,Electronics,Electronics
+en,Energy,Energy
+en,Engineering,Engineering
+en,Entertainment,Entertainment
+en,Environmental,Environmental
+en,Finance,Finance
+en,Food and Beverage,Food and Beverage
+en,Government,Government
+en,Health Care Facilities,Health Care Facilities
+en,Hospitality,Hospitality
+en,Insurance,Insurance
+en,Manufacturing,Manufacturing
+en,Media / Publishing,Media / Publishing
+en,Medical / Pharmaceutical,Medical / Pharmaceutical
+en,Not for Profit / NGO,Not for Profit / NGO
+en,Recreation,Recreation
+en,Retail,Retail
+en,Shipping,Shipping
+en,Technology / Software,Technology / Software
+en,Telecommunications,Telecommunications
+en,Transportation,Transportation
+en,Utilities,Utilities
+en,Other,Other
+en,Non Profit Organization,Non Profit Organization
+en,For Profit Organization under US$1 million,For Profit Organization under US$1 million
+en,For Profit Organization US$1-10 million,For Profit Organization US$1-10 million
+en,For Profit Organization US$10-25 million,For Profit Organization US$10-25 million
+en,For Profit Organization US$25-50 million,For Profit Organization US$25-50 million
+en,For Profit Organization US$50-100 million,For Profit Organization US$50-100 million
+en,For Profit Organization over US$100 million,For Profit Organization over US$100 million
+en,Admin,Admin
+en,Member,Member
+en,Members,Members
+en,Edit Organization,Edit Organization
+en,Organization was deleted,Organization was deleted
+en,Organization was updated,Organization was updated
+en,Welcome %{name},"Welcome, %{name}"
+en,More,More
+en,Continue,Continue
+en,Create your first Team,Create your first Team
+en,List,List
+en,Teams,Teams
+en,Diagnostics,Diagnostics
+en,Edit %{name},Edit %{name}
+en,New User Account,New User Account
+en,User was created,User was created

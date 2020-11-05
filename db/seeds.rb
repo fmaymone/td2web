@@ -3,48 +3,52 @@
 # Load seed modules
 Dir[File.join(__dir__, 'seed', '*.rb')].sort.each { |file| require file }
 
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-### Contents
-#
-# * Default Organization
-#
+def run_seeder(seeder)
+  if (s = seeder.new).call
+    puts 'OK'
+  else
+    puts "FAILED: #{s.errors.join(', ')}"
+  end
+end
 
 puts "=== Seeding Database ===\n\n"
+[
+  # the order is meaningful
+  Seeds::Tenants,
+  Seeds::Translations,
+  Seeds::Roles,
+  Seeds::Users,
+  Seeds::Entitlements
+].map { |seeder| run_seeder(seeder) }
 
-### Default Tenants
-if (seeder = Seeds::Tenants.new).call
-  puts 'OK'
-else
-  puts "FAILED: #{seeder.errors.join(', ')}"
-end
+#### Default Tenants
+# run_seeder(Seeds::Tenants)
+# if (seeder = Seeds::Tenants.new).call
+# puts 'OK'
+# else
+# puts "FAILED: #{seeder.errors.join(', ')}"
+# end
 
-### Default Translations
-if (seeder = Seeds::Translations.new).call
-  puts 'OK'
-else
-  puts "FAILED: #{seeder.errors.join(', ')}"
-end
+#### Default Translations
+# if (seeder = Seeds::Translations.new).call
+# puts 'OK'
+# else
+# puts "FAILED: #{seeder.errors.join(', ')}"
+# end
 
-### Default Roles
-Seeds::Roles.new.call
+#### Default Roles
+# Seeds::Roles.new.call
 
-### Default Users
-if (seeder = Seeds::Users.new).call
-  puts 'OK'
-else
-  puts "FAILED: #{seeder.errors.join(', ')}"
-end
+#### Default Users
+# if (seeder = Seeds::Users.new).call
+# puts 'OK'
+# else
+# puts "FAILED: #{seeder.errors.join(', ')}"
+# end
 
-### Entitlements
-if (seeder = Seeds::Entitlements.new).call
-  puts 'OK'
-else
-  puts "FAILED: #{seeder.errors.join(', ')}"
-end
+#### Entitlements
+# if (seeder = Seeds::Entitlements.new).call
+# puts 'OK'
+# else
+# puts "FAILED: #{seeder.errors.join(', ')}"
+# end

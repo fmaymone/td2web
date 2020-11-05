@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">
+      <%= 'Profile'.t %>
+      <%= link_to('Edit'.t, edit_user_path(user), class: 'btn btn-sm btn-primary' ) %>
+    </h5>
+    <p class="card-text">
+      <%= user.name %>
+      <strong><%= user.email %></strong><br/>
+      You are a
+      <span class="badge badge-primary"><%= user.role.name.t %></span><br/>
+    </p>
+  </div>
+</div>

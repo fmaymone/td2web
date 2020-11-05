@@ -9,6 +9,7 @@ class EntitlementsController < ApplicationController
   def index
     authorize Entitlement
     @entitlements = entitlement_scope.order(reference: :asc)
+    @current_page = 'List'.t
   end
 
   def new
@@ -30,10 +31,12 @@ class EntitlementsController < ApplicationController
 
   def show
     authorize @entitlement
+    @current_page = @entitlement.slug
   end
 
   def edit
     authorize @entitlement
+    @current_page = @entitlement.slug
   end
 
   def update

@@ -38,6 +38,7 @@ class User < ApplicationRecord
   include Users::Devise
   include Users::Roles
   include Users::Profiles
+  include Users::Organizations
 
   ### Associations
   belongs_to :tenant

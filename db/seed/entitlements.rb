@@ -11,26 +11,7 @@ module Seeds
     end
 
     def call
-      success = true
-      log('*** Creating seed Entitlements')
-
-      begin
-        log('=== Facilitator registration')
-        entitlement = Entitlement.new(
-          active: true,
-          account: false,
-          role: Role.facilitator,
-          slug: Entitlement::REGISTER_AS_FACILITATOR,
-          reference: 'Users::Registrations#',
-          description: 'Account registration as a Facilitator',
-          quota: 1
-        )
-        @errors << entitlement.errors.full_messages unless entitlement.save
-      rescue StandardError => e
-        puts e
-      end
-
-      success
+      Entitlement.load_seed_data
     end
 
     private

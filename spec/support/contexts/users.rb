@@ -4,6 +4,7 @@ RSpec.shared_context 'users', shared_context: :metadate do
   include_context 'default_tenant'
   include_context 'roles'
   include_context 'grants'
+  include_context 'entitlements'
 
   let(:admin) do
     user = build(:user,
@@ -55,6 +56,21 @@ RSpec.shared_context 'users', shared_context: :metadate do
                  user_profile_attributes: attributes_for(:user_profile),
                  confirmed_at: DateTime.now)
     user.save!
+    create(:grant, user: user, grantor: admin, reference: OrganizationServices::Creator::REFERENCE, entitlement: create_organization_entitlement, quota: 3)
+    user
+  end
+  let(:facilitator2) do
+    user = build(:user,
+                 role: facilitator_role,
+                 tenant: default_tenant,
+                 username: 'facilitator2',
+                 email: 'facilitator2@example.com',
+                 password: 'Foobarquux1.',
+                 password_confirmation: 'Foobarquux1.',
+                 user_profile_attributes: attributes_for(:user_profile),
+                 confirmed_at: DateTime.now)
+    user.save!
+    create(:grant, user: user, grantor: admin, reference: OrganizationServices::Creator::REFERENCE, entitlement: create_organization_entitlement, quota: 3)
     user
   end
   let(:member) do

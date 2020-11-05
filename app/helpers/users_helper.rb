@@ -9,7 +9,7 @@ module UsersHelper
   end
 
   def locales_for_select(user = nil)
-    locales = GlobalizeLanguage.order(:iso_639_1).map { |l| [l.english_name.t, l.iso_639_1] }
+    locales = GlobalizeLanguage.order(:english_name).map { |l| [l.english_name.t, l.iso_639_1] }
     options_for_select(locales, user&.locale)
   end
 

@@ -15,6 +15,9 @@ module EntitlementServices
     end
 
     def call(slug = nil)
+      # Admins are not restricted by Entitlements
+      return true if @user&.admin?
+      # Automatic fail if the functional reference cannot be resolved
       return false unless @references.present?
 
       @user.present? ? authorize_user(slug) : authorized_invitations(slug).present?

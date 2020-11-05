@@ -1,4 +1,10 @@
 <div class="row">
+  <div clas="col">
+    <%= render partial: 'breadcrumbs' %>
+  </div>
+</div>
+
+<div class="row">
   <div class="col">
     <h1><%= 'Manage User Accounts'.t %>
     <small><%= link_to('Add'.t, new_user_path, class: 'btn btn-sm btn-primary') %></small>
