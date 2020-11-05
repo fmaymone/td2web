@@ -45,7 +45,7 @@ class OrganizationPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.members.pluck(:id) == [user.id]
+    admin? || organization_admin?
     # TODO: check for presence of Teams
   end
 
@@ -56,7 +56,7 @@ class OrganizationPolicy < ApplicationPolicy
   def organization_admin?
     return false if record == Organization
 
-    record.organization_users.where(user_id: user.id).first&.role == 'admin'
+    record.admin?(user)
   end
 
   def allowed_params

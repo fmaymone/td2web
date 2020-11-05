@@ -38,10 +38,19 @@ class Organization < ApplicationRecord
 
   ### Associations
   belongs_to :tenant
-  has_many :organization_users
+  has_many :organization_users, dependent: :destroy
   has_many :members, through: :organization_users, class_name: 'User', source: :user
 
   ### Class Methods
 
+
   ### Instance Methods
+
+  def admins
+    organization_users.admins
+  end
+
+  def admin?(user)
+    admins.where(user_id: user.id).any?
+  end
 end

@@ -21,4 +21,6 @@ class OrganizationUser < ApplicationRecord
 
   ### Validations
   validates :user_id, uniqueness: { scope: :organization_id, message: 'is already a member of this organization' }
+
+  scope :admins, -> { where(role: 'admin')}
 end

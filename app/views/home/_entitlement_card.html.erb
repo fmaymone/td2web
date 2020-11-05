@@ -6,7 +6,7 @@
       <% user.grants.each do |grant| %>
         <p style="line-height: 0.8em;" >
           <small>
-            <span class="badge-pill badge-info text-nowrap">
+            <span class="badge-pill badge-light text-nowrap">
               <%= grant.usage_count %> / <%= grant.quota %>
             </span>
             &nbsp;<strong><%= grant.entitlement.description %></strong>

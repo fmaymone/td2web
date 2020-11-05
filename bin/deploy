@@ -2,7 +2,7 @@
 
 DEPLOY_ENV=$1
 DATE_STR=$(date +%y%m%d%H%M)
-PAAS_COMMAND_STAGING=tdv2dokku
+PAAS_COMMAND_STAGING="ssh tdv2dokku"
 STAGING_REMOTE=staging
 STAGING_APP=staging.tdv2.bellingham.dev
 # PROD_REMOTE=production
