@@ -36,13 +36,13 @@
             </td>
             <td>
               <p class="text-nowrap">
-                <span class="badge badge-primary"><%= user.role.name.t %></span>
+                <span class="badge badge-info"><%= user.role.name.t %></span>
                 <span class="badge badge-<%= user.locked? ? 'danger' : 'success' %>"><%= user.locked? ? 'Locked'.t : 'Active'.t %></span>
                 <span class="badge badge-<%= user.confirmed? ? 'success' : 'warning' %>"><%= user.confirmed? ? 'Confirmed'.t : 'Unconfirmed'.t %></span>
                 <br/>
                 <strong><%= 'Created'.t %>:</strong> <span class="text-nowrap"><%= l(user.created_at, format: :long) %></span><br/>
-                <strong><%= 'Confirmed'.t %>:</strong> <span class="text-nowrap"><%= user.confirmed? ? l(user.confirmed_at, format: :long) : '-'  %></span><br/>
-                <strong><%= 'Locked'.t %>:</strong> <span class="text-nowrap"><%= user.locked? ? l(user.locked_at, format: :long) : '-'  %></span><br/>
+                <strong><%= 'Confirmed'.t %>:</strong> <span class="text-nowrap"><%= user.confirmed? ? l(user.confirmed_at, format: :long) : 'No'.t  %></span><br/>
+                <strong><%= 'Locked'.t %>:</strong> <span class="text-nowrap"><%= user.locked? ? l(user.locked_at, format: :long) : 'No'.t  %></span><br/>
               </p>
               <% if policy(user).edit_staff_notes? %>
                 <p>

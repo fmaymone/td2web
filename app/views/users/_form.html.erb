@@ -24,16 +24,14 @@
       </div>
     </div>
     <%= form.email_field :email, label: 'Email'.t, required: true %>
-    <% if @user.new_record? %>
-      <div class="form-row">
-        <div class="col-sm-6">
-          <%= form.password_field :password, label: 'Password'.t, required: user.new_record?, autocomplete: 'new-password' %>
-        </div>
-        <div class="col-sm-6">
-          <%= form.password_field :password_confirmation, label: 'Password Confirmation'.t, required: user.new_record?, autocomplete: 'new-password' %>
-        </div>
+    <div class="form-row">
+      <div class="col-sm-6">
+        <%= form.password_field :password, label: 'Password'.t, required: user.new_record?, autocomplete: 'new-password' %>
       </div>
-    <% end %>
+      <div class="col-sm-6">
+        <%= form.password_field :password_confirmation, label: 'Password Confirmation'.t, required: user.new_record?, autocomplete: 'new-password' %>
+      </div>
+    </div>
     <div class="form-row">
       <div class="col-sm-4">
         <%= form.select :locale, locales_for_select(user), label: 'Locale'.t, required: true %>
@@ -90,6 +88,10 @@
           <%= profile.label :country, 'Country'.t %>
           <%= profile.select :country, countries_for_select(user.user_profile), { allow_blank: false }, { class: 'form-control' } %>
         </div>
+        <div class="col-sm-6 form-group">
+          <%= profile.label :phone_number, 'Phone Number'.t %>
+          <%= profile.text_field :phone_number, type: 'tel', class: 'form-control', required: true %>
+        </div>
       </div>
       <% if policy(user).edit_staff_notes? %>
         <div class="form-row">
@@ -108,20 +110,6 @@
       <%= 'Consent'.t %>
       <%= link_to('View Agreements'.t, request_consent_path, class: 'btn btn-sm btn-info') %>
     </legend>
-    <% if policy(user).update_consent? %>
-      <%= fields_for 'user[user_profile_attributes][consent]', OpenStruct.new(user.user_profile&.consent) do |consent| %>
-        <div class="form-row" style="padding-left: 2em;">
-          <div class="col form-group form-check">
-            <%= consent.check_box :eula, class: 'form-check-input' %>
-            <%= consent.label :eula, 'Accepts the website terms and conditions'.t, class: 'form-check-label' %>
-          </div>
-          <div class="col form-group form-check">
-            <%= consent.check_box :cookies_required, class: 'form-check-input' %>
-            <%= consent.label :cookies_required, 'Permits the use of website cookies'.t, class: 'form-check-label' %>
-          </div>
-        </div>
-      <% end %>
-    <% else %>
       <p class="lead">
         <strong><%= 'Permits the use of website cookies'.t %></strong>
         <span class="badge badge-<%= @user.consent_granted?(:cookies) ? 'success' : 'warning' %>">
@@ -132,7 +120,6 @@
           <%= @user.consent_granted?('eula') ? 'Yes'.t : 'No'.t %>
         </span>
       </p>
-    <% end %>
   </fieldset>
 
   <div class="form-row">

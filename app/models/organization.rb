@@ -43,7 +43,6 @@ class Organization < ApplicationRecord
 
   ### Class Methods
 
-
   ### Instance Methods
 
   def admins
