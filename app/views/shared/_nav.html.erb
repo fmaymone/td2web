@@ -11,9 +11,9 @@
           <li class="nav-item <%= nav_item_class(:home) %>">
             <%= link_to('Dashboard'.t, root_path, class: 'nav-link') %>
           </li>
-          <% if policy(Tenant).index? %>
-            <li class="nav-item <%= nav_item_class(:tenants) %>">
-              <%= link_to('Tenants'.t, tenants_path, class: 'nav-link')  %>
+          <% if policy(Invitation).index? %>
+            <li class="nav-item <%= nav_item_class(:invitations) %>">
+              <%= link_to('Invitations'.t, invitations_path, class: 'nav-link')  %>
             </li>
           <% end %>
           <% if policy(User).index? %>
@@ -21,26 +21,30 @@
               <%= link_to('Users'.t, users_path, class: 'nav-link')  %>
             </li>
           <% end %>
-          <% if policy(ApplicationTranslation).index? %>
-            <li class="nav-item <%= nav_item_class(:translations) %>">
-              <%= link_to('Translations'.t, application_translations_path, class: 'nav-link')  %>
-            </li>
-          <% end %>
-          <% if policy(Entitlement).index? %>
-            <li class="nav-item <%= nav_item_class(:entitlements) %>">
-              <%= link_to('Entitlements'.t, entitlements_path, class: 'nav-link')  %>
-            </li>
-          <% end %>
-          <% if policy(Invitation).index? %>
-            <li class="nav-item <%= nav_item_class(:invitations) %>">
-              <%= link_to('Invitations'.t, invitations_path, class: 'nav-link')  %>
-            </li>
-          <% end %>
           <% if policy(Organization).index? %>
             <li class="nav-item <%= nav_item_class(:organizations) %>">
               <%= link_to('Organizations'.t, organizations_path, class: 'nav-link')  %>
             </li>
           <% end %>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbar--system-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<%= 'System'.t %>
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbar--system-dropdown">
+							<% if policy(Entitlement).index? %>
+								<%= link_to('Entitlements'.t, entitlements_path, class: 'dropdown-item')  %>
+							<% end %>
+							<% if policy(Diagnostic).index? %>
+								<%= link_to('Diagnostics'.t, diagnostics_path, class: 'dropdown-item')  %>
+							<% end %>
+							<% if policy(Tenant).index? %>
+								<%= link_to('Tenants'.t, tenants_path, class: 'dropdown-item')  %>
+							<% end %>
+							<% if policy(ApplicationTranslation).index? %>
+								<%= link_to('Translations'.t, application_translations_path, class: 'dropdown-item')  %>
+							<% end %>
+						</div>
+					</li>
           <li class="nav-item <%= nav_item_class(:users, :edit) %>">
             <%= link_to('Profile'.t, edit_user_path(current_user), class: 'nav-link') %>
           </li>

@@ -21,7 +21,7 @@
 #  staff_notes  :text
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  phone_number :string
+#  phone_number :string           not null
 #
 class UserProfile < ApplicationRecord
   ### Constants

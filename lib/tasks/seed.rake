@@ -34,5 +34,20 @@ namespace :db do
         puts "FAILED: #{seeder.errors.join(', ')}"
       end
     end
+
+    desc 'Diagnostics'
+    task diagnostics: :environment do
+      require_relative '../../db/seed/diagnostics'
+      run_seeder(Seeds::Diagnostics)
+    end
+  end
+end
+
+# Call the Seeder Module
+def run_seeder(seeder)
+  if (s = seeder.new).call
+    puts 'OK'
+  else
+    puts "FAILED: #{s.errors.join(', ')}"
   end
 end

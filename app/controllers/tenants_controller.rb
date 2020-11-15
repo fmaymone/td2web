@@ -42,7 +42,7 @@ class TenantsController < ApplicationController
 
     respond_to do |format|
       if @tenant.save
-        format.html { redirect_to @tenant, notice: 'Tenant was successfully created.'.t }
+        format.html { redirect_to @tenant, notice: 'record was created'.t(record: 'Tenant') }
         format.json { render :show, status: :created, location: @tenant }
       else
         format.html { render :new }
@@ -58,7 +58,7 @@ class TenantsController < ApplicationController
     @current_page = @tenant.name
     respond_to do |format|
       if @tenant.update(tenant_params)
-        format.html { redirect_to @tenant, notice: 'Tenant was successfully updated.'.t }
+        format.html { redirect_to @tenant, notice: 'record was updated'.t(record: 'Tenant') }
         format.json { render :show, status: :ok, location: @tenant }
       else
         format.html { render :edit }
@@ -73,7 +73,7 @@ class TenantsController < ApplicationController
     authorize @tenant
     @tenant.destroy
     respond_to do |format|
-      format.html { redirect_to tenants_url, notice: 'Tenant was successfully destroyed.'.t }
+      format.html { redirect_to tenants_url, notice: 'record was destroyed'.t(record: 'Tenant') }
       format.json { head :no_content }
     end
   end

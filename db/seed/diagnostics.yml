@@ -1,0 +1,21 @@
+---
+:diagnostics:
+  :version: 1
+  :key: :slug
+  :data:
+  - :slug: <%= Diagnostic::TDA_SLUG %>
+    :name: Team Diagnostic
+    :description: The Team Diagnostic
+    :active: true
+  - :slug: <%= Diagnostic::TLV_SLUG %>
+    :name: Team Leader View Diagnostic
+    :description: The Team Leader Diagnostic
+    :active: true
+  - :slug: <%= Diagnostic::T360_SLUG %>
+    :name: Team 360 View Diagnostic
+    :description: The Team 360 Diagnostic
+    :active: true
+  - :slug: <%= Diagnostic::ORG_SLUG %>
+    :name: Organization View Diagnostic
+    :description: The Organization View Diagnostic
+    :active: true

@@ -1,0 +1,17 @@
+<div class="row">
+  <div clas="col">
+    <%= render partial: 'breadcrumbs' %>
+  </div>
+</div>
+<div class="jumbotron">
+  <h1><%= @diagnostic.name %></h1>
+    <%= active_badge(@diagnostic.active) %>
+  <p class="lead">
+    <strong><%= 'Slug'.t %></strong>: <tt><%= @diagnostic.slug %></tt><br/>
+    <strong><%= 'Name'.t %></strong>: <%= @diagnostic.name %><br/>
+    <strong><%= 'Description'.t %></strong>: <small> <%= @diagnostic.description %> </small> <br/>
+  </p>
+  <hr/ >
+  <%= link_to('Edit'.t, edit_diagnostic_path(@diagnostic), class: 'btn btn-primary') %>
+  <%= link_to('Back'.t, diagnostics_path, class: 'btn btn-info') %>
+</div>

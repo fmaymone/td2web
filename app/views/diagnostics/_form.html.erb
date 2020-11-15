@@ -1,0 +1,36 @@
+<%= bootstrap_form_for(diagnostic, local: true, html: { role: 'form'}) do |f| %>
+  <%= render partial: 'shared/form_errors', locals: { subject: diagnostic } %>
+
+  <div class="form-row">
+    <div class="col-3">
+      <div class="checkbox">
+        <label>
+          <%= f.check_box :active, label: 'Active'.t %>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-sm-6">
+      <%= f.text_field :slug, label: 'Slug'.t %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-sm-6">
+      <%= f.text_field :name, label: 'Name'.t %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-sm-8">
+      <%= f.text_area :description, label: 'Description'.t, required: false %>
+    </div>
+  </div>
+  
+  <div class="form-row">
+    <%= f.submit 'Submit'.t, class: 'btn btn-primary' %>&nbsp;
+    <%= link_to('Cancel'.t, :back, class: 'btn btn-light') %>
+  </div>
+<% end %>

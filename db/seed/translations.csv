@@ -5144,7 +5144,6 @@ en,Email was not locked,Email was not locked
 en,t receive confirmation instructions?,t receive confirmation instructions?
 en,t receive unlock instructions?,t receive unlock instructions?
 en,We are setting up your account.,We are setting up your account.
-en,Tenant was successfully updated,Tenant was successfully updated
 en,Reference,Reference
 en,Entitlements,Entitlements
 en,Description,Description
@@ -5166,7 +5165,6 @@ en,Edit Entitlement,Edit Entitlement
 en,You are not authorized to perform this action,you are not authorized to perform this action
 en,Entitlement was updated,Entitlement was updated
 en,Entitlement was destroyed,Entitlement was destroyed
-en,Entitlement was successfully created,Entitlement was successfully created
 en,You are not entitled to perform this action,You are not entitled to perform this action
 en,None,None
 en,Grants,Grants
@@ -5281,3 +5279,19 @@ en,Diagnostics,Diagnostics
 en,Edit %{name},Edit %{name}
 en,New User Account,New User Account
 en,User was created,User was created
+en,You have to confirm your email address before continuing,You have to confirm your email address before continuing
+en,dashboard-intro,"This is your TeamDiagnostic Dashboard.
+
+<ul>
+<li>Create Teams</li>
+<li>Set up Diagnostics</li>
+<li>Review current and past Diagnostics</li>
+</ul>"
+en,Phone Number,Phone Number
+en,record was created,%{record} was successfully created.
+en,record was updated,%{record} was successfully updated.
+en,record was destroyed,%{record} was successfully destroyed.
+en,System,System
+en,Edit Diagnostic,Edit Diagnostic
+en,New Diagnostic,New Diagnostic
+en,Diagnostic was successfully destroyed,Diagnostic was successfully destroyed
