@@ -24,4 +24,14 @@ RSpec.shared_context 'diagnostics', shared_context: :metadate do
     diagnostic_seed_data
     Diagnostic.where(slug: Diagnostic::ORG_SLUG).first
   end
+
+  let(:leadership_360_diagnostic) do
+    diagnostic_seed_data
+    Diagnostic.where(slug: Diagnostic::L360_SLUG).first
+  end
+
+  let(:family_tribes_diagnostic) do
+    diagnostic_seed_data
+    Diagnostic.where(slug: Diagnostic::FAMILY_TRIBES_SLUG).first
+  end
 end

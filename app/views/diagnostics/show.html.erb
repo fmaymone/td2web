@@ -12,6 +12,9 @@
     <strong><%= 'Description'.t %></strong>: <small> <%= @diagnostic.description %> </small> <br/>
   </p>
   <hr/ >
-  <%= link_to('Edit'.t, edit_diagnostic_path(@diagnostic), class: 'btn btn-primary') %>
+  <%= 'number-of-questions'.t(count: @diagnostic.diagnostic_questions.count ) %>  
+  <%= link_to('Edit'.t, diagnostic_diagnostic_questions_path(diagnostic_id: @diagnostic.id), class: 'btn btn-sm btn-primary') if policy(DiagnosticQuestion).index? %>
+  <hr/>
+  <%= link_to('Edit'.t, edit_diagnostic_path(@diagnostic), class: 'btn btn-primary') if policy(@diagnostic).edit? %>
   <%= link_to('Back'.t, diagnostics_path, class: 'btn btn-info') %>
 </div>

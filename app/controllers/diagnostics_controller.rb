@@ -84,8 +84,7 @@ class DiagnosticsController < ApplicationController
     policy_scope(skope)
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_diagnostic
-    @diagnostic = Diagnostic.find(params[:id])
+    @diagnostic = policy_scope(Diagnostic).find(params[:id])
   end
 end

@@ -40,6 +40,7 @@
   <div id="translations--search-bar" class="row sticky-top bg-light">
     <div class="col">
       <%= form_tag(application_translations_path, method: :get) do %>
+        <%= hidden_field_tag('key', @search.options[:key]) %>
         <div class="row">
           <div class="col-4">
 

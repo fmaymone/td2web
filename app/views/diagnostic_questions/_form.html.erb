@@ -1,0 +1,70 @@
+<%= bootstrap_form_for([diagnostic, diagnostic_question], local: true, html: {role: 'form'}) do |f| %>
+  <%= render partial: 'shared/form_errors', locals: { subject: diagnostic_question } %>
+
+  <div class="form-row">
+    <div class="col">
+      <h2><%= diagnostic.name %></h2>
+    </div>
+  </div>
+  <% if diagnostic_question.question_type == DiagnosticQuestion::OPEN_ENDED_TYPE %>
+    <%= f.hidden_field :question_type, value: DiagnosticQuestion::OPEN_ENDED_TYPE %>
+    <%= f.hidden_field :category, value: 'NoCategory' %>
+    <%= f.hidden_field :factor, value: 'NoFactor' %>
+    <%= f.hidden_field :matrix, value: 0 %>
+    <div class="form-row">
+      <div class="col-8">
+        <div class="checkbox">
+          <label><%= f.check_box :negative, label: 'Negative'.t %></label>
+        </div>
+        <%= f.text_area :body, required: true, label: 'Body'.t %>
+      </div>
+    </div>
+  <% else %>
+    <div class="form-row">
+      <div class="col-6">
+        <%= f.select :question_type, diagnostic_question_types_for_select(diagnostic_question), label: 'Type'.t %>
+      </div>
+      <div class="col-3">
+        <%= f.number_field :matrix, required: true, label: 'Matrix'.t %>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-6">
+        <%= f.select :category, diagnostic_question_categories_for_select(diagnostic_question), label: 'Category'.t %>
+      </div>
+      <div class="col-6">
+        <%= f.select :factor, diagnostic_question_factors_for_select(diagnostic_question), label: 'Factor'.t %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-6">
+        <div class="checkbox">
+          <label><%= f.check_box :negative, label: 'Negative'.t %></label>
+        </div>
+        <%= f.text_area :body, required: true, label: 'Body'.t %>
+      </div>
+      <% if !diagnostic_question.question_type == DiagnosticQuestion::OPEN_ENDED_TYPE %>
+        <div class="col-6">
+          <div class="checkbox"><label>&nbsp;</label></div> <!-- Spacer -->
+          <%= f.text_area :body_positive, label: 'Body Positive'.t %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="form-row">
+    <div class="col-3">
+      <div class="checkbox">
+        <label>
+          <%= f.check_box :active, label: 'Active'.t %>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <%= f.submit 'Submit'.t, class: 'btn btn-primary' %>&nbsp;
+    <%= link_to('Cancel'.t, :back, class: 'btn btn-light') %>
+  </div>
+<% end %>

@@ -40,6 +40,12 @@ namespace :db do
       require_relative '../../db/seed/diagnostics'
       run_seeder(Seeds::Diagnostics)
     end
+
+    desc 'Diagnostic Questions'
+    task diagnostic_questions: :environment do
+      require_relative '../../db/seed/diagnostic_questions'
+      run_seeder(Seeds::DiagnosticQuestions)
+    end
   end
 end
 

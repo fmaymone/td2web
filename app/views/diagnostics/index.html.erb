@@ -7,7 +7,7 @@
   <div class="col-md-12">
     <h1>
       <%= 'Diagnostics'.t %>
-      <small><%= link_to('Add'.t, new_diagnostic_path, class: 'btn btn-sm btn-primary') %></small>
+      <small><%= link_to('Add'.t, new_diagnostic_path, class: 'btn btn-sm btn-primary') if policy(Diagnostic).new? %></small>
     </h1>
   </div>
 </div>
@@ -32,7 +32,6 @@
               <span class="text-nowrap">
                 <%= diagnostic.slug %>
               </span>
-              <%= active_badge(diagnostic.active) %>
             </td>
             <td>
               <%= diagnostic.name %>
@@ -40,8 +39,16 @@
             <td>
               <%= diagnostic.description %>
             </td>
+            <td>
+              <%= active_badge(diagnostic.active) %>
+              <%= link_to(diagnostic_diagnostic_questions_path(diagnostic_id: diagnostic.id)) do %>
+                <span class="badge badge-primary">
+                  <%= 'number-of-questions'.t(count: diagnostic.diagnostic_questions.count ) %>  
+                </span>
+              <% end %>
+            </td>
             <td class="text-nowrap">
-              <%= link_to 'Show'.t, diagnostic, class: 'btn btn-sm btn-info' if policy(diagnostic).show? %>
+              <%= link_to 'Show'.t, diagnostic_path(diagnostic), class: 'btn btn-sm btn-info' if policy(diagnostic).show? %>
               <%= link_to 'Edit'.t, edit_diagnostic_path(diagnostic), class: 'btn btn-sm btn-primary' if policy(diagnostic).edit? %>
               <%= link_to 'Destroy'.t, diagnostic, { method: :delete, data: { confirm: 'Are you sure?'.t }, class: 'btn btn-sm btn-warning' } if policy(diagnostic).destroy? %>
             </td>

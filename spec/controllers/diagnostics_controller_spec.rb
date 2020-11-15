@@ -96,8 +96,9 @@ RSpec.describe DiagnosticsController, type: :controller do
     end
     describe 'GET /edit' do
       it 'should disallow access' do
-        get :edit, params: { id: team_diagnostic.id }
-        expect(response).to redirect_to(root_path)
+        expect do
+          get :edit, params: { id: team_diagnostic.id }
+        end.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
   end

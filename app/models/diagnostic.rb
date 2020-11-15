@@ -19,6 +19,8 @@ class Diagnostic < ApplicationRecord
   TLV_SLUG = 'TLV'
   T360_SLUG = 'T360'
   ORG_SLUG = 'ORG'
+  LEAD_360_SLUG = 'L360'
+  FAMILY_TRIBES_SLUG = 'FT'
 
   ### Concerns
   include Seeds::Seedable
@@ -32,6 +34,7 @@ class Diagnostic < ApplicationRecord
   scope :active, -> { where(active: true) }
 
   ### Associations
+  has_many :diagnostic_questions, dependent: :destroy
 
   ### Class Methods
 

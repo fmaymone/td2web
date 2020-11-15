@@ -1,0 +1,83 @@
+
+<tr id="<%= diagnostic_question.id %>">
+  <td>
+    <% if diagnostic_question.question_type == DiagnosticQuestion::RATING_TYPE %>
+      <span class="badge badge-info">
+        <%= diagnostic_question.matrix %>
+      </span>
+    <% end %>
+  </td>
+  <td>
+    <p class="lead">
+      <% if diagnostic_question.question_type == DiagnosticQuestion::RATING_TYPE %>
+        <%= diagnostic_question.category %> &mdash;
+        <%= diagnostic_question.factor %>
+      <% elsif diagnostic_question.question_type == DiagnosticQuestion::OPEN_ENDED_TYPE %>
+        <%= 'Open-Ended' %>
+      <% end %>
+      <%= link_to('Edit'.t, edit_diagnostic_diagnostic_question_path(diagnostic_id: diagnostic.id, id: diagnostic_question.id), class: 'btn btn-sm btn-primary') if policy(diagnostic_question).edit? %>
+      <%= link_to('Delete'.t, diagnostic_diagnostic_question_path(diagnostic_id: diagnostic.id, id: diagnostic_question.id), method: :delete, data: {confirm: 'Are you sure?'.t}, class: 'btn btn-sm btn-warning') if !diagnostic_question.active && policy(diagnostic_question).edit? %>
+    </p>
+
+    <%= active_badge(diagnostic_question.active) unless diagnostic_question.active %>
+    <div class="accordion" id="question-<%= diagnostic_question.id %>-body-translations">
+      <div class="card">
+        <div class="card-header" id="question-<%= diagnostic_question.id %>-body-header">
+          <h2 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#question-<%= diagnostic_question.id %>-body" aria-expanded="true" aria-controls="question-<%= diagnostic_question.id %>-body">
+              <%= diagnostic_question.body %>
+              <% if diagnostic_question.negative %>
+                <span class="badge badge-pill badge-danger"><%= 'Negative'.t %></span>
+              <% end %>
+            </button>
+          </h2>
+        </div>
+        <div id="question-<%= diagnostic_question.id %>-body" class="collapse" aria-labelledby="question-<%= diagnostic_question.id %>-body-header" data-parent="#question-<%= diagnostic_question.id %>-body-translations">
+          <div class="card-body">
+            <strong><%= 'Translations'.t %></strong>
+            <%= link_to('Add'.t, application_translations_path(key: diagnostic_question.body, missing: true), target: "_blank", class: 'btn btn-sm btn-primary') %>
+            <ul>
+              <% ApplicationTranslation.where(key: diagnostic_question.body).order(locale: :asc).each do |xtln| %>
+                <li>
+                  <%= link_to('Edit'.t, application_translations_path(key: diagnostic_question.body_positive, tlocale: xtln.locale), target: "_blank", class: "badge badge-pill badge-primary") if policy(xtln).index? %>
+                  <small><%= xtln.locale %></small> &mdash;
+                  <%= xtln.value %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% if diagnostic_question.negative %>
+      <br/>
+      <div class="accordion" id="question-<%= diagnostic_question.id %>-bodynegative-translations">
+        <div class="card">
+          <div class="card-header" id="question-<%= diagnostic_question.id %>-bodynegative-header">
+            <h2 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#question-<%= diagnostic_question.id %>-bodynegative" aria-expanded="true" aria-controls="question-<%= diagnostic_question.id %>-bodynegative">
+                <%= diagnostic_question.body_positive %><br/>
+              </button>
+            </h2>
+          </div>
+          <div id="question-<%= diagnostic_question.id %>-bodynegative" class="collapse" aria-labelledby="question-<%= diagnostic_question.id %>-bodynegative-header" data-parent="#question-<%= diagnostic_question.id %>-bodynegative-translations">
+            <div class="card-body">
+            <strong><%= 'Translations'.t %></strong>
+            <%= link_to('Add'.t, application_translations_path(key: diagnostic_question.body, missing: true), target: "_blank", class: 'btn btn-sm btn-primary') %>
+              <ul>
+                <% ApplicationTranslation.where(key: diagnostic_question.body_positive).order(locale: :asc).each do |xtln| %>
+                  <li>
+                    <%= link_to('Edit'.t, application_translations_path(key: diagnostic_question.body_positive, tlocale: xtln.locale), target: "_blank", class: "badge badge-pill badge-primary") if policy(xtln).index? %>
+                    <small><%= xtln.locale %></small> &mdash;
+                    <%= xtln.value %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </td>
+</tr>

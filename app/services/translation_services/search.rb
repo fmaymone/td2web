@@ -90,7 +90,7 @@ module TranslationServices
     end
 
     def filter_key(key = nil)
-      @skope = @skope.where(key: key) if key
+      @skope = @skope.where(key: key) if key.present?
     end
 
     def filter_value(value = nil)

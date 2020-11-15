@@ -11,7 +11,8 @@ SEED_MODULES = [
   Seeds::Roles,
   Seeds::Users,
   Seeds::Entitlements,
-  Seeds::Diagnostics
+  Seeds::Diagnostics,
+  Seeds::DiagnosticQuestions
 ].freeze
 ###
 

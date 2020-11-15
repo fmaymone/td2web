@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_15_193404) do
+ActiveRecord::Schema.define(version: 2020_11_15_231031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -51,6 +51,24 @@ ActiveRecord::Schema.define(version: 2020_11_15_193404) do
     t.datetime "created_at", precision: 6
     t.datetime "updated_at", precision: 6
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
+  create_table "diagnostic_questions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "slug", null: false
+    t.uuid "diagnostic_id"
+    t.string "body", null: false
+    t.string "body_positive"
+    t.integer "category", null: false
+    t.integer "question_type", null: false
+    t.integer "factor", null: false
+    t.integer "matrix", null: false
+    t.boolean "negative", default: false
+    t.boolean "active", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["active", "category", "question_type", "factor", "matrix"], name: "general_idx"
+    t.index ["diagnostic_id"], name: "index_diagnostic_questions_on_diagnostic_id"
+    t.index ["slug"], name: "index_diagnostic_questions_on_slug", unique: true
   end
 
   create_table "diagnostics", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

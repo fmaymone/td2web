@@ -31,6 +31,10 @@ CsvImporter	./app/services/translation_services/csv_importer.rb	/^  class CsvImp
 Devise	./app/models/concerns/users/devise.rb	/^  module Devise$/;"	m	class:Users
 Diagnostic	./app/models/diagnostic.rb	/^class Diagnostic < ApplicationRecord$/;"	c
 DiagnosticPolicy	./app/policies/diagnostic_policy.rb	/^class DiagnosticPolicy < ApplicationPolicy$/;"	c
+DiagnosticQuestion	./app/models/diagnostic_question.rb	/^class DiagnosticQuestion < ApplicationRecord$/;"	c
+DiagnosticQuestionPolicy	./app/policies/diagnostic_question_policy.rb	/^class DiagnosticQuestionPolicy < ApplicationPolicy$/;"	c
+DiagnosticQuestionsController	./app/controllers/diagnostic_questions_controller.rb	/^class DiagnosticQuestionsController < ApplicationController$/;"	c
+DiagnosticQuestionsHelper	./app/helpers/diagnostic_questions_helper.rb	/^module DiagnosticQuestionsHelper$/;"	m
 DiagnosticsController	./app/controllers/diagnostics_controller.rb	/^class DiagnosticsController < ApplicationController$/;"	c
 DiagnosticsHelper	./app/helpers/diagnostics_helper.rb	/^module DiagnosticsHelper$/;"	m
 Entitlement	./app/models/entitlement.rb	/^class Entitlement < ApplicationRecord$/;"	c
@@ -44,6 +48,7 @@ EntitlementServices	./app/services/entitlement_services/invitation_deactivator.r
 EntitlementServices	./app/services/entitlement_services/revocation.rb	/^module EntitlementServices$/;"	m
 EntitlementsController	./app/controllers/entitlements_controller.rb	/^class EntitlementsController < ApplicationController$/;"	c
 EntitlementsHelper	./app/helpers/entitlements_helper.rb	/^module EntitlementsHelper$/;"	m
+FamilyTribesExtractor	./app/services/translation_services/family_tribes_extractor.rb	/^  class FamilyTribesExtractor$/;"	c	class:TranslationServices
 FooMailer	./app/mailers/foo_mailer.rb	/^class FooMailer < ApplicationMailer$/;"	c
 GlobalizeCountry	./app/models/globalize_country.rb	/^class GlobalizeCountry < ApplicationRecord$/;"	c
 GlobalizeLanguage	./app/models/globalize_language.rb	/^class GlobalizeLanguage < ApplicationRecord$/;"	c
@@ -83,6 +88,7 @@ Roles	./app/models/concerns/users/roles.rb	/^  module Roles$/;"	m	class:Users
 Scope	./app/policies/application_policy.rb	/^  class Scope$/;"	c	class:ApplicationPolicy
 Scope	./app/policies/application_translation_policy.rb	/^  class Scope$/;"	c	class:ApplicationTranslationPolicy
 Scope	./app/policies/diagnostic_policy.rb	/^  class Scope < Scope$/;"	c	class:DiagnosticPolicy
+Scope	./app/policies/diagnostic_question_policy.rb	/^  class Scope < Scope$/;"	c	class:DiagnosticQuestionPolicy
 Scope	./app/policies/entitlement_policy.rb	/^  class Scope < Scope$/;"	c	class:EntitlementPolicy
 Scope	./app/policies/grant_policy.rb	/^  class Scope < Scope$/;"	c	class:GrantPolicy
 Scope	./app/policies/invitation_policy.rb	/^  class Scope < Scope$/;"	c	class:InvitationPolicy
@@ -92,7 +98,9 @@ Scope	./app/policies/user_policy.rb	/^  class Scope < Scope$/;"	c	class:UserPoli
 Search	./app/services/translation_services/search.rb	/^  class Search$/;"	c	class:TranslationServices
 Search	./app/services/user_services/search.rb	/^  class Search$/;"	c	class:UserServices
 Seedable	./app/models/concerns/seeds/seedable.rb	/^  module Seedable$/;"	m	class:Seeds
+SeedableCsv	./app/models/concerns/seeds/seedable_csv.rb	/^  module SeedableCsv$/;"	m	class:Seeds
 Seeds	./app/models/concerns/seeds/seedable.rb	/^module Seeds$/;"	m
+Seeds	./app/models/concerns/seeds/seedable_csv.rb	/^module Seeds$/;"	m
 String	./config/initializers/i18n_active_record.rb	/^class String$/;"	c
 Teamdiagnostic	./config/application.rb	/^module Teamdiagnostic$/;"	m
 Teamdiagnostic	./config/version.rb	/^module Teamdiagnostic$/;"	m
@@ -103,6 +111,7 @@ TenantsHelper	./app/helpers/tenants_helper.rb	/^module TenantsHelper$/;"	m
 TranslationServices	./app/services/translation_services/creator.rb	/^module TranslationServices$/;"	m
 TranslationServices	./app/services/translation_services/csv_exporter.rb	/^module TranslationServices$/;"	m
 TranslationServices	./app/services/translation_services/csv_importer.rb	/^module TranslationServices$/;"	m
+TranslationServices	./app/services/translation_services/family_tribes_extractor.rb	/^module TranslationServices$/;"	m
 TranslationServices	./app/services/translation_services/search.rb	/^module TranslationServices$/;"	m
 TranslationServices	./app/services/translation_services/updater.rb	/^module TranslationServices$/;"	m
 TranslationsController	./app/controllers/translations_controller.rb	/^class TranslationsController < ApplicationController$/;"	c
@@ -145,6 +154,7 @@ after_registration	./app/controllers/home_controller.rb	/^  def after_registrati
 after_sign_up_path_for	./app/controllers/users/registrations_controller.rb	/^  def after_sign_up_path_for(_resource)$/;"	f	class:Users
 allowed_params	./app/policies/application_translation_policy.rb	/^  def allowed_params$/;"	f	class:ApplicationTranslationPolicy
 allowed_params	./app/policies/diagnostic_policy.rb	/^  def allowed_params$/;"	f	class:DiagnosticPolicy
+allowed_params	./app/policies/diagnostic_question_policy.rb	/^  def allowed_params$/;"	f	class:DiagnosticQuestionPolicy
 allowed_params	./app/policies/entitlement_policy.rb	/^  def allowed_params$/;"	f	class:EntitlementPolicy
 allowed_params	./app/policies/grant_policy.rb	/^  def allowed_params$/;"	f	class:GrantPolicy
 allowed_params	./app/policies/invitation_policy.rb	/^  def allowed_params$/;"	f	class:InvitationPolicy
@@ -179,6 +189,7 @@ call	./app/services/organization_services/validator.rb	/^    def call$/;"	f	clas
 call	./app/services/translation_services/creator.rb	/^    def call$/;"	f	class:TranslationServices
 call	./app/services/translation_services/csv_exporter.rb	/^    def call$/;"	f	class:TranslationServices.CsvExporter
 call	./app/services/translation_services/csv_importer.rb	/^    def call(&block)$/;"	f	class:TranslationServices.CsvImporter
+call	./app/services/translation_services/family_tribes_extractor.rb	/^    def call$/;"	f	class:TranslationServices.FamilyTribesExtractor
 call	./app/services/translation_services/search.rb	/^    def call$/;"	f	class:TranslationServices.Search
 call	./app/services/translation_services/updater.rb	/^    def call$/;"	f
 call	./app/services/user_services/creator.rb	/^    def call; end$/;"	f	class:UserServices
@@ -199,6 +210,7 @@ consent_revoked?	./app/models/concerns/users/profiles.rb	/^      def consent_rev
 countries_for_select	./app/helpers/users_helper.rb	/^  def countries_for_select(user_profile = nil)$/;"	f	class:UsersHelper
 country_name	./app/models/concerns/users/profiles.rb	/^      def country_name$/;"	f	class:Users.Profiles
 country_name	./app/models/user_profile.rb	/^  def country_name$/;"	f	class:UserProfile
+create	./app/controllers/diagnostic_questions_controller.rb	/^  def create$/;"	f	class:DiagnosticQuestionsController
 create	./app/controllers/diagnostics_controller.rb	/^  def create$/;"	f	class:DiagnosticsController
 create	./app/controllers/entitlements_controller.rb	/^  def create$/;"	f	class:EntitlementsController
 create	./app/controllers/grants_controller.rb	/^  def create$/;"	f	class:GrantsController
@@ -211,20 +223,25 @@ create	./app/controllers/users_controller.rb	/^  def create$/;"	f	class:UsersCon
 create?	./app/policies/application_policy.rb	/^  def create?$/;"	f	class:ApplicationPolicy
 create?	./app/policies/application_translation_policy.rb	/^  def create?$/;"	f	class:ApplicationTranslationPolicy
 create?	./app/policies/diagnostic_policy.rb	/^  def create?$/;"	f	class:DiagnosticPolicy
+create?	./app/policies/diagnostic_question_policy.rb	/^  def create?$/;"	f	class:DiagnosticQuestionPolicy
 create?	./app/policies/entitlement_policy.rb	/^  def create?$/;"	f	class:EntitlementPolicy
 create?	./app/policies/grant_policy.rb	/^  def create?$/;"	f	class:GrantPolicy
 create?	./app/policies/invitation_policy.rb	/^  def create?$/;"	f	class:InvitationPolicy
 create?	./app/policies/organization_policy.rb	/^  def create?$/;"	f	class:OrganizationPolicy
 create?	./app/policies/tenant_policy.rb	/^  def create?$/;"	f	class:TenantPolicy
 create?	./app/policies/user_policy.rb	/^  def create?$/;"	f	class:UserPolicy
+create_default_translations	./app/models/diagnostic_question.rb	/^  def create_default_translations$/;"	f	class:DiagnosticQuestion
 create_organization	./app/services/organization_services/creator.rb	/^    def create_organization$/;"	f	class:OrganizationServices.Creator
+create_slug	./app/models/diagnostic_question.rb	/^  def create_slug$/;"	f	class:DiagnosticQuestion
 creator_or_updater	./app/services/translation_services/csv_importer.rb	/^    def creator_or_updater(attrs)$/;"	f	class:TranslationServices
+csv_from_questions	./app/services/translation_services/family_tribes_extractor.rb	/^    def csv_from_questions$/;"	f	class:TranslationServices.FamilyTribesExtractor
 current_locale	./app/controllers/application_controller.rb	/^  def current_locale$/;"	f	class:ApplicationController
 current_tenant	./app/controllers/application_controller.rb	/^  def current_tenant$/;"	f	class:ApplicationController
 current_tenant	./app/helpers/application_helper.rb	/^  def current_tenant$/;"	f	class:ApplicationHelper
 default_grantor	./app/services/entitlement_services/grant.rb	/^    def default_grantor$/;"	f	class:EntitlementServices.Grant
 default_staff_notes	./app/services/entitlement_services/grant.rb	/^    def default_staff_notes$/;"	f	class:EntitlementServices.Grant
 default_tenant	./app/models/tenant.rb	/^  def self.default_tenant$/;"	F	class:Tenant
+destroy	./app/controllers/diagnostic_questions_controller.rb	/^  def destroy$/;"	f	class:DiagnosticQuestionsController
 destroy	./app/controllers/diagnostics_controller.rb	/^  def destroy$/;"	f	class:DiagnosticsController
 destroy	./app/controllers/entitlements_controller.rb	/^  def destroy$/;"	f	class:EntitlementsController
 destroy	./app/controllers/grants_controller.rb	/^  def destroy$/;"	f	class:GrantsController
@@ -237,6 +254,7 @@ destroy	./app/controllers/users_controller.rb	/^  def destroy$/;"	f	class:UsersC
 destroy?	./app/policies/application_policy.rb	/^  def destroy?$/;"	f	class:ApplicationPolicy
 destroy?	./app/policies/application_translation_policy.rb	/^  def destroy?$/;"	f	class:ApplicationTranslationPolicy
 destroy?	./app/policies/diagnostic_policy.rb	/^  def destroy?$/;"	f	class:DiagnosticPolicy
+destroy?	./app/policies/diagnostic_question_policy.rb	/^  def destroy?$/;"	f	class:DiagnosticQuestionPolicy
 destroy?	./app/policies/entitlement_policy.rb	/^  def destroy?$/;"	f	class:EntitlementPolicy
 destroy?	./app/policies/grant_policy.rb	/^  def destroy?$/;"	f	class:GrantPolicy
 destroy?	./app/policies/invitation_policy.rb	/^  def destroy?$/;"	f	class:InvitationPolicy
@@ -244,7 +262,14 @@ destroy?	./app/policies/organization_policy.rb	/^  def destroy?$/;"	f	class:Orga
 destroy?	./app/policies/tenant_policy.rb	/^  def destroy?$/;"	f	class:TenantPolicy
 destroy?	./app/policies/user_policy.rb	/^  def destroy?$/;"	f	class:UserPolicy
 diagnostic_params	./app/controllers/diagnostics_controller.rb	/^  def diagnostic_params$/;"	f	class:DiagnosticsController
+diagnostic_question_categories_for_select	./app/helpers/diagnostic_questions_helper.rb	/^  def diagnostic_question_categories_for_select(question)$/;"	f	class:DiagnosticQuestionsHelper
+diagnostic_question_factors_for_select	./app/helpers/diagnostic_questions_helper.rb	/^  def diagnostic_question_factors_for_select(question)$/;"	f	class:DiagnosticQuestionsHelper
+diagnostic_question_params	./app/controllers/diagnostic_questions_controller.rb	/^  def diagnostic_question_params$/;"	f	class:DiagnosticQuestionsController
+diagnostic_question_scope	./app/controllers/diagnostic_questions_controller.rb	/^  def diagnostic_question_scope(_skope = DiagnosticQuestion)$/;"	f	class:DiagnosticQuestionsController
+diagnostic_question_types_for_select	./app/helpers/diagnostic_questions_helper.rb	/^  def diagnostic_question_types_for_select(question)$/;"	f	class:DiagnosticQuestionsHelper
+diagnostic_scope	./app/controllers/diagnostic_questions_controller.rb	/^  def diagnostic_scope(skope = Diagnostic)$/;"	f	class:DiagnosticQuestionsController
 diagnostic_scope	./app/controllers/diagnostics_controller.rb	/^  def diagnostic_scope(skope = Diagnostic)$/;"	f	class:DiagnosticsController
+edit	./app/controllers/diagnostic_questions_controller.rb	/^  def edit$/;"	f	class:DiagnosticQuestionsController
 edit	./app/controllers/diagnostics_controller.rb	/^  def edit$/;"	f	class:DiagnosticsController
 edit	./app/controllers/entitlements_controller.rb	/^  def edit$/;"	f	class:EntitlementsController
 edit	./app/controllers/grants_controller.rb	/^  def edit$/;"	f	class:GrantsController
@@ -257,6 +282,7 @@ edit	./app/controllers/users_controller.rb	/^  def edit$/;"	f	class:UsersControl
 edit?	./app/policies/application_policy.rb	/^  def edit?$/;"	f	class:ApplicationPolicy
 edit?	./app/policies/application_translation_policy.rb	/^  def edit?$/;"	f	class:ApplicationTranslationPolicy
 edit?	./app/policies/diagnostic_policy.rb	/^  def edit?$/;"	f	class:DiagnosticPolicy
+edit?	./app/policies/diagnostic_question_policy.rb	/^  def edit?$/;"	f	class:DiagnosticQuestionPolicy
 edit?	./app/policies/entitlement_policy.rb	/^  def edit?$/;"	f	class:EntitlementPolicy
 edit?	./app/policies/grant_policy.rb	/^  def edit?$/;"	f	class:GrantPolicy
 edit?	./app/policies/invitation_policy.rb	/^  def edit?$/;"	f	class:InvitationPolicy
@@ -275,6 +301,7 @@ entitlements_are_valid	./app/models/invitation.rb	/^  def entitlements_are_valid
 entitlements_for_select	./app/helpers/grants_helper.rb	/^  def entitlements_for_select(grant)$/;"	f	class:GrantsHelper
 env_var_version	./bin/bundle	/^  def env_var_version$/;"	f
 errors?	./app/services/entitlement_services/invitation_claim.rb	/^    def errors?$/;"	f	class:EntitlementServices.InvitationClaim
+extract_questions	./app/services/translation_services/family_tribes_extractor.rb	/^    def extract_questions$/;"	f	class:TranslationServices.FamilyTribesExtractor
 facilitator	./app/models/role.rb	/^    def facilitator$/;"	f	class:Role
 facilitator?	./app/models/role.rb	/^  def facilitator?$/;"	f
 facilitator?	./app/policies/application_policy.rb	/^  def facilitator?$/;"	f	class:ApplicationPolicy
@@ -290,6 +317,7 @@ find_for_database_authentication	./app/models/user.rb	/^  def self.find_for_data
 find_grant	./app/services/entitlement_services/grant_usage.rb	/^    def find_grant$/;"	f	class:EntitlementServices.GrantUsage
 flash_alert_class	./app/helpers/application_helper.rb	/^  def flash_alert_class(type)$/;"	f
 for_params	./app/services/app_context.rb	/^    def for_params(params)$/;"	f	class:AppContext
+ft_translations	./app/services/translation_services/family_tribes_extractor.rb	/^    def ft_translations$/;"	f	class:TranslationServices.FamilyTribesExtractor
 gemfile	./bin/bundle	/^  def gemfile$/;"	f
 generate_token	./app/models/invitation.rb	/^  def generate_token$/;"	f	class:Invitation.assigned_entitlements.email_body
 grant_consent	./app/controllers/home_controller.rb	/^  def grant_consent$/;"	f	class:HomeController
@@ -302,6 +330,7 @@ humanize_context	./app/services/app_context.rb	/^    def humanize_context(contex
 i18n_date_long	./app/helpers/application_helper.rb	/^  def i18n_date_long(date)$/;"	f
 i18n_key_options	./app/services/entitlement_services/invitation_creator.rb	/^    def i18n_key_options$/;"	f	class:EntitlementServices.InvitationCreator.selected_entitlement
 included	./spec/support/request_spec_helper.rb	/^  def self.included(base)$/;"	F	class:RequestSpecHelper
+index	./app/controllers/diagnostic_questions_controller.rb	/^  def index$/;"	f	class:DiagnosticQuestionsController
 index	./app/controllers/diagnostics_controller.rb	/^  def index$/;"	f	class:DiagnosticsController
 index	./app/controllers/entitlements_controller.rb	/^  def index$/;"	f	class:EntitlementsController
 index	./app/controllers/grants_controller.rb	/^  def index$/;"	f	class:GrantsController
@@ -314,6 +343,7 @@ index	./app/controllers/users_controller.rb	/^  def index$/;"	f	class:UsersContr
 index?	./app/policies/application_policy.rb	/^  def index?$/;"	f	class:ApplicationPolicy
 index?	./app/policies/application_translation_policy.rb	/^  def index?$/;"	f	class:ApplicationTranslationPolicy
 index?	./app/policies/diagnostic_policy.rb	/^  def index?$/;"	f	class:DiagnosticPolicy
+index?	./app/policies/diagnostic_question_policy.rb	/^  def index?$/;"	f	class:DiagnosticQuestionPolicy
 index?	./app/policies/entitlement_policy.rb	/^  def index?$/;"	f	class:EntitlementPolicy
 index?	./app/policies/grant_policy.rb	/^  def index?$/;"	f	class:GrantPolicy
 index?	./app/policies/invitation_policy.rb	/^  def index?$/;"	f	class:InvitationPolicy
@@ -338,6 +368,7 @@ initialize	./app/services/organization_services/validator.rb	/^    def initializ
 initialize	./app/services/translation_services/creator.rb	/^    def initialize(params = {})$/;"	f	class:TranslationServices.Creator
 initialize	./app/services/translation_services/csv_exporter.rb	/^    def initialize(params = {})$/;"	f	class:TranslationServices.CsvExporter
 initialize	./app/services/translation_services/csv_importer.rb	/^    def initialize(csvdata)$/;"	f	class:TranslationServices.CsvImporter
+initialize	./app/services/translation_services/family_tribes_extractor.rb	/^    def initialize$/;"	f	class:TranslationServices.FamilyTribesExtractor
 initialize	./app/services/translation_services/search.rb	/^    def initialize(params = nil)$/;"	f	class:TranslationServices.Search
 initialize	./app/services/translation_services/updater.rb	/^    def initialize(id, params = {})$/;"	f	class:TranslationServices.Updater
 initialize	./app/services/user_services/creator.rb	/^    def initialize(creator, params = {})$/;"	f	class:UserServices.Creator
@@ -360,6 +391,7 @@ limited?	./app/services/entitlement_services/invitation_claim.rb	/^    def limit
 list	./app/services/app_context.rb	/^    def list$/;"	f	class:AppContext
 list_policies	./app/services/app_context.rb	/^    def list_policies$/;"	f
 load_bundler!	./bin/bundle	/^  def load_bundler!$/;"	f
+load_seed_csv_data	./app/models/concerns/seeds/seedable_csv.rb	/^      def load_seed_csv_data(csv_path = nil)$/;"	f	class:Seeds.SeedableCsv
 load_seed_data	./app/models/concerns/seeds/seedable.rb	/^      def load_seed_data(yaml_path = nil)$/;"	f	class:Seeds.Seedable
 locale	./app/models/globalize_language.rb	/^  def locale$/;"	f	class:GlobalizeLanguage
 locale_grouped_options	./app/services/translation_services/creator.rb	/^    def locale_grouped_options$/;"	f	class:TranslationServices.locale_options
@@ -384,6 +416,7 @@ module.exports	./babel.config.js	/^module.exports = function(api) {$/;"	f
 name	./app/models/concerns/users/profiles.rb	/^      def name$/;"	f	class:Users.Profiles
 nav_item_active?	./app/helpers/application_helper.rb	/^  def nav_item_active?(key, action = nil)$/;"	f
 nav_item_class	./app/helpers/application_helper.rb	/^  def nav_item_class(key, action = nil)$/;"	f
+new	./app/controllers/diagnostic_questions_controller.rb	/^  def new$/;"	f	class:DiagnosticQuestionsController
 new	./app/controllers/diagnostics_controller.rb	/^  def new$/;"	f	class:DiagnosticsController
 new	./app/controllers/entitlements_controller.rb	/^  def new$/;"	f	class:EntitlementsController
 new	./app/controllers/grants_controller.rb	/^  def new$/;"	f	class:GrantsController
@@ -397,6 +430,7 @@ new	./app/controllers/users_controller.rb	/^  def new$/;"	f	class:UsersControlle
 new?	./app/policies/application_policy.rb	/^  def new?$/;"	f	class:ApplicationPolicy
 new?	./app/policies/application_translation_policy.rb	/^  def new?$/;"	f	class:ApplicationTranslationPolicy
 new?	./app/policies/diagnostic_policy.rb	/^  def new?$/;"	f	class:DiagnosticPolicy
+new?	./app/policies/diagnostic_question_policy.rb	/^  def new?$/;"	f	class:DiagnosticQuestionPolicy
 new?	./app/policies/entitlement_policy.rb	/^  def new?$/;"	f	class:EntitlementPolicy
 new?	./app/policies/grant_policy.rb	/^  def new?$/;"	f	class:GrantPolicy
 new?	./app/policies/invitation_policy.rb	/^  def new?$/;"	f	class:InvitationPolicy
@@ -440,6 +474,7 @@ required_consents_pending	./app/models/concerns/users/profiles.rb	/^      def re
 resolve	./app/policies/application_policy.rb	/^    def resolve$/;"	f	class:ApplicationPolicy.Scope
 resolve	./app/policies/application_translation_policy.rb	/^    def resolve$/;"	f	class:ApplicationTranslationPolicy.Scope
 resolve	./app/policies/diagnostic_policy.rb	/^    def resolve$/;"	f	class:DiagnosticPolicy.Scope
+resolve	./app/policies/diagnostic_question_policy.rb	/^    def resolve$/;"	f	class:DiagnosticQuestionPolicy.Scope
 resolve	./app/policies/entitlement_policy.rb	/^    def resolve$/;"	f	class:EntitlementPolicy.Scope
 resolve	./app/policies/grant_policy.rb	/^    def resolve$/;"	f	class:GrantPolicy.Scope
 resolve	./app/policies/invitation_policy.rb	/^    def resolve$/;"	f	class:InvitationPolicy.Scope
@@ -468,7 +503,9 @@ selected_entitlement	./app/services/entitlement_services/invitation_creator.rb	/
 send_invitation	./app/services/entitlement_services/invitation_creator.rb	/^    def send_invitation$/;"	f	class:EntitlementServices.InvitationCreator.selected_entitlement.grantor_role_ids
 set_current_tenant	./app/controllers/application_controller.rb	/^  def set_current_tenant$/;"	f
 set_default_reference	./app/models/grant.rb	/^  def set_default_reference$/;"	f	class:Grant
+set_diagnostic	./app/controllers/diagnostic_questions_controller.rb	/^  def set_diagnostic$/;"	f	class:DiagnosticQuestionsController
 set_diagnostic	./app/controllers/diagnostics_controller.rb	/^  def set_diagnostic$/;"	f	class:DiagnosticsController
+set_diagnostic_question	./app/controllers/diagnostic_questions_controller.rb	/^  def set_diagnostic_question$/;"	f	class:DiagnosticQuestionsController
 set_entitlement	./app/controllers/entitlements_controller.rb	/^  def set_entitlement$/;"	f	class:EntitlementsController
 set_grant	./app/controllers/grants_controller.rb	/^  def set_grant$/;"	f	class:GrantsController
 set_invitation	./app/controllers/invitations_controller.rb	/^  def set_invitation$/;"	f	class:InvitationsController
@@ -482,6 +519,7 @@ set_translation	./app/controllers/translations_controller.rb	/^  def set_transla
 set_user	./app/controllers/grants_controller.rb	/^  def set_user$/;"	f	class:GrantsController
 set_user	./app/controllers/users_controller.rb	/^  def set_user$/;"	f	class:UsersController
 short_date	./app/helpers/application_helper.rb	/^  def short_date(date)$/;"	f
+show	./app/controllers/diagnostic_questions_controller.rb	/^  def show$/;"	f	class:DiagnosticQuestionsController
 show	./app/controllers/diagnostics_controller.rb	/^  def show$/;"	f	class:DiagnosticsController
 show	./app/controllers/entitlements_controller.rb	/^  def show$/;"	f	class:EntitlementsController
 show	./app/controllers/grants_controller.rb	/^  def show$/;"	f	class:GrantsController
@@ -494,6 +532,7 @@ show	./app/controllers/users_controller.rb	/^  def show$/;"	f	class:UsersControl
 show?	./app/policies/application_policy.rb	/^  def show?$/;"	f	class:ApplicationPolicy
 show?	./app/policies/application_translation_policy.rb	/^  def show?$/;"	f	class:ApplicationTranslationPolicy
 show?	./app/policies/diagnostic_policy.rb	/^  def show?$/;"	f	class:DiagnosticPolicy
+show?	./app/policies/diagnostic_question_policy.rb	/^  def show?$/;"	f	class:DiagnosticQuestionPolicy
 show?	./app/policies/entitlement_policy.rb	/^  def show?$/;"	f	class:EntitlementPolicy
 show?	./app/policies/grant_policy.rb	/^  def show?$/;"	f	class:GrantPolicy
 show?	./app/policies/invitation_policy.rb	/^  def show?$/;"	f	class:InvitationPolicy
@@ -515,10 +554,12 @@ template_params	./app/models/invitation.rb	/^  def template_params$/;"	f	class:I
 tenant_from_hostname	./app/controllers/application_controller.rb	/^  def tenant_from_hostname$/;"	f
 tenant_params	./app/controllers/tenants_controller.rb	/^  def tenant_params$/;"	f	class:TenantsController
 test_email	./app/mailers/foo_mailer.rb	/^  def test_email$/;"	f	class:FooMailer
+translations	./app/models/diagnostic_question.rb	/^  def translations$/;"	f	class:DiagnosticQuestion
 translator	./app/models/role.rb	/^    def translator$/;"	f	class:Role
 translator?	./app/models/role.rb	/^  def translator?$/;"	f
 translator?	./app/policies/application_policy.rb	/^  def translator?$/;"	f	class:ApplicationPolicy
 translators	./app/models/concerns/users/roles.rb	/^      def translators$/;"	f	class:Users.Roles
+update	./app/controllers/diagnostic_questions_controller.rb	/^  def update$/;"	f	class:DiagnosticQuestionsController
 update	./app/controllers/diagnostics_controller.rb	/^  def update$/;"	f	class:DiagnosticsController
 update	./app/controllers/entitlements_controller.rb	/^  def update$/;"	f	class:EntitlementsController
 update	./app/controllers/grants_controller.rb	/^  def update$/;"	f	class:GrantsController
@@ -531,6 +572,7 @@ update	./app/controllers/users_controller.rb	/^  def update$/;"	f	class:UsersCon
 update?	./app/policies/application_policy.rb	/^  def update?$/;"	f	class:ApplicationPolicy
 update?	./app/policies/application_translation_policy.rb	/^  def update?$/;"	f	class:ApplicationTranslationPolicy
 update?	./app/policies/diagnostic_policy.rb	/^  def update?$/;"	f	class:DiagnosticPolicy
+update?	./app/policies/diagnostic_question_policy.rb	/^  def update?$/;"	f	class:DiagnosticQuestionPolicy
 update?	./app/policies/entitlement_policy.rb	/^  def update?$/;"	f	class:EntitlementPolicy
 update?	./app/policies/grant_policy.rb	/^  def update?$/;"	f	class:GrantPolicy
 update?	./app/policies/invitation_policy.rb	/^  def update?$/;"	f	class:InvitationPolicy

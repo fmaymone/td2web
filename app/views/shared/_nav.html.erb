@@ -41,7 +41,7 @@
 								<%= link_to('Tenants'.t, tenants_path, class: 'dropdown-item')  %>
 							<% end %>
 							<% if policy(ApplicationTranslation).index? %>
-								<%= link_to('Translations'.t, application_translations_path, class: 'dropdown-item')  %>
+								<%= link_to('Translations'.t, application_translations_path(tlocale: @current_locale || 'en'), class: 'dropdown-item')  %>
 							<% end %>
 						</div>
 					</li>

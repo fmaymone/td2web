@@ -1,0 +1,9 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to('Dashboard'.t, root_path) %></li>
+    <li class="breadcrumb-item"><%= link_to('Diagnostics'.t, diagnostics_path )%></li>
+    <li class="breadcrumb-item"><%= link_to(@diagnostic.name, diagnostic_path(@diagnostic) )%></li>
+    <li class="breadcrumb-item"><%= link_to('Questions'.t, diagnostic_diagnostic_questions_path(diagnostic_id: @diagnostic.id)) %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= ( @current_page || params[:action].humanize.t )%> </li>
+  </ol>
+</nav>

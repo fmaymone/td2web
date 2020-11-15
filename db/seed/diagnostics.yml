@@ -19,3 +19,11 @@
     :name: Organization View Diagnostic
     :description: The Organization View Diagnostic
     :active: true
+  - :slug: <%= Diagnostic::LEAD_360_SLUG %>
+    :name: Leadership 360 Diagnostic
+    :description: The Leadership 360 Diagnostic
+    :active: true
+  - :slug: <%= Diagnostic::FAMILY_TRIBES_SLUG %>
+    :name: Family Tribes Diagnostic
+    :description: The Family Tribes Diagnostic
+    :active: true

@@ -1,0 +1,53 @@
+<div class="row">
+  <div clas="col">
+    <%= render partial: 'breadcrumbs' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h1>
+      <%= @diagnostic.name %>
+    </h1>
+    <h2>
+      <%= 'Open-Ended Questions'.t %>
+      <%= link_to('Add'.t, new_diagnostic_diagnostic_question_path(diagnostic_id: @diagnostic.id, question_type: DiagnosticQuestion::OPEN_ENDED_TYPE), class: 'btn btn-sm btn-primary') if policy(Diagnostic).new? %>
+    </h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <table class="table">
+      <thead>
+      </thead>
+      <tbody>
+        <% @open_ended_questions.each do |question| %>
+          <%= render partial: 'diagnostic_question', locals: {diagnostic_question: question, diagnostic: @diagnostic} %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h2>
+      <%= 'Rating Questions'.t %>
+      <%= link_to('Add'.t, new_diagnostic_diagnostic_question_path(diagnostic_id: @diagnostic.id, question_type: DiagnosticQuestion::RATING_TYPE), class: 'btn btn-sm btn-primary') if policy(Diagnostic).new? %>
+    </h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <table class="table">
+      <thead>
+      </thead>
+      <tbody>
+        <% @diagnostic_questions.each do |question| %>
+          <%= render partial: 'diagnostic_question', locals: {diagnostic_question: question, diagnostic: @diagnostic} %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

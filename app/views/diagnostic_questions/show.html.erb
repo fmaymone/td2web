@@ -1,0 +1,29 @@
+<div class="row">
+  <div clas="col">
+    <%= render partial: 'breadcrumbs' %>
+  </div>
+</div>
+<div class="jumbotron">
+  <h1><%= @diagnostic.name %></h1>
+  <h2>
+    <span class="badge badge-info"><%= @diagnostic_question.matrix %></span>
+    <%= @diagnostic_question.category %> &mdash;
+    <%= @diagnostic_question.factor %>
+  </h1>
+  <%= active_badge(@diagnostic_question.active) %>
+  <p class="lead">
+    <strong><%= 'Body'.t %></strong>
+    <% if @diagnostic_question.negative %>
+      <span class="badge badge-danger"><%= 'Negative'.t %></span>
+    <% end %>
+    <br/>
+    <tt><%= @diagnostic_question.body %></tt><br/>
+  </p >
+  <p class="lead">
+    <strong><%= 'Body Positive'.t %></strong><br/>
+    <tt><%= @diagnostic_question.body %></tt><br/>
+  </p>
+  <hr/>
+  <%= link_to('Edit'.t, edit_diagnostic_diagnostic_question_path(diagnostic_id: @diagnostic.id, id: @diagnostic.id), class: 'btn btn-primary') if policy(@diagnostic_question).edit? %>
+  <%= link_to('Back'.t, diagnostic_diagnostic_questions_path, class: 'btn btn-info') %>
+</div>
