@@ -15,5 +15,54 @@
     :role_id: <%= Role.facilitator.id %>
     :reference: <%= OrganizationServices::Creator::REFERENCE %>
     :description: 'Create an Organization'
-    :quota: 1
+    :quota: 3
+    :active: true
+  - :slug: <%= Entitlement::CREATE_DIAGNOSTIC_TDA %>
+    :account: true
+    :role_id: <%= Role.facilitator.id %>
+    :reference: <%= TeamDiagnosticServices::Creator::REFERENCE %>
+    :description: 'Create a Team Diagnostic'
+    :quota: 10
+    :active: true
+  - :slug: <%= Entitlement::CREATE_DIAGNOSTIC_TLV %>
+    :account: true
+    :role_id: <%= Role.facilitator.id %>
+    :reference: <%= TeamDiagnosticServices::Creator::REFERENCE %>
+    :description: 'Create a TLV Diagnostic'
+    :quota: 10
+    :active: true
+  - :slug: <%= Entitlement::CREATE_DIAGNOSTIC_T360 %>
+    :account: true
+    :role_id: <%= Role.facilitator.id %>
+    :reference: <%= TeamDiagnosticServices::Creator::REFERENCE %>
+    :description: 'Create a Team360 Diagnostic'
+    :quota: 10
+    :active: true
+  - :slug: <%= Entitlement::CREATE_DIAGNOSTIC_ORG %>
+    :account: true
+    :role_id: <%= Role.facilitator.id %>
+    :reference: <%= TeamDiagnosticServices::Creator::REFERENCE %>
+    :description: 'Create a Organization Diagnostic'
+    :quota: 10
+    :active: true
+  - :slug: <%= Entitlement::CREATE_DIAGNOSTIC_L360 %>
+    :account: true
+    :role_id: <%= Role.facilitator.id %>
+    :reference: <%= TeamDiagnosticServices::Creator::REFERENCE %>
+    :description: 'Create a Leadership360 Diagnostic'
+    :quota: 10
+    :active: true
+  - :slug: <%= Entitlement::CREATE_DIAGNOSTIC_FT %>
+    :account: true
+    :role_id: <%= Role.facilitator.id %>
+    :reference: <%= TeamDiagnosticServices::Creator::REFERENCE %>
+    :description: 'Create a Family Tribes Diagnostic'
+    :quota: 10
+    :active: true
+  - :slug: <%= Entitlement::CREATE_DIAGNOSTIC_ANY %>
+    :account: true
+    :role_id: <%= Role.facilitator.id %>
+    :reference: <%= TeamDiagnosticServices::Creator::REFERENCE %>
+    :description: 'Create any Diagnostic'
+    :quota: 100
     :active: true

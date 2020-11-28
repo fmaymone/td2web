@@ -1,0 +1,35 @@
+<div class="row">
+  <div clas="col">
+    <%= render partial: 'breadcrumbs' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <h1>
+      <%= @team_diagnostic.name %> &mdash; <%= 'Diagnostic Participants'.t %>
+      <%= link_to('Add'.t, new_team_diagnostic_participant_path(team_diagnostic_id: @team_diagnostic.id), class: 'btn btn-sm btn-primary') %>
+      <%= link_to('Import'.t, define_import_team_diagnostic_participants_path(team_diagnostic_id: @team_diagnostic.id), class: 'btn btn-sm btn-primary') %>
+    </h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <table class="table">
+      <thead>
+        <tr>
+          <th><%= 'Status'.t %></th>
+          <th><%= 'Name'.t %></th>
+          <th><%= 'Contact'.t %></th>
+          <th><%= 'Notes'.t %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @participants.order(last_name: :asc, first_name: :asc) %>
+      </tbody>
+    </table>
+
+  </div>
+</div>

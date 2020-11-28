@@ -1,0 +1,58 @@
+<div class="row">
+  <div clas="col">
+    <%= render partial: 'breadcrumbs' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <h1><%= 'Team Diagnostics'.t %>
+  </h1>
+</div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <table class="table">
+      <thead>
+        <tr>
+          <th><%= 'Team'.t %></th>
+          <th><%= 'Status'.t %></th>
+          <th><%= 'Completion'.t %></th>
+          <th><%= 'Due'.t %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @team_diagnostics.each do |diagnostic| %>
+          <tr>
+            <td>
+              <%= link_to wizard_team_diagnostic_path(id: diagnostic.id, step: diagnostic.wizard)  do %>
+                <%= diagnostic.name %>
+              <% end %>
+              <small><%= diagnostic.organization.name %></small>
+              <br/>
+              <span class="badge badge-light"><%= diagnostic.diagnostic.slug %></span>
+              <%= diagnostic.functional_area %> &mdash; <%= diagnostic.team_type %>
+            </td>
+            <td>
+              <span class="badge badge-pill badge-<%= team_diagnostic_state_pill_class(diagnostic) %>"><%= diagnostic.state.t %></span>
+            </td>
+            <td>
+              <span class="badge badge-pill badge-info">0 / 45</span>
+            </td>
+            <td><%= diagnostic.due_at.strftime('%B %d, %Y') %></td>
+            <td>
+              <% if diagnostic.completed? %>
+                <%# NOOP %>
+              <% else %>
+                <%= link_to('Setup'.t, wizard_team_diagnostic_path(id: diagnostic.id, step: 1), class: 'btn btn-sm btn-primary') if !diagnostic.completed? && policy(diagnostic).wizard? %>
+              <% end %>
+              <%= link_to('Cancel'.t, wizard_team_diagnostic_path(id: diagnostic.id, step: 1), class: 'btn btn-sm btn-danger') %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

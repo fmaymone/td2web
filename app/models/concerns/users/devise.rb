@@ -14,8 +14,5 @@ module Users
     end
 
     attr_accessor :login
-
-    class_methods do
-    end
   end
 end

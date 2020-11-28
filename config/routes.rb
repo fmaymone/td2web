@@ -36,4 +36,22 @@ Rails.application.routes.draw do
   resources :users do
     resources :grants
   end
+  resources :team_diagnostics do
+    resources :participants do
+      collection do
+        get :define_import, to: 'participants#define_import'
+        post :create_import, to: 'participants#create_import'
+      end
+      member do
+        post :disqualify, to: 'participants#disqualify'
+        post :restore, to: 'participants#restore'
+      end
+    end
+    member do
+      get 'wizard/:step', to: 'team_diagnostics#wizard', as: 'wizard'
+      post :deploy, to: 'team_diagnostics#deploy'
+    end
+    resources :team_diagnostic_questions
+  end
+  resources :participants
 end

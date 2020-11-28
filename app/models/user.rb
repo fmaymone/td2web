@@ -43,6 +43,7 @@ class User < ApplicationRecord
   ### Associations
   belongs_to :tenant
   has_many :grants, dependent: :destroy
+  has_many :team_diagnostics
 
   ### Attributes
 

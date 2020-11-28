@@ -1,0 +1,38 @@
+<div class="row">
+  <div clas="col">
+    <%= render partial: 'breadcrumbs' %>
+  </div>
+</div>
+
+<h1>
+  <%= @service.team_diagnostic.name %>
+  <% if @service.team_diagnostic.diagnostic.present? %>
+    <span class="alert alert-<%= team_diagnostic_state_pill_class(@service.team_diagnostic) %> small">
+      <%= @service.team_diagnostic.diagnostic.name %>
+    </span>
+    &nbsp;
+  <% end %>
+</h1>
+
+<br/>
+
+<% @service.team_diagnostic.wizard_steps.each_with_index do |stepname, index| %>
+  <% step = index + 1 %>
+  <div class="row">
+    <div class="col alert alert-<%= team_diagnostic_wizard_step_alert_class(index + 1, @service.team_diagnostic) %>">
+        <% if stepname == @service.step_name || !@service.step_accessible?(step) %>
+          <h2 class="team_diagnostic--wizard--step-header">
+            <%= stepname.capitalize.t %>
+          </h2>
+        <% else %>
+          <h4>
+            <%= link_to(stepname.capitalize.t, wizard_team_diagnostic_path(id: @service.team_diagnostic.id, step: step)) %>
+          </h4>
+        <% end %>
+    </div>
+  </div>
+  <% if stepname == @service.step_name %>
+    <%= render partial: "wizard_#{@service.step_name}", locals: {service: @service} %>
+    <br/>
+  <% end %>
+<% end %>

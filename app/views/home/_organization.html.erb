@@ -7,36 +7,6 @@
     <%= organization_role_badge(organization) %>
     <p class="card-text"><%= organization.description %></p>
 
-    <% if true || defined?(Team) # no teams %>
-      <%= link_to('Create your first Team'.t, '#', class: 'btn btn-lg btn-success') %>
-    <% end %>
-
-    <hr class="my-4">
-
-    <% if true || defined?(Team) %>
-    <div class="dropdown col-sm-6 mx-auto">
-      <button id="dashboard--organization<%= organization.id %>--teams--button" class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopups="true" aria-expanded="false">
-        <%= 'Teams'.t %>
-        <span class="badge badge-pill badge-light">0</span>
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dashboard--organization<%= organization.id%>--teams--button">
-        <%= link_to('Create'.t, '#', class: 'badge badge-primary dropdown-item') %>
-        <%= link_to('List'.t, '#', class: 'badge badge-info dropdown-item') %>
-      </div>
-    </div>
-  <% end %>
-
-  <% if true || defined?(Diagnostic) %>
-    <div class="dropdown col-sm-6 mx-auto">
-      <button id="dashboard--organization<%= organization.id %>--teams--button" class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopups="true" aria-expanded="false">
-        <%= 'Diagnostics'.t %>
-        <span class="badge badge-pill badge-light">0</span>
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dashboard--organization<%= organization.id%>--teams--button">
-        <%= link_to('Create'.t, '#', class: 'badge badge-primary dropdown-item') %>
-        <%= link_to('List'.t, '#', class: 'badge badge-info dropdown-item') %>
-      </div>
-    </div>
-  <% end %>
+    <%= render partial: 'organization_team_diagnostics', locals: { organization: organization } %>
   </div>
 </div>

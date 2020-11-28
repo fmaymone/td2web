@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col">
+    <h1><%= 'Import Participants'.t %></h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <p class="lead">
+      <%= sanitize('team_diagnostic--participants--define_import-help'.t, tags: %w{ul li b strong}) %>
+    </p>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center">
+  <div class="">
+    <table class="table">
+      <thead>
+        <tr>
+          <th><%= 'Title'.t %></%=></th>
+          <th><%= 'First Name'.t %></th>
+          <th><%= 'Last Name'.t %></th>
+          <th><%= 'Email'.t %></th>
+          <th><%= 'Phone Number'.t %></th>
+          <th><%= 'Locale'.t %></th>
+        </th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ms.</td>
+          <td>Jane</td>
+          <td>Smith</td>
+          <td>jsmith@example.com</td>
+          <td>+1 555-555-5555</td>
+          <td>en</td>
+        </tr>
+        <tr>
+          <td>Mr.</td>
+          <td>John</td>
+          <td>Doe</td>
+          <td>jdoe@example.com</td>
+          <td></td>
+          <td>en</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Pat</td>
+          <td>Doe</td>
+          <td>pdoe@example.com</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div clas="col">
+    <%= form_tag(create_import_team_diagnostic_participants_path(team_diagnostic_id: @team_diagnostic.id), multipart: true, method: :post) do |f| %>
+      <div class="form-group">
+        <%= file_field_tag :participants, class: 'form-control-lg', id: 'participant_file_select' %>
+      </div>
+      <%= submit_tag('Import'.t, class: 'btn btn-primary', id: 'participant_import_submit', disabled: true) %>
+      <%= link_to('Back'.t, :back, class: 'btn btn-light') %>
+    <% end %>
+  </div>
+</div>

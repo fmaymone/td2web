@@ -1,0 +1,98 @@
+<%= bootstrap_form_for(team_diagnostic, remote: false) do |form| %>
+  <%= render partial: 'shared/form_errors', locals: { subject: team_diagnostic } %>
+
+  <%= hidden_field_tag :step, service.step %>
+
+
+  <fieldset id="team_diagnostica-general-fieldset">
+    <legend><%= 'General Setup'.t %></legend>
+    <div class="form-row">
+      <div class="col-sm-6">
+        <%= form.select :diagnostic_id,
+          options_for_select(service.entitled_diagnostics_options, team_diagnostic.diagnostic_id),
+          label: 'Diagnostic'.t, required: true, include_blank: true, class: 'form-control-lg' %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-sm-12">
+        <%= form.text_field :name, label: 'Team Name'.t, required: true, class: 'form-control-lg' %>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-sm-6">
+        <%= form.select :organization_id, options_for_select(service.organization_options, team_diagnostic.organization_id), label: 'Organization'.t, required: true %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-sm-6">
+        <%= form.select :team_type, options_for_select(service.team_type_options, team_diagnostic.team_type), label: 'Team Type'.t, required: true %>
+      </div>
+      <div class="col-sm-6">
+        <%= form.select :functional_area, options_for_select(service.functional_area_options, team_diagnostic.functional_area), label: 'Functional Area'.t, required: true %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col">
+        <%= form.text_area :description, label: 'Description'.t, required: false %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col">
+        <%= form.text_area :situation, label: 'Situation'.t, required: true %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset id="team_diagnostic-contact-fieldset">
+    <legend><%= 'Contact'.t %></legend>
+    <div class="form-row">
+      <div class="col-sm-6 col-md-4">
+        <%= form.telephone_field :contact_phone, label: 'Contact Phone'.t, required: true %>
+      </div>
+      <div class="col-md-4">
+        <%= form.email_field :contact_email, label: 'Contact Email'.t, required: true %>
+      </div>
+      <div class="col-md-4">
+        <%= form.email_field :alternate_email, label: 'Alternate Email'.t, required: false %>
+      </div>
+    </div>
+    <div class="form-row">
+    </div>
+  </fieldset>
+
+  <fieldset id="team_diagnostic-dates-fieldset">
+    <legend><%= 'Important Dates'.t %></legend>
+    <div class="form-row">
+      <div class="col-sm-6 col-md-3">
+        <%= form.date_field :auto_deploy_at, label: 'Deploy Date'.t, required: false %>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <%= form.date_field :reminder_at, label: 'Send Reminders'.t, required: true %>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <%= form.date_field :due_at, label: 'Date Due'.t, required: true %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset id="team_diagnostic-local-fieldset">
+    <legend><%= 'Other'.t %></legend>
+    <div class="form-row">
+      <div class="col-sm-4">
+        <%= form.select :locale, locales_for_select(team_diagnostic), label: 'Locale'.t, required: true %>
+      </div>
+      <div class="col-sm-8">
+        <%= form.time_zone_select :timezone , nil, { label: 'Timezone'.t, required: true } %>
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="form-row">
+    <%= form.submit 'Submit'.t, class: 'btn btn-primary' %> &nbsp;
+    <%= link_to('Cancel'.t, :back, class: 'btn btn-light') %>
+  </div>
+<% end %>

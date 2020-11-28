@@ -21,7 +21,7 @@ module TranslationServices
       puts "*** SKIPPED: #{@not_found.size}"
       puts @not_found.map { |nf| "  - #{nf}" }.join("\n")
       puts "*** CREATED: #{@collection.size}"
-      puts @collection.map { |q| "  - #{(q.body_positive || q.body)}" }.join("\n")
+      puts @collection.map { |q| "  - #{q.body_positive || q.body}" }.join("\n")
       csv_from_questions
     end
 

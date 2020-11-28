@@ -26,25 +26,32 @@
               <%= link_to('Organizations'.t, organizations_path, class: 'nav-link')  %>
             </li>
           <% end %>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbar--system-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<%= 'System'.t %>
-						</a>
-						<div class="dropdown-menu" aria-labelledby="navbar--system-dropdown">
-							<% if policy(Entitlement).index? %>
-								<%= link_to('Entitlements'.t, entitlements_path, class: 'dropdown-item')  %>
-							<% end %>
-							<% if policy(Diagnostic).index? %>
-								<%= link_to('Diagnostics'.t, diagnostics_path, class: 'dropdown-item')  %>
-							<% end %>
-							<% if policy(Tenant).index? %>
-								<%= link_to('Tenants'.t, tenants_path, class: 'dropdown-item')  %>
-							<% end %>
-							<% if policy(ApplicationTranslation).index? %>
-								<%= link_to('Translations'.t, application_translations_path(tlocale: @current_locale || 'en'), class: 'dropdown-item')  %>
-							<% end %>
-						</div>
-					</li>
+          <% if policy(TeamDiagnostic).index? %>
+            <li class="nav-item <%= nav_item_class(:team_diagnostics) %>">
+              <%= link_to('Diagnostics'.t, team_diagnostics_path, class: 'nav-link')  %>
+            </li>
+          <% end %>
+          <% if @current_user.admin? || @current_user.translator? %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbar--system-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= 'System'.t %>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbar--system-dropdown">
+                <% if policy(Entitlement).index? %>
+                  <%= link_to('Entitlements'.t, entitlements_path, class: 'dropdown-item')  %>
+                <% end %>
+                <% if policy(Diagnostic).index? %>
+                  <%= link_to('Diagnostics'.t, diagnostics_path, class: 'dropdown-item')  %>
+                <% end %>
+                <% if policy(Tenant).index? %>
+                  <%= link_to('Tenants'.t, tenants_path, class: 'dropdown-item')  %>
+                <% end %>
+                <% if policy(ApplicationTranslation).index? %>
+                  <%= link_to('Translations'.t, application_translations_path(tlocale: @current_locale || 'en'), class: 'dropdown-item')  %>
+                <% end %>
+              </div>
+            </li>
+          <% end %>
           <li class="nav-item <%= nav_item_class(:users, :edit) %>">
             <%= link_to('Profile'.t, edit_user_path(current_user), class: 'nav-link') %>
           </li>

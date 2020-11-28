@@ -7,9 +7,11 @@ module EntitlementServices
 
     attr_reader :user, :reference
 
-    def initialize(tenant:, user: nil, params: nil, reference: nil)
-      @tenant = tenant
+    def initialize(tenant: nil, user: nil, params: nil, reference: nil)
+      raise 'Need either a tenant or a user parameter to initialize EntitlementServices::Authorizer' unless tenant || user
+
       @user = user
+      @tenant = tenant || user&.tenant
       @params = params
       @references = reference ? Array(reference) : resolve_references(@params)
     end
@@ -33,7 +35,7 @@ module EntitlementServices
 
     def authorize_user(slug = nil)
       skope = @user.grants.valid.where(reference: @references)
-      skope = skope.includes(:entitlement).where(entitlement: { slug: slug }) if slug
+      skope = skope.includes(:entitlement).where(entitlements: { slug: slug }) if slug
       skope.any?
     end
 

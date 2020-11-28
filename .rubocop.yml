@@ -1891,10 +1891,6 @@ Metrics/BlockLength:
   VersionChanged: '0.66'
   CountComments: false  # count full line comments?
   Max: 25
-  ExcludedMethods:
-    # By default, exclude the `#refine` method, as it tends to have larger
-    # associated blocks.
-    - refine
   Exclude:
     - '**/*.gemspec'
 
@@ -1933,7 +1929,6 @@ Metrics/MethodLength:
   VersionChanged: '0.59.2'
   CountComments: false  # count full line comments?
   Max: 10
-  ExcludedMethods: []
 
 Metrics/ModuleLength:
   Description: 'Avoid modules longer than 100 lines of code.'
@@ -2210,7 +2205,7 @@ Naming/VariableName:
 
 Naming/VariableNumber:
   Description: 'Use the configured style when numbering variables.'
-  Enabled: true
+  Enabled: false
   VersionAdded: '0.50'
   EnforcedStyle: normalcase
   SupportedStyles:
@@ -2858,7 +2853,7 @@ Style/FormatString:
 
 Style/FormatStringToken:
   Description: 'Use a consistent style for format string tokens.'
-  Enabled: true
+  Enabled: false
   EnforcedStyle: annotated
   SupportedStyles:
     # Prefer tokens which contain a sprintf like type annotation like
@@ -3000,7 +2995,6 @@ Style/InfiniteLoop:
   Enabled: true
   VersionAdded: '0.26'
   VersionChanged: '0.61'
-  SafeAutoCorrect: true
 
 Style/InlineComment:
   Description: 'Avoid trailing inline comments.'
@@ -4142,3 +4136,7 @@ Style/ZeroLengthPredicate:
   Safe: false
   VersionAdded: '0.37'
   VersionChanged: '0.39'
+
+Lint/DuplicateBranch:
+  Enabled: false
+

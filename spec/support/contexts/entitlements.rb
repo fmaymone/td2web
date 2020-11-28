@@ -15,6 +15,16 @@ RSpec.shared_context 'entitlements', shared_context: :metadate do
     Entitlement.where(slug: Entitlement::CREATE_ORGANIZATION).first
   end
 
+  let(:create_diagnostic_any_entitlement) do
+    entitlement_seed_data
+    Entitlement.where(slug: Entitlement::CREATE_DIAGNOSTIC_ANY).first
+  end
+
+  let(:create_diagnostic_tda_entitlement) do
+    entitlement_seed_data
+    Entitlement.where(slug: Entitlement::CREATE_DIAGNOSTIC_TDA).first
+  end
+
   let(:entitlement_for_admins) { create(:entitlement, role: admin_role) }
 
   let(:entitlement_for_staff) { create(:entitlement, role: staff_role) }

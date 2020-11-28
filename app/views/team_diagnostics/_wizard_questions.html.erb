@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col">
+    <h1><%= 'Open-Ended Questions'.t %></h1>
+  </div>
+</div>
+
+<div id="open_ended_questions" class="row" >
+  <%= render partial: 'open_ended_questions', locals: {service: @question_service, team_diagnostic: @team_diagnostic } %>
+</div>
+
+<div class="row">
+  <div class="col">
+    <%= form_for(@service.team_diagnostic) do |form| %>
+      <%= hidden_field_tag :step, @service.step %>
+      <%= form.submit 'Continue'.t, class: 'btn btn-primary' %>
+    <% end if @service.next_step_accessible? %>
+  </div>
+</div>

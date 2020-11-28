@@ -3,12 +3,13 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.1'
+ruby '2.7.2'
 
 # gem 'secure_headers'
 gem 'aasm'
 gem 'amazing_print'
 gem 'audited'
+gem 'aws-sdk-s3', require: false
 gem 'bcrypt'
 gem 'bootsnap', require: false
 gem 'bootstrap_form', '~> 4.0'
@@ -41,6 +42,8 @@ gem 'puma'
 gem 'pundit'
 gem 'rails'
 gem 'rails-i18n'
+gem 'roo'
+gem 'roo-xls'
 gem 'sass-rails'
 gem 'sprockets-rails', git: 'https://github.com/rails/sprockets-rails.git'
 gem 'turbolinks'

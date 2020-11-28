@@ -22,12 +22,12 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
       # Special handling of already confirmed users visiting
       # the confirmation link
       if resource.confirmed_at.present?
-        if !resource.encrypted_password?
+        if resource.encrypted_password?
           # Confirmed but password not set. Set password.
-          redirect_to new_user_password_path(resource)
+          redirect_to root_url
         else
           # Confirmed and password set means go to login
-          redirect_to root_url
+          redirect_to new_user_password_path(resource)
         end
         return
       end

@@ -57,6 +57,7 @@ RSpec.shared_context 'users', shared_context: :metadate do
                  confirmed_at: DateTime.now)
     user.save!
     create(:grant, user: user, grantor: admin, reference: OrganizationServices::Creator::REFERENCE, entitlement: create_organization_entitlement, quota: 3)
+    create(:grant, user: user, grantor: admin, reference: TeamDiagnosticServices::Creator::REFERENCE, entitlement: create_diagnostic_tda_entitlement, quota: 3)
     user
   end
   let(:facilitator2) do

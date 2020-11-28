@@ -20,6 +20,7 @@
 #
 FactoryBot.define do
   factory :diagnostic_question do
+    sequence(:slug) { |n| "slug#{n}" }
     diagnostic { create(:diagnostic) }
     body { Faker::Lorem.sentence }
     body_positive { Faker::Lorem.sentence }

@@ -6,10 +6,10 @@
       <% user.grants.each do |grant| %>
         <p style="line-height: 0.8em;" >
           <small>
+            <strong><%= grant.entitlement.description %></strong><br/>
             <span class="badge-pill badge-light text-nowrap">
               <%= grant.usage_count %> / <%= grant.quota %>
             </span>
-            &nbsp;<strong><%= grant.entitlement.description %></strong>
           </small>
         </p>
       <% end %>

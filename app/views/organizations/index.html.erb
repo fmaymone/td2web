@@ -38,7 +38,7 @@
             <td class="text-nowrap">
               <%= link_to('Show'.t, organization, class: 'btn btn-sm btn-info') if policy(organization).show? %>
               <%= link_to('Edit'.t, edit_organization_path(organization), class: 'btn btn-sm btn-primary' )if policy(organization).edit? %>
-              <%= link_to('Delete'.t, organization, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-warning') if policy(organization).destroy? %>
+              <%= link_to('Delete'.t, organization, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger') if policy(organization).destroy? %>
             </td>
           </tr>
         <% end %>

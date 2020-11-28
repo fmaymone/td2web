@@ -48,7 +48,7 @@ module EntitlementServices
     def entitlement_options
       Entitlement.active
                  .where(role_id: grantor_role_ids)
-                 .order(description: :asc)
+                 .order(slug: :asc)
                  .map do |entitlement|
         selected = selected_entitlement(entitlement.id)
         {

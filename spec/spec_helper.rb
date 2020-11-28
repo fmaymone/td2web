@@ -18,6 +18,11 @@ RSpec.configure do |config|
   config.order = :random
   config.default_formatter = 'doc'
   Kernel.srand config.seed
+
+  config.before(:suite) do
+    # Remove test uploaded files before each run
+    FileUtils.rm_rf(Rails.root.join('tmp', 'storage'))
+  end
 end
 
 RSpec::Expectations.configuration.on_potential_false_positives = :nothing

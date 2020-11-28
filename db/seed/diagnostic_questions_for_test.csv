@@ -1,0 +1,15 @@
+slug,diagnostic_id,body,body_positive,category,factor,question_type,matrix,negative,active
+TDA-Productivity-Rating-Decision Making-65,1,We have a strong record for making smart decisions as a team.,We have a strong record for making smart decisions as a team.,Productivity,Decision Making,Rating,65,false,true
+TDA-Productivity-Rating-Resources-57,1,There is a “win/lose” mentality on the team where my gains become someone else’s losses.,There is not a “win/lose“ mentality on the team where my gains become someone else’s losses.,Productivity,Resources,Rating,57,true,true
+TDA-Productivity-Rating-Alignment-49,1,"On our team, there is a collective ownership of results.","On our team, there is a collective ownership of results.",Productivity,Alignment,Rating,49,false,true
+TDA-Positivity-Rating-Values Diversity-41,1,New or controversial ideas are discouraged.,New or controversial ideas are encouraged.,Positivity,Values Diversity,Rating,41,true,true
+OE-TDA-1,1,What is working on this team?,,NoCategory,NoFactor,Open-Ended,0,false,true
+OE-TDA-2,1,What are the top three strengths of this team?,,NoCategory,NoFactor,Open-Ended,0,false,true
+OE-TDA-3,1,What are the top three challenges facing this team?,,NoCategory,NoFactor,Open-Ended,0,false,true
+OE-TDA-4,1,What are this team’s top three priorities?,,NoCategory,NoFactor,Open-Ended,0,false,true
+OE-TDA-5,1,What would best support this team – now?,,NoCategory,NoFactor,Open-Ended,0,false,true
+OE-TDA-6,1,What must happen for this to be a high-performing team?,,NoCategory,NoFactor,Open-Ended,0,false,true
+OE-TDA-7,1,What is this team tolerating?,,NoCategory,NoFactor,Open-Ended,0,false,true
+OE-TDA-8,1,What is your assessment of the team?,,NoCategory,NoFactor,Open-Ended,0,false,true
+OE-TDA-9,1,How will you know if the team building is a success?,,NoCategory,NoFactor,Open-Ended,0,false,true
+OE-TDA-10,1,What should we know about your team?,,NoCategory,NoFactor,Open-Ended,0,false,true

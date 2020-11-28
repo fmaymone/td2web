@@ -1,0 +1,122 @@
+<div class="row">
+  <div clas="col">
+    <%= render partial: 'breadcrumbs' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <h1><%= 'Import Participants'.t %></h1>
+  </div>
+</div>
+
+
+<% if @errors %>
+  <div class="row alert alert-danger">
+    <div class="col">
+      <h4><%= 'There were problems importing Participants'.t %></h4>
+      <% if @service.stats.present? %>
+      <p class="lead">
+        <ul>
+          <% @service.errors.each do |error| %>
+            <li><%= 'Error'.t %>: <%= error.t %></li>
+          <% end %>
+          <li><strong><%= 'Imported'.t %>: </strong><%= @service.stats[:created] %></li>
+          <li><strong><%= 'Skipped'.t %>: </strong><%= @service.stats[:skipped] %></li>
+          <li><strong><%= 'Errors'.t %>: </strong><%= @service.stats[:errors].size %></li>
+        </ul>
+      </p>
+      <% end %>
+      <div class="d-flex justify-content-center">
+        <div class="">
+          <table class="table">
+            <thead>
+              <tr>
+                <th><%= 'Record'.t %></th>
+                <th><%= 'Title'.t %></th>
+                <th><%= 'First Name'.t %></th>
+                <th><%= 'Last Name'.t %></th>
+                <th><%= 'Email'.t %></th>
+                <th><%= 'Phone Number'.t %></th>
+                <th><%= 'Locale'.t %></th>
+              </th>
+            </thead>
+            <tbody>
+              <% @service.stats[:errors].each do |row| %>
+                <tr>
+                  <td><%= row + 1 %></td>
+                  <% @service.rows[row].each do |col| %>
+                    <td><%= col %></td>
+                  <% end %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="col">
+    <p class="lead">
+      <%= sanitize('team_diagnostic--participants--define_import-help'.t, tags: %w{ul li b strong}) %>
+    </p>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center">
+  <div class="">
+    <table class="table">
+      <thead>
+        <tr>
+          <th><%= 'Title'.t %></%=></th>
+          <th><%= 'First Name'.t %></th>
+          <th><%= 'Last Name'.t %></th>
+          <th><%= 'Email'.t %></th>
+          <th><%= 'Phone Number'.t %></th>
+          <th><%= 'Locale'.t %></th>
+        </th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ms.</td>
+          <td>Jane</td>
+          <td>Smith</td>
+          <td>jsmith@example.com</td>
+          <td>+1 555-555-5555</td>
+          <td>en</td>
+        </tr>
+        <tr>
+          <td>Mr.</td>
+          <td>John</td>
+          <td>Doe</td>
+          <td>jdoe@example.com</td>
+          <td></td>
+          <td>en</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Pat</td>
+          <td>Doe</td>
+          <td>pdoe@example.com</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div clas="col">
+    <%= form_tag(create_import_team_diagnostic_participants_path(team_diagnostic_id: @team_diagnostic.id), multipart: true, method: :post) do |f| %>
+      <div class="form-group">
+        <%= file_field_tag :participants, class: 'form-control-lg', id: 'participant_file_select' %>
+      </div>
+      <%= submit_tag('Import'.t, class: 'btn btn-primary', id: 'participant_import_submit', disabled: true) %>
+      <%= link_to('Back'.t, :back, class: 'btn btn-light') %>
+    <% end %>
+  </div>
+</div>

@@ -26,7 +26,7 @@ class Organization < ApplicationRecord
   enum revenue: ['Non Profit Organization', 'For Profit Organization under US$1 million', 'For Profit Organization US$1-10 million', 'For Profit Organization US$10-25 million', 'For Profit Organization US$25-50 million', 'For Profit Organization US$50-100 million', 'For Profit Organization over US$100 million']
 
   ### Validations
-  validates :name, presence: true, uniqueness: { scope: :tenant_id, message: 'has been taken' }
+  validates :name, presence: true
   validates :url, presence: true
   validates :industry, presence: true, inclusion: Organization.industries.keys
   validates :revenue, presence: true, inclusion: Organization.revenues.keys
@@ -40,6 +40,7 @@ class Organization < ApplicationRecord
   belongs_to :tenant
   has_many :organization_users, dependent: :destroy
   has_many :members, through: :organization_users, class_name: 'User', source: :user
+  has_many :team_diagnostics
 
   ### Class Methods
 

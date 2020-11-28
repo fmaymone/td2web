@@ -6,15 +6,15 @@ module Seeds
   class DiagnosticQuestions
     DEFAULT_FILENAME = File.join(Rails.root, 'db', 'seed', 'diagnostic_questions.csv').freeze
 
-    def initialize(message: nil)
+    def initialize(message: nil, filename: DEFAULT_FILENAME)
       @message = message || 'Load Default DiagnosticQuestions...'
       @errors = []
       @success = false
-      @filename = DEFAULT_FILENAME
+      @filename = filename
     end
 
     def call
-      DiagnosticQuestion.load_seed_csv_data do |record|
+      DiagnosticQuestion.load_seed_csv_data(@filename) do |record|
         # Find the ACTUAL Diagnostic ID
         new_record = record.dup
         diagnostic_id = case record[:diagnostic_id].to_i

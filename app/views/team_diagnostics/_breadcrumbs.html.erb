@@ -1,0 +1,15 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to('Dashboard'.t, root_path) %></li>
+    <% if @organization %>
+      <li class="breadcrumb-item"><%= link_to(@organization.name, organization_path(@organization))%></li>
+      <li class="breadcrumb-item"><%= link_to('Team Diagnostics'.t, team_diagnostics_path(organization_id: @organization.id )) %></li>
+    <% else %>
+      <li class="breadcrumb-item"><%= link_to('Team Diagnostics'.t, team_diagnostics_path )%></li>
+    <% end %>
+    <% if defined?(@team_diagnostic) && @team_diagnostic.id %>
+      <li class="breadcrumb-item"><%= link_to( @team_diagnostic.name, team_diagnostic_path(@team_diagnostic )) %></li>
+    <% end %>
+    <li class="breadcrumb-item active" aria-current="page"><%= ( @current_page || params[:action].humanize.t )%> </li>
+  </ol>
+</nav>

@@ -27,9 +27,14 @@ module EntitlementServices
       @errors.empty?
     end
 
+    def valid?
+      @errors.empty? && @grant&.effective?
+    end
+
     private
 
     def privileged_user?
+      # TODO: remove staff (maybe?)
       @user.admin? || @user.staff?
     end
 

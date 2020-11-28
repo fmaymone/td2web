@@ -179,6 +179,6 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
-  describe 'GET #consent' do
-  end
+  # describe 'GET #consent' do
+  # end
 end

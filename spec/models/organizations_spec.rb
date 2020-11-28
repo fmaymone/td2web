@@ -26,7 +26,7 @@ RSpec.describe Organization, type: :mode, metadate: true do
         organization = build(:organization, locale: nil)
         refute(organization.save)
       end
-      it 'has a unique name per tenant' do
+      it 'does not need to have a unique name' do
         tenant1 = create(:tenant)
         tenant2 = create(:tenant)
         name = 'Acme, Inc.'
@@ -35,7 +35,7 @@ RSpec.describe Organization, type: :mode, metadate: true do
         organization3 = build(:organization, name: name, tenant: tenant1)
         assert(organization1.save)
         assert(organization2.save)
-        refute(organization3.save)
+        assert(organization3.save)
       end
     end
   end

@@ -1,0 +1,2 @@
+$('#open_ended_questions').html('<%= j(render(partial: 'team_diagnostics/open_ended_questions', locals: {service: @question_service, team_diagnostic: @team_diagnostic}))%>')
+$('#team_diagnostic_question_body').focus();

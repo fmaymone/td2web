@@ -26,6 +26,8 @@ class DiagnosticQuestion < ApplicationRecord
   RATING_TYPE = 'Rating'
   OPEN_ENDED_TYPE = 'Open-Ended'
   DEFAULT_TYPES = [RATING_TYPE, OPEN_ENDED_TYPE].freeze
+  NOFACTOR = 'NoFactor'
+  NOCATEGORY = 'NoCategory'
 
   ### Enumerables
   enum factor: ['NoFactor'] + DEFAULT_FACTORS
@@ -50,6 +52,8 @@ class DiagnosticQuestion < ApplicationRecord
 
   ### Scopes
   scope :active, -> { where(active: true) }
+  scope :rating, -> { where(question_type: RATING_TYPE) }
+  scope :open_ended, -> { where(question_type: OPEN_ENDED_TYPE) }
 
   ### Associations
   belongs_to :diagnostic
@@ -74,6 +78,6 @@ class DiagnosticQuestion < ApplicationRecord
   end
 
   def create_slug
-    self.slug ||= [diagnostic.slug, category, question_type, factor, matrix].compact.join('-')
+    self.slug ||= [diagnostic&.slug, category, question_type, factor, matrix].compact.join('-')
   end
 end

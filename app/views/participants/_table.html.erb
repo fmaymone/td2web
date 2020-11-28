@@ -1,0 +1,20 @@
+<tr>
+  <td><span class="badge badge-pill badge-info"><%= participant.state %></span></td>
+  <td class="text-nowrap"><%= participant.full_name %></td>
+  <td>
+    <%= mail_to(participant.email) %>
+    <% if participant.phone %>
+      &mdash;
+      <%= participant.phone %>
+    <% end %>
+    <span class="badge badge-pill badge-light"><%= participant.locale %></span>
+    <br/>
+    <small><%= participant.notes %></small>
+  </td>
+  <td>
+    <%= link_to('Edit'.t, edit_team_diagnostic_participant_path(team_diagnostic_id: participant.team_diagnostic_id, id: participant.id), class: 'btn btn-sm btn-primary') if policy(participant).edit? %>
+    <%= link_to('Disqualify'.t, disqualify_team_diagnostic_participant_path(team_diagnostic_id: participant.team_diagnostic_id, id: participant.id), method: :post, class: 'btn btn-sm btn-warning') if policy(participant).disqualify? %>
+    <%= link_to('Restore'.t, restore_team_diagnostic_participant_path(team_diagnostic_id: participant.team_diagnostic_id, id: participant.id), method: :post, class: 'btn btn-sm btn-warning') if policy(participant).restore? %>
+    <%= link_to('Remove'.t, team_diagnostic_participant_path(team_diagnostic_id: participant.team_diagnostic_id, id: participant.id), method: :delete, class: 'btn btn-sm btn-danger') if policy(participant).destroy? %>
+  </td>
+</tr>

@@ -20,6 +20,13 @@ class Entitlement < ApplicationRecord
   ALLOWED_PARAMS = %i[account active role_id reference slug description quota].freeze
   REGISTER_AS_FACILITATOR = 'register-facilitator'
   CREATE_ORGANIZATION = 'create-organization'
+  CREATE_DIAGNOSTIC_TDA = 'create-diagnostic-tda'
+  CREATE_DIAGNOSTIC_TLV = 'create-diagnostic-tlv'
+  CREATE_DIAGNOSTIC_T360 = 'create-diagnostic-t360'
+  CREATE_DIAGNOSTIC_ORG = 'create-diagnostic-org'
+  CREATE_DIAGNOSTIC_L360 = 'create-diagnostic-l360'
+  CREATE_DIAGNOSTIC_FT = 'create-diagnostic-ft'
+  CREATE_DIAGNOSTIC_ANY = 'create-diagnostic-any'
 
   ### Concerns
   include Seeds::Seedable

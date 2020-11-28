@@ -10,11 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_15_231031) do
+ActiveRecord::Schema.define(version: 2021_01_05_060328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.uuid "record_id", null: false
+    t.string "record_type", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "audits", force: :cascade do |t|
     t.integer "auditable_id"
@@ -206,7 +227,23 @@ ActiveRecord::Schema.define(version: 2020_11_15_231031) do
     t.string "locale", default: "en", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["tenant_id", "name"], name: "index_organizations_on_tenant_id_and_name", unique: true
+  end
+
+  create_table "participants", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "team_diagnostic_id", null: false
+    t.string "state", default: "approved", null: false
+    t.string "email", null: false
+    t.string "phone"
+    t.string "title"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "locale", null: false
+    t.string "timezone", null: false
+    t.text "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["team_diagnostic_id", "email"], name: "index_participants_on_team_diagnostic_id_and_email", unique: true
+    t.index ["team_diagnostic_id", "state"], name: "index_participants_on_team_diagnostic_id_and_state"
   end
 
   create_table "roles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -217,6 +254,57 @@ ActiveRecord::Schema.define(version: 2020_11_15_231031) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_roles_on_name", unique: true
     t.index ["slug"], name: "index_roles_on_slug", unique: true
+  end
+
+  create_table "team_diagnostic_questions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "slug", default: "OEQ", null: false
+    t.uuid "team_diagnostic_id"
+    t.string "body", null: false
+    t.string "body_positive"
+    t.integer "category", default: 0, null: false
+    t.integer "question_type", default: 1, null: false
+    t.integer "factor", default: 0, null: false
+    t.integer "matrix", default: 0, null: false
+    t.boolean "negative", default: false
+    t.boolean "active", default: true, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["active", "category", "question_type", "factor", "matrix"], name: "tdq_general_idx"
+    t.index ["slug"], name: "index_team_diagnostic_questions_on_slug"
+    t.index ["team_diagnostic_id"], name: "index_team_diagnostic_questions_on_team_diagnostic_id"
+  end
+
+  create_table "team_diagnostics", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "organization_id", null: false
+    t.uuid "user_id", null: false
+    t.uuid "team_diagnostic_id"
+    t.uuid "diagnostic_id", null: false
+    t.string "state", default: "setup", null: false
+    t.string "locale", default: "en", null: false
+    t.string "timezone", null: false
+    t.string "name", null: false
+    t.text "description", null: false
+    t.text "situation"
+    t.string "functional_area", null: false
+    t.string "team_type", null: false
+    t.boolean "show_members", default: true, null: false
+    t.string "contact_phone", null: false
+    t.string "contact_email", null: false
+    t.string "alternate_email"
+    t.text "cover_letter", null: false
+    t.text "reminder_letter", null: false
+    t.text "cancellation_letter", null: false
+    t.datetime "due_at", null: false
+    t.datetime "completed_at"
+    t.datetime "deployed_at"
+    t.datetime "auto_deploy_at"
+    t.datetime "reminder_at"
+    t.datetime "reminder_sent_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "wizard", default: 1, null: false
+    t.index ["team_diagnostic_id"], name: "index_team_diagnostics_on_team_diagnostic_id"
+    t.index ["user_id", "organization_id", "state"], name: "index_team_diagnostics_on_user_id_and_organization_id_and_state"
   end
 
   create_table "tenants", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -296,4 +384,5 @@ ActiveRecord::Schema.define(version: 2020_11_15_231031) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
 end

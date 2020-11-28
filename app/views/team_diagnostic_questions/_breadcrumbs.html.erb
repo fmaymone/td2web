@@ -1,0 +1,10 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to('Dashboard'.t, root_path) %></li>
+    <% if @team_diagnostic %>
+      <li class="breadcrumb-item"><%= link_to( @team_diagnostic.name, team_diagnostic_path(@team_diagnostic )) %></li>
+      <li class="breadcrumb-item"><%= link_to('Questions'.t, team_diagnostic_participants_path(team_diagnostic_id: @team_diagnostic.id )) %></li>
+    <% end %>
+    <li class="breadcrumb-item active" aria-current="page"><%= ( @current_page || params[:action].humanize.t )%> </li>
+  </ol>
+</nav>

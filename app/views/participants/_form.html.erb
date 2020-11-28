@@ -1,0 +1,46 @@
+<% remote = defined?(remote) ? remote : false %>
+
+<%= bootstrap_form_for(participant, local: !remote, html: { role: 'form'}) do |f| %>
+  <%= render partial: 'shared/form_errors', locals: { subject: participant } %>
+
+  <%= hidden_field_tag :team_diagnostic_id, participant.team_diagnostic_id %>
+
+  <div class="form-row">
+    <div class="col-sm-2">
+      <%= f.text_field :title, label: 'Prefix'.t, autofocus: true %>
+    </div>
+    <div class="col-sm-5">
+      <%= f.text_field :first_name, label: 'First Name'.t, required: true %>
+    </div>
+    <div class="col-sm-5">
+      <%= f.text_field :last_name, label: 'Last Name'.t, required: true %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <%= f.email_field :email, label: 'Email'.t, required: true %>
+    </div>
+    <div class="col-sm-6">
+      <%= f.telephone_field :phone, label: 'Phone Number'.t, required: false %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= f.select :locale, locales_for_select(participant), label: 'Locale'.t, required: true %>
+    </div>
+    <div class="col-sm-6">
+      <%= f.time_zone_select :timezone , nil, { label: 'Time Zone'.t, required: true } %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= f.text_area :notes, rows: 4, label: 'Notes'.t %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <%= f.submit 'Submit'.t, class: 'btn btn-primary' %>&nbsp;
+    <%= link_to((participant.team_diagnostic.participants.count > 1 ? 'Done' : 'Cancel').t, team_diagnostic_path(participant.team_diagnostic), class: 'btn btn-light') %>
+  </div>
+<% end %>

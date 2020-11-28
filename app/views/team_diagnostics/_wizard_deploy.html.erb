@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h2>
+      <% if @service.team_diagnostic.setup? %>
+        <%= 'Deploy'.t %>
+        <small class="badge badge-pill badge-info">
+          <%= '%{count} days left'.t(count: ((@service.team_diagnostic.auto_deploy_at - DateTime.now) / 1.day).ceil) %>
+        </small>
+        <br/>
+        <small><%= i18n_date_long @service.team_diagnostic.auto_deploy_at %></small>
+      <% else %>
+        <%= 'Deployed'.t %>
+        <br/>
+        <small><%= i18n_date_long @service.team_diagnostic.deployed_at %></small>
+      <% end %>
+    </h2>
+  </div>
+  <div class="col-sm-6">
+    <h2>
+      <%= 'Due'.t %>
+      <small class="badge badge-pill badge-info">
+        <%= '%{count} days left'.t(count: ((@service.team_diagnostic.due_at - DateTime.now) / 1.day).ceil) %>
+      </small>
+      <br/>
+      <small>
+        <%= i18n_date_long @service.team_diagnostic.due_at %>
+      </small>
+    </h2>
+  </div>
+</div>
+<% if @service.team_diagnostic.setup? %>
+<div class="row">
+  <div class="col">
+    <p class="lead">
+      <%= 'teamdiagnostic-pre-deploy-message'.t %>
+    </p>
+  </div>
+</div>
+<% end %>
+<div class="row">
+  <div class="col">
+    <% if @service.deployment_issues.any?  %>
+      <div class="alert alert-danger">
+        <p class="lead"><%= 'There are problems preventing deployment of your Team Diagnostic'.t %></p>
+        <ul>
+          <% @service.deployment_issues.each do |issue| %>
+            <li><%= issue %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% else %>
+      <%= link_to('Deploy Early'.t, deploy_team_diagnostic_path(@service.team_diagnostic), class: 'btn btn-primary', method: :post) if policy(@service.team_diagnostic).deploy? %>
+    <% end %>
+  </div>
+</div>

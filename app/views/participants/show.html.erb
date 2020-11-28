@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Teamdiagnostic:</strong>
+  <%= @participant.team_diagnostic_id %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @participant.state %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @participant.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @participant.phone %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @participant.title %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @participant.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @participant.last_name %>
+</p>
+
+<p>
+  <strong>Locale:</strong>
+  <%= @participant.locale %>
+</p>
+
+<p>
+  <strong>Timezone:</strong>
+  <%= @participant.timezone %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @participant.notes %>
+</p>
+
+<%= link_to 'Edit', edit_participant_path(@participant) %> |
+<%= link_to 'Back', participants_path %>

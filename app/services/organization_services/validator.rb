@@ -29,7 +29,7 @@ module OrganizationServices
     def validate_access
       policy = OrganizationPolicy.new(@grantor, @service.organization)
       access_granted = policy.send(policy_method)
-      @errors << 'You do not have permission to create an Organization' unless access_granted
+      @errors << 'You do not have permission' unless access_granted
     end
 
     def validate_record

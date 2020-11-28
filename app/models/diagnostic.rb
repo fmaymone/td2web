@@ -39,4 +39,13 @@ class Diagnostic < ApplicationRecord
   ### Class Methods
 
   ### Instance Methods
+
+  def minimum_participants
+    case slug
+    when TLV_SLUG, LEAD_360_SLUG
+      1
+    else
+      2
+    end
+  end
 end

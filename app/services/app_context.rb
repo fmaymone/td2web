@@ -113,7 +113,7 @@ class AppContext
       rescue StandardError
         nil
       end)
-        policy_action_name = "#{(action_name || 'index')}?"
+        policy_action_name = "#{action_name || 'index'}?"
         policy_action = policy_action_name if policy.new(nil, nil).respond_to?(policy_action_name)
       end
       [policy, policy_action]
