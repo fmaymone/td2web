@@ -3,11 +3,9 @@
   <hr/ >
   <p class="lead">
     <% if @service.valid? %>
-      You have been invited to gain access to features in TeamDiagnostic.
-      <br/>
-      Please click the 'Submit' button below to claim your invitation.
+      <%= 'user-registration--invitation-found'.t %>
     <% else %>
-      Enter a valid Token below and click the 'Submit' button to claim your TeamDiagnostic Invitation.
+      <%= 'user-registration--enter-token' %>
     <% end %>
   </p>
   <%= form_tag(process_claim_invitations_path, method: :post, remote: false, role: 'form', class: 'form') do %>
@@ -26,7 +24,7 @@
     <hr/ >
     <div class="form-row">
       <div class="col-sm6">
-        <%= submit_tag 'Submit'.t, class: 'btn btn-lg btn-success' %>
+        <%= submit_tag 'Continue'.t, class: 'btn btn-lg btn-success' %>
         <% if user_signed_in? %>
           <%= link_to('Cancel'.t, root_path, class: 'btn btn-light') %>
         <% end %>

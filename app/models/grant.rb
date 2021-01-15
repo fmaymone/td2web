@@ -28,7 +28,7 @@ class Grant < ApplicationRecord
   belongs_to :user
   belongs_to :entitlement
   belongs_to :grantor, polymorphic: true, optional: true
-  has_many :usages, class_name: 'GrantUsage'
+  has_many :usages, class_name: 'GrantUsage', dependent: :destroy
 
   ### Attributes
 

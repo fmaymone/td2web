@@ -25,12 +25,16 @@ RSpec.describe Users::RegistrationsController, type: :controller do
     let(:valid_params) { attributes_for(:user) }
     let(:invalid_params) { valid_params.merge(username: nil) }
     describe 'with valid params' do
-      it 'should create a user' do
+      it 'should create a user and assign any grants' do
         count = User.count
         post :create, params: { invitation_id: registration_invitation.id, user: valid_params }
         expect(User.count).to eq(count + 1)
         expect(response).to redirect_to(after_registration_path)
-        expect(User.order(created_at: :desc).first.role).to eq(registration_entitlement.role)
+        created_user = User.order(created_at: :desc).first
+        expect(created_user.role).to eq(registration_entitlement.role)
+        expect(created_user.grants.count).to eq(1)
+        registration_invitation.reload
+        assert(registration_invitation.claimed?)
       end
     end
     describe 'with invalid params' do

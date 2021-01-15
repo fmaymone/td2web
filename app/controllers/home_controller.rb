@@ -21,7 +21,9 @@ class HomeController < ApplicationController
     redirect_to root_path
   end
 
-  def after_registration; end
+  def after_registration
+    @page_title = 'Thank you for registering'.t
+  end
 
   private
 

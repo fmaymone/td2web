@@ -14,33 +14,8 @@ module EntitlementServices
       @grants = []
     end
 
-    def process_limited_invitation
-      unless valid_user?
-        @errors << 'Invalid user'
-        return false
-      end
-
-      @invitation.assigned_entitlements.each do |data|
-        entitlement = data[:entitlement]
-        grant_service = EntitlementServices::Grant.new(
-          user: @user,
-          entitlement: entitlement,
-          quota: data[:quota]
-        )
-        if grant_service.call
-          @grants << grant_service.grant
-        else
-          grant_service.errors.each do |err|
-            @errors << err
-          end
-        end
-      end
-
-      errors?
-    end
-
     def call
-      result = limited? ? process_limited_invitation : process_nonlimited_invitation
+      result = process_invitation
       yield if block_given? && result
       result
     end
@@ -82,17 +57,38 @@ module EntitlementServices
 
     private
 
-    def process_nonlimited_invitation
-      # Only mark as claimed if there is a User to assign
+    def process_invitation
+      return false unless @invitation.present?
+
+      return true unless @user.present?
+
+      @invitation.assigned_entitlements.each do |data|
+        entitlement = data[:entitlement]
+        grant_service = EntitlementServices::Grant.new(
+          user: @user,
+          entitlement: entitlement,
+          quota: data[:quota]
+        )
+        if grant_service.call
+          @grants << grant_service.grant
+        else
+          grant_service.errors.each do |err|
+            @errors << err
+          end
+        end
+      end
+
+      claim_invitation
+
+      errors?
+    end
+
+    def claim_invitation
       if @user
         @invitation.claim!
         @invitation.claimed_by = @user
       end
-      errors?
-    end
-
-    def valid_user?
-      @user&.active?
+      true
     end
 
     def grants_for_invitation
