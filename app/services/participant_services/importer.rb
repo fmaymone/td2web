@@ -149,7 +149,7 @@ module ParticipantServices
       data_check_ok = rows.is_a?(Array) && rows.size.positive?
       raise "Error detecting header in #{rows.class}" unless data_check_ok
 
-      rows.first.any? { |c| c.match(/email/i) }
+      rows.first.any? { |c| c.match(/email/i) } && rows.first.all? { |c| !c.match('@') }
     end
 
     def participant_attributes(row)

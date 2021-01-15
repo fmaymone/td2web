@@ -23,6 +23,8 @@
       <div class="col-sm-6">
         <%= form.select :organization_id, options_for_select(service.organization_options, team_diagnostic.organization_id), label: 'Organization'.t, required: true %>
       </div>
+      <div class="col-sm-6">
+      </div>
     </div>
 
     <div class="form-row">
@@ -87,6 +89,20 @@
       </div>
       <div class="col-sm-8">
         <%= form.time_zone_select :timezone , nil, { label: 'Timezone'.t, required: true } %>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-4">
+        <%= form.file_field :logo, label: 'Logo'.t %>
+      </div>
+      <div class="col-md-2" style="padding-top: 2.2em">
+        <span id="team_diagnostic--logo-uploaded-indicator" class="badge badge-pill badge-success align-baseline invisible" style="font-size: 1.3em;">&check;</span>
+      </div>
+      <div class="col-md-6">
+        <% if @service.team_diagnostic.logo.present? %>
+          <%= image_tag(@service.team_diagnostic.logo.variant(resize_to_limit: [150, nil])) %>
+          <%= form.check_box :_destroy_logo, label: 'Remove'.t %>
+        <% end %>
       </div>
     </div>
   </fieldset>

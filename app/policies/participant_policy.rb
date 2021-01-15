@@ -40,7 +40,7 @@ class ParticipantPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.team_diagnostic.setup? &&
+    record.approved? &&
       (admin? || staff? || owner?)
   end
 
@@ -63,6 +63,10 @@ class ParticipantPolicy < ApplicationPolicy
     record.disqualified? &&
       %w[setup deployed completed].include?(record.team_diagnostic.state) &&
       (admin? || staff? || owner?)
+  end
+
+  def activate?
+    edit? && record.activation_permitted?
   end
 
   def allowed_params

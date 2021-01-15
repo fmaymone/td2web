@@ -46,9 +46,11 @@
               <% if diagnostic.completed? %>
                 <%# NOOP %>
               <% else %>
+                <%= link_to('Deploy Now'.t, deploy_team_diagnostic_path(diagnostic), class: 'btn btn-success', method: :post) if policy(diagnostic).deploy? %>
                 <%= link_to('Setup'.t, wizard_team_diagnostic_path(id: diagnostic.id, step: 1), class: 'btn btn-sm btn-primary') if !diagnostic.completed? && policy(diagnostic).wizard? %>
+
               <% end %>
-              <%= link_to('Cancel'.t, wizard_team_diagnostic_path(id: diagnostic.id, step: 1), class: 'btn btn-sm btn-danger') %>
+              <%= link_to('Cancel'.t, cancel_team_diagnostic_path(id: diagnostic.id), {method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure?'.t}} ) if policy(diagnostic).cancel? %>
             </td>
           </tr>
         <% end %>

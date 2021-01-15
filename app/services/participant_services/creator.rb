@@ -35,7 +35,7 @@ module ParticipantServices
       participant = Participant.new(@params)
       participant.team_diagnostic_id = @team_diagnostic.id
       participant.locale ||= @team_diagnostic.locale
-      participant.timezone ||= @team_diagnostic.locale
+      participant.timezone ||= @team_diagnostic.timezone
       participant
     end
 

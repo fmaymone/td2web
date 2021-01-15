@@ -2,7 +2,7 @@
 <%= 'None'.t if questions.empty? %>
 <% questions.each do |q| %>
   <li id="<%= q[:id] %>">
-    <%= link_to(team_diagnostic_team_diagnostic_questions_path(team_diagnostic_id: team_diagnostic.id, diagnostic_question_id: q[:id]), remote: :true, method: :post) do %><small><span class="badge badge-pill badge-primary"><%= 'Add'.t %></span></small><% end %>
+    <%= link_to(team_diagnostic_team_diagnostic_questions_path(team_diagnostic_id: team_diagnostic.id, diagnostic_question_id: q[:id], qlocale: team_diagnostic.locale), remote: :true, method: :post) do %><small><span class="badge badge-pill badge-primary"><%= 'Add'.t %></span></small><% end %>
     <%= q[:body].t %>
   </li>
 <% end %>

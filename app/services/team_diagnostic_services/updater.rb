@@ -14,8 +14,8 @@ module TeamDiagnosticServices
       @id = id
       @policy = TeamDiagnosticPolicy.new(@user, TeamDiagnostic)
       @policy_scope = TeamDiagnosticPolicy::Scope.new(@user, TeamDiagnostic).resolve
-      @team_diagnostic = initialize_team_diagnostic
       @params = sanitize_params(params)
+      @team_diagnostic = initialize_team_diagnostic
       @step = get_step(params[:step])
     end
 
@@ -37,16 +37,20 @@ module TeamDiagnosticServices
       step <= current_step
     end
 
+    def step_needs_attention?(step = nil)
+      @team_diagnostic.wizard_step_attention_items(step || @step).any?
+    end
+
+    def step_attention_items
+      @team_diagnostic.wizard_step_attention_items(@step)
+    end
+
     def next_step_accessible?
       return false if @step >= @team_diagnostic.total_wizard_steps
       return false if @step >= current_step + 1
 
       true
     end
-
-    # def wizard_complete?
-    # @team_diagnostic.wizard_complete?
-    # end
 
     def entitled_diagnostics
       @policy.entitled_diagnostics
@@ -70,15 +74,31 @@ module TeamDiagnosticServices
 
     def deployment_issues
       errors = valid? ? [] : @errors
-      errors << 'Please add participants'.t unless @team_diagnostic.sufficient_participants?
-      errors || []
+      errors + @team_diagnostic.deployment_issues
     end
 
     def current_step
       @team_diagnostic.wizard
     end
 
+    def letters_for_form_typed(letter_type)
+      letters = team_diagnostic.team_diagnostic_letters.typed(letter_type).to_a
+      locales = letters.pluck(:locale)
+      unless locales.include?(@team_diagnostic.locale)
+        letters << TeamDiagnosticLetter.default_letter(
+          type: letter_type,
+          locale: @team_diagnostic.locale,
+          team_diagnostic: @team_diagnostic
+        )
+      end
+      letters.sort_by(&:locale)
+    end
+
     private
+
+    def letter_data_present?
+      @params.present? && @params.fetch('team_diagnostic_letters_attributes', []).first.present?
+    end
 
     def step_completed_or_present?
       step <= current_step && guard_deploy_step
@@ -99,12 +119,14 @@ module TeamDiagnosticServices
 
     def initialize_team_diagnostic
       @team_diagnostic = @policy_scope.where(id: @id).first or raise ActiveRecord::RecordNotFound
+      @team_diagnostic.team_diagnostic_letters << @team_diagnostic.missing_letters unless letter_data_present?
+      @team_diagnostic
     end
 
     def update_team_diagnostic
       TeamDiagnostic.transaction do
         @team_diagnostic.assign_attributes(@params || {})
-        if valid? && @team_diagnostic.update(@params || {})
+        if valid? && @team_diagnostic.save
           @team_diagnostic.increment_wizard! if @step == @team_diagnostic.wizard
           true
         else

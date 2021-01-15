@@ -16,8 +16,11 @@ module TeamDiagnostics
         state :cancelled
 
         event :deploy do
-          transitions from: :setup, to: :deployed
           before { perform_deployment }
+          after { activate_participants }
+          transitions from: %i[setup cancelled], to: :deployed do
+            guard { deployment_succeeded && !deployment_issues? }
+          end
         end
 
         event :complete do
@@ -29,6 +32,7 @@ module TeamDiagnostics
         end
 
         event :cancel do
+          before { cancel_deployment }
           transitions from: %i[setup deployed], to: :cancelled
         end
       end

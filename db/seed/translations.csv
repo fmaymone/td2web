@@ -7864,6 +7864,7 @@ nl,There is an attitude of gratitude and appreciation in our team environment.,E
 no,There is an attitude of gratitude and appreciation in our team environment.,Atmosfæren i teamet vårt preges av verdsettelse og anerkjennelse av hverandre.
 pl,There is an attitude of gratitude and appreciation in our team environment.,W naszym zespole mamy w zwyczaju okazywanie sobie wdzięczności i uznania.
 pt,There is an attitude of gratitude and appreciation in our team environment.,Existe uma atitude de gratidão e apreço no ambiente do time.
+en,Pending invitation,Pending invitation
 ru,There is an attitude of gratitude and appreciation in our team environment.,Наша команда работает в атмосфере благодарности и признательности друг к другу.
 es,There is an attitude of gratitude and appreciation in our team environment.,"En nuestro equipo hay una actitud de agradecimiento, reconocimiento y aprecio."
 sv,There is an attitude of gratitude and appreciation in our team environment.,Det finns en anda av tacksamhet och uppskattning i vårt team.
@@ -9085,6 +9086,7 @@ pl,The team has had adequate training to be as effective as it needs to be.,"Ten
 pt,The team has had adequate training to be as effective as it needs to be.,O time foi adequadamente treinado para ser efetivo o quanto for necessário.
 en,Intact,Intact
 en,Project,Project
+en,Activate,Activate
 es,This team has ongoing confusion over roles and responsibilities.,Este equipo tiene una confusión permanente acerca de roles y responsabilidades.
 sv,This team has ongoing confusion over roles and responsibilities.,I det här teamet råder ständig förvirring avseende roller och ansvarsområden.
 zh,This team has ongoing confusion over roles and responsibilities.,该团队一直对彼此的角色和职责感到困惑。
@@ -12215,6 +12217,7 @@ en,Team Diagnostic updated,Team Diagnostic updated
 en,Team Diagnostic deleted,Team Diagnostic deleted
 en,Diagnostic,Diagnostic
 en,team_diagnostic-cover_letter-description,This letter is sent via email to introduce the Participants to the Diagnostic
+en,There are new participants pending activation,There are new participants pending activation
 en,team_diagnostic-reminder_letter-description,This letter is sent via email to remind Participants to take the Diagnostic
 en,Send Reminders,Send Reminders
 en,team_diagnostic-cancellation_letter-description,This letter is sent via email to inform Participants that the Diagnostic survey is cancelled
@@ -12259,6 +12262,16 @@ en,team_diagnostic--participants--define_import-help,"You can upload a spreadshe
         <li> Information must be present in the <strong>second</strong>, <strong>third</strong>, and <strong>fourth </strong>columns.  </li>
         <li> The spreadsheet must have this layout: </li>
       </ul>"
+en,There are new participants pending deployment,There are new participants pending deployment
+en,Please invite more participants,Please invite more participants
+en,Please invite this participant,Please invite this participant
+en,The following items require attention,The following items require attention
+en,Information is missing or invalid,Information is missing or invalid
+en,Participant could not be deployed,Participant could not be deployed
+en,Participant was activated,Participant was activated
+en,team_diagnostic-cancel_notification_letter-subject,PLACEHOLDER
+en,team_diagnostic-cancel_notification_letter-body,PLACEHOLDER
+en,Team Diagnostic was cancelled,Team Diagnostic was cancelled
 en,team_diagnostic--letter-help,"<div class=""col-sm-8"">
               <p>
                 The system will automatically replace the variables with the
@@ -12306,3 +12319,39 @@ en,Deploy Early,Deploy Early
 en,teamdiagnostic-pre-deploy-message,When the Diagnostic is deployed we will email an invitation to each of the participants. Come back here to view completion status and other important information regarding your TeamDiagnostic. You will be able to download a report after the Due Date or all participants have completed the Diagnostic
 en,Deployed,Deployed
 en,Team Diagnostic deployment failed,Team Diagnostic deployment failed
+en,Done,Done
+"""en",Participant was restored,"Participant was restored"""
+"""en",Participantn was removed,"Participant was removed"""
+"""en",Participant was disqualified,"Participant was disqualified"""
+en,dsfsfsdf,dsfsfsdf
+en,sdfsdf,sdfsdf
+en,User profile phone number can't be blank,User phone number can't be blank
+en,user-registration--enter-token,Enter a valid token below and click 'Continue' to claim your Team Coaching International TeamDiagnostic invitation.
+en,user-registration--invitation-found,"You have been invited to use Team Coaching International's TeamDiagnostic.
+
+Please click the 'Continue' button to claim your invitation."
+en,What is your favorite color?,What is your favorite color?
+en,team_diagnostic-cover_letter-subject,Your Team Diagnostic Survey Invitation
+en,team_diagnostic-reminder_letter-subject,Don't Forget Your Team Diagnostic Survey.
+en,team_diagnostic-cancellation_letter-subject,Your Team Diagnostic Survey Was Cancelled
+en,team_diagnostic-deploy_notification_letter-subject,Your Team Diagnostic Has Deployed!
+en,team_diagnostic-deploy_notification_letter-body,"Hello {{facilitator_name}},
+
+Your {{assessment_name}} for {{team_name}} has been deployed. The participants for this diagnostic are now being sent their invitations.
+
+Thank you!"
+en,What,What
+en,What's your favorite color?,What's your favorite color?
+en,Help,Help
+en,Subject,Subject
+en,template-teamdiagnostic-cover-letter-subject,PLACEHOLDER
+en,template-teamdiagnostic-reminder-letter-subject,PLACEHOLDER
+en,template-teamdiagnostic-cancellation-letter-subject,PLACEHOLDER
+en,Overdue,Overdue
+en,Please create Open Ended Question translations,Please create Open Ended Question translations
+en,Please create letter translations,Please create letter translations
+en,Deployment Letter,Deployment Letter
+en,This letter is sent to the facilitator when a Diagnostic is deployed,This letter is sent to the facilitator when a Diagnostic is deployed
+en,team_diagnostic-deployment_letter-description,This letter is sent to the facilitator when a Diagnostic is deployed
+en,There are unsaved changes,There are unsaved changes
+en,Revert,Revert

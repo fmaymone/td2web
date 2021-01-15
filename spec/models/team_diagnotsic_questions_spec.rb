@@ -31,7 +31,7 @@ RSpec.describe TeamDiagnosticQuestion, type: :model do
 
     it 'initializes a new unsaved TeamDiagnosticQuestion' do
       dq = teamdiagnostic.diagnostic.diagnostic_questions.open_ended.first
-      tdq = TeamDiagnosticQuestion.from_diagnostic_question(dq)
+      tdq = TeamDiagnosticQuestion.from_diagnostic_question(dq).first
       tdq.team_diagnostic = teamdiagnostic
       assert(tdq.valid?)
 

@@ -7,6 +7,8 @@ RSpec.describe TeamDiagnosticsController, type: :controller do
   include_context 'users'
   include_context 'team_diagnostics'
 
+  let(:subject) { teamdiagnostic_ready }
+
   describe 'GET #index' do
     describe 'logged in as a facilitator' do
       before(:each) do
@@ -25,8 +27,8 @@ RSpec.describe TeamDiagnosticsController, type: :controller do
         sign_in facilitator
       end
       it 'redirect to the current wizard step' do
-        get :show, params: { id: teamdiagnostic.id }
-        expect(response).to redirect_to(wizard_team_diagnostic_path(id: teamdiagnostic.id, step: teamdiagnostic.wizard))
+        get :show, params: { id: subject.id }
+        expect(response).to redirect_to(wizard_team_diagnostic_path(id: subject.id, step: subject.wizard))
       end
     end
   end
@@ -79,7 +81,7 @@ RSpec.describe TeamDiagnosticsController, type: :controller do
       end
 
       it 'should render the edit form' do
-        get :edit, params: { id: teamdiagnostic.id }
+        get :edit, params: { id: subject.id }
         expect(response).to render_template(:edit)
       end
     end
@@ -92,25 +94,33 @@ RSpec.describe TeamDiagnosticsController, type: :controller do
       end
 
       it 'should render the wizard form' do
-        get :wizard, params: { id: teamdiagnostic.id, step: 1 }
+        get :wizard, params: { id: subject.id, step: 1 }
         expect(response).to render_template(:wizard)
       end
 
       it 'should render the wizard form for the specified step' do
-        teamdiagnostic.wizard = TeamDiagnostics::Wizard::DEPLOY_STEP
-        teamdiagnostic.save!
-        teamdiagnostic.reload
-        assert(teamdiagnostic.setup?)
-        get :wizard, params: { id: teamdiagnostic.id, step: TeamDiagnostics::Wizard::PARTICIPANTS_STEP }
-        expect(response).to be_successful
+        assert(subject.setup?)
+
+        subject.wizard = 2
+        subject.save!
+        subject.reload
+        get :wizard, params: { id: subject.id, step: 2 }
+
+        TeamDiagnostic::WIZARD_STEPS.each_with_index do |_step, index|
+          subject.wizard = index + 1
+          subject.save!
+          subject.reload
+          get :wizard, params: { id: subject.id, step: index + 1 }
+          expect(response).to be_successful
+        end
       end
 
       it 'should render the wizard form for the latest step' do
-        teamdiagnostic.wizard = 3
-        teamdiagnostic.save!
-        get :wizard, params: { id: teamdiagnostic.id, step: 100 }
+        subject.wizard = 3
+        subject.save!
+        get :wizard, params: { id: subject.id, step: 100 }
         expect(response).to render_template(:wizard)
-        expect(assigns[:service].step).to eq(teamdiagnostic.wizard)
+        expect(assigns[:service].step).to eq(subject.wizard)
       end
     end
   end
@@ -125,55 +135,112 @@ RSpec.describe TeamDiagnosticsController, type: :controller do
 
       describe 'with valid params' do
         it 'should update the team diagnostic' do
-          old_name = teamdiagnostic.name
-          old_due_at = teamdiagnostic.due_at
-          put :update, params: { id: teamdiagnostic.id, team_diagnostic: valid_attributes }
-          expect(response).to redirect_to(team_diagnostic_path(teamdiagnostic))
-          teamdiagnostic.reload
-          expect(teamdiagnostic.name).to_not eq(old_name)
-          expect(teamdiagnostic.due_at).to_not eq(old_due_at)
+          old_name = subject.name
+          old_due_at = subject.due_at
+          put :update, params: { id: subject.id, team_diagnostic: valid_attributes }
+          expect(response).to redirect_to(team_diagnostic_path(subject))
+          subject.reload
+          expect(subject.name).to_not eq(old_name)
+          expect(subject.due_at).to_not eq(old_due_at)
         end
       end
 
       describe 'with invalid params' do
         it 'should re-render the wizard step page' do
-          old_name = teamdiagnostic.name
-          put :update, params: { id: teamdiagnostic.id, team_diagnostic: invalid_attributes }
+          old_name = subject.name
+          put :update, params: { id: subject.id, team_diagnostic: invalid_attributes }
           expect(response).to render_template(:wizard)
-          teamdiagnostic.reload
-          expect(teamdiagnostic.name).to eq(old_name)
+          subject.reload
+          expect(subject.name).to eq(old_name)
         end
+      end
+
+      describe 'assigning all new letters' do
+        before(:each) do
+          # teamdiagnostic_participants
+        end
+        describe 'with all having valid params' do
+          let(:valid_letters_attributes) do
+            [
+              { letter_type: 'cover', subject: 'cover Subject', body: 'cover body', locale: 'en' },
+              { letter_type: 'cover', subject: 'cover Subject de', body: 'cover body de', locale: 'de' },
+              { letter_type: 'reminder', subject: 'reminder Subject', body: 'reminder body' },
+              { letter_type: 'cancellation', subject: 'cancellation Subject', body: 'cancellation body' }
+            ]
+          end
+          let(:valid_attributes) { { team_diagnostic_letters_attributes: valid_letters_attributes } }
+          it 'should create associated letters' do
+            subject.team_diagnostic_letters.destroy_all
+            put :update, params: { id: subject.id, team_diagnostic: valid_attributes }
+            subject.reload
+            expect(subject.team_diagnostic_letters.count).to eq(valid_letters_attributes.size)
+            expect(response).to be_a_redirect
+          end
+        end
+        describe 'with some having invalid params'
+      end
+
+      describe 'assiging two new letters' do
+        describe 'with both having valid params'
+        describe 'with one having invalid params'
+      end
+
+      describe 'updating two letters' do
+        describe 'with both having valid params'
+        describe 'with one having invalid params'
       end
     end
   end
 
   describe 'POST @deploy' do
     describe 'as a facilitator' do
+      let(:subject) { teamdiagnostic_ready }
       before(:each) do
         diagnostic_seed_data
         diagnostic_question_seed_data
         organization
-        teamdiagnostic_participants
         sign_in facilitator
       end
 
       it 'should deploy the Team Diagnostic' do
-        teamdiagnostic.wizard = teamdiagnostic.total_wizard_steps
-        teamdiagnostic.save!
-        post :deploy, params: { id: teamdiagnostic.id }
-        teamdiagnostic.reload
-        assert(teamdiagnostic.deployed?)
+        subject.wizard = subject.total_wizard_steps
+        subject.save!
+        post :deploy, params: { id: subject.id }
+        subject.reload
+        assert(subject.deployed?)
       end
 
       describe 'if there are problems' do
-        it 'should deploy the Team Diagnostic' do
-          teamdiagnostic.wizard = teamdiagnostic.total_wizard_steps
-          teamdiagnostic.save!
-          teamdiagnostic.participants.destroy_all
-          post :deploy, params: { id: teamdiagnostic.id }
-          teamdiagnostic.reload
-          refute(teamdiagnostic.deployed?)
+        it 'should not deploy the Team Diagnostic' do
+          subject.wizard = subject.total_wizard_steps
+          subject.save!
+          subject.participants.destroy_all
+          assert(subject.deployment_issues?)
+          post :deploy, params: { id: subject.id }
+          subject.reload
+          refute(subject.deployed?)
         end
+      end
+    end
+  end
+
+  describe 'POST @cancel' do
+    describe 'as a facilitator' do
+      let(:subject) { teamdiagnostic_ready }
+      before(:each) do
+        diagnostic_seed_data
+        diagnostic_question_seed_data
+        organization
+        subject.state = 'deployed'
+        subject.save
+        subject.reload
+        sign_in facilitator
+      end
+
+      it 'should cancel the Team Diagnostic' do
+        post :cancel, params: { id: subject.id }
+        subject.reload
+        assert(subject.cancelled?)
       end
     end
   end
@@ -186,7 +253,7 @@ RSpec.describe TeamDiagnosticsController, type: :controller do
 
       it 'should fail with an error' do
         expect  do
-          delete :destroy, params: { id: teamdiagnostic.id }
+          delete :destroy, params: { id: subject.id }
         end.to raise_error(StandardError)
       end
     end

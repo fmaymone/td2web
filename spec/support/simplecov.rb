@@ -7,5 +7,8 @@ if ENV.fetch('NO_TEST_COVERAGE', '') == 'true'
 else
   # SimpleCov for coverage reports at coverage/index.html
   require 'simplecov'
-  SimpleCov.start 'rails'
+  SimpleCov.start 'rails' do
+    add_group 'Services', 'app/services'
+    add_group 'Policies', 'app/policies'
+  end
 end

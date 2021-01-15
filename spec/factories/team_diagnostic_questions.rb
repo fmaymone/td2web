@@ -17,6 +17,7 @@
 #  active             :boolean          default(TRUE), not null
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  locale             :string           default("en")
 #
 FactoryBot.define do
   factory :team_diagnostic_question do

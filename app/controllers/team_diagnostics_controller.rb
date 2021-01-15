@@ -22,7 +22,7 @@ class TeamDiagnosticsController < ApplicationController
     authorize @team_diagnostic
     set_organization
     @current_page = @team_diagnostic.name
-    redirect_to wizard_team_diagnostic_path(@team_diagnostic, step: @team_diagnostic.wizard) if @team_diagnostic.setup?
+    redirect_to wizard_team_diagnostic_path(@team_diagnostic, step: @team_diagnostic.wizard) if @team_diagnostic.setup? || @team_diagnostic.deployed?
   end
 
   # GET /team_diagnostics/new
@@ -89,7 +89,7 @@ class TeamDiagnosticsController < ApplicationController
     @service = TeamDiagnosticServices::Updater.new(user: @current_user, id: record_scope.find(params[:id]), params: params)
     @team_diagnostic = @service.team_diagnostic
     authorize @team_diagnostic
-    redirect_to @team_diagnostic unless @team_diagnostic.setup? || @team_diagnostic.deployed?
+    # redirect_to @team_diagnostic unless @team_diagnostic.setup? || @team_diagnostic.deployed?
 
     case @service.step
     when TeamDiagnostics::Wizard::PARTICIPANTS_STEP
@@ -115,7 +115,6 @@ class TeamDiagnosticsController < ApplicationController
   end
 
   def deploy
-    # TODO
     set_team_diagnostic
     authorize @team_diagnostic
     if @team_diagnostic.deploy!
@@ -123,6 +122,12 @@ class TeamDiagnosticsController < ApplicationController
     else
       redirect_to team_diagnostic_path(@team_diagnostic), error: 'Team Diagnostic deployment failed'.t
     end
+  end
+
+  def cancel
+    set_team_diagnostic
+    authorize @team_diagnostic
+    redirect_to team_diagnostic_path(@team_diagnostic), notice: 'Team Diagnostic was cancelled'.t if @team_diagnostic.cancel!
   end
 
   private

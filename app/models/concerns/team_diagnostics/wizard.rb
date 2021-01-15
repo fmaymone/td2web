@@ -5,11 +5,11 @@ module TeamDiagnostics
   module Wizard
     extend ActiveSupport::Concern
 
-    WIZARD_STEPS = %w[setup customize questions participants deploy].freeze
+    WIZARD_STEPS = %w[setup questions participants letters deploy].freeze
     SETUP_STEP = 1
-    CUSTOMIZE_STEP = 2
-    QUESTIONS_STEP = 3
-    PARTICIPANTS_STEP = 4
+    QUESTIONS_STEP = 2
+    LETTERS_STEP = 4
+    PARTICIPANTS_STEP = 3
     DEPLOY_STEP = 5
 
     included do
@@ -36,6 +36,24 @@ module TeamDiagnostics
 
       def wizard_steps
         TeamDiagnostic::WIZARD_STEPS
+      end
+
+      def wizard_step_attention_items(step)
+        items = []
+        case step
+        when TeamDiagnostic::SETUP_STEP
+          items << 'Information is missing or invalid'.t unless valid?
+        when TeamDiagnostic::QUESTIONS_STEP
+          items << 'Please create Open Ended Question translations'.t unless sufficient_open_ended_question_translations?
+        when TeamDiagnostic::LETTERS_STEP
+          items << 'Please create letter translations'.t unless sufficient_letter_translations?
+        when TeamDiagnostic::PARTICIPANTS_STEP
+          items << 'Please invite more participants'.t unless sufficient_participants?
+          items << 'There are new participants pending activation'.t if participants_pending_activation?
+        when TeamDiagnostic::DEPLOY_STEP
+          items << pending_actions
+        end
+        items.flatten
       end
     end
   end

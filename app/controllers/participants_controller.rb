@@ -4,7 +4,7 @@
 class ParticipantsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_team_diagnostic
-  before_action :set_participant, only: %i[show edit update destroy]
+  before_action :set_participant, only: %i[show edit update destroy disqualify restore activate]
   after_action :verify_authorized
 
   # GET /participants
@@ -17,10 +17,10 @@ class ParticipantsController < ApplicationController
 
   # GET /participants/1
   # GET /participants/1.json
-  def show
-    authorize @participant
-    @current_page = 'Participant'.t
-  end
+  # def show
+  # authorize @participant
+  # @current_page = 'Participant'.t
+  # end
 
   # GET /participants/new
   def new
@@ -31,7 +31,7 @@ class ParticipantsController < ApplicationController
 
   # GET /participants/1/edit
   def edit
-    @service = ParticipantServices::Updater.new(user: current_user, id: params[:id], params: params)
+    @service = ParticipantServices::Updater.new(user: current_user, id: @participant.id, params: params)
     @participant = @service.participant
     authorize @participant
   end
@@ -58,7 +58,7 @@ class ParticipantsController < ApplicationController
   # PATCH/PUT /participants/1
   # PATCH/PUT /participants/1.json
   def update
-    @service = ParticipantServices::Updater.new(user: current_user, id: params[:id], params: params)
+    @service = ParticipantServices::Updater.new(user: current_user, id: @participant.id, params: params)
     authorize @service.participant
 
     respond_to do |format|
@@ -77,7 +77,7 @@ class ParticipantsController < ApplicationController
   # DELETE /participants/1
   # DELETE /participants/1.json
   def destroy
-    @service = ParticipantServices::Updater.new(user: current_user, id: params[:id], params: {})
+    @service = ParticipantServices::Updater.new(user: current_user, id: @participant.id, params: {})
     authorize @service.participant
     @service.destroy!
     respond_to do |format|
@@ -88,7 +88,7 @@ class ParticipantsController < ApplicationController
 
   # POST /participants/1/disqualify
   def disqualify
-    @service = ParticipantServices::Updater.new(user: current_user, id: params[:id], params: {})
+    @service = ParticipantServices::Updater.new(user: current_user, id: @participant.id, params: {})
     authorize @service.participant
     @service.disqualify!
     respond_to do |format|
@@ -99,11 +99,23 @@ class ParticipantsController < ApplicationController
 
   # POST /participants/1/disqualify
   def restore
-    @service = ParticipantServices::Updater.new(user: current_user, id: params[:id], params: {})
+    @service = ParticipantServices::Updater.new(user: current_user, id: @participant.id, params: {})
     authorize @service.participant
     @service.restore!
     respond_to do |format|
       format.html { redirect_to wizard_team_diagnostic_path(id: @service.participant.team_diagnostic.id, step: TeamDiagnostics::Wizard::PARTICIPANTS_STEP), notice: 'Participant was restored'.t }
+      format.json { head :no_content }
+    end
+  end
+
+  # POST /participants/1/activate
+  def activate
+    @service = ParticipantServices::Updater.new(user: current_user, id: @participant.id, params: {})
+    authorize @service.participant
+    activated = @service.activate!
+    notice = activated ? 'Participant was activated'.t : 'Participant could not be activated'.t
+    respond_to do |format|
+      format.html { redirect_to wizard_team_diagnostic_path(id: @service.participant.team_diagnostic.id, step: TeamDiagnostics::Wizard::PARTICIPANTS_STEP), notice: notice }
       format.json { head :no_content }
     end
   end
@@ -142,10 +154,10 @@ class ParticipantsController < ApplicationController
   end
 
   # Only allow a list of trusted parameters through.
-  def participant_params
-    allowed_params = policy(@participant || Participant).allowed_params
-    params.require(:participant).permit(*allowed_params)
-  end
+  # def participant_params
+  # allowed_params = policy(@participant || Participant).allowed_params
+  # params.require(:participant).permit(*allowed_params)
+  # end
 
   def set_team_diagnostic
     if params[:team_diagnostic_id]

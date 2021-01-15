@@ -1,31 +1,52 @@
 <div class="row">
+  <div id="team_diagnostic--wizard--step-attention_items" class="col">
+    <%= render partial: 'wizard_step_attention_items', locals: {service: @service} %>
+  </div>
+</div>
+
+<div class="row">
   <div class="col-sm-6">
     <h2>
       <% if @service.team_diagnostic.setup? %>
         <%= 'Deploy'.t %>
-        <small class="badge badge-pill badge-info">
-          <%= '%{count} days left'.t(count: ((@service.team_diagnostic.auto_deploy_at - DateTime.now) / 1.day).ceil) %>
-        </small>
+        <% if @service.team_diagnostic.deployment_overdue? %>
+          <small class="badge badge-pill badge-warning">
+            <%= 'Overdue'.t %>
+          </small>
+        <% else %>
+          <small class="badge badge-pill badge-info">
+            <%= '%{count} days left'.t(count: @service.team_diagnostic.days_until_deploy) %>
+          </small>
+        <% end %>
         <br/>
         <small><%= i18n_date_long @service.team_diagnostic.auto_deploy_at %></small>
-      <% else %>
+      <% elsif @service.team_diagnostic.deployed_at.present? %>
         <%= 'Deployed'.t %>
         <br/>
-        <small><%= i18n_date_long @service.team_diagnostic.deployed_at %></small>
+        <small>
+          <%= i18n_date_long @service.team_diagnostic.deployed_at %>
+          <% if @service.team_diagnostic.state == 'cancelled' %>
+            <span class="badge badge-danger"><%= 'Cancelled'.t %></span>
+          <% end %>
+        </small>
+
       <% end %>
     </h2>
+    <%= link_to('Cancel Diagnostic'.t, cancel_team_diagnostic_path(id: @service.team_diagnostic.id), { method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure?'.t} }) if policy(@service.team_diagnostic).cancel? %>
   </div>
   <div class="col-sm-6">
-    <h2>
-      <%= 'Due'.t %>
-      <small class="badge badge-pill badge-info">
-        <%= '%{count} days left'.t(count: ((@service.team_diagnostic.due_at - DateTime.now) / 1.day).ceil) %>
-      </small>
-      <br/>
-      <small>
-        <%= i18n_date_long @service.team_diagnostic.due_at %>
-      </small>
-    </h2>
+    <% if @service.team_diagnostic.setup? || @service.team_diagnostic.deployed? %>
+      <h2>
+        <%= 'Due'.t %>
+        <small class="badge badge-pill badge-info">
+          <%= '%{count} days left'.t(count: ((@service.team_diagnostic.due_at - DateTime.now) / 1.day).ceil) %>
+        </small>
+        <br/>
+        <small>
+          <%= i18n_date_long @service.team_diagnostic.due_at %>
+        </small>
+      </h2>
+    <% end %>
   </div>
 </div>
 <% if @service.team_diagnostic.setup? %>
@@ -37,19 +58,3 @@
   </div>
 </div>
 <% end %>
-<div class="row">
-  <div class="col">
-    <% if @service.deployment_issues.any?  %>
-      <div class="alert alert-danger">
-        <p class="lead"><%= 'There are problems preventing deployment of your Team Diagnostic'.t %></p>
-        <ul>
-          <% @service.deployment_issues.each do |issue| %>
-            <li><%= issue %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% else %>
-      <%= link_to('Deploy Early'.t, deploy_team_diagnostic_path(@service.team_diagnostic), class: 'btn btn-primary', method: :post) if policy(@service.team_diagnostic).deploy? %>
-    <% end %>
-  </div>
-</div>

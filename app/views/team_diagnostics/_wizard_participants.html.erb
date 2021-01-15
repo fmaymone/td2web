@@ -5,6 +5,12 @@
 </div>
 
 <div class="row">
+  <div id="team_diagnostic--wizard--step-attention_items" class="col">
+    <%= render partial: 'wizard_step_attention_items', locals: {service: @service} %>
+  </div>
+</div>
+
+<div class="row">
   <div class="col">
     <p>
       <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#add_participant_section" aria-expanded="false" aria-controls="add_participant_section"><%= 'Add Participant'.t %></button>
@@ -42,6 +48,7 @@
             <th><%= 'Status'.t %></th>
             <th><%= 'Name'.t %></th>
             <th><%= 'Contact'.t %></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>

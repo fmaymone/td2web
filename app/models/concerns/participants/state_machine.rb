@@ -24,43 +24,42 @@ module Participants
         end
 
         event :disqualify do
-          transitions from: %i[approved active], to: :disqualified
+          transitions from: %i[approved active], to: :disqualified, after: :after_disqualification
         end
 
         event :requalify do
           transitions from: :disqualified, to: :approved
         end
+
+        event :cancel do
+          transitions from: :active, to: :approved, after: :after_cancel
+        end
       end
 
-      def permitted_state_events
-        aasm.events(permitted: true).map(&:name)
-      end
+      # def permitted_state_events
+      # aasm.events(permitted: true).map(&:name)
+      # end
 
-      def permitted_states
-        aasm.states(permitted: true).map(&:name)
-      end
+      # def permitted_states
+      # aasm.states(permitted: true).map(&:name)
+      # end
 
       def activation_permitted?
-        valid?
+        valid? && team_diagnostic&.deployed?
       end
 
       def after_activation
-        # TODO
-        # initialize diagnostic_survey
-        # send invitation email
-        # Log the activation
+        return false unless approved? || active?
+
+        create_active_survey
       end
 
-      # Delegates to diagnostic_survey.completed?
-      def survey_completed?
-        # TODO
-        # diagnostic_survey.completed?
-        false
+      def after_disqualification
+        cancel_surveys
       end
 
-      def disqualify_survey
-        # TODO
-        # diagnostic_survey.disqualify!
+      def after_cancel
+        cancel_surveys
       end
     end
   end

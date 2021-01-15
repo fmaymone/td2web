@@ -4,35 +4,32 @@
 #
 # Table name: team_diagnostics
 #
-#  id                  :uuid             not null, primary key
-#  organization_id     :uuid             not null
-#  user_id             :uuid             not null
-#  team_diagnostic_id  :uuid
-#  diagnostic_id       :uuid             not null
-#  state               :string           default("setup"), not null
-#  locale              :string           default("en"), not null
-#  timezone            :string           not null
-#  name                :string           not null
-#  description         :text             not null
-#  situation           :text
-#  functional_area     :string           not null
-#  team_type           :string           not null
-#  show_members        :boolean          default(TRUE), not null
-#  contact_phone       :string           not null
-#  contact_email       :string           not null
-#  alternate_email     :string
-#  cover_letter        :text             not null
-#  reminder_letter     :text             not null
-#  cancellation_letter :text             not null
-#  due_at              :datetime         not null
-#  completed_at        :datetime
-#  deployed_at         :datetime
-#  auto_deploy_at      :datetime
-#  reminder_at         :datetime
-#  reminder_sent_at    :datetime
-#  created_at          :datetime         not null
-#  updated_at          :datetime         not null
-#  wizard              :integer          default(1), not null
+#  id                 :uuid             not null, primary key
+#  organization_id    :uuid             not null
+#  user_id            :uuid             not null
+#  team_diagnostic_id :uuid
+#  diagnostic_id      :uuid             not null
+#  state              :string           default("setup"), not null
+#  locale             :string           default("en"), not null
+#  timezone           :string           not null
+#  name               :string           not null
+#  description        :text             not null
+#  situation          :text
+#  functional_area    :string           not null
+#  team_type          :string           not null
+#  show_members       :boolean          default(TRUE), not null
+#  contact_phone      :string           not null
+#  contact_email      :string           not null
+#  alternate_email    :string
+#  due_at             :datetime         not null
+#  completed_at       :datetime
+#  deployed_at        :datetime
+#  auto_deploy_at     :datetime
+#  reminder_at        :datetime
+#  reminder_sent_at   :datetime
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  wizard             :integer          default(1), not null
 #
 class TeamDiagnostic < ApplicationRecord
   ### Constants
@@ -45,20 +42,19 @@ class TeamDiagnostic < ApplicationRecord
   include TeamDiagnostics::Wizard
   include TeamDiagnostics::Logo
   include TeamDiagnostics::ParticipantImports
+  include TeamDiagnostics::Messaging
+  include TeamDiagnostics::Letters
 
   ### Validations
   validates :alternate_email, presence: true
-  validates :cancellation_letter, presence: true
   validates :contact_email, presence: true
   validates :contact_phone, presence: true
-  validates :cover_letter, presence: true
   validates :description, presence: true
   validates :due_at, presence: true
   validates :functional_area, presence: true
   validates :locale, presence: true
   validates :name, presence: true
-  validates :reminder_letter, presence: true
-  validates :state, presence: true
+  validates :state, presence: true, inclusion: TeamDiagnostic.aasm.states.map(&:name).map(&:to_s)
   validates :team_type, presence: true
   validates :timezone, presence: true
   validates :organization_id, inclusion: { in: ->(record) { record.user.organizations.pluck(:id) } }
@@ -66,6 +62,8 @@ class TeamDiagnostic < ApplicationRecord
   validate :reminder_at_is_before_due_date
 
   ### Scopes
+  scope :pending_deployment, -> { setup.where(arel_table[:auto_deploy_at].lt(Time.now)) }
+  scope :pending_reminder, -> { deployed.where(reminder_sent_at: nil).where(arel_table[:reminder_at].lt(Time.now)) }
 
   ### Associations
   belongs_to :user
@@ -74,67 +72,164 @@ class TeamDiagnostic < ApplicationRecord
   belongs_to :reference_diagnostic, class_name: 'TeamDiagnostic', foreign_key: 'team_diagnostic_id', required: false
   has_many :participants, dependent: :destroy
   has_many :questions, class_name: 'TeamDiagnosticQuestion', dependent: :destroy
+  has_many :diagnostic_surveys, dependent: :destroy
+  has_many :team_diagnostic_questions, dependent: :destroy
+
+  attr_accessor :deployment_succeeded
 
   ### Class Methods
 
+  def self.auto_deploy
+    pending_deployment.each do |diagnostic|
+      diagnostic.deploy!
+    rescue StandardError
+      # TODO: log failure event
+    end
+  end
+
   ### Instance Methods
 
+  def needs_attention?
+    pending_actions.any?
+  end
+
+  def pending_actions
+    actions = deployment_issues
+    actions << 'There are new participants pending activation'.t if participants_pending_activation?
+    actions
+  end
+
+  def deployment_issues
+    errors = []
+    errors << 'Information is missing or invalid'.t unless valid?
+    errors << 'Please invite more participants'.t unless sufficient_participants?
+    errors << 'Please create Open Ended Question translations'.t unless sufficient_open_ended_question_translations?
+    errors << 'Please create letter translations'.t unless sufficient_letter_translations?
+    errors
+  end
+
+  def deployment_issues?
+    deployment_issues.any?
+  end
+
+  def deployment_overdue?
+    auto_deploy_at < Time.now
+  end
+
+  def reminder_overdue?
+    reminder_at < Time.now
+  end
+
+  def days_until_deploy
+    ((auto_deploy_at - Time.now) / 1.day).ceil
+  end
+
+  def all_locales
+    ([locale] + participant_locales).sort.uniq
+  end
+
+  def participant_locales
+    participants.pluck(:locale).sort.uniq
+  end
+
+  def letter_locales
+    team_diagnostic_letters.pluck(:locale).sort.uniq
+  end
+
   def ready_for_deploy?
-    setup? && sufficient_participants?
+    (setup? || cancelled?) && !deployment_issues?
   end
 
   def sufficient_participants?
+    return true unless diagnostic && %w[setup deployed].include?(state)
+
     participants.participating.count >= diagnostic.minimum_participants
   end
 
+  def participants_pending_activation?
+    return false unless %w[setup deployed].include? state
+
+    participants_pending_activation.any?
+  end
+
+  def participants_pending_activation
+    return [] unless deployed?
+
+    participants.approved
+  end
+
+  def sufficient_open_ended_question_translations?
+    open_ended_question_locales.empty? ||
+      ((participant_locales - open_ended_question_locales == []) &&
+        (team_diagnostic_questions.count % participant_locales.count).zero?)
+  end
+
+  def open_ended_question_locales
+    team_diagnostic_questions.open_ended.pluck(:locale).sort.uniq
+  end
+
+  def sufficient_letter_translations?
+    missing_letters.empty? && team_diagnostic_letters.where(locale: participant_locales).to_a.none? do |l|
+      (l.subject || '').empty? || l.subject == '--'
+      (l.body || '').empty? || l.body == '--'
+    end
+  end
+
   def all_participants_are_disqualified?
-    participants.participating.none? && participants.any?
+    participants.any? && participants.participating.none?
   end
 
   def perform_deployment
+    self.deployment_succeeded = false
+
+    return false if deployment_issues?
     return false unless assign_questions
-    return false unless activate_participants
 
     self.deployed_at = Time.now
-    save!
+    save
+    send_deploy_notification_message
+    self.deployment_succeeded = true
+  end
+
+  def cancel_deployment
+    participants.active.each do |participant|
+      participant.cancel!
+    rescue StandardError
+      true
+    end
+    send_cancel_notification_message
   end
 
   private
 
   def assign_questions
     return false unless diagnostic.present?
-    return false unless setup? || deployed?
-
-    # TODO: log error event
+    return false unless setup? || deployed? || cancelled?
 
     transaction do
-      # TODO
-      # Delete Diagnostic questions if no one has answered any questions
-      # questions.destroy_all unless diagnostic_responses.any?
-      questions.destroy_all
-      diagnostic.diagnostic_questions.active.each do |question|
-        TeamDiagnosticQuestion.from_diagnostic_question(question, team_diagnostic: self).save!
+      # TODO: Delete default Diagnostic questions if no one has answered any questions
+      # questions.rating.destroy_all unless diagnostic_responses.any?
+      questions.rating.destroy_all
+      diagnostic.diagnostic_questions.rating.active.each do |question|
+        TeamDiagnosticQuestion.from_diagnostic_question(question, team_diagnostic: self).map(&:save)
       end
     end
     true
   rescue StandardError
+    # TODO: log error event
     false
   end
 
   def activate_participants
     transaction do
       participants.approved.each do |participant|
-        next unless participant.may_activate?
-
         participant.activate!
-        # else
-        # TODO
-        # Log the failure to activate the participant
+      rescue StandardError
+        # TODO: Log the failure to activate the participant
       end
     end
-    true
-    # rescue StandardError
-    # false
+    participants.reload
+    participants.active.any?
   end
 
   def due_at_is_in_the_future

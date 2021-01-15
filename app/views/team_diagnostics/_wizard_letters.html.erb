@@ -1,0 +1,19 @@
+<div class="row">
+  <div id="team_diagnostic--wizard--step-attention_items" class="col">
+    <%= render partial: 'wizard_step_attention_items', locals: {service: @service} %>
+  </div>
+</div>
+
+<%= bootstrap_form_for(@service.team_diagnostic, remote: false) do |form| %>
+  <%= render partial: 'shared/form_errors', locals: { subject: @service.team_diagnostic } %>
+
+  <%= hidden_field_tag :step, @service.step %>
+
+  <%= render partial: 'team_diagnostic_letters', locals: { form: form, service: @service} %>
+
+  <br/>
+  <div class="form-row">
+    <%= form.submit 'Submit'.t, class: 'btn btn-primary' %> &nbsp;
+    <%= link_to('Cancel'.t, :back, class: 'btn btn-light') %>
+  </div>
+<% end %>

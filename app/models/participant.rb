@@ -40,18 +40,61 @@ class Participant < ApplicationRecord
 
   ### Associations
   belongs_to :team_diagnostic
+  has_many :diagnostic_surveys, dependent: :destroy
 
   ### Class Methods
 
   ### Instance Methods
 
+  def needs_attention?
+    pending_actions.any?
+  end
+
+  def pending_actions
+    actions = []
+    actions << 'Invalid'.t unless valid?
+    actions << 'Please invite this participant'.t if pending_invitation?
+    actions
+  end
+
+  def pending_invitation?
+    !active? && team_diagnostic.deployed?
+  end
+
   def full_name
     [title, first_name, last_name].join(' ')
   end
 
-  private
+  def active_survey
+    diagnostic_surveys.active.order(created_at: :desc).first
+  end
+
+  def create_active_survey
+    cancel_surveys
+    diagnostic_surveys
+      .create(team_diagnostic: team_diagnostic, locale: locale)
+      .activate!
+  end
+
+  def survey_completed?
+    diagnostic_surveys.completed.any?
+  end
+
+  def survey_active?
+    active_survey.present?
+  end
+
+  def cancel_surveys
+    diagnostic_surveys.active.each(&:cancel!)
+  end
 
   def team_diagnostic_is_active
     team_diagnostic&.setup? || team_diagnostic&.deployed?
+  end
+
+  def send_reminder
+    return false unless active_survey.present?
+
+    active_survey.send_reminder_message
   end
 end

@@ -11,8 +11,8 @@ module TeamDiagnosticServices
       @user = user
       @policy = TeamDiagnosticQuestionPolicy.new(@user, TeamDiagnosticQuestion)
       @errors = []
-      @diagnostic_question = get_diagnostic_question(params)
       @params = sanitize_params(params)
+      @diagnostic_question = get_diagnostic_question(params)
       @team_diagnostic_question = initialize_team_diagnostic_question
     end
 
@@ -27,7 +27,7 @@ module TeamDiagnosticServices
     end
 
     def selected_team_diagnostic_open_ended_questions
-      @team_diagnostic.questions.open_ended.map { |q| { id: q.id, body: q.body } }
+      @team_diagnostic.questions.open_ended.map { |q| { id: q.id, body: q.body, locale: q.locale } }
     end
 
     def available_team_diagnostic_open_ended_questions
@@ -44,13 +44,19 @@ module TeamDiagnosticServices
     end
 
     def create_team_diagnostic_question
-      @team_diagnostic_question.save if valid?
-      valid? ? @team_diagnostic_question : false
+      if @diagnostic_question.present?
+        questions = TeamDiagnosticQuestion.from_diagnostic_question(@diagnostic_question, team_diagnostic: @team_diagnostic, locale: @params[:locale], all_locales: true)
+        questions.map(&:save)
+        @team_diagnostic_question = questions.first
+      else
+        @team_diagnostic_question.save if valid?
+        valid? ? @team_diagnostic_question : false
+      end
     end
 
     def initialize_team_diagnostic_question
       if @diagnostic_question.present?
-        TeamDiagnosticQuestion.from_diagnostic_question(@diagnostic_question, team_diagnostic: @team_diagnostic)
+        TeamDiagnosticQuestion.from_diagnostic_question(@diagnostic_question, team_diagnostic: @team_diagnostic, locale: @params[:locale], all_locales: true).first
       else
         TeamDiagnosticQuestion.new((@params || {}).merge(
                                      team_diagnostic_id: @team_diagnostic.id,
@@ -62,16 +68,19 @@ module TeamDiagnosticServices
     def sanitize_params(params = {})
       if params.is_a?(ActionController::Parameters)
         allowed_params = @policy.allowed_params
-        if params[:team_diagnostic_question].present?
-          data = params.require('team_diagnostic_question')
+        data = if params[:team_diagnostic_question].present?
+                 params.require('team_diagnostic_question')
                        .permit(*allowed_params).to_unsafe_h
-        end
+               else
+                 {}
+               end
       else
         data = {
           body: params[:body],
           slug: params[:slug]
         }
       end
+      data[:locale] ||= params[:qlocale]
       data
     end
   end

@@ -1,0 +1,60 @@
+
+<% letter_locale = service.team_diagnostic.locale %>
+<fieldset id="team_diagnostic--letters">
+  <legend><%#= 'Letters'.t %></legend>
+  <div class="accordion" id="team_diagnostic_letter_form_container">
+    <div class="card">
+
+      <!-- Start Letters -->
+
+      <div class="row card-header">
+        <% TeamDiagnosticLetter::LETTER_TYPES.each do |letter_type| %>
+          <div class="col-md-4">
+            <!-- <%= letter_type %> Letter Header -->
+            <div id="team_diagnostic_<%= letter_type %>_accordion_header">
+              <h2 class="mb-0">
+                <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#team_diagnostic_<%= letter_type %>_accordion_section_<%= letter_locale %>" aria-expanded="false" aria-controls="team_diagnostic_<%= letter_type %>_accordion_section_<%= letter_locale %>">
+                  <%= (letter_type + '_letter').humanize.titlecase.t %>
+                </button><br/>
+                <% ([service.team_diagnostic.locale] + service.team_diagnostic.participant_locales).sort.uniq.each do |locale| %>
+                  <button class="btn btn-sm btn-success" type="button" data-toggle="collapse" data-target="#team_diagnostic_<%= letter_type %>_accordion_section_<%= locale %>" aria-expanded="false" aria-controls="team_diagnostic_<%= letter_type %>_accordion_section_<%= locale %>">
+                    <%= locale %>
+                  </button>
+                <% end %>
+              </h2>
+            </div>
+            <!-- End <%= letter_type %> Letter Header -->
+          </div>
+        <% end %>
+      </div>
+
+      <!-- Start Sections -->
+      <%= form.fields_for :team_diagnostic_letters do |letters| %>
+        <%= render partial: 'team_diagnostic_letter', locals: { form: letters, service: @service} %>
+      <% end %>
+      <!-- End Sections -->
+
+      <!-- Help section -->
+      <div class="card-header" id="team_diagnostic_letter_help_header">
+        <h2 class="mb-0">
+          <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#team_diagnostic_letter_help" aria-expanded="false" aria-controls="team_diagnostic_letter_help">
+            Help
+          </button>
+        </h2>
+      </div>
+      <div id="team_diagnostic_letter_help" class="collapse" aria-labelledby="team_diagnostic_letter_help_header" data-parent="#team_diagnostic_letter_form_container">
+        <div class="row card-body">
+          <%= sanitize('team_diagnostic--letter-help'.t, tags: %w{div p dl dt dd}) %>
+        </div>
+      </div> <!-- End Help Section -->
+      <!-- End Letters -->
+    </div>
+  </div> <!-- End Accordion -->
+  <div id="unsaved_changes_alert" class="alert alert-warning" style="display: none;">
+    <%= 'There are unsaved changes'.t %>
+    <span id="clear_unsaved_changes" class="btn btn-sm btn-warning">
+      <%= 'Revert'.t %>
+    </span>
+  </div>
+</fieldset>
+

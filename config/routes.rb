@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :team_diagnostic_letters
   root to: 'home#index'
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
@@ -45,13 +46,16 @@ Rails.application.routes.draw do
       member do
         post :disqualify, to: 'participants#disqualify'
         post :restore, to: 'participants#restore'
+        post :activate, to: 'participants#activate'
       end
     end
     member do
       get 'wizard/:step', to: 'team_diagnostics#wizard', as: 'wizard'
       post :deploy, to: 'team_diagnostics#deploy'
+      delete :cancel, to: 'team_diagnostics#cancel'
     end
     resources :team_diagnostic_questions
+    resources :team_diagnostic_letters
   end
   resources :participants
 end

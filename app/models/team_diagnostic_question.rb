@@ -17,10 +17,11 @@
 #  active             :boolean          default(TRUE), not null
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  locale             :string           default("en")
 #
 class TeamDiagnosticQuestion < ApplicationRecord
   ### Constants
-  ALLOWED_PARAMS = %i[body].freeze
+  ALLOWED_PARAMS = %i[slug body locale].freeze
   DEFAULT_FACTORS = DiagnosticQuestion::DEFAULT_FACTORS
   DEFAULT_CATEGORIES = DiagnosticQuestion::DEFAULT_CATEGORIES
   RATING_TYPE = DiagnosticQuestion::RATING_TYPE
@@ -39,15 +40,15 @@ class TeamDiagnosticQuestion < ApplicationRecord
 
   ### Validations
   validates :slug, presence: true
-  validates :body, presence: true, uniqueness: { scope: :team_diagnostic_id }
+  validates :body, presence: true, uniqueness: { scope: %i[team_diagnostic_id locale] }
   validates :category, presence: true
   validates :question_type, presence: true
   validates :factor, presence: true
   validates :matrix, presence: true
-  validate :created_before_team_diagnostic_deployment
+  validate :created_before_team_diagnostic_answered
 
   ### Callbacks
-  after_create :create_default_translations
+  # after_create :create_default_translations
 
   ### Scopes
   scope :rating, -> { where(question_type: RATING_TYPE) }
@@ -59,17 +60,35 @@ class TeamDiagnosticQuestion < ApplicationRecord
 
   ### Class Methods
 
-  def self.from_diagnostic_question(question, team_diagnostic: nil)
-    TeamDiagnosticQuestion.new(
-      team_diagnostic: team_diagnostic,
-      slug: question.slug,
-      body: question.body,
-      body_positive: question.body_positive,
-      category: question.category,
-      question_type: question.question_type,
-      factor: question.factor,
-      matrix: question.matrix
-    )
+  def self.from_diagnostic_question(question, team_diagnostic: nil, locale: nil, all_locales: false)
+    locales = if all_locales && team_diagnostic.present?
+                team_diagnostic.all_locales
+              else
+                [locale || team_diagnostic&.locale || 'en']
+              end
+    locales.map do |l|
+      body = begin
+        ApplicationTranslation.where(locale: l, key: question.body).first.value
+      rescue StandardError
+        'PLACEHOLDER'
+      end
+      body_positive = begin
+        question.body_positive.present? ? ApplicationTranslation.where(locale: l, key: question.body_positive).first.value : nil
+      rescue StandardError
+        'PLACEHOLDER'
+      end
+      TeamDiagnosticQuestion.new(
+        team_diagnostic: team_diagnostic,
+        slug: question.slug,
+        body: body,
+        body_positive: body_positive,
+        category: question.category,
+        question_type: question.question_type,
+        factor: question.factor,
+        matrix: question.matrix,
+        locale: l
+      )
+    end
   end
 
   ### Instance Methods
@@ -80,13 +99,15 @@ class TeamDiagnosticQuestion < ApplicationRecord
 
   private
 
-  def create_default_translations
-    default_locale = team_diagnostic.locale
-    attrs = { locale: default_locale, key: body, value: body }
-    ApplicationTranslation.create(attrs) unless ApplicationTranslation.where(locale: default_locale, key: attrs[:key]).any?
-  end
+  # def create_default_translations
+  # default_locale = team_diagnostic.locale
+  # attrs = { locale: default_locale, key: body, value: body }
+  # ApplicationTranslation.create(attrs) unless ApplicationTranslation.where(locale: default_locale, key: attrs[:key]).any?
+  # end
 
-  def created_before_team_diagnostic_deployment
-    errors.add(:team_diagnostic_id, 'is deployed'.t) if team_diagnostic.deployed?
+  def created_before_team_diagnostic_answered
+    # errors.add(:team_diagnostic_id, 'is deployed'.t) if team_diagnostic.deployed? && _TODOany_questions_answered?
+    # TODO validate that no participant has started the diagnostic
+    true
   end
 end

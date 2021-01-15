@@ -16,6 +16,7 @@ require("bootstrap")
 // Application javascript components
 require("./src/translation_search")
 require("./src/team_diagnostic_form")
+require("./src/local_persistence")
 
 // Application Stylesheets
 require("../stylesheets/application.scss")

@@ -1,0 +1,43 @@
+<% letter_type = form.object.letter_type %>
+<% letter_locale = form.object.locale %>
+<!-- <%= letter_type %> Letter record -->
+<div id="team_diagnostic_<%= letter_type %>_accordion_section_<%= letter_locale %>" class="collapse" aria-labelledby="team_diagnostic_<%= letter_type %>_accordion_header" data-parent="#team_diagnostic_letter_form_container">
+  <div class="row card-body">
+    <div class="col">
+      <div class="form-row">
+        <div class="col">
+          <h3>
+            <%= (letter_type + '_letter').humanize.titlecase.t %>
+            <small>
+              <span class="badge badge-info">
+                <%= letter_locale %>
+              </span>
+            </small>
+          </h3>
+          <p>
+            <small class="form-text text-muted"><%= "team_diagnostic-#{letter_type}_letter-description".t %></small>
+          </p>
+          <%= form.hidden_field :id %>
+          <%= form.hidden_field :letter_type %>
+          <%= form.hidden_field :locale %>
+          <div class="form-group">
+            <%= form.text_field :subject, required: true, class: 'form-control persisted-input',
+              data: {
+              persisted_last: form.object.updated_at.to_i || Time.new(2000,1,1).to_i,
+              persisted_key: form.object.id + "_subject" || "#{@team_diagnostic.id}_#{letter_type}-#{letter_locale}-subject"
+            }
+          %>
+          </div>
+          <div class="form-group">
+            <%= form.text_area :body, required: true, class: 'form-control persisted-input', rows: 10,
+              data: {
+              persisted_last: form.object.updated_at.to_i || Time.new(2000,1,1).to_i,
+              persisted_key: form.object.id + "_body" || "#{@team_diagnostic.id}_#{letter_type}-#{letter_locale}-body"
+            }
+          %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

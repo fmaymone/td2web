@@ -45,8 +45,8 @@ class OrganizationPolicy < ApplicationPolicy
   end
 
   def destroy?
-    admin? || organization_admin?
-    # TODO: check for presence of Teams
+    record.team_diagnostics.empty? &&
+      (admin? || organization_admin?)
   end
 
   def organization_member?

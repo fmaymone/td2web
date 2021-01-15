@@ -3,6 +3,9 @@
 <% questions.each do |q| %>
   <li id="<%= q[:id] %>">
     <%= link_to(team_diagnostic_team_diagnostic_question_path(team_diagnostic_id: team_diagnostic, id: q[:id]), remote: true, method: :delete) do %><small><span class="badge badge-pill badge-warning"><%= 'Remove'.t %></span></small><% end %>
-    <%= q[:body].t %>
+    <%= q[:body] %>
+    <span class="badge badge-pill badge-secondary">
+      <%= q[:locale] %>
+    </span>
   </li>
 <% end %>

@@ -71,6 +71,10 @@ class TeamDiagnosticPolicy < ApplicationPolicy
     update? && record&.ready_for_deploy?
   end
 
+  def cancel?
+    update? && record&.deployed?
+  end
+
   def entitled_diagnostics
     auth_service = EntitlementServices::Authorizer.new(user: user, reference: TeamDiagnosticServices::Creator::REFERENCE)
     return Diagnostic.active.all if auth_service.call("#{TeamDiagnosticServices::Creator::ENTITLEMENT_BASE}-any")
@@ -81,6 +85,6 @@ class TeamDiagnosticPolicy < ApplicationPolicy
   end
 
   def allowed_params
-    TeamDiagnostic::ALLOWED_PARAMS
+    TeamDiagnostic::ALLOWED_PARAMS + [{ team_diagnostic_letters_attributes: TeamDiagnosticLetter::ALLOWED_PARAMS + [:id] }]
   end
 end

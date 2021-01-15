@@ -26,8 +26,8 @@ FactoryBot.define do
     title { Faker::Name.prefix }
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
-    locale { 'en' }
-    timezone { 'UTC' }
+    locale { ApplicationTranslation.select('distinct(locale)').order('RANDOM()').limit(1).pluck(:locale).first || 'en' }
+    timezone { ActiveSupport::TimeZone::MAPPING.values[rand(150)] }
     notes { Faker::Lorem.paragraph }
   end
 end

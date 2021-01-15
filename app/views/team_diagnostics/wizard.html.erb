@@ -19,19 +19,20 @@
 <% @service.team_diagnostic.wizard_steps.each_with_index do |stepname, index| %>
   <% step = index + 1 %>
   <div class="row">
-    <div class="col alert alert-<%= team_diagnostic_wizard_step_alert_class(index + 1, @service.team_diagnostic) %>">
-        <% if stepname == @service.step_name || !@service.step_accessible?(step) %>
-          <h2 class="team_diagnostic--wizard--step-header">
-            <%= stepname.capitalize.t %>
-          </h2>
-        <% else %>
-          <h4>
-            <%= link_to(stepname.capitalize.t, wizard_team_diagnostic_path(id: @service.team_diagnostic.id, step: step)) %>
-          </h4>
-        <% end %>
+    <div class="team_diagnostic--wizard--step-header-container col alert alert-<%= team_diagnostic_wizard_step_alert_class(index + 1, @service) %>">
+      <% if stepname == @service.step_name || !@service.step_accessible?(step) %>
+        <h2 id="team_diagnostic--wizard--current_step-header" class="team_diagnostic--wizard--step-header">
+          <%= stepname.capitalize.t %>
+        </h2>
+      <% else %>
+        <h4>
+          <%= link_to(stepname.capitalize.t, wizard_team_diagnostic_path(id: @service.team_diagnostic.id, step: step)) %>
+        </h4>
+      <% end %>
     </div>
   </div>
   <% if stepname == @service.step_name %>
+    <div id="#<%= @service.step_name %>"></div>
     <%= render partial: "wizard_#{@service.step_name}", locals: {service: @service} %>
     <br/>
   <% end %>

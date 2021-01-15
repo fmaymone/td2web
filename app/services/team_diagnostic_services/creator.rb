@@ -70,9 +70,7 @@ module TeamDiagnosticServices
       team_diagnostic.contact_phone ||= @user.user_profile&.phone_number
       team_diagnostic.locale ||= @user.locale
       team_diagnostic.timezone ||= @user.timezone
-      team_diagnostic.cover_letter ||= default_cover_letter(team_diagnostic.locale)
-      team_diagnostic.reminder_letter ||= default_reminder_letter(team_diagnostic.locale)
-      team_diagnostic.cancellation_letter ||= default_cancellation_letter(team_diagnostic.locale)
+      team_diagnostic.team_diagnostic_letters = team_diagnostic.missing_letters
       team_diagnostic
     end
 
@@ -98,18 +96,6 @@ module TeamDiagnosticServices
         data = params
       end
       data
-    end
-
-    def default_cover_letter(locale)
-      ApplicationTranslation.where(key: DEFAULT_COVER_LETTER, locale: locale).first&.value || '--'
-    end
-
-    def default_reminder_letter(locale)
-      ApplicationTranslation.where(key: DEFAULT_REMINDER_LETTER, locale: locale).first&.value || '--'
-    end
-
-    def default_cancellation_letter(locale)
-      ApplicationTranslation.where(key: DEFAULT_CANCELLATION_LETTER, locale: locale).first&.value || '--'
     end
   end
 end

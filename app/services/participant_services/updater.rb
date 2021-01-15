@@ -41,6 +41,15 @@ module ParticipantServices
       end
     end
 
+    def activate!
+      begin
+        @participant.activate!
+      rescue StandardError
+        false
+      end
+      @participant.active?
+    end
+
     def valid?(action = :update)
       return false unless @errors.empty?
 

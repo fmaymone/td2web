@@ -1,0 +1,16 @@
+<% if service.step_needs_attention?  %>
+  <div class="alert alert-warning">
+  <% if service.team_diagnostic.setup? && service.team_diagnostic.deployment_issues.any? %>
+    <p class="lead"><%= 'There are problems preventing deployment of your Team Diagnostic'.t %></p>
+  <% else %>
+    <p class="lead"><%= 'The following items require attention'.t %>:</p>
+  <% end %>
+  <ul>
+  <% service.step_attention_items.each do |issue| %>
+    <li><%= issue %></li>
+  <% end %>
+  </ul>
+  </div>
+<% else %>
+  <%= link_to('Deploy Now'.t, deploy_team_diagnostic_path(service.team_diagnostic), class: 'btn btn-primary', method: :post) if policy(service.team_diagnostic).deploy? && service.step == TeamDiagnostics::Wizard::DEPLOY_STEP %>
+<% end %>

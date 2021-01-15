@@ -13,6 +13,7 @@
   </td>
   <td>
     <%= link_to('Edit'.t, edit_team_diagnostic_participant_path(team_diagnostic_id: participant.team_diagnostic_id, id: participant.id), class: 'btn btn-sm btn-primary') if policy(participant).edit? %>
+    <%= link_to('Activate'.t, activate_team_diagnostic_participant_path(team_diagnostic_id: participant.team_diagnostic_id, id: participant.id), method: :post, data: { confirm: 'Are you sure?'.t }, class: 'btn btn-sm btn-success') if policy(participant).activate? %>
     <%= link_to('Disqualify'.t, disqualify_team_diagnostic_participant_path(team_diagnostic_id: participant.team_diagnostic_id, id: participant.id), method: :post, data: { confirm: 'Are you sure?'.t }, class: 'btn btn-sm btn-warning') if policy(participant).disqualify? %>
     <%= link_to('Restore'.t, restore_team_diagnostic_participant_path(team_diagnostic_id: participant.team_diagnostic_id, id: participant.id), method: :post, class: 'btn btn-sm btn-success', data: { confirm: 'Are you sure?'.t }) if policy(participant).restore? %>
     <%= link_to('Remove'.t, team_diagnostic_participant_path(team_diagnostic_id: participant.team_diagnostic_id, id: participant.id), method: :delete, class: 'btn btn-sm btn-danger', data: { confirm: 'Are you sure?'.t }) if policy(participant).destroy? %>

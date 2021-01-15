@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_05_060328) do
+ActiveRecord::Schema.define(version: 2021_01_28_041045) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -90,6 +90,21 @@ ActiveRecord::Schema.define(version: 2021_01_05_060328) do
     t.index ["active", "category", "question_type", "factor", "matrix"], name: "general_idx"
     t.index ["diagnostic_id"], name: "index_diagnostic_questions_on_diagnostic_id"
     t.index ["slug"], name: "index_diagnostic_questions_on_slug", unique: true
+  end
+
+  create_table "diagnostic_surveys", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "team_diagnostic_id", null: false
+    t.uuid "participant_id", null: false
+    t.string "state", default: "pending", null: false
+    t.string "locale", default: "en", null: false
+    t.text "notes"
+    t.datetime "last_activity_at"
+    t.datetime "delivered_at"
+    t.datetime "started_at"
+    t.datetime "completed_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["team_diagnostic_id", "participant_id", "state"], name: "diagnostic_surveys_idx"
   end
 
   create_table "diagnostics", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -256,6 +271,17 @@ ActiveRecord::Schema.define(version: 2021_01_05_060328) do
     t.index ["slug"], name: "index_roles_on_slug", unique: true
   end
 
+  create_table "team_diagnostic_letters", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "team_diagnostic_id"
+    t.integer "letter_type"
+    t.string "locale", default: "en"
+    t.string "subject"
+    t.text "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["team_diagnostic_id", "letter_type", "locale"], name: "tdl_general_idx", unique: true
+  end
+
   create_table "team_diagnostic_questions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "slug", default: "OEQ", null: false
     t.uuid "team_diagnostic_id"
@@ -269,6 +295,7 @@ ActiveRecord::Schema.define(version: 2021_01_05_060328) do
     t.boolean "active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "locale", default: "en"
     t.index ["active", "category", "question_type", "factor", "matrix"], name: "tdq_general_idx"
     t.index ["slug"], name: "index_team_diagnostic_questions_on_slug"
     t.index ["team_diagnostic_id"], name: "index_team_diagnostic_questions_on_team_diagnostic_id"
@@ -291,9 +318,6 @@ ActiveRecord::Schema.define(version: 2021_01_05_060328) do
     t.string "contact_phone", null: false
     t.string "contact_email", null: false
     t.string "alternate_email"
-    t.text "cover_letter", null: false
-    t.text "reminder_letter", null: false
-    t.text "cancellation_letter", null: false
     t.datetime "due_at", null: false
     t.datetime "completed_at"
     t.datetime "deployed_at"

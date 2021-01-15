@@ -8,6 +8,7 @@ RSpec.describe TeamDiagnosticQuestionsController, type: :controller do
   include_context 'team_diagnostics'
 
   let(:diagnostic_question) { teamdiagnostic.diagnostic.diagnostic_questions.open_ended.first }
+  let(:teamDiagnostic) { teamdiagnostic_ready }
 
   describe 'POST #create' do
     before(:each) do
@@ -20,25 +21,23 @@ RSpec.describe TeamDiagnosticQuestionsController, type: :controller do
       end
       let(:new_question_body) { 'foobar12' }
       it 'should create a team diagnostic question given a body' do
-        count = teamdiagnostic.questions.count
-        post :create, format: :js, params: { team_diagnostic_id: teamdiagnostic.id, team_diagnostic_question: { body: new_question_body } }
+        count = teamDiagnostic.questions.count
+        post :create, format: :js, params: { team_diagnostic_id: teamDiagnostic.id, team_diagnostic_question: { body: new_question_body } }
         expect(TeamDiagnosticQuestion.count).to eq(count + 1)
         expect(response).to render_template('team_diagnostics/_open_ended_questions')
       end
-      it 'should create a team diagnostic question given a Diagnostic Question ID' do
-        count = teamdiagnostic.questions.count
-        post :create, format: :js, params: { team_diagnostic_id: teamdiagnostic.id, diagnostic_question_id: diagnostic_question.id }
+      it 'should create a team diagnostic question for a given diagnostic question (no locale)' do
+        count = teamDiagnostic.questions.count
+        post :create, format: :js, params: { team_diagnostic_id: teamDiagnostic.id, diagnostic_question_id: diagnostic_question.id }
         expect(TeamDiagnosticQuestion.count).to eq(count + 1)
         expect(response).to render_template('team_diagnostics/_open_ended_questions')
-        teamdiagnostic.reload
-        expect(teamdiagnostic.questions.last.body).to eq(diagnostic_question.body)
       end
     end
     describe 'with invalid attributes' do
       let(:new_question_body) { 'foobar12' }
       it 'should create a team diagnostic question given a body' do
-        count = teamdiagnostic.questions.count
-        post :create, format: :js, params: { team_diagnostic_id: teamdiagnostic.id, team_diagnostic_question: { body: nil } }
+        count = teamDiagnostic.questions.count
+        post :create, format: :js, params: { team_diagnostic_id: teamDiagnostic.id, team_diagnostic_question: { body: nil } }
         expect(TeamDiagnosticQuestion.count).to eq(count)
         expect(response).to_not have_http_status(200)
       end
