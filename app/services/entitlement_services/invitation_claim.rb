@@ -21,7 +21,7 @@ module EntitlementServices
     end
 
     def redirect_url
-      limited? ? @invitation.redirect : @invitation.redirect + "?invitation_id=#{@invitation.id}"
+      @invitation.redirect
     end
 
     def valid?(params = nil)
