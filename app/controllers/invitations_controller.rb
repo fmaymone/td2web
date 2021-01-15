@@ -68,7 +68,7 @@ class InvitationsController < ApplicationController
     assign_invitation_locale(@invitation)
     if @service.valid?
       @service.call
-      redirect_to @service.redirect_url, notice: 'Invitation claimed'.t
+      redirect_to @service.redirect_url + "?invitation_id=#{@invitation.id}", notice: 'Invitation claimed'.t
     else
       flash.now[:notice] = 'Invitation not found'.t
       render :claim

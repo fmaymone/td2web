@@ -1,4 +1,4 @@
 #!/bin/bash -i
 bundle check || bundle install
 bundle audit check --update
-bundle exec foreman start -f Procfile.dev
+bundle exec foreman start -f Procfile.dev web=2,worker=2
