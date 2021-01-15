@@ -112,8 +112,8 @@
     </legend>
       <p class="lead">
         <strong><%= 'Permits the use of website cookies'.t %></strong>
-        <span class="badge badge-<%= @user.consent_granted?(:cookies) ? 'success' : 'warning' %>">
-          <%= @user.consent_granted?('cookies') ? 'Yes'.t : 'No'.t %>
+        <span class="badge badge-<%= @user.consent_granted?(:cookies_required) ? 'success' : 'warning' %>">
+          <%= @user.consent_granted?('cookies_required') ? 'Yes'.t : 'No'.t %>
         </span><br/>
         <strong><%= 'Accepts the website terms and conditions'.t %></strong>
         <span class="badge badge-<%= @user.consent_granted?(:eula) ? 'success' : 'warning' %>">
