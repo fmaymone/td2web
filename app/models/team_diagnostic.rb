@@ -159,6 +159,8 @@ class TeamDiagnostic < ApplicationRecord
   end
 
   def sufficient_open_ended_question_translations?
+    return false if participant_locales.count.zero? || team_diagnostic_questions.count.zero?
+
     open_ended_question_locales.empty? ||
       ((participant_locales - open_ended_question_locales == []) &&
         (team_diagnostic_questions.count % participant_locales.count).zero?)

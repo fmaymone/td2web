@@ -30,7 +30,11 @@
               <%= link_to wizard_team_diagnostic_path(id: diagnostic.id, step: diagnostic.wizard)  do %>
                 <%= diagnostic.name %>
               <% end %>
-              <small><%= diagnostic.organization.name %></small>
+              <small>
+                <%= diagnostic.organization.name %>
+                &mdash;
+                <%= diagnostic.user.name %>
+              </small>
               <br/>
               <span class="badge badge-light"><%= diagnostic.diagnostic.slug %></span>
               <%= diagnostic.functional_area %> &mdash; <%= diagnostic.team_type %>
