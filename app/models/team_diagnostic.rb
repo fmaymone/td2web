@@ -44,6 +44,7 @@ class TeamDiagnostic < ApplicationRecord
   include TeamDiagnostics::ParticipantImports
   include TeamDiagnostics::Messaging
   include TeamDiagnostics::Letters
+  include TeamDiagnostics::Errors
 
   ### Validations
   validates :alternate_email, presence: true
@@ -159,6 +160,8 @@ class TeamDiagnostic < ApplicationRecord
   end
 
   def sufficient_open_ended_question_translations?
+    return true if team_diagnostic_questions.open_ended.none?
+
     return false if participant_locales.count.zero? || team_diagnostic_questions.count.zero?
 
     open_ended_question_locales.empty? ||
@@ -184,13 +187,24 @@ class TeamDiagnostic < ApplicationRecord
   def perform_deployment
     self.deployment_succeeded = false
 
-    return false if deployment_issues?
-    return false unless assign_questions
+    issues = deployment_issues
+    raise DeploymentIssueError.new(issues) if issues.any?
+
+    did_assign_questions = assign_questions
+    raise QuestionAssignmentError.new unless did_assign_questions
 
     self.deployed_at = Time.now
     save
     send_deploy_notification_message
     self.deployment_succeeded = true
+  rescue DeploymentIssueError => e
+    # TODO log event
+    puts "Error deploying TeamDiagnostic[#{id}] due to pending actions : #{e.message}]"
+    return false
+  rescue QuestionAssignment => e
+    # TODO log event
+    puts "Error deploying TeamDiagnostic[#{id}] while assigning questions: #{e.message}]"
+    return false
   end
 
   def cancel_deployment
