@@ -9573,6 +9573,7 @@ es,There are team agreements regarding how team members interact when conflict a
 fx,There are team agreements regarding how team members interact when conflict arises.,L’équipe a une entente quant à la façon d'interagir lorsque surgit un conflit.
 en,Important Dates,Important Dates
 en,Letters,Letters
+en,Cancel Diagnostic,Cancel Diagnostic
 da,There is an attitude of gratitude and appreciation on this team.,Folk i teamet sætter stor pris på hinanden og giver udtryk for det.
 de,There is an attitude of gratitude and appreciation on this team.,In diesem Team gehen die Teammitglieder dankbar und wertschätzend miteinander um.
 fi,There is an attitude of gratitude and appreciation on this team.,Tiimin työilmapiiriä leimaa kiitollisuus ja arvostus.
@@ -10517,6 +10518,7 @@ da,"In our organization, there is a collective ownership of results.",I vores or
 it,"In our organization, there is a collective ownership of results.",Nella nostra organizzazione ci sentiamo collegialmente responsabili dei risultati.
 nl,"In our organization, there is a collective ownership of results.","Als er resultaat geboekt is, heeft iedereen in onze organisatie daar aan meegewerkt."
 pl,"In our organization, there is a collective ownership of results.",W naszej organizacji obowiązuje wspólna odpowiedzialność za wyniki.
+en,Cancelled,Cancelled
 pt,"In our organization, there is a collective ownership of results.",Em nossa organização nos sentimos co-responsáveis pelos resultados.
 es,"In our organization, there is a collective ownership of results.","En nuestra organización, los resultados nos pertenecen a todos."
 tr,"In our organization, there is a collective ownership of results.",Kurumumuzda sonuçlara ortak sahiplenme vardır.
@@ -12320,17 +12322,11 @@ en,teamdiagnostic-pre-deploy-message,When the Diagnostic is deployed we will ema
 en,Deployed,Deployed
 en,Team Diagnostic deployment failed,Team Diagnostic deployment failed
 en,Done,Done
-"""en",Participant was restored,"Participant was restored"""
-"""en",Participantn was removed,"Participant was removed"""
-"""en",Participant was disqualified,"Participant was disqualified"""
-en,dsfsfsdf,dsfsfsdf
-en,sdfsdf,sdfsdf
 en,User profile phone number can't be blank,User phone number can't be blank
 en,user-registration--enter-token,Enter a valid token below and click 'Continue' to claim your Team Coaching International TeamDiagnostic invitation.
 en,user-registration--invitation-found,"You have been invited to use Team Coaching International's TeamDiagnostic.
 
 Please click the 'Continue' button to claim your invitation."
-en,What is your favorite color?,What is your favorite color?
 en,team_diagnostic-cover_letter-subject,Your Team Diagnostic Survey Invitation
 en,team_diagnostic-reminder_letter-subject,Don't Forget Your Team Diagnostic Survey.
 en,team_diagnostic-cancellation_letter-subject,Your Team Diagnostic Survey Was Cancelled
@@ -12340,7 +12336,6 @@ en,team_diagnostic-deploy_notification_letter-body,"Hello {{facilitator_name}},
 Your {{assessment_name}} for {{team_name}} has been deployed. The participants for this diagnostic are now being sent their invitations.
 
 Thank you!"
-en,What,What
 en,What's your favorite color?,What's your favorite color?
 en,Help,Help
 en,Subject,Subject
