@@ -33,6 +33,7 @@ class TeamDiagnosticQuestionsController < ApplicationController
     set_team_diagnostic_question
     authorize @team_diagnostic_question
     @team_diagnostic_question.destroy
+    SystemEvent.log(event_source: @team_diagnostic, description: 'A question was deleted')
     @question_service = TeamDiagnosticServices::QuestionCreator.new(user: @current_user, team_diagnostic: @team_diagnostic, params: params)
     respond_to do |format|
       format.js

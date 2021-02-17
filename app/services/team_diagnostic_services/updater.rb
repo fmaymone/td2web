@@ -21,7 +21,12 @@ module TeamDiagnosticServices
 
     def call
       update_team_diagnostic
-      valid? ? @team_diagnostic : false
+      if valid?
+        after_save
+        @team_diagnostic
+      else
+        false
+      end
     end
 
     def valid?
@@ -95,6 +100,10 @@ module TeamDiagnosticServices
     end
 
     private
+
+    def after_save
+      SystemEvent.log(event_source: @team_diagnostic, description: 'Updated')
+    end
 
     def letter_data_present?
       @params.present? && @params.fetch('team_diagnostic_letters_attributes', []).first.present?

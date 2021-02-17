@@ -12274,6 +12274,12 @@ en,Participant was activated,Participant was activated
 en,team_diagnostic-cancel_notification_letter-subject,PLACEHOLDER
 en,team_diagnostic-cancel_notification_letter-body,PLACEHOLDER
 en,Team Diagnostic was cancelled,Team Diagnostic was cancelled
+en,A participant was added,A participant was added]
+en,A participant was disqualified,A participant was disqualified]
+en,A participant was restored,A participant was restored]
+en,A participant was removed,A participant was removed]
+en,A question was deleted,A question was deleted
+en,A question was added,A question was added
 en,team_diagnostic--letter-help,"<div class=""col-sm-8"">
               <p>
                 The system will automatically replace the variables with the
@@ -12350,3 +12356,9 @@ en,This letter is sent to the facilitator when a Diagnostic is deployed,This let
 en,team_diagnostic-deployment_letter-description,This letter is sent to the facilitator when a Diagnostic is deployed
 en,There are unsaved changes,There are unsaved changes
 en,Revert,Revert
+en,An invitiation email was sent,An invitiation email was sent
+en,A cancellation email was sent,A cancellation email was sent
+en,Automatic deployment failed,Automatic deployment failed
+en,Error sending reminders,Error sending reminders
+en,Deployment was successful,Deployment was successful
+en,Manual deployment started,Manual deployment started

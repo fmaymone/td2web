@@ -16,7 +16,12 @@ module ParticipantServices
 
     def call
       create_participant
-      valid? ? @participant : false
+      if valid?
+        after_create
+        @participant
+      else
+        false
+      end
     end
 
     def valid?
@@ -25,6 +30,10 @@ module ParticipantServices
     end
 
     private
+
+    def after_create
+      SystemEvent.log(event_source: @team_diagnostic, incidental: @participant, description: 'A participant was added')
+    end
 
     def create_participant
       @participant.save! if valid?

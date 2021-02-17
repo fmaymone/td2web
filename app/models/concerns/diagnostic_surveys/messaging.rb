@@ -18,21 +18,21 @@ module DiagnosticSurveys
         DiagnosticSurveyMailer.cover_letter(self).deliver_later
         self.delivered_at = Time.now
         save
-        # TODO: log sending of invitation message
+        SystemEvent.log(event_source: self, incidental: participant, description: 'An invitiation email was sent')
       end
 
       def send_cancellation_message
         return false unless active?
 
         DiagnosticSurveyMailer.cancellation_letter(self).deliver_later
-        # TODO: log sending of cancellation message
+        SystemEvent.log(event_source: self, incidental: participant, description: 'A cancellation email was sent')
       end
 
       def send_reminder_message
         return false unless active?
 
         DiagnosticSurveyMailer.reminder_letter(self).deliver_later
-        # TODO: log sending of reminder message
+        SystemEvent.log(event_source: self, incidental: participant, description: 'A reminder email was sent')
       end
 
       def template_data

@@ -18,7 +18,12 @@ module TeamDiagnosticServices
 
     def call
       create_team_diagnostic_question
-      valid? ? @team_diagnostic_question : false
+      if valid?
+        after_create
+        @team_diagnostic_question
+      else
+        false
+      end
     end
 
     def valid?
@@ -38,6 +43,10 @@ module TeamDiagnosticServices
     end
 
     private
+
+    def after_create
+      SystemEvent.log(event_source: @team_diagnostic, incidental: @team_diagnostic_question, description: 'A question was added')
+    end
 
     def get_diagnostic_question(params)
       DiagnosticQuestion.where(id: params[:diagnostic_question_id]).first

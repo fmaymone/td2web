@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_28_041045) do
+ActiveRecord::Schema.define(version: 2021_02_17_053624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -269,6 +269,20 @@ ActiveRecord::Schema.define(version: 2021_01_28_041045) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_roles_on_name", unique: true
     t.index ["slug"], name: "index_roles_on_slug", unique: true
+  end
+
+  create_table "system_events", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "event_source_type", null: false
+    t.uuid "event_source_id", null: false
+    t.string "incidental_type"
+    t.uuid "incidental_id"
+    t.string "description"
+    t.text "debug"
+    t.integer "severity", default: 1
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_source_type", "event_source_id"], name: "index_system_events_on_event_source_type_and_event_source_id"
+    t.index ["incidental_type", "incidental_id"], name: "index_system_events_on_incidental_type_and_incidental_id"
   end
 
   create_table "team_diagnostic_letters", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

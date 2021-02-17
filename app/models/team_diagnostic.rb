@@ -75,6 +75,7 @@ class TeamDiagnostic < ApplicationRecord
   has_many :questions, class_name: 'TeamDiagnosticQuestion', dependent: :destroy
   has_many :diagnostic_surveys, dependent: :destroy
   has_many :team_diagnostic_questions, dependent: :destroy
+  has_many :system_events
 
   attr_accessor :deployment_succeeded
 
@@ -83,8 +84,8 @@ class TeamDiagnostic < ApplicationRecord
   def self.auto_deploy
     pending_deployment.each do |diagnostic|
       diagnostic.deploy!
-    rescue StandardError
-      # TODO: log failure event
+    rescue StandardError => e
+      SystemEvent.log(event_source: diagnostic, description: 'Automatic deployment failed', severity: :error, debug: e.message)
     end
   end
 
@@ -188,23 +189,25 @@ class TeamDiagnostic < ApplicationRecord
     self.deployment_succeeded = false
 
     issues = deployment_issues
-    raise DeploymentIssueError.new(issues) if issues.any?
+    raise DeploymentIssueError, issues if issues.any?
 
     did_assign_questions = assign_questions
-    raise QuestionAssignmentError.new unless did_assign_questions
+    raise QuestionAssignmentError unless did_assign_questions
 
     self.deployed_at = Time.now
     save
     send_deploy_notification_message
     self.deployment_succeeded = true
+
+    SystemEvent.log(event_source: self, description: 'Deployment was successful', severity: :warn)
   rescue DeploymentIssueError => e
-    # TODO log event
-    puts "Error deploying TeamDiagnostic[#{id}] due to pending actions : #{e.message}]"
-    return false
-  rescue QuestionAssignment => e
-    # TODO log event
-    puts "Error deploying TeamDiagnostic[#{id}] while assigning questions: #{e.message}]"
-    return false
+    debug_msg = "Error deploying TeamDiagnostic[#{id}] due to pending actions : #{e.message}]"
+    SystemEvent.log(event_source: self, description: 'Failed to deploy', severity: :error, debug: debug_msg)
+    false
+  rescue QuestionAssignmentError => e
+    debug_msg = "Error deploying TeamDiagnostic[#{id}] while assigning questions: #{e.message}]"
+    SystemEvent.log(event_source: self, description: 'Failed to deploy', severity: :error, debug: debug_msg)
+    false
   end
 
   def cancel_deployment
@@ -231,8 +234,9 @@ class TeamDiagnostic < ApplicationRecord
       end
     end
     true
-  rescue StandardError
-    # TODO: log error event
+  rescue StandardError => e
+    debug_msg = e.message
+    SystemEvent.log(event_source: self, description: 'Error assigning questions', debug: debug_msg, severity: :debug)
     false
   end
 
@@ -240,8 +244,9 @@ class TeamDiagnostic < ApplicationRecord
     transaction do
       participants.approved.each do |participant|
         participant.activate!
-      rescue StandardError
-        # TODO: Log the failure to activate the participant
+      rescue StandardError => e
+        debug_msg = e.message
+        SystemEvent.log(event_source: self, incidental: participant, description: 'Error activating participant', debug: debug_msg, severity: :warn)
       end
     end
     participants.reload

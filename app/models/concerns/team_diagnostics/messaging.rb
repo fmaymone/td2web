@@ -70,6 +70,7 @@ module TeamDiagnostics
         # diagnostic.send_reminders
         # rescue StandardError
         ## TODO: log failure event
+        # SystemEvent.log(event_source: diagnostic, description: 'Error sending reminders')
         # end
       end
     end

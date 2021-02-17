@@ -27,7 +27,13 @@ module TeamDiagnosticServices
         @errors ||= []
         @errors += service.errors
       end
-      valid? ? @team_diagnostic : false
+
+      if valid?
+        after_save
+        @team_diagnostic
+      else
+        false
+      end
     end
 
     def valid?
@@ -56,6 +62,10 @@ module TeamDiagnosticServices
     end
 
     private
+
+    def after_save
+      SystemEvent.log(event_source: @team_diagnostic, description: 'Created')
+    end
 
     def initialize_team_diagnostic
       team_diagnostic = TeamDiagnostic.new(@params)

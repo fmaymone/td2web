@@ -25,11 +25,13 @@ module ParticipantServices
       @participant.transaction do
         handle_near_empty_diagnostic
         @participant.disqualify!
+        SystemEvent.log(event_source: @participant.team_diagnostic, incidental: @participant, description: 'A participant was disqualified')
       end
     end
 
     def restore!
-      valid?(:restore) && @participant.requalify!
+      valid?(:restore) && @participant.requalify! &&
+        SystemEvent.log(event_source: @participant.team_diagnostic, incidental: @participant, description: 'A participant was restored')
     end
 
     def destroy!
@@ -38,6 +40,7 @@ module ParticipantServices
       @participant.transaction do
         handle_near_empty_diagnostic
         @participant.destroy!
+        SystemEvent.log(event_source: @participant.team_diagnostic, incidental: @participant, description: 'A participant was removed')
       end
     end
 
