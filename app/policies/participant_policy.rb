@@ -40,7 +40,7 @@ class ParticipantPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.approved? &&
+    record.approved? || record.active? &&
       (admin? || staff? || owner?)
   end
 
