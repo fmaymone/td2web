@@ -50,7 +50,12 @@ module DiagnosticSurveys
 
       def letter_section(letter_type, section, locale)
         letter = team_diagnostic.team_diagnostic_letters.typed(letter_type).where(locale: locale).last
-        raise 'Missing team diagnostic letter definition' unless letter
+        unless letter
+          SystemEvent.log(event_source: team_diagnostic, incidental: self,
+                          description: "Missing #{letter_type} letter #{section} for #{locale}",
+                          severity: :error)
+          return 'Error! Please contact your facilitator'
+        end
 
         content = case section
                   when :cover, 'cover'

@@ -17,9 +17,9 @@
               <h5 class="card-title"><%= consent.humanize.titlecase %></h5>
               <div class="card-text">
                 <% begin %>
-                  <%= render partial: "consent_#{consent}.#{current_locale}.html" %>
+                  <%= render partial: "consent_#{consent}_#{current_locale}" %>
                 <% rescue %>
-                  <%= render partial: "consent_#{consent}.en.html" %>
+                  <%= render partial: "consent_#{consent}_en" %>
                 <% end %>
                 <hr/>
                 <div class="row">
