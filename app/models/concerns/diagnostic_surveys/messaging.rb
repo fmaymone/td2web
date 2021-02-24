@@ -36,6 +36,7 @@ module DiagnosticSurveys
       end
 
       def template_data
+        # TODO: Add variables to match help shown in UI
         {
           team_name: team_diagnostic.name,
           participant_name: participant.full_name,
@@ -47,46 +48,43 @@ module DiagnosticSurveys
         }
       end
 
-      def cover_letter_subject
-        DiagnosticSurveys::Messaging::OVER_LETTER_SUBJECT_KEY.t
-      rescue StandardError
-        'Team Diagnostic Invitation'
-      end
+      def letter_section(letter_type, section, locale)
+        letter = team_diagnostic.team_diagnostic_letters.typed(letter_type).where(locale: locale).last
+        raise 'Missing team diagnostic letter definition' unless letter
 
-      def cover_letter_body
-        # TODO: use TeamDiagnosticLetter
-        # TODO: Improve security: strip unnecessary html tags
-        # template = Liquid::Template.parse(team_diagnostic.cover_letter)
-        template = Liquid::Template.parse('')
+        content = case section
+                  when :cover, 'cover'
+                    letter.cover
+                  when :subject, 'subject'
+                    letter.subject
+                  end
+
+        template = Liquid::Template.parse(content)
         template.render(template_data)
       end
 
-      def reminder_letter_subject
-        DiagnosticSurveys::Messaging::REMINDER_LETTER_SUBJECT_KEY.t
-      rescue StandardError
-        'Team Diagnostic Reminder'
+      def cover_letter_subject(loc = nil)
+        letter_section(:cover, :subject, loc || locale)
       end
 
-      def reminder_letter_body
-        # TODO: use TeamDiagnosticLetter
-        # TODO: Improve security: strip unnecessary html tags
-        # template = Liquid::Template.parse(team_diagnostic.reminder_letter)
-        template = Liquid::Template.parse('')
-        template.render(template_data)
+      def cover_letter_body(loc = nil)
+        letter_section(:cover, :body, loc || locale)
       end
 
-      def cancellation_letter_subject
-        DiagnosticSurveys::Messaging::CANCELLATION_LETTER_SUBJECT_KEY.t
-      rescue StandardError
-        'Team Diagnostic Was Cancelled'
+      def reminder_letter_subject(loc = nil)
+        letter_section(:reminder, :subject, loc || locale)
       end
 
-      def cancellation_letter_body
-        # TODO: use TeamDiagnosticLetter
-        # TODO: Improve security: strip unnecessary html tags
-        # template = Liquid::Template.parse(team_diagnostic.cancellation_letter)
-        template = Liquid::Template.parse('')
-        template.render(template_data)
+      def reminder_letter_body(loc = nil)
+        letter_section(:reminder, :body, loc || locale)
+      end
+
+      def cancellation_letter_subject(loc = nil)
+        letter_section(:cancellation, :subject, loc || locale)
+      end
+
+      def cancellation_letter_body(loc = nil)
+        letter_section(:cancellation, :body, loc || locale)
       end
     end
   end
