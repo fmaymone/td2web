@@ -8,7 +8,7 @@ ruby '2.7.2'
 # gem 'secure_headers'
 gem 'aasm'
 gem 'amazing_print'
-gem 'audited'
+# gem 'audited'
 gem 'aws-sdk-s3', require: false
 gem 'bcrypt'
 gem 'bootsnap', require: false

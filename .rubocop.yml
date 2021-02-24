@@ -1778,12 +1778,6 @@ Lint/SuppressedException:
   AllowComments: true
   VersionAdded: '0.9'
 
-Lint/Syntax:
-  Description: 'Checks syntax error.'
-  Enabled: true
-  VersionAdded: '0.9'
-
-
 Lint/ToJSON:
   Description: 'Ensure #to_json includes an optional argument.'
   Enabled: true

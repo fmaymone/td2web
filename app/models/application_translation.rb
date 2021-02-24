@@ -18,7 +18,7 @@ class ApplicationTranslation < I18n::Backend::ActiveRecord::Translation
   ALLOWED_PARAMS = %w[key value locale].freeze
 
   ### Extensions and Concerns
-  audited
+  # audited
 
   ### Validations
   validates :locale, presence: true
