@@ -48,7 +48,6 @@ class TeamDiagnosticQuestion < ApplicationRecord
   validate :created_before_team_diagnostic_answered
 
   ### Callbacks
-  # after_create :create_default_translations
 
   ### Scopes
   scope :rating, -> { where(question_type: RATING_TYPE) }
@@ -98,12 +97,6 @@ class TeamDiagnosticQuestion < ApplicationRecord
   end
 
   private
-
-  # def create_default_translations
-  # default_locale = team_diagnostic.locale
-  # attrs = { locale: default_locale, key: body, value: body }
-  # ApplicationTranslation.create(attrs) unless ApplicationTranslation.where(locale: default_locale, key: attrs[:key]).any?
-  # end
 
   def created_before_team_diagnostic_answered
     # errors.add(:team_diagnostic_id, 'is deployed'.t) if team_diagnostic.deployed? && _TODOany_questions_answered?

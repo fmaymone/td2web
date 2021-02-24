@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_24_044641) do
+ActiveRecord::Schema.define(version: 2021_02_24_064302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -97,6 +97,16 @@ ActiveRecord::Schema.define(version: 2021_02_24_044641) do
     t.index ["active", "category", "question_type", "factor", "matrix"], name: "general_idx"
     t.index ["diagnostic_id"], name: "index_diagnostic_questions_on_diagnostic_id"
     t.index ["slug"], name: "index_diagnostic_questions_on_slug", unique: true
+  end
+
+  create_table "diagnostic_responses", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "diagnostic_survey_id", null: false
+    t.uuid "team_diagnostic_question_id", null: false
+    t.string "locale", null: false
+    t.text "response", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["diagnostic_survey_id", "team_diagnostic_question_id", "locale"], name: "diagnostic_responses_unique_idx", unique: true
   end
 
   create_table "diagnostic_surveys", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

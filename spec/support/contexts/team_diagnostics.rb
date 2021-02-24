@@ -16,6 +16,13 @@ RSpec.shared_context 'team_diagnostics', shared_context: :metadate do
     teamdiagnostic
   end
 
+  let(:teamdiagnostic_deployed) do
+    td = teamdiagnostic_ready
+    td.deploy!
+    td.reload
+    td
+  end
+
   let(:teamdiagnostic_participants) do
     Array.new(4) do
       ParticipantServices::Creator.new(

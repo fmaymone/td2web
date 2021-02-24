@@ -1,6 +1,20 @@
 # frozen_string_literal: true
 
-# System event persistence
+# == Schema Information
+#
+# Table name: system_events
+#
+#  id                :uuid             not null, primary key
+#  event_source_type :string           not null
+#  event_source_id   :uuid             not null
+#  incidental_type   :string
+#  incidental_id     :uuid
+#  description       :string
+#  debug             :text
+#  severity          :integer          default("info")
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
 class SystemEvent < ApplicationRecord
   ### Constants
   SEVERITIES = %i[debug info warn error fatal unknown].freeze

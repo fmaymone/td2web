@@ -35,4 +35,5 @@ class DiagnosticSurvey < ApplicationRecord
   belongs_to :participant
   belongs_to :team_diagnostic
   has_many :questions, through: :team_diagnostic, class_name: 'TeamDiagnosticQuestion'
+  has_many :diagnostic_responses, dependent: :destroy
 end
