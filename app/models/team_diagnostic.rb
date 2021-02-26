@@ -74,6 +74,7 @@ class TeamDiagnostic < ApplicationRecord
   has_many :participants, dependent: :destroy
   has_many :questions, class_name: 'TeamDiagnosticQuestion', dependent: :destroy
   has_many :diagnostic_surveys, dependent: :destroy
+  has_many :diagnostic_responses, through: :diagnostic_surveys
   has_many :team_diagnostic_questions, dependent: :destroy
   has_many :system_events
 
@@ -226,11 +227,10 @@ class TeamDiagnostic < ApplicationRecord
     return false unless setup? || deployed? || cancelled?
 
     transaction do
-      # TODO: Delete default Diagnostic questions if no one has answered any questions
-      # questions.rating.destroy_all unless diagnostic_responses.any?
-      questions.rating.destroy_all
+      # Delete default Diagnostic questions if no one has answered any questions
+      questions.rating.destroy_all unless diagnostic_responses.any?
       diagnostic.diagnostic_questions.rating.active.each do |question|
-        TeamDiagnosticQuestion.from_diagnostic_question(question, team_diagnostic: self).map(&:save)
+        TeamDiagnosticQuestion.from_diagnostic_question(question, team_diagnostic: self).map(&:save!)
       end
     end
     true

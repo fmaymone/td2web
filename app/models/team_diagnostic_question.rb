@@ -69,12 +69,12 @@ class TeamDiagnosticQuestion < ApplicationRecord
       body = begin
         ApplicationTranslation.where(locale: l, key: question.body).first.value
       rescue StandardError
-        'PLACEHOLDER'
+        question.body || 'PLACEHOLDER'
       end
       body_positive = begin
         question.body_positive.present? ? ApplicationTranslation.where(locale: l, key: question.body_positive).first.value : nil
       rescue StandardError
-        'PLACEHOLDER'
+        question.body_positive || 'PLACEHOLDER'
       end
       TeamDiagnosticQuestion.new(
         team_diagnostic: team_diagnostic,

@@ -5,6 +5,6 @@ FactoryBot.define do
     diagnostic_survey { create(:diagnostic_survey) }
     team_diagnostic_question { create(:team_diagnostic_question) }
     locale { diagnostic_survey.locale }
-    response { 'yeah' }
+    response { rand(100_000).to_s }
   end
 end
