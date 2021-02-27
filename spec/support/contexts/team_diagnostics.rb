@@ -41,4 +41,17 @@ RSpec.shared_context 'team_diagnostics', shared_context: :metadate do
     teamdiagnostic.reload
     teamdiagnostic.team_diagnostic_letters
   end
+
+  let(:teamdiagnostic_questions) do
+    service = TeamDiagnosticServices::QuestionCreator.new(team_diagnostic: teamdiagnostic, user: teamdiagnostic.user)
+    reference_questions = service.available_team_diagnostic_open_ended_questions
+    reference_questions[0..1].each do |question|
+      service2 = TeamDiagnosticServices::QuestionCreator.new(
+        team_diagnostic: teamdiagnostic,
+        user: teamdiagnostic.user,
+        params: { diagnostic_question_id: question[:id] }
+      )
+      service2.call
+    end
+  end
 end
