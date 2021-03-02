@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col">
+    <h2>
+      <%= service.current_question.body %>
+    </h2>
+  </div>
+</div>
+
+<%= form_tag diagnostic_survey_path(id: service.diagnostic_survey.id, team_diagnostic_question_id: service.current_question.id), method: :put, remote: false do%>
+  <div class="row">
+    <div class="col-sm-9 form-group">
+      <%= text_area_tag(:response, service.current_question_response, rows: 5, class: 'form-control') %>
+      <br/>
+      <%= submit_tag 'Submit'.t, class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>
+
+<%= render partial: 'edit_navigation', locals: {service: service } %>
+
+<script type="text/javascript">
+  var el = document.getElementById('response')
+  el.focus();
+  el.selectionStart = el.selectionEnd = el.value.length;
+</script>

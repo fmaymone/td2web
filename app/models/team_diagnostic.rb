@@ -220,6 +220,14 @@ class TeamDiagnostic < ApplicationRecord
     send_cancel_notification_message
   end
 
+  def completed_surveys
+    diagnostic_surveys.completed.count
+  end
+
+  def total_surveys
+    diagnostic_surveys.pending.count + diagnostic_surveys.active.count
+  end
+
   private
 
   def assign_questions

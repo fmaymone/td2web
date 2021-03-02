@@ -11,7 +11,7 @@ RSpec.describe DiagnosticSurveyServices::SurveyService do
   end
 
   let(:diagnostic_survey) { teamdiagnostic_deployed.diagnostic_surveys.first }
-  let(:all_questions) { teamdiagnostic_deployed.team_diagnostic_questions.order(matrix: :asc) }
+  let(:all_questions) { teamdiagnostic_deployed.team_diagnostic_questions.order(question_type: :asc, matrix: :asc) }
   let(:question1) { all_questions.first }
   let(:question2) { all_questions.to_a[1] }
   let(:question3) { all_questions.to_a[2] }
@@ -40,9 +40,14 @@ RSpec.describe DiagnosticSurveyServices::SurveyService do
   end
 
   describe 'authorization' do
-    it 'should indicate whether the give email address belongs to the survey participant' do
-      assert(service.authorized?(email: diagnostic_survey.participant.email))
-      refute(service.authorized?(email: 'foobar'))
+    it 'should indicate whether the diagnostic survey is active' do
+      assert(service.authorized?)
+    end
+
+    it 'should return false if the survey is not active' do
+      diagnostic_survey.state = 'pending'
+      diagnostic_survey.save
+      refute(service.authorized?)
     end
   end
 

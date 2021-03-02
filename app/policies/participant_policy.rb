@@ -66,7 +66,11 @@ class ParticipantPolicy < ApplicationPolicy
   end
 
   def activate?
-    edit? && record.activation_permitted?
+    edit? && record.activation_permitted? && !record.active?
+  end
+
+  def resend_invitation?
+    edit? && record.active?
   end
 
   def allowed_params

@@ -61,7 +61,7 @@
         <% end %>
       <% else %>
         <li class="nav-item">
-          <%= link_to('Login'.t, new_user_session_path, class: 'nav-link') unless controller.controller_name == 'sessions' %>
+          <%= link_to('Login'.t, new_user_session_path, class: 'nav-link') if show_login_link? %>
         </li>
       <% end %>
     </ul>

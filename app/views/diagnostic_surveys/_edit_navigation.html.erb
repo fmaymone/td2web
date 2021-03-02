@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col text-center">
+    <br/>
+    <% if service.show_previous_button? %>
+      <%= link_to 'Previous Question'.t,
+                  edit_diagnostic_survey_path(id: service.diagnostic_survey.id, team_diagnostic_question_id: service.previous_question&.id),
+                  class: 'btn btn-sm btn-primary' %>
+    <% end %>
+    <% if service.show_next_button? %>
+      <%= link_to 'Next Question'.t,
+                  edit_diagnostic_survey_path(id: service.diagnostic_survey.id, team_diagnostic_question_id: service.next_question&.id),
+                  class: 'btn btn-sm btn-primary' %>
+    <% end %>
+  </div>
+</div>

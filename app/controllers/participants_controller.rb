@@ -142,6 +142,15 @@ class ParticipantsController < ApplicationController
     end
   end
 
+  def resend_invitation
+    set_team_diagnostic
+    set_participant
+    authorize @participant
+    set_diagnostic_survey
+    @diagnostic_survey.send_invitation_message
+    redirect_to wizard_team_diagnostic_path(id: @team_diagnostic.id, step: TeamDiagnostics::Wizard::PARTICIPANTS_STEP), notice: 'Invitation resent'.t
+  end
+
   private
 
   def record_scope
@@ -151,6 +160,13 @@ class ParticipantsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_participant
     @participant = record_scope.find(params[:id])
+  end
+
+  def set_diagnostic_survey
+    @diagnostic_survey = @participant.diagnostic_surveys
+                                     .active
+                                     .where(team_diagnostic_id: @team_diagnostic.id)
+                                     .last
   end
 
   # Only allow a list of trusted parameters through.

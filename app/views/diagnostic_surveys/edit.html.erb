@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col text-center">
+    <h4>
+      <%= @service.team_name %> &mdash;
+      <%= @service.diagnostic_name %>
+    </h4>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col jumbotron">
+    <% unless @service.completed? %>
+      <%= render partial: "edit_#{@service.current_question.question_type.downcase.gsub('-','_')}", locals: {service: @service} %>
+    <% end %>
+  </div>
+</div>

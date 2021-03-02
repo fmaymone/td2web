@@ -5074,16 +5074,6 @@ en,I agree,I agree
 en,Your preferences were updated,Your preferences were updated
 en,Granted,Granted
 en,Revoked,Revoked
-en,emailtemplate--html--reset_password_instructions,"<p>Hello {{name}}!</p>
-
-<p>Someone requested a link to change your password. You can do this through the link below.</p>
-
-<p><a href=""{{url}}"">{{url}}</a></p>
-
-<p>If you didn't request this, please ignore this email.</p>
-
-<p>Your password won't change until you access thge link above and create a new one.</p>
-"
 en,emailtemplate--html--password_change,"<p>Hello {{name}}!</p>
 
 <p>We are contacting you to notify you that your password has been changed.</p>"
@@ -9574,6 +9564,7 @@ fx,There are team agreements regarding how team members interact when conflict a
 en,Important Dates,Important Dates
 en,Letters,Letters
 en,Cancel Diagnostic,Cancel Diagnostic
+en,Invitation resent,Invitation resent
 da,There is an attitude of gratitude and appreciation on this team.,Folk i teamet sætter stor pris på hinanden og giver udtryk for det.
 de,There is an attitude of gratitude and appreciation on this team.,In diesem Team gehen die Teammitglieder dankbar und wertschätzend miteinander um.
 fi,There is an attitude of gratitude and appreciation on this team.,Tiimin työilmapiiriä leimaa kiitollisuus ja arvostus.
@@ -10558,6 +10549,7 @@ tr,There is a strong sense of camaraderie and belonging in our organization.,Kur
 fx,There is a strong sense of camaraderie and belonging in our organization.,Il y a un sens très développé de camaraderie et d’appartenance dans notre organisation.
 gb,There is a strong sense of camaraderie and belonging in our organization.,There is a strong sense of camaraderie and belonging in our organisation.
 en,"In our organization, people criticize others behind their backs.","In our organization, people criticize others behind their backs."
+en,Resend Invitation,Resend Invitation
 en,"In our organization, people do not criticize others behind their backs.","In our organization, people do not criticize others behind their backs."
 ar,"In our organization, people criticize others behind their backs.",في منظمتنا: يقوم الناس بانتقاد بعضهم بعضاً في غيبتهم.
 da,"In our organization, people criticize others behind their backs.",Folk i organisationen går bag om ryggen på hinanden med kritik.
@@ -11108,7 +11100,6 @@ nl,"As an organization, we have developed sound strategies for accomplishing our
 pl,"As an organization, we have developed sound strategies for accomplishing our goals.","Jako organizacja, rozwinęliśmy rozsądne strategie dla osiągnięcia naszych celów."
 pt,"As an organization, we have developed sound strategies for accomplishing our goals.","Como organização, desenvolvemos estratégias sólidas para alcançar nossas metas."
 es,"As an organization, we have developed sound strategies for accomplishing our goals.","Como organización, hemos desarrollado estrategias sólidas para lograr nuestras metas."
-en,template-teamdiagnostic-cover-letter,PLACEHOLDER
 tr,"As an organization, we have developed sound strategies for accomplishing our goals.",Kurum olarak hedeflerimizi gerçekleştirme yolunda sağlam bir strateji geliştirdik.
 fx,"As an organization, we have developed sound strategies for accomplishing our goals.","Comme organisation, nous avons développé des stratégies efficaces pour atteindre nos objectifs."
 gb,"As an organization, we have developed sound strategies for accomplishing our goals.","As an organisation, we have developed sound strategies for accomplishing our goals."
@@ -11223,7 +11214,6 @@ pt,"When problems arise people in this organization tend to say, “It’s not m
 es,"When problems arise people in this organization tend to say, “It’s not my job.”","Cuando surgen problemas, las personas de esta organización tienden a decir: “este no es mi trabajo”."
 tr,"When problems arise people in this organization tend to say, “It’s not my job.”",Sorunlar ortaya çıktığında kurumumuzda “bu benim işim değil” söylemi yaygındır.
 fx,"When problems arise people in this organization tend to say, “It’s not my job.”","Dans cette organisation, les gens ont tendance à dire «ce n’est pas mon boulot» lorsqu’un problème surgit."
-en,template-teamdiagnostic-reminder-letter,PLACEHOLDER
 gb,"When problems arise people in this organization tend to say, “It’s not my job.”","When problems arise people in this organisation tend to say, “It’s not my job.”"
 ar,"In our organization, we do not tend to say, “It’s not my job,” when problems arise.","قي منظمتنا: نحن لا نميل إلى أن نقول ""هذا ليس من شأني"" عندما تبرز المشاكل."
 da,"In our organization, we do not tend to say, “It’s not my job,” when problems arise.","I vores organisation siger folk ikke ” Det er ikke mit bord”, når der opstår problemer."
@@ -11610,7 +11600,6 @@ it,We do not engage in gossip about each other in our organization.,Noi non facc
 nl,We do not engage in gossip about each other in our organization.,In onze organisatie wordt niet geroddeld over collega’s.
 pl,We do not engage in gossip about each other in our organization.,W naszej organizacji nie plotkujemy o sobie wzajemnie.
 pt,We do not engage in gossip about each other in our organization.,Nós não fazemos fofoca sobre nossos colegas na organização.
-en,template-teamdiagnostic-cancellation-letter,PLACEHOLDER
 es,We do not engage in gossip about each other in our organization.,No nos involucramos en chismes acerca de nuestros compañeros en la organización.
 tr,We do not engage in gossip about each other in our organization.,Kurumumuzda birbirimizle ilgili dedikodu yapmayız.
 fx,We do not engage in gossip about each other in our organization.,"Dans notre organisation, nous ne nous laissons pas aller aux commérages à propos des collègues."
@@ -12271,8 +12260,6 @@ en,The following items require attention,The following items require attention
 en,Information is missing or invalid,Information is missing or invalid
 en,Participant could not be deployed,Participant could not be deployed
 en,Participant was activated,Participant was activated
-en,team_diagnostic-cancel_notification_letter-subject,PLACEHOLDER
-en,team_diagnostic-cancel_notification_letter-body,PLACEHOLDER
 en,Team Diagnostic was cancelled,Team Diagnostic was cancelled
 en,A participant was added,A participant was added]
 en,A participant was disqualified,A participant was disqualified]
@@ -12280,6 +12267,10 @@ en,A participant was restored,A participant was restored]
 en,A participant was removed,A participant was removed]
 en,A question was deleted,A question was deleted
 en,A question was added,A question was added
+en,team_diagnostic-cancel_notification_letter-subject,Your Team Diagnostic Was Cancelled!
+en,team_diagnostic-cancel_notification_letter-body,"Dear {{facilitator_name}},
+
+Your {{assessment_name}} diagnostic for {{team_name}} was cancelled."
 en,team_diagnostic--letter-help,"<div class=""col-sm-8"">
               <p>
                 The system will automatically replace the variables with the
@@ -12345,9 +12336,6 @@ Thank you!"
 en,What's your favorite color?,What's your favorite color?
 en,Help,Help
 en,Subject,Subject
-en,template-teamdiagnostic-cover-letter-subject,PLACEHOLDER
-en,template-teamdiagnostic-reminder-letter-subject,PLACEHOLDER
-en,template-teamdiagnostic-cancellation-letter-subject,PLACEHOLDER
 en,Overdue,Overdue
 en,Please create Open Ended Question translations,Please create Open Ended Question translations
 en,Please create letter translations,Please create letter translations
@@ -12362,3 +12350,68 @@ en,Automatic deployment failed,Automatic deployment failed
 en,Error sending reminders,Error sending reminders
 en,Deployment was successful,Deployment was successful
 en,Manual deployment started,Manual deployment started
+en,template-teamdiagnostic-cancellation-letter-subject,{{assessment_name}} Cancellation Notice
+en,template-teamdiagnostic-reminder-letter-subject,Your {{assessment_name}} is due soon!
+en,template-teamdiagnostic-cover-letter,"Dear {{participant_name}}:
+
+I am pleased to have the opportunity to work with you using a unique diagnostic tool developed by Team Coaching International (TCI). This tool is based on a comprehensive model of performance effectiveness that delivers a detailed map for ongoing development.
+
+The {{assessment_name}} evaluates the entire system (also known as team or organization) rather than evaluating individuals. The key to long-term effectiveness begins with an accurate profile of strengths and challenges. The TCI approach is based on systems theory and the work of leading authorities in this emerging team development field. The model and assessment incorporate the latest work in Emotional Intelligence, Appreciative Inquiry and academic research. The resulting profile measures two axes: factors that lead to increased productivity and factors of positivity that build a stronger culture. The {{assessment_name}} profile graphically benchmarks scores in 14 separate areas.
+
+When completing the diagnostic, please keep in mind the specific system that you are assessing.  
+
+Answer the questions from the perspective of the system as it is today, not how it was in the past or how it might be in the future. Most people complete the diagnostic in 15 to 20 minutes. Our deadline for completion is {{completion_date}}. Thank you for your cooperation.
+
+This is your personal link to the diagnostic. Each link is individually assigned. Do not share your link or this email with anyone.
+
+{{assessment_link}}
+
+Please note that all diagnostic responses, including your individual written comments, will be presented anonymously as part of the overall diagnostic results. Individual responses will not be attributed to the individual that made them (i.e. your name will not appear by your written comments). We encourage you to be honest and candid to enable important issues to surface in service of improving interaction and dynamics.
+
+If you have questions, please contact me at {{facilitator_phone}} or send email to {{facilitator_email}}.
+
+I look forward to meeting with you to review your results and plan next steps.
+
+Sincerely,
+{{facilitator_name}}"
+en,template-teamdiagnostic-cover-letter-subject,{{assessment_name}}  for {{participant_name}}
+en,template-teamdiagnostic-reminder-letter,"Dear {{participant_name}}: 
+
+This is a reminder that the {{assessment_name}} is due on {{completion_date}}.
+
+If you have questions, please contact me at {{facilitator_phone}} or send email to {{facilitator_email}}.
+
+I look forward to meeting with you to review your results and plan next steps.
+
+Sincerely,
+{{facilitator_name}}"
+en,template-teamdiagnostic-cancellation-letter,"Dear {{participant_name}}:
+
+The {{assessment_name}} has been cancelled.
+
+If you have questions, please contact me at {{facilitator_phone}} or send email to {{facilitator_email}}.
+
+Sincerely,
+{{facilitator_name}}"
+en,emailtemplate--html--reset_password_instructions,"<p>Hello {{name}}!</p>
+
+<p>Someone requested a link to change your password. You can do this through the link below.</p>
+
+<p><a href=""{{url}}"">{{url}}</a></p>
+
+<p>If you didn't request this, please ignore this email.</p>
+
+<p>Your password won't change until you access the link above and create a new one.</p>
+"
+en,Does Not Describe My Team,Does Not Describe My Team
+en,Completely Describes My Team,Completely Describes My Team
+en,Next Question,Next Question
+en,Previous Question,Previous Question
+en,diagnostic-conclusion-title,The Diagnostic is Completed
+en,diagnostic-conclusion-body,Thank you for participating in the %{diagnostic_name} for %{team_name}.
+en,diagnostic-intro-body,You have been invited to participate in the %{diagnostic_name} for %{team_name}.
+en,diagnostic-intro-title,Welcome %{name}!
+en,Leave,Leave
+en,The Diagnostic Survey was completed,The Diagnostic Survey was completed
+en,The Diagnostic Survey was visited,The Diagnostic Survey was visited
+en,The Diagnostic Survey was started,The Diagnostic Survey was started

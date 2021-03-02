@@ -47,6 +47,7 @@ Rails.application.routes.draw do
         post :disqualify, to: 'participants#disqualify'
         post :restore, to: 'participants#restore'
         post :activate, to: 'participants#activate'
+        post :resend_invitation, to: 'participants#resend_invitation'
       end
     end
     member do
@@ -58,4 +59,12 @@ Rails.application.routes.draw do
     resources :team_diagnostic_letters
   end
   resources :participants
+  resources :diagnostic_surveys do
+    collection do
+      get :not_found, to: 'diagnostic_surveys#not_found'
+    end
+    member do
+      post :complete, to: 'diagnostic_surveys#complete'
+    end
+  end
 end

@@ -36,15 +36,15 @@ module DiagnosticSurveys
       end
 
       def template_data
-        # TODO: Add variables to match help shown in UI
         {
-          team_name: team_diagnostic.name,
-          participant_name: participant.full_name,
-          completion_date: completed_at,
-          facilitator_phone: team_diagnostic.contact_phone,
-          facilitator_email: team_diagnostic.contact_email,
-          facilitator_name: team_diagnostic.user.name,
-          assessment_name: team_diagnostic.diagnostic.name
+          'team_name' => team_diagnostic.name,
+          'participant_name' => participant.full_name,
+          'completion_date' => team_diagnostic.due_at,
+          'facilitator_phone' => team_diagnostic.contact_phone,
+          'facilitator_email' => team_diagnostic.contact_email,
+          'facilitator_name' => team_diagnostic.user.name,
+          'assessment_name' => team_diagnostic.diagnostic.name,
+          'assessment_link' => format('%s://%s/diagnostic_surveys/%s', ENV.fetch('APPLICATION_PROTOCOL', 'https'), ENV.fetch('APPLICATION_HOST'), id)
         }
       end
 
@@ -58,8 +58,8 @@ module DiagnosticSurveys
         end
 
         content = case section
-                  when :cover, 'cover'
-                    letter.cover
+                  when :body, 'body'
+                    letter.body
                   when :subject, 'subject'
                     letter.subject
                   end

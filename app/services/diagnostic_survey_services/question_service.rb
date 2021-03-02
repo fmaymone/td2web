@@ -12,8 +12,8 @@ module DiagnosticSurveyServices
 
     def all_questions
       diagnostic_survey.questions
-                       .where(locale: locale || @locale, active: true)
-                       .order('question_type DESC, matrix ASC')
+                       .where(active: true)
+                       .order('question_type ASC, matrix ASC')
     end
 
     def rating_questions
@@ -40,10 +40,13 @@ module DiagnosticSurveyServices
     # returns nil if all questions have been answered
     def current_question
       all_responded_question_ids = diagnostic_survey.diagnostic_responses.pluck(:team_diagnostic_question_id)
-      all_questions.where
-                   .not(id: all_responded_question_ids)
-                   .order(matrix: :asc)
-                   .first
+      skope = all_questions.where
+                           .not(id: all_responded_question_ids)
+                           .order('team_diagnostic_questions.question_type ASC, team_diagnostic_questions.matrix ASC')
+      return nil if skope.empty?
+
+      skope = skope.where(locale: @locale) if skope.first.open_ended?
+      skope.first
     end
 
     def question_response(question)
@@ -99,8 +102,12 @@ module DiagnosticSurveyServices
                                                       .new(team_diagnostic_question: question,
                                                            locale: locale || @locale)
       new_response.response = response
-      new_response.save
-      new_response
+      if new_response.save
+        diagnostic_survey.reload
+        new_response
+      else
+        false
+      end
     end
   end
 end

@@ -96,6 +96,14 @@ class TeamDiagnosticQuestion < ApplicationRecord
     ApplicationTranslation.where(key: [body, body_positive])
   end
 
+  def open_ended?
+    question_type == OPEN_ENDED_TYPE
+  end
+
+  def rating?
+    question_type == RATING_TYPE
+  end
+
   private
 
   def created_before_team_diagnostic_answered

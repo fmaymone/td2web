@@ -6,6 +6,11 @@ module ApplicationHelper
     @current_tenant
   end
 
+  def show_login_link?
+    no_login_controllers = %w[sessions diagnostic_surveys]
+    !user_signed_in? && !no_login_controllers.include?(controller.controller_name)
+  end
+
   def page_title
     return @page_title if @page_title.present?
 

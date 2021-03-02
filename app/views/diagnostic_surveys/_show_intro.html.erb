@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-12 jumbotron">
+    <h1 class="display-4">
+      <%= 'diagnostic-intro-title'.t(name: @service.participant_name) %>
+    </h1>
+    <p class="lead">
+      <%= 'diagnostic-intro-body'.t(diagnostic_name: @service.diagnostic_name, team_name: @service.team_name) %>
+    </p>
+    <%= link_to 'Continue'.t, edit_diagnostic_survey_path(id: @service.diagnostic_survey.id), {class: 'btn btn-large btn-success', rel: 'nofollow'} %>
+    <%= link_to('Leave'.t, 'https://www.teamcoachinginternational.com/', class: 'btn btn-sm btn-warning') %>
+  </div>
+</div>

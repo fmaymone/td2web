@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col">
+    <h2 class="text-center">
+      <%= current_question_number(service) %>
+      <%= current_question_body(service) %>
+    </h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col text-center">
+    <h2 class="btn-group">
+      <% 9.times do |index| %>
+        <%= button_to(( index + 1 ), diagnostic_survey_path(id: service.diagnostic_survey.id, team_diagnostic_question_id: service.current_question.id, response: ( index + 1 )),  method: :put, class: "btn btn-#{question_response_button_class(service, index + 1)}" ) %>&nbsp;
+      <% end %>
+    </h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6">
+    &larr;
+    <%= 'Does Not Describe My Team'.t %>
+  </div>
+  <div class="col-6 text-right">
+    <%= 'Completely Describes My Team'.t %>
+    &rarr;
+  </div>
+</div>
+<%= render partial: 'edit_navigation', locals: {service: service } %>
