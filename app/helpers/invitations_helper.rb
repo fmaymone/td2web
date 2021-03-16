@@ -32,8 +32,8 @@ module InvitationsHelper
 
   def options_for_invitation_redirect(invitation)
     urls = [
-      ['Dashboard'.t, root_url],
-      ['Register Account', new_user_registration_url]
+      ['Register Account', new_user_registration_url],
+      ['Dashboard'.t, root_url]
     ]
     options_for_select(urls, invitation.redirect)
   end
