@@ -123,7 +123,7 @@ RSpec.describe DiagnosticSurveysController, type: :controller do
     end
     describe 'with an invalid response' do
       it 'should redirect back to question UI' do
-        put :update, params: { id: diagnostic_survey.id, team_diagnostic_question_id: question.id}
+        put :update, params: { id: diagnostic_survey.id, team_diagnostic_question_id: question.id }
         expect(response).to redirect_to(edit_diagnostic_survey_path(id: diagnostic_survey.id))
       end
     end
