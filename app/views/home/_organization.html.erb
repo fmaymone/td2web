@@ -7,6 +7,6 @@
     <%= organization_role_badge(organization) %>
     <p class="card-text"><%= organization.description %></p>
 
-    <%= render partial: 'organization_team_diagnostics', locals: { organization: organization } %>
+    <%= render partial: 'organizations/team_diagnostics', locals: { organization: organization } %>
   </div>
 </div>

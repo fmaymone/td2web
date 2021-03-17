@@ -7,36 +7,45 @@
 <div class="row">
   <div class="col">
     <div class="jumbotron">
-      <h1><%= @organization.name %></h1>
-      <hr />
-      <h4><%= 'Profile'.t %></h4>
-      <p class="lead">
-        <strong><%= 'Name'.t %></strong>: <%= @organization.name %> <br/>
-        <strong><%= 'Description'.t %></strong>: <%= @organization.description %> <br/>
-        <strong><%= 'Website'.t %></strong>: <%= link_to(@organization.url, @organization.url, rel: 'nofollow') %> <br/>
-        <strong><%= 'Industry'.t %></strong>: <%= @organization.industry %> <br/>
-        <strong><%= 'Revenue'.t %></strong>: <%= @organization.revenue %> <br/>
-        <strong><%= 'Locale'.t %></strong>: <%= @organization.locale %> <br/>
-      </p>
-      <hr/>
-      <h4><%= 'Members'.t %></h4>
-      <p class="lead">
-        <ul>
-          <% @organization.members.each do |user| %>
-            <%= organization_role_badge(@organization) %>
-            <% if UserPolicy.new(@current_user, user).show? %>
-              <%= link_to(user.name, user_path(user)) %>
-            <% else %>
-              <%= user.name %>
-            <% end %>
-            <% if user&.user_profile&.title&.present? %>
-              <small><%= user.user_profile.title %></small>
-            <% end %>
-            <small>(<%= user.organization_membership_date(@organization).strftime("%Y-%m-%d") %>)</small>
-          <% end %>
-        </ul>
-
-      </p>
+      <div class="row">
+        <div class="col-md-6">
+          <h1><%= @organization.name %></h1>
+          <hr />
+          <h4><%= 'Members'.t %></h4>
+          <p class="lead">
+            <ul>
+              <% @organization.members.each do |user| %>
+                <%= organization_role_badge(@organization) %>
+                <% if UserPolicy.new(@current_user, user).show? %>
+                  <%= link_to(user.name, user_path(user)) %>
+                <% else %>
+                  <%= user.name %>
+                <% end %>
+                <% if user&.user_profile&.title&.present? %>
+                  <small><%= user.user_profile.title %></small>
+                <% end %>
+                <small>(<%= user.organization_membership_date(@organization).strftime("%Y-%m-%d") %>)</small>
+              <% end %>
+            </ul>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <h4><%= 'Profile'.t %></h4>
+          <p class="lead">
+            <strong><%= 'Name'.t %></strong>: <%= @organization.name %> <br/>
+            <strong><%= 'Description'.t %></strong>: <%= @organization.description %> <br/>
+            <strong><%= 'Website'.t %></strong>: <%= link_to(@organization.url, @organization.url, rel: 'nofollow') %> <br/>
+            <strong><%= 'Industry'.t %></strong>: <%= @organization.industry %> <br/>
+            <strong><%= 'Revenue'.t %></strong>: <%= @organization.revenue %> <br/>
+            <strong><%= 'Locale'.t %></strong>: <%= @organization.locale %> <br/>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= render partial: 'team_diagnostics', locals: { organization: @organization } %>
+        </div>
+      </div>
       <hr/>
       <%= link_to('Edit'.t, edit_organization_path(@organization), class: 'btn btn-primary') if policy(@organization).edit? %>
       <%= link_to('Back'.t, :back, class: 'btn btn-light') %>
