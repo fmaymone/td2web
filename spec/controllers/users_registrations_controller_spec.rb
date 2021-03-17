@@ -32,7 +32,7 @@ RSpec.describe Users::RegistrationsController, type: :controller do
         expect(response).to redirect_to(after_registration_path)
         created_user = User.order(created_at: :desc).first
         expect(created_user.role).to eq(registration_entitlement.role)
-        expect(created_user.grants.count).to eq(1)
+        expect(created_user.grants.count).to eq(2)
         registration_invitation.reload
         assert(registration_invitation.claimed?)
       end

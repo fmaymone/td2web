@@ -64,6 +64,8 @@ module EntitlementServices
 
       @invitation.assigned_entitlements.each do |data|
         entitlement = data[:entitlement]
+        next unless entitlement.account?
+
         grant_service = EntitlementServices::Grant.new(
           user: @user,
           entitlement: entitlement,

@@ -11,7 +11,11 @@ RSpec.shared_context 'invitations', shared_context: :metadate do
       i18n_key: 'invitation-message-register-facilitator',
       description: 'Test invitation',
       redirect: '/auth/sign_up',
-      entitlements: [{ id: registration_entitlement.id, quota: 1 }]
+      entitlements: [
+        { id: registration_entitlement.id, quota: 1 },
+        { id: create_organization_entitlement.id, quota: 1 },
+        { id: create_diagnostic_any_entitlement.id, quota: 1 }
+      ]
     )
     invitation.tenant = default_tenant
     invitation.grantor = staff
