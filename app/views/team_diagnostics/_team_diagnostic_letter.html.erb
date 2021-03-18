@@ -29,7 +29,7 @@
           %>
           </div>
           <div class="form-group">
-            <%= form.text_area :body, required: true, class: 'form-control persisted-input', rows: 10,
+            <%= form.text_area :body, required: true, class: 'rich-editor form-control persisted-input', rows: 10,
               data: {
               persisted_last: form.object.updated_at.to_i || Time.new(2000,1,1).to_i,
               persisted_key: form.object.id + "_body" || "#{@team_diagnostic.id}_#{letter_type}-#{letter_locale}-body"

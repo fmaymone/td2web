@@ -43,7 +43,13 @@
   <div class="row form-group">
     <%= f.label :value, 'Value'.t, class: 'col-2 control-label' unless mini_form %>
     <div class="col-12">
-      <%= f.text_area :value, class: 'form-control' %>
+      <%= f.text_area :value, id: 'value-' + translation.id.to_s, class: 'translation-value form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col text-right">
+      <div class="translation-value-html-enable btn btn-primary btn-sm text-right" data-target="value-<%= translation.id %>"><%= 'HTML'.t %></div>
     </div>
   </div>
 

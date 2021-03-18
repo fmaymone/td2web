@@ -14,7 +14,9 @@ global.$ = require("jquery")
 require("bootstrap")
 
 // Application javascript components
+require("./src/froala_editor")
 require("./src/translation_search")
+require("./src/translation_editor")
 require("./src/team_diagnostic_form")
 require("./src/local_persistence")
 
