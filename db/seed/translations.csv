@@ -5185,14 +5185,6 @@ en,Deactivated,Deactivated
 en,Revoke,Revoke
 en,Redirect,Redirect
 en,Register Account,Register Account
-en,invitation-message-register-facilitator,"Welcome to TeamDiagnostic!
-<p>
-Please follow the following link to register your TeamDiagnostic account at {{ domain }}
-</p>
-
-<p>
-<a href=""{{ invitation_link }}"">{{ invitation_link }}</a>
-</p>"
 en,Claim my Invitation,Claim my Invitation
 en,Token,Token
 en,Invitation claimed,Invitation claimed
@@ -12350,49 +12342,8 @@ en,Automatic deployment failed,Automatic deployment failed
 en,Error sending reminders,Error sending reminders
 en,Deployment was successful,Deployment was successful
 en,Manual deployment started,Manual deployment started
-en,template-teamdiagnostic-cancellation-letter-subject,{{assessment_name}} Cancellation Notice
 en,template-teamdiagnostic-reminder-letter-subject,Your {{assessment_name}} is due soon!
-en,template-teamdiagnostic-cover-letter,"Dear {{participant_name}}:
-
-I am pleased to have the opportunity to work with you using a unique diagnostic tool developed by Team Coaching International (TCI). This tool is based on a comprehensive model of performance effectiveness that delivers a detailed map for ongoing development.
-
-The {{assessment_name}} evaluates the entire system (also known as team or organization) rather than evaluating individuals. The key to long-term effectiveness begins with an accurate profile of strengths and challenges. The TCI approach is based on systems theory and the work of leading authorities in this emerging team development field. The model and assessment incorporate the latest work in Emotional Intelligence, Appreciative Inquiry and academic research. The resulting profile measures two axes: factors that lead to increased productivity and factors of positivity that build a stronger culture. The {{assessment_name}} profile graphically benchmarks scores in 14 separate areas.
-
-When completing the diagnostic, please keep in mind the specific system that you are assessing.  
-
-Answer the questions from the perspective of the system as it is today, not how it was in the past or how it might be in the future. Most people complete the diagnostic in 15 to 20 minutes. Our deadline for completion is {{completion_date}}. Thank you for your cooperation.
-
-This is your personal link to the diagnostic. Each link is individually assigned. Do not share your link or this email with anyone.
-
-{{assessment_link}}
-
-Please note that all diagnostic responses, including your individual written comments, will be presented anonymously as part of the overall diagnostic results. Individual responses will not be attributed to the individual that made them (i.e. your name will not appear by your written comments). We encourage you to be honest and candid to enable important issues to surface in service of improving interaction and dynamics.
-
-If you have questions, please contact me at {{facilitator_phone}} or send email to {{facilitator_email}}.
-
-I look forward to meeting with you to review your results and plan next steps.
-
-Sincerely,
-{{facilitator_name}}"
 en,template-teamdiagnostic-cover-letter-subject,{{assessment_name}}  for {{participant_name}}
-en,template-teamdiagnostic-reminder-letter,"Dear {{participant_name}}: 
-
-This is a reminder that the {{assessment_name}} is due on {{completion_date}}.
-
-If you have questions, please contact me at {{facilitator_phone}} or send email to {{facilitator_email}}.
-
-I look forward to meeting with you to review your results and plan next steps.
-
-Sincerely,
-{{facilitator_name}}"
-en,template-teamdiagnostic-cancellation-letter,"Dear {{participant_name}}:
-
-The {{assessment_name}} has been cancelled.
-
-If you have questions, please contact me at {{facilitator_phone}} or send email to {{facilitator_email}}.
-
-Sincerely,
-{{facilitator_name}}"
 en,emailtemplate--html--reset_password_instructions,"<p>Hello {{name}}!</p>
 
 <p>Someone requested a link to change your password. You can do this through the link below.</p>
@@ -12415,3 +12366,9 @@ en,Leave,Leave
 en,The Diagnostic Survey was completed,The Diagnostic Survey was completed
 en,The Diagnostic Survey was visited,The Diagnostic Survey was visited
 en,The Diagnostic Survey was started,The Diagnostic Survey was started
+en,HTML,HTML
+en,template-teamdiagnostic-cancellation-letter-subject,{{assessment_name}} Cancellation Notice
+en,template-teamdiagnostic-reminder-letter,"<p>Dear {{participant_name}}:</p><p>This is a reminder that the {{assessment_name}} is due on {{completion_date}}.</p><p>If you have questions, please contact me at {{facilitator_phone}} or send email to {{facilitator_email}}. I look forward to meeting with you to review your results and plan next steps.&nbsp;</p><p>Sincerely,<br>{{facilitator_name}}</p>"
+en,template-teamdiagnostic-cancellation-letter,"<p>Dear {{participant_name}}:</p><p>The {{assessment_name}} has been cancelled.</p><p>If you have questions, please contact me at {{facilitator_phone}} or send email to {{facilitator_email}}.</p><p>Sincerely,<br>{{facilitator_name}}</p>"
+en,template-teamdiagnostic-cover-letter,"<p><span style=""font-size: 24px;"">Welcome to the Team Diagnostic</span><br><strong><em>DO NOT FORWARD THIS EMAIL</em></strong></p><p>Dear {{participant_name}}:</p><p>I am pleased to have the opportunity to work with you using a unique diagnostic tool developed by Team Coaching International (TCI). This tool is based on a comprehensive model of performance effectiveness that delivers a detailed map for ongoing development.</p><p>The {{assessment_name}} evaluates the entire system (also known as team or organization) rather than evaluating individuals. The key to long-term effectiveness begins with an accurate profile of strengths and challenges. The TCI approach is based on systems theory and the work of leading authorities in this emerging team development field. The model and assessment incorporate the latest work in Emotional Intelligence, Appreciative Inquiry and academic research. The resulting profile measures two axes: factors that lead to increased productivity and factors of positivity that build a stronger culture. The {{assessment_name}} profile graphically benchmarks scores in 14 separate areas.</p><p>When completing the diagnostic, please keep in mind the specific system that you are assessing.</p><p>Answer the questions from the perspective of the system as it is today, not how it was in the past or how it might be in the future. Most people complete the diagnostic in 15 to 20 minutes. Our deadline for completion is {{completion_date}}. Thank you for your cooperation.</p><p>This is your personal link to the diagnostic. Each link is individually assigned. Do not share your link or this email with anyone.</p><p style=""text-align: center;""><a href=""{{assessment_link}}""><strong>Begin Assessment</strong></a><br>{{assessment_link}}</p><p>Please note that all diagnostic responses, including your individual written comments, will be presented anonymously as part of the overall diagnostic results. Individual responses will not be attributed to the individual that made them (i.e. your name will not appear by your written comments). We encourage you to be honest and candid to enable important issues to surface in service of improving interaction and dynamics.</p><p>If you have questions, please contact me at {{facilitator_phone}} or send email to {{facilitator_email}}. I look forward to meeting with you to review your results and plan next steps.</p><p>Sincerely,<br>{{facilitator_name}}</p><p><br></p><p style=""text-align: center;""><a href=""{{assessment_link}}""><strong>Begin Assessment</strong></a><br>{{assessment_link}}</p>"
+en,invitation-message-register-facilitator,"<p>Welcome to TeamDiagnostic!</p><p>Please follow the following link to register your TeamDiagnostic account at {{ domain }}</p><p><a href=""{{%20invitation_link%20}}"">{{ invitation_link }}</a></p>"
