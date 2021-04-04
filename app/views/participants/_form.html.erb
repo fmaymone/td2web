@@ -41,6 +41,6 @@
 
   <div class="form-row">
     <%= f.submit 'Submit'.t, class: 'btn btn-primary' %>&nbsp;
-    <%= link_to((participant.team_diagnostic.participants.count > 1 ? 'Done' : 'Cancel').t, team_diagnostic_path(participant.team_diagnostic), class: 'btn btn-light') %>
+    <%= link_to((participant.team_diagnostic.participants.count > 1 ? 'Done' : 'Cancel').t, wizard_team_diagnostic_path(id: participant.team_diagnostic.id, step: TeamDiagnostics::Wizard::PARTICIPANTS_STEP), class: 'btn btn-light') %>
   </div>
 <% end %>

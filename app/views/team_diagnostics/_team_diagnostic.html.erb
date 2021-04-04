@@ -1,0 +1,7 @@
+<%= link_to wizard_team_diagnostic_path(id: diagnostic.id, step: diagnostic.wizard)  do %>
+  <%= diagnostic.name %>
+<% end %>
+<small><%= diagnostic.due_at.strftime('%B %d, %Y') %></small>
+<span class="badge badge-light"><%= diagnostic.diagnostic.slug %></span>
+<span class="badge badge-pill badge-<%= team_diagnostic_state_pill_class(diagnostic) %>"><%= diagnostic.state.t %></span>
+<%= render partial: 'team_diagnostics/completion_badge', locals: { diagnostic: diagnostic } %>

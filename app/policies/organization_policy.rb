@@ -59,6 +59,10 @@ class OrganizationPolicy < ApplicationPolicy
     record.admin?(user)
   end
 
+  def new_diagnostic?
+    admin? || organization_member?
+  end
+
   def allowed_params
     Organization::ALLOWED_PARAMS
   end

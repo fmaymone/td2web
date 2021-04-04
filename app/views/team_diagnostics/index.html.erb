@@ -43,8 +43,7 @@
               <span class="badge badge-pill badge-<%= team_diagnostic_state_pill_class(diagnostic) %>"><%= diagnostic.state.t %></span>
             </td>
             <td>
-              <span class="badge badge-pill badge-info">
-                <%= diagnostic.completed_surveys %> / <%= diagnostic.total_surveys %></span>
+              <%= render partial: 'team_diagnostics/completion_badge', locals: { diagnostic: diagnostic } %>
             </td>
             <td><%= diagnostic.due_at.strftime('%B %d, %Y') %></td>
             <td>

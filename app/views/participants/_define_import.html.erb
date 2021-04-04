@@ -62,7 +62,7 @@
         <%= file_field_tag :participants, class: 'form-control-lg', id: 'participant_file_select' %>
       </div>
       <%= submit_tag('Import'.t, class: 'btn btn-primary', id: 'participant_import_submit', disabled: true) %>
-      <%= link_to('Back'.t, :back, class: 'btn btn-light') %>
+      <%= link_to('Back'.t, wizard_team_diagnostic_path(id: @team_diagnostic.id, step: TeamDiagnostics::Wizard::PARTICIPANTS_STEP), class: 'btn btn-light') %>
     <% end %>
   </div>
 </div>

@@ -1,0 +1,34 @@
+<% if policy(user).manage_grants? %>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">
+        <%= 'Grants'.t %>
+        <small><%= link_to('Add'.t, new_user_grant_path(user), class: 'btn btn-sm btn-primary') %></small>
+      </h5>
+      <p class="card-text">
+        <% if user.grants.any? %>
+          <% user.grants.each do |grant| %>
+            <p>
+              <span class="badge badge-<%= grant.effective? ? 'success' : 'secondary' %>"><%= grant.effective? ? 'Active'.t : 'Inactive'.t %></span>
+              <strong><%= grant.entitlement.description %></strong>
+              <span class="badge badge-<%= grant.over_quota? ? 'warning' : 'success' %>"><%= grant.usage_count %>/<%= grant.quota %></span>
+              <%= grant.description %></small>
+            <small><%= grant.staff_notes %></small>
+            &mdash;
+            <span class="text-nowrap">
+              <%= link_to('Edit'.t, edit_user_grant_path(user, grant), class: 'badge badge-primary') %>
+              <% if grant.active? %>
+                <%= link_to('Deactivate'.t, user_grant_path(user_id: user.id, id: grant.id, deactivate: true), method: :delete, data: { confirm: 'Are you sure?'.t }, class: 'badge badge-warning') %>
+              <% else %>
+                <%= link_to('Remove'.t, user_grant_path(user, grant), method: :delete, data: { confirm: 'Are you sure?'.t }, class: 'badge badge-danger') %>
+              <% end %>
+            </span>
+          </p>
+        <% end %>
+      <% else %>
+        <strong><%= 'None'.t %>
+      <% end %>
+    </p>
+  </div>
+</div>
+<% end %>

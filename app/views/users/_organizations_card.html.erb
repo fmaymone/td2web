@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">
+      <%= 'Organizations'.t %>
+    </h5>
+    <p class="card-text">
+      <% user.organizations.each do |organization| %>
+        <p class="lead">
+        <%= link_to(organization.name, organization_path(organization)) %>
+        </p>
+        <ul>
+          <% organization.team_diagnostics.each do |diagnostic| %>
+            <li>
+              <%= render partial: 'team_diagnostics/team_diagnostic', locals: { diagnostic: diagnostic } %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </p>
+  </div>
+</div>

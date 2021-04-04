@@ -1,9 +1,11 @@
 <div class="row">
   <div class="col-lg-9 jumbotron">
-    <h1 class="display-4"><%= 'Welcome %{name}'.t(name: @current_user.user_profile.first_name || @current_user.name) %></h1>
+    <% if true || current_user_has_no_organizations_or_diagnostics? %>
+      <h1 class="display-5"><%= 'Welcome %{name}'.t(name: @current_user.user_profile.first_name || @current_user.name) %></h1>
+    <% end %>
     <p class="lead">
       <p class="lead">
-        <%= sanitized_translation 'dashboard-intro' %>
+        <%= sanitized_translation 'dashboard-intro' if true || current_user_has_no_organizations_or_diagnostics? %>
       </p>
       <%= render partial: 'organizations' %>
     </p>

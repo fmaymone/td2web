@@ -24,4 +24,8 @@ module TeamDiagnosticsHelper
       'secondary'
     end
   end
+
+  def current_user_has_no_organizations_or_diagnostics?
+    current_user.organizations.none? || current_user.team_diagnostics.none?
+  end
 end

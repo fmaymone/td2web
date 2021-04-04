@@ -1,16 +1,11 @@
   <% if organization.team_diagnostics.any? %>
     <h4>
       <%= 'Team Diagnostics'.t %>
-      <%= link_to('New'.t, new_team_diagnostic_path, class: 'btn btn-sm btn-primary') %>
+      <%= link_to('New'.t, new_team_diagnostic_path, class: 'btn btn-sm btn-primary') if OrganizationPolicy.new(current_user, organization).new_diagnostic? %>
     </h4>
     <% TeamDiagnosticPolicy::Scope.new(current_user, organization.team_diagnostics).resolve.order(created_at: :desc).each do |diagnostic| %>
-      <p>
-        <span class="badge badge-pill badge-<%= team_diagnostic_state_pill_class(diagnostic) %>"><%= diagnostic.state.t %></span>
-        <span class="badge badge-light"><%= diagnostic.diagnostic.slug %></span>
-        <%= link_to wizard_team_diagnostic_path(id: diagnostic.id, step: diagnostic.wizard)  do %>
-          <%= diagnostic.name %>
-        <% end %>
-        <small><%= diagnostic.due_at.strftime('%B %d, %Y') %></small>
+      <p class="lead">
+        <%= render partial: 'team_diagnostics/team_diagnostic', locals: { diagnostic: diagnostic } %>
       </p>
     <% end %>
   <% else %>
