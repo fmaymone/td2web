@@ -16,11 +16,13 @@
       </div>
     </div>
     <br/>
-  <% end %>
+  <% end if TeamDiagnosticPolicy.new(current_user, team_diagnostic).modify_questions? %>
 </div>
+<% if TeamDiagnosticPolicy.new(current_user, team_diagnostic).modify_questions? %>
 <div class="col-md-12">
   <h3><%= 'Available'.t %></h3>
   <ul id="available_questions">
     <%= render partial: 'team_diagnostics/available_questions', locals: {service: service, team_diagnostic: team_diagnostic } %>
   </ul>
 </div>
+<% end %>

@@ -1,8 +1,3 @@
-<div class="row">
-  <div id="team_diagnostic--wizard--step-attention_items" class="col">
-    <%= render partial: 'wizard_step_attention_items', locals: {service: @service} %>
-  </div>
-</div>
 
 <div class="row">
   <div class="col-sm-6">
@@ -22,19 +17,15 @@
         <small><%= i18n_date_long @service.team_diagnostic.auto_deploy_at %></small>
       <% elsif @service.team_diagnostic.deployed_at.present? %>
         <%= 'Deployed'.t %>
+        <small><span class="badge badge-<%= team_diagnostic_state_pill_class(@service.team_diagnostic) %>"><%= @service.team_diagnostic.state.capitalize.t %></span></small>
         <br/>
         <small>
           <%= i18n_date_long @service.team_diagnostic.deployed_at %>
-          <% if @service.team_diagnostic.state == 'cancelled' %>
-            <span class="badge badge-danger"><%= 'Cancelled'.t %></span>
-          <% end %>
         </small>
 
       <% end %>
     </h2>
-    <%= link_to('Cancel Diagnostic'.t, cancel_team_diagnostic_path(id: @service.team_diagnostic.id), { method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure?'.t} }) if policy(@service.team_diagnostic).cancel? %>
-  </div>
-  <div class="col-sm-6">
+
     <% if @service.team_diagnostic.setup? || @service.team_diagnostic.deployed? %>
       <h2>
         <%= 'Due'.t %>
@@ -48,13 +39,101 @@
       </h2>
     <% end %>
   </div>
-</div>
-<% if @service.team_diagnostic.setup? %>
-<div class="row">
-  <div class="col">
+  <div class="col-sm-6">
     <p class="lead">
-      <%= 'teamdiagnostic-pre-deploy-message'.t %>
+      <% case @service.team_diagnostic.state
+         when 'setup' %><%= sanitized_translation 'team_diagnostic--summary--state_message--setup' %>
+      <% when 'deployed' %> <%= sanitized_translation 'team_diagnostic--summary--state_message--deployed' %>
+      <% when 'cancelled' %> <%=  sanitized_translation 'team_diagnostic--summary--state_message--cancelled' %>
+      <% when 'completed' %> <%=  sanitized_translation 'team_diagnostic--summary--state_message--completed' %>
+      <% when 'reported' %> <%=  sanitized_translation 'team_diagnostic--summary--state_message--reported' %>
+      <% end %>
+      <br/>
+      <%= link_to('Cancel Diagnostic'.t, cancel_team_diagnostic_path(id: @service.team_diagnostic.id), { method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure?'.t} }) if policy(@service.team_diagnostic).cancel? %>
     </p>
+    <%= link_to('Send Reminders'.t, '#', class: 'btn btn-sm btn-primary') %><br/>
+    <%= link_to('Export Data'.t, '#', class: 'btn btn-sm btn-primary') %>
   </div>
 </div>
-<% end %>
+
+<div class="row">
+  <div id="team_diagnostic--wizard--step-attention_items" class="col">
+    <%= render partial: 'wizard_step_attention_items', locals: {service: @service} %>
+  </div>
+</div>
+
+<br/>
+
+<div class="row">
+  <div class="col">
+    <h3>
+      <%= 'Participation'.t %>
+      <% if TeamDiagnosticPolicy.new(current_user, @service.team_diagnostic).modify_participants? %>
+        <%= link_to('Edit'.t, wizard_team_diagnostic_path(id: @service.team_diagnostic.id, step: TeamDiagnostics::Wizard::PARTICIPANTS_STEP), class: 'btn btn-sm btn-primary') %>
+      <% end %>
+    </h3>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Status</th>
+          <th scope="col">Name</th>
+          <th scope="col">Deployed</th>
+          <th scope="col">Last Activity</th>
+          <th scope="col">Progress</th>
+          <th scope="col">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @service.team_diagnostic.participants.participating.each do |participant| %>
+          <tr>
+            <td><span class="badge badge-pill badge-<%= participant_state_badge_class(participant) %>"><%= participant.state %></span></td>
+            <td><%= participant.full_name %></td>
+            <td><%= i18n_date_long participant.active_survey&.delivered_at rescue '-' %></td>
+            <td><%= i18n_date_long participant.active_survey&.last_activity_at rescue '-' %></td>
+            <td>
+              <% if participant.active_survey.present? %>
+                <%= participant.progress_pct %>%
+                <span class="badge badge-pill badge-info">
+                  <%= participant.active_survey.diagnostic_responses.count %> /
+                  <%= participant.active_survey.questions.count %>
+                </span>
+              <% else %>
+                -
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+
+    <h3><%= 'Activity'.t %></h3>
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th scope="col"><%= 'Description'.t %></th>
+          <th scope="col"><%= 'Date'.t %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @service.team_diagnostic.system_events.order(created_at: :desc).each do |event| %>
+          <tr>
+            <td>
+              <span class="badge badge-<%= severity_class(event.severity) %>"><%= event.severity %></span>
+              <%= event.description.t %> &mdash;
+              <% if event.incidental.present? %>
+                <%= event.incidental&.event_description %>
+              <% else %>
+                <%= @service.team_diagnostic.diagnostic.name.t %>
+              <% end %>
+            </td>
+            <td><%= i18n_date_long event.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+
+  </div>
+</div>

@@ -16,7 +16,7 @@
   <br/>
     <%= form_for(@service.team_diagnostic) do |form| %>
       <%= hidden_field_tag :step, @service.step %>
-      <%= form.submit 'Continue'.t, class: 'btn btn-primary' %>
-    <% end if @service.next_step_accessible? %>
+      <%= form.submit 'Continue'.t, class: 'btn btn-primary'  %>
+    <% end if @service.next_step_accessible? && @question_service.policy.update? %>
   </div>
 </div>

@@ -76,7 +76,7 @@ class TeamDiagnostic < ApplicationRecord
   has_many :diagnostic_surveys, dependent: :destroy
   has_many :diagnostic_responses, through: :diagnostic_surveys
   has_many :team_diagnostic_questions, dependent: :destroy
-  has_many :system_events
+  has_many :system_events, as: :event_source
 
   attr_accessor :deployment_succeeded
 

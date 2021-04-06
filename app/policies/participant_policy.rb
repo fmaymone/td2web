@@ -28,7 +28,7 @@ class ParticipantPolicy < ApplicationPolicy
   end
 
   def new?
-    admin? || staff? || facilitator?
+    (admin? || staff? || facilitator?)
   end
 
   def create?
@@ -40,8 +40,9 @@ class ParticipantPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.approved? || record.active? &&
-      (admin? || staff? || owner?)
+    (record.approved? || record.active?) &&
+      (admin? || staff? || owner?) &&
+      TeamDiagnosticPolicy.new(user, record.team_diagnostic).modify_participants?
   end
 
   def update?
@@ -50,19 +51,19 @@ class ParticipantPolicy < ApplicationPolicy
 
   def destroy?
     (admin? || staff? || owner?) &&
-      %w[setup deployed].include?(record.team_diagnostic.state)
+      team_diagnostic_policy.modify_participants?
   end
 
   def disqualify?
     !record.disqualified? &&
       (admin? || staff? || owner?) &&
-      %w[setup deployed completed].include?(record.team_diagnostic.state)
+      %w[setup deployed completed cancelled].include?(record.team_diagnostic.state)
   end
 
   def restore?
     record.disqualified? &&
-      %w[setup deployed completed].include?(record.team_diagnostic.state) &&
-      (admin? || staff? || owner?)
+      (admin? || staff? || owner?) &&
+      team_diagnostic_policy.modify_participants?
   end
 
   def activate?
@@ -75,5 +76,9 @@ class ParticipantPolicy < ApplicationPolicy
 
   def allowed_params
     Participant::ALLOWED_PARAMS
+  end
+
+  def team_diagnostic_policy
+    @team_diagnostic_policy ||= TeamDiagnosticPolicy.new(user, record&.team_diagnostic)
   end
 end

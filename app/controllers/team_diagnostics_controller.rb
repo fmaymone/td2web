@@ -22,7 +22,8 @@ class TeamDiagnosticsController < ApplicationController
     authorize @team_diagnostic
     set_organization
     @current_page = @team_diagnostic.name
-    redirect_to wizard_team_diagnostic_path(@team_diagnostic, step: @team_diagnostic.wizard) if @team_diagnostic.setup? || @team_diagnostic.deployed?
+
+    redirect_to wizard_team_diagnostic_path(@team_diagnostic, step: @team_diagnostic.wizard) # if @team_diagnostic.setup? || @team_diagnostic.deployed?
   end
 
   # GET /team_diagnostics/new

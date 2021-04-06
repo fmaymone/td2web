@@ -11,9 +11,11 @@
 
   <%= render partial: 'team_diagnostic_letters', locals: { form: form, service: @service} %>
 
-  <br/>
-  <div class="form-row">
-    <%= form.submit 'Submit'.t, class: 'btn btn-primary' %> &nbsp;
-    <%= link_to('Cancel'.t, :back, class: 'btn btn-light') %>
-  </div>
+  <% if TeamDiagnosticPolicy.new(current_user, @service.team_diagnostic).modify_letters? %>
+    <br/>
+    <div class="form-row">
+      <%= form.submit 'Submit'.t, class: 'btn btn-primary' %> &nbsp;
+      <%= link_to('Cancel'.t, :back, class: 'btn btn-light') %>
+    </div>
+<% end %>
 <% end %>

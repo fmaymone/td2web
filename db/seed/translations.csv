@@ -12253,16 +12253,16 @@ en,Information is missing or invalid,Information is missing or invalid
 en,Participant could not be deployed,Participant could not be deployed
 en,Participant was activated,Participant was activated
 en,Team Diagnostic was cancelled,Team Diagnostic was cancelled
-en,A participant was added,A participant was added]
-en,A participant was disqualified,A participant was disqualified]
-en,A participant was restored,A participant was restored]
-en,A participant was removed,A participant was removed]
 en,A question was deleted,A question was deleted
 en,A question was added,A question was added
 en,team_diagnostic-cancel_notification_letter-subject,Your Team Diagnostic Was Cancelled!
 en,team_diagnostic-cancel_notification_letter-body,"Dear {{facilitator_name}},
 
 Your {{assessment_name}} diagnostic for {{team_name}} was cancelled."
+en,A participant was added,A participant was added
+en,A participant was disqualified,A participant was disqualified
+en,A participant was removed,A participant was removed
+en,A participant was restored,A participant was restored
 en,team_diagnostic--letter-help,"<div class=""col-sm-8"">
               <p>
                 The system will automatically replace the variables with the
@@ -12307,7 +12307,6 @@ en,No custom questions,No custom questions
 en,Please add participants,Please add participants
 en,There are problems preventing deployment of your Team Diagnostic,There are problems preventing deployment of your Team Diagnostic
 en,Deploy Early,Deploy Early
-en,teamdiagnostic-pre-deploy-message,When the Diagnostic is deployed we will email an invitation to each of the participants. Come back here to view completion status and other important information regarding your TeamDiagnostic. You will be able to download a report after the Due Date or all participants have completed the Diagnostic
 en,Deployed,Deployed
 en,Team Diagnostic deployment failed,Team Diagnostic deployment failed
 en,Done,Done
@@ -12372,3 +12371,20 @@ en,template-teamdiagnostic-reminder-letter,"<p>Dear {{participant_name}}:</p><p>
 en,template-teamdiagnostic-cancellation-letter,"<p>Dear {{participant_name}}:</p><p>The {{assessment_name}} has been cancelled.</p><p>If you have questions, please contact me at {{facilitator_phone}} or send email to {{facilitator_email}}.</p><p>Sincerely,<br>{{facilitator_name}}</p>"
 en,template-teamdiagnostic-cover-letter,"<p><span style=""font-size: 24px;"">Welcome to the Team Diagnostic</span><br><strong><em>DO NOT FORWARD THIS EMAIL</em></strong></p><p>Dear {{participant_name}}:</p><p>I am pleased to have the opportunity to work with you using a unique diagnostic tool developed by Team Coaching International (TCI). This tool is based on a comprehensive model of performance effectiveness that delivers a detailed map for ongoing development.</p><p>The {{assessment_name}} evaluates the entire system (also known as team or organization) rather than evaluating individuals. The key to long-term effectiveness begins with an accurate profile of strengths and challenges. The TCI approach is based on systems theory and the work of leading authorities in this emerging team development field. The model and assessment incorporate the latest work in Emotional Intelligence, Appreciative Inquiry and academic research. The resulting profile measures two axes: factors that lead to increased productivity and factors of positivity that build a stronger culture. The {{assessment_name}} profile graphically benchmarks scores in 14 separate areas.</p><p>When completing the diagnostic, please keep in mind the specific system that you are assessing.</p><p>Answer the questions from the perspective of the system as it is today, not how it was in the past or how it might be in the future. Most people complete the diagnostic in 15 to 20 minutes. Our deadline for completion is {{completion_date}}. Thank you for your cooperation.</p><p>This is your personal link to the diagnostic. Each link is individually assigned. Do not share your link or this email with anyone.</p><p style=""text-align: center;""><a href=""{{assessment_link}}""><strong>Begin Assessment</strong></a><br>{{assessment_link}}</p><p>Please note that all diagnostic responses, including your individual written comments, will be presented anonymously as part of the overall diagnostic results. Individual responses will not be attributed to the individual that made them (i.e. your name will not appear by your written comments). We encourage you to be honest and candid to enable important issues to surface in service of improving interaction and dynamics.</p><p>If you have questions, please contact me at {{facilitator_phone}} or send email to {{facilitator_email}}. I look forward to meeting with you to review your results and plan next steps.</p><p>Sincerely,<br>{{facilitator_name}}</p><p><br></p><p style=""text-align: center;""><a href=""{{assessment_link}}""><strong>Begin Assessment</strong></a><br>{{assessment_link}}</p>"
 en,invitation-message-register-facilitator,"<p>Welcome to TeamDiagnostic!</p><p>Please follow the following link to register your TeamDiagnostic account at {{ domain }}</p><p><a href=""{{%20invitation_link%20}}"">{{ invitation_link }}</a></p>"
+en,Export Data,Export Data
+en,Participation,Participation
+en,Events,Events
+en,Date,Date
+en,Activity,Activity
+en,Team Diagnostic,Team Diagnostic
+en,Updated,Updated
+en,Failed to deploy,Failed to deploy
+en,Error assigning questions,Error assigning questions
+en,A participant was updated,A participant was updated
+en,Completed,Completed
+en,Reported,Reported
+en,team_diagnostic--summary--state_message--deployed,<p>Your TeamDiagnostic is deployed. Participants were each emailed a personalized invitation to complete the Diagnostic.&nbsp;</p><p>Come back here to view completion status and other important information regarding your TeamDiagnostic.</p>
+en,team_diagnostic--summary--state_message--setup,<p>When the Diagnostic is deployed we will email an invitation to each of the participants.</p><p>Come back here to view completion status and other important information regarding your TeamDiagnostic. You will be able to download a report after the Due Date or all participants have completed the Diagnostic</p>
+en,team_diagnostic--summary--state_message--cancelled,"<p>Your TeamDiagnostic was cancelled.</p><p>All of the Participants were sent a notification email, and their invitations are invalidate</p><p>If you wish, you may make changes to your TeamDiagnostic and deploy it again.</p>"
+en,team_diagnostic--summary--state_message--completed,<p>Your TeamDiagnostic is completed. No further changes or responses to the TeamDiagnostic are permitted.</p><p>You may now generate and download a report.</p>
+en,team_diagnostic--summary--state_message--reported,<p>Your TeamDiagnostic is completed and a report has been generated.</p><p>No further changes or responses to the TeamDiagnostic are permitted.</p>

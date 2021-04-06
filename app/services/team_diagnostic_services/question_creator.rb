@@ -4,7 +4,7 @@ module TeamDiagnosticServices
   # TeamDiagnostic Question Creator
   # Restricted by Grant
   class QuestionCreator
-    attr_reader :params, :user, :team_diagnostic, :team_diagnostic_question, :errors
+    attr_reader :params, :user, :team_diagnostic, :team_diagnostic_question, :errors, :policy
 
     def initialize(team_diagnostic:, user:, params: {})
       @team_diagnostic = team_diagnostic

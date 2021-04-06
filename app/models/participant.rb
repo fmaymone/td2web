@@ -46,6 +46,10 @@ class Participant < ApplicationRecord
 
   ### Instance Methods
 
+  def event_description
+    full_name
+  end
+
   def needs_attention?
     pending_actions.any?
   end
@@ -96,5 +100,13 @@ class Participant < ApplicationRecord
     return false unless active_survey.present?
 
     active_survey.send_reminder_message
+  end
+
+  def progress_pct
+    if active_survey
+      (active_survey.progress * 100.0).round(0)
+    else
+      0.0
+    end
   end
 end

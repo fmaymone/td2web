@@ -84,7 +84,11 @@ module ApplicationHelper
   end
 
   def i18n_date_long(date)
-    I18n.l(date, format: :long, locale: @current_locale)
+    if @current_locale == 'en'
+      I18n.l(date, format: '%B %e, %Y %l:%M %p', locale: @current_locale)
+    else
+      I18n.l(date, format: :long, locale: @current_locale)
+    end
   end
 
   def sanitized_translation(key)
@@ -98,5 +102,21 @@ module ApplicationHelper
 
   def nav_item_active?(key, action = nil)
     params[:controller] == key.to_s && (action ? params[:action] == action.to_s : true)
+  end
+
+  def severity_class(severity)
+    s = severity.to_sym
+    case s
+    when :debug
+      'light'
+    when :info
+      'info'
+    when :warn
+      'warning'
+    when :error, :fatal
+      'danger'
+    else
+      'secondary'
+    end
   end
 end

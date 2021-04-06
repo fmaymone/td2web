@@ -44,7 +44,7 @@ class TeamDiagnosticPolicy < ApplicationPolicy
   end
 
   def wizard?
-    edit?
+    update?
   end
 
   def destroy?
@@ -82,6 +82,24 @@ class TeamDiagnosticPolicy < ApplicationPolicy
     Diagnostic.active.all.select do |diagnostic|
       auth_service.call("#{TeamDiagnosticServices::Creator::ENTITLEMENT_BASE}-#{diagnostic.slug.downcase}")
     end
+  end
+
+  def modify_setup?
+    return false unless record.is_a? TeamDiagnostic
+
+    update? && %w[setup deployed cancelled].include?(record.state)
+  end
+
+  def modify_participants?
+    modify_setup?
+  end
+
+  def modify_questions?
+    modify_setup? && record.diagnostic_responses.empty?
+  end
+
+  def modify_letters?
+    modify_setup?
   end
 
   def allowed_params

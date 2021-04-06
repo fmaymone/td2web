@@ -36,7 +36,7 @@ class TeamDiagnosticQuestionPolicy < ApplicationPolicy
   end
 
   def edit?
-    admin? || staff? || owner?
+    (admin? || staff? || owner?) && team_diagnostic_policy.modify_questions?
   end
 
   def update?
@@ -44,10 +44,14 @@ class TeamDiagnosticQuestionPolicy < ApplicationPolicy
   end
 
   def destroy?
-    update?
+    update? && team_diagnostic_policy.modify_questions?
   end
 
   def allowed_params
     TeamDiagnosticQuestion::ALLOWED_PARAMS
+  end
+
+  def team_diagnostic_policy
+    @team_diagnostic_policy ||= TeamDiagnosticPolicy.new(user, record&.team_diagnostic)
   end
 end

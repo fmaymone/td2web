@@ -70,7 +70,12 @@ module ParticipantServices
     end
 
     def update_participant
-      valid? && @participant.update(@params) ? @participant : false
+      if valid? && @participant.update(@params)
+        SystemEvent.log(event_source: @participant.team_diagnostic, incidental: @participant, description: 'A participant was updated')
+        @participant
+      else
+        false
+      end
     end
 
     def sanitize_params(params)

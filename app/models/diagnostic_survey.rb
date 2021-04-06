@@ -36,4 +36,10 @@ class DiagnosticSurvey < ApplicationRecord
   belongs_to :team_diagnostic
   has_many :questions, through: :team_diagnostic, class_name: 'TeamDiagnosticQuestion'
   has_many :diagnostic_responses, dependent: :destroy
+
+  def progress
+    return 0.0 if diagnostic_responses.empty? || questions.empty?
+
+    (diagnostic_reponses.count / questions.count).round(2)
+  end
 end

@@ -92,6 +92,10 @@ class TeamDiagnosticQuestion < ApplicationRecord
 
   ### Instance Methods
 
+  def event_description
+    matrix.zero? ? '' : matrix
+  end
+
   def translations
     ApplicationTranslation.where(key: [body, body_positive])
   end
