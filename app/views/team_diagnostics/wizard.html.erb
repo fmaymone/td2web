@@ -4,36 +4,47 @@
   </div>
 </div>
 
-<h1>
-  <%= @service.team_diagnostic.name %>
-  <% if @service.team_diagnostic.diagnostic.present? %>
-    <span class="alert alert-<%= team_diagnostic_state_pill_class(@service.team_diagnostic) %> small">
-      <%= @service.team_diagnostic.diagnostic.name %>
-    </span>
-    &nbsp;
-  <% end %>
-</h1>
-
+<div class="row">
+  <div class="col">
+    <h1>
+      <%= @service.team_diagnostic.name %>
+      <% if @service.team_diagnostic.diagnostic.present? %>
+        <span class="alert alert-<%= team_diagnostic_state_pill_class(@service.team_diagnostic) %> small">
+          <%= @service.team_diagnostic.diagnostic.name %>
+        </span>
+        &nbsp;
+      <% end %>
+    </h1>
+  </div>
+</div>
 <br/>
 
-<% @service.team_diagnostic.wizard_steps.each_with_index do |stepname, index| %>
-  <% step = index + 1 %>
-  <div class="row">
-    <div class="team_diagnostic--wizard--step-header-container col alert alert-<%= team_diagnostic_wizard_step_alert_class(index + 1, @service) %>">
-      <% if stepname == @service.step_name || !@service.step_accessible?(step) %>
-        <h2 id="team_diagnostic--wizard--current_step-header" class="team_diagnostic--wizard--step-header">
-          <%= stepname.capitalize.t %>
-        </h2>
-      <% else %>
-        <h4>
-          <%= link_to(stepname.capitalize.t, wizard_team_diagnostic_path(id: @service.team_diagnostic.id, step: step)) %>
-        </h4>
+<div class="row">
+  <div class="col">
+    <ul class="nav nav-tabs">
+      <% @service.team_diagnostic.wizard_steps.each_with_index do |stepname, index| %>
+        <% step = index + 1 %>
+        <% if stepname == @service.step_name %>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#"><%= stepname.capitalize.t %></a>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <% if @service.step_accessible?(step) %>
+              <%= link_to(stepname.capitalize.t, wizard_team_diagnostic_path(id: @service.team_diagnostic.id, step: step), class: 'nav-link') %>
+            <% else %>
+              <span class="nav-link text-muted"><%= stepname.capitalize.t %></span>
+            <% end %>
+          </li>
+        <% end %>
       <% end %>
-    </div>
+    </ul>
   </div>
-  <% if stepname == @service.step_name %>
-    <div id="#<%= @service.step_name %>"></div>
+</div>
+<br/>
+
+<div class="row">
+  <div class="col">
     <%= render partial: "wizard_#{@service.step_name}", locals: {service: @service} %>
-    <br/>
-  <% end %>
-<% end %>
+  </div>
+</div>
