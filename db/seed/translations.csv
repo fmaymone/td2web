@@ -11765,7 +11765,6 @@ es,What should we know about your team?,¿Qué deberíamos saber nosotros acerca
 sv,What should we know about your team?,Vad borde vi känna till om ert team?
 tr,What should we know about your team?,Ekibinizle ilgili neleri bilmeliyiz?
 po,What should we know about your team?,O que devíamos saber sobre a sua equipa?
-en,What does the team value? You see it often; it gets repeated.,What does the team value? You see it often; it gets repeated.
 de,What does the team value? You see it often; it gets repeated.,Was schätzt das Team? Sie sehen es oft — es wird wiederholt.
 fi,What does the team value? You see it often; it gets repeated.,Mitä tiimissä arvostetaan? Millaisia asioita toistetaan?
 it,What does the team value? You see it often; it gets repeated.,Cosa è importante per il team ? Lei lo vede spesso e si potrebbe ripetere.
@@ -11783,6 +11782,7 @@ da,What does the team value? You see it often; it gets repeated.,Hvad er meget v
 pl,What does the team value? You see it often; it gets repeated.,Co ten zespół ceni? Często to widzisz; to się powtarza
 pt,What does the team value? You see it often; it gets repeated.,O que este time valoriza? Você observa isso frequentemente; é algo que se repete.
 es,What does the team value? You see it often; it gets repeated.,¿Qué es lo que este equipo valora? Usted lo observa frecuentemente; se repite.
+en,What does the team value? You see it often; it gets repeated.,"What does the team value? You see it often, it gets repeated."
 it,What are the top three strengths of the team?,Quali sono i tre principali punti di forza di questo team ?
 nl,What are the top three strengths of the team?,Wat zijn de drie sterkste punten van het team?
 pl,What are the top three strengths of the team?,Jakie są trzy najsilniejsze strony tego zespołu?
@@ -11973,7 +11973,6 @@ es,"What is one thing, if the team learned to do it well, would have enormous im
 fx,"What is one thing, if the team learned to do it well, would have enormous impact?","S’il y avait un aspect que l’équipe devait développer et qui aurait un impact majeur, que serait-il? "
 it,What is your assessment of the team?,Quale è il tuo giudizio del team ?
 fx,What is your assessment of the team?,Quelle est votre évaluation de cette équipe?
-en,What does this organization value? You see it often; it gets repeated.,What does this organization value? You see it often; it gets repeated.
 ar,What does this organization value? You see it often; it gets repeated.,ما الذي تقدّره المنظمة؟ تراه بكثرة في سلوك أعضائها وطريقة علاقتهم ببعضهم البعض… 
 da,What does this organization value? You see it often; it gets repeated.,Hvad værdsættes virkelig i organisationen? Du ser det ofte i folks adfærd og i deres forhold til hinanden.
 it,What does this organization value? You see it often; it gets repeated.,Cosa è importante per l’organizzazione ? Lei lo vede spesso nel modo in cui le persone agiscono e si relazionano tra loro.
@@ -12386,5 +12385,16 @@ en,Reported,Reported
 en,team_diagnostic--summary--state_message--deployed,<p>Your TeamDiagnostic is deployed. Participants were each emailed a personalized invitation to complete the Diagnostic.&nbsp;</p><p>Come back here to view completion status and other important information regarding your TeamDiagnostic.</p>
 en,team_diagnostic--summary--state_message--setup,<p>When the Diagnostic is deployed we will email an invitation to each of the participants.</p><p>Come back here to view completion status and other important information regarding your TeamDiagnostic. You will be able to download a report after the Due Date or all participants have completed the Diagnostic</p>
 en,team_diagnostic--summary--state_message--cancelled,"<p>Your TeamDiagnostic was cancelled.</p><p>All of the Participants were sent a notification email, and their invitations are invalidate</p><p>If you wish, you may make changes to your TeamDiagnostic and deploy it again.</p>"
+en,The Diagnostic was completed,The Diagnostic was completed
 en,team_diagnostic--summary--state_message--completed,<p>Your TeamDiagnostic is completed. No further changes or responses to the TeamDiagnostic are permitted.</p><p>You may now generate and download a report.</p>
 en,team_diagnostic--summary--state_message--reported,<p>Your TeamDiagnostic is completed and a report has been generated.</p><p>No further changes or responses to the TeamDiagnostic are permitted.</p>
+en,Download Report,Download Report
+en,Automatic completion failed,Automatic completion failed
+en,The Diagnostic could not be marked as complete due to low participation,The Diagnostic could not be marked as complete due to low participation
+en,Team Diagnostic was completed,Team Diagnostic was completed
+en,The Diagnostic was cancelled,The Diagnostic was cancelled
+en,Complete Diagnostic,Complete Diagnostic
+en,Team 360 View Diagnostic,Team 360 View Diagnostic
+en,"What does the team value? You see it often, it gets repeated.","What does the team value? You see it often, it gets repeated."
+en,What does this organization value? You see it often; it gets repeated.,"What does this organization value? You see it often, it gets repeated."
+en,"What does this organization value? You see it often, it gets repeated.","What does this organization value? You see it often, it gets repeated."

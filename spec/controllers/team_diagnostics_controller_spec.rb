@@ -224,7 +224,7 @@ RSpec.describe TeamDiagnosticsController, type: :controller do
     end
   end
 
-  describe 'POST @cancel' do
+  describe 'POST #cancel' do
     describe 'as a facilitator' do
       let(:subject) { teamdiagnostic_ready }
       before(:each) do
@@ -241,6 +241,27 @@ RSpec.describe TeamDiagnosticsController, type: :controller do
         post :cancel, params: { id: subject.id }
         subject.reload
         assert(subject.cancelled?)
+      end
+    end
+  end
+
+  describe 'POST #complete' do
+    describe 'as a facilitator' do
+      let(:subject) { teamdiagnostic_ready }
+      before(:each) do
+        diagnostic_seed_data
+        diagnostic_question_seed_data
+        organization
+        subject.state = 'deployed'
+        subject.save
+        subject.reload
+        sign_in facilitator
+      end
+
+      it 'should cancel the Team Diagnostic' do
+        post :complete, params: { id: subject.id }
+        subject.reload
+        assert(subject.completed?)
       end
     end
   end

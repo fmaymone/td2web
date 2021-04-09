@@ -131,6 +131,13 @@ class TeamDiagnosticsController < ApplicationController
     redirect_to team_diagnostic_path(@team_diagnostic), notice: 'Team Diagnostic was cancelled'.t if @team_diagnostic.cancel!
   end
 
+  def complete
+    set_team_diagnostic
+    @team_diagnostic.force_completion = true
+    authorize @team_diagnostic
+    redirect_to team_diagnostic_path(@team_diagnostic), notice: 'Team Diagnostic was completed'.t if @team_diagnostic.complete!
+  end
+
   private
 
   def record_scope

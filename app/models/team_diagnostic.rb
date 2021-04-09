@@ -65,6 +65,7 @@ class TeamDiagnostic < ApplicationRecord
   ### Scopes
   scope :pending_deployment, -> { setup.where(arel_table[:auto_deploy_at].lt(Time.now)) }
   scope :pending_reminder, -> { deployed.where(reminder_sent_at: nil).where(arel_table[:reminder_at].lt(Time.now)) }
+  scope :pending_completion, -> { deployed.where(arel_table[:due_at].lt(Time.now)) }
 
   ### Associations
   belongs_to :user
@@ -87,6 +88,14 @@ class TeamDiagnostic < ApplicationRecord
       diagnostic.deploy!
     rescue StandardError => e
       SystemEvent.log(event_source: diagnostic, description: 'Automatic deployment failed', severity: :error, debug: e.message)
+    end
+  end
+
+  def self.auto_complete
+    pending_completion.each do |diagnostic|
+      diagnostic.complete!
+    rescue StandardError => e
+      SystemEvent.log(event_source: diagnostic, description: 'Automatic completion failed', severity: :error, debug: e.message)
     end
   end
 
@@ -187,6 +196,9 @@ class TeamDiagnostic < ApplicationRecord
   end
 
   def perform_deployment
+    diagnostic_responses.each(&:destroy)
+    diagnostic_responses.reload
+
     self.deployment_succeeded = false
 
     issues = deployment_issues
@@ -218,6 +230,7 @@ class TeamDiagnostic < ApplicationRecord
       true
     end
     send_cancel_notification_message
+    SystemEvent.log(event_source: self, incidental: nil, description: 'The Diagnostic was cancelled', severity: :warn)
   end
 
   def completed_surveys

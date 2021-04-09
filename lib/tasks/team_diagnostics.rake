@@ -10,4 +10,9 @@ namespace :team_diagnostics do
   task remind: :environment do
     TeamDiagnostic.send_reminders
   end
+
+  desc 'Auto Complete'
+  task complete: :environment do
+    TeamDiagnostic.auto_complete
+  end
 end

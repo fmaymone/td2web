@@ -65,20 +65,6 @@ RSpec.describe DiagnosticSurveysController, type: :controller do
         expect(response).to render_template('edit')
       end
     end
-    describe 'with a non-active DiagnosticSurvey\'s id' do
-      it 'should render a 404' do
-        diagnostic_survey.state = 'cancelled'
-        diagnostic_survey.save!
-        expect do
-          get :edit, params: { id: diagnostic_survey.id }
-        end.to raise_error(ActiveRecord::RecordNotFound)
-        diagnostic_survey.state = 'completed'
-        diagnostic_survey.save!
-        expect do
-          get :edit, params: { id: diagnostic_survey.id }
-        end.to raise_error(ActiveRecord::RecordNotFound)
-      end
-    end
   end
 
   describe 'PUT #update' do

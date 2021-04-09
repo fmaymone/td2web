@@ -53,6 +53,7 @@ Rails.application.routes.draw do
     member do
       get 'wizard/:step', to: 'team_diagnostics#wizard', as: 'wizard'
       post :deploy, to: 'team_diagnostics#deploy'
+      post :complete, to: 'team_diagnostics#complete'
       delete :cancel, to: 'team_diagnostics#cancel'
     end
     resources :team_diagnostic_questions

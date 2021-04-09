@@ -70,7 +70,8 @@ class Participant < ApplicationRecord
   end
 
   def active_survey
-    diagnostic_surveys.active.order(created_at: :desc).first
+    diagnostic_surveys.completed.order(created_at: :desc).first ||
+      diagnostic_surveys.active.order(created_at: :desc).first
   end
 
   def create_active_survey

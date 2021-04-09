@@ -40,6 +40,6 @@ class DiagnosticSurvey < ApplicationRecord
   def progress
     return 0.0 if diagnostic_responses.empty? || questions.empty?
 
-    (diagnostic_reponses.count / questions.count).round(2)
+    (diagnostic_responses.count.to_f / questions.count).round(2)
   end
 end

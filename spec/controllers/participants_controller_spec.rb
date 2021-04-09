@@ -169,6 +169,27 @@ RSpec.describe ParticipantsController, type: :controller do
     end
   end
 
+  describe 'POST #resend_invitation' do
+    let(:participant) {
+      p = create(:participant, team_diagnostic: teamdiagnostic_ready, state: 'approved')
+      teamdiagnostic_ready.deploy!
+      p.reload
+      p
+    }
+    describe 'logged in as a facilitator' do
+      before(:each) { sign_in facilitator }
+      it 'should resend an invitation' do
+        participant
+        email_count = ActionMailer::Base.deliveries.count
+        event_count = SystemEvent.count
+        post :resend_invitation, params: { id: participant.id, team_diagnostic_id: teamdiagnostic_ready.id }
+        expect(SystemEvent.count).to eq(event_count + 1)
+        expect(ActionMailer::Base.deliveries.count).to eq(email_count + 1)
+        expect(response).to redirect_to(wizard_team_diagnostic_path(id: teamdiagnostic_ready.id, step: TeamDiagnostics::Wizard::PARTICIPANTS_STEP))
+      end
+    end
+  end
+
   describe 'POST #create_import' do
     let(:valid_csv) { Rack::Test::UploadedFile.new("#{Rails.root}/spec/fixtures/files/participants.csv", 'text/csv', false) }
     let(:valid_xls) { Rack::Test::UploadedFile.new("#{Rails.root}/spec/fixtures/files/participants.xls", 'application/vnd.ms-excel', true) }

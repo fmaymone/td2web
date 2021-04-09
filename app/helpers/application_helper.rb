@@ -84,6 +84,8 @@ module ApplicationHelper
   end
 
   def i18n_date_long(date)
+    return '' unless date.present?
+
     if @current_locale == 'en'
       I18n.l(date, format: '%B %e, %Y %l:%M %p', locale: @current_locale)
     else

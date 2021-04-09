@@ -8,10 +8,9 @@ class DiagnosticSurveysController < ApplicationController
   # GET /diagnostic_surveys/:id
   # Landing/completion page
   def show
-    # Service initialized by before_filter
     SystemEvent.log(
-      event_source: @service.diagnostic_survey.participant,
-      incidental: @service.diagnostic_survey,
+      event_source: @service.team_diagnostic,
+      incidental: @service.participant,
       description: 'The Diagnostic Survey was visited'
     )
   end
@@ -55,7 +54,8 @@ class DiagnosticSurveysController < ApplicationController
 
   # Set @diagnostic_survey and raise 404 if not present or active
   def set_diagnostic
-    @diagnostic_survey = DiagnosticSurvey.active.find(params[:id])
+    @diagnostic_survey = DiagnosticSurvey.where(state: %w[active completed], id: params[:id]).first or
+      raise ActiveRecord::RecordNotFound
   end
 
   # Initialize the SurveyService object

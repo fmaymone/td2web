@@ -1,44 +1,70 @@
-
 <div class="row">
   <div class="col-sm-6">
-    <h2>
-      <% if @service.team_diagnostic.setup? %>
-        <%= 'Deploy'.t %>
-        <% if @service.team_diagnostic.deployment_overdue? %>
-          <small class="badge badge-pill badge-warning">
-            <%= 'Overdue'.t %>
-          </small>
+    <h3>
+      Status
+      <span class="badge badge-<%= team_diagnostic_state_pill_class(@service.team_diagnostic) %>"><%= @service.team_diagnostic.state.capitalize.t %></span>
+    </h3>
+
+    <% case @service.team_diagnostic.state
+      when 'setup' %>
+      <h3>
+        Deploy
+        <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.auto_deploy_at %></small>
+      </h3>
+      <h3>
+        Reminders
+        <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.reminder_at %></small>
+      </h3>
+      <h3>
+        Due
+        <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.due_at %></small>
+      </h3>
+    <% when 'deployed' %>
+      <h3>
+        Deployed
+        <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.deployed_at %></small>
+      </h3>
+      <h3>
+        <% if @service.team_diagnostic.reminder_sent_at.present? %>
+          Reminders Sent
+          <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.reminder_sent_at %></small>
         <% else %>
-          <small class="badge badge-pill badge-info">
-            <%= '%{count} days left'.t(count: @service.team_diagnostic.days_until_deploy) %>
-          </small>
+          Reminders
+          <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.reminder_at %></small>
         <% end %>
-        <br/>
-        <small><%= i18n_date_long @service.team_diagnostic.auto_deploy_at %></small>
-      <% elsif @service.team_diagnostic.deployed_at.present? %>
-        <%= 'Deployed'.t %>
-        <small><span class="badge badge-<%= team_diagnostic_state_pill_class(@service.team_diagnostic) %>"><%= @service.team_diagnostic.state.capitalize.t %></span></small>
-        <br/>
-        <small>
-          <%= i18n_date_long @service.team_diagnostic.deployed_at %>
-        </small>
-
+      </h3>
+      <h3>
+        Due
+        <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.due_at %></small>
+      </h3>
+    <% when 'cancelled' %>
+      <% if @service.team_diagnostic.deployed_at.present? %>
+        <h3>
+          Deployed
+          <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.deployed_at %></small>
+        </h3>
       <% end %>
-    </h2>
-
-    <% if @service.team_diagnostic.setup? || @service.team_diagnostic.deployed? %>
-      <h2>
-        <%= 'Due'.t %>
-        <small class="badge badge-pill badge-info">
-          <%= '%{count} days left'.t(count: ((@service.team_diagnostic.due_at - DateTime.now) / 1.day).ceil) %>
-        </small>
-        <br/>
-        <small>
-          <%= i18n_date_long @service.team_diagnostic.due_at %>
-        </small>
-      </h2>
+    <% when 'completed' %>
+      <h3>
+        Deployed
+        <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.deployed_at %></small>
+      </h3>
+      <h3>
+        Completed
+        <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.completed_at %></small>
+      </h3>
+    <% when 'reported' %>
+      <h3>
+        Deployed
+        <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.deployed_at %></small>
+      </h3>
+      <h3>
+        Completed
+        <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.completed_at %></small>
+      </h3>
     <% end %>
   </div>
+
   <div class="col-sm-6">
     <p class="lead">
       <% case @service.team_diagnostic.state
@@ -49,11 +75,14 @@
       <% when 'reported' %> <%=  sanitized_translation 'team_diagnostic--summary--state_message--reported' %>
       <% end %>
       <br/>
+      <%= link_to('Complete Diagnostic'.t, complete_team_diagnostic_path(id: @service.team_diagnostic.id), { method: :post, class: 'btn btn-warning', data: {confirm: 'Are you sure?'.t} }) if policy(@service.team_diagnostic).complete? %>
       <%= link_to('Cancel Diagnostic'.t, cancel_team_diagnostic_path(id: @service.team_diagnostic.id), { method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure?'.t} }) if policy(@service.team_diagnostic).cancel? %>
     </p>
-    <%= link_to('Send Reminders'.t, '#', class: 'btn btn-sm btn-primary') %><br/>
-    <%= link_to('Export Data'.t, '#', class: 'btn btn-sm btn-primary') %>
+    <%= link_to('Download Report'.t, '#', class: 'btn btn-lg btn-success') if policy(@service.team_diagnostic).download_report? %>
+    <br/>
+    <%= link_to('Export Data'.t, '#', class: 'btn btn btn-success') if policy(@service.team_diagnostic).export_data? %>
   </div>
+
 </div>
 
 <div class="row">
@@ -86,7 +115,7 @@
       </thead>
       <tbody>
         <% @service.team_diagnostic.participants.participating.each do |participant| %>
-          <tr>
+          <tr id="<%= participant.id %>">
             <td><span class="badge badge-pill badge-<%= participant_state_badge_class(participant) %>"><%= participant.state %></span></td>
             <td><%= participant.full_name %></td>
             <td><%= i18n_date_long participant.active_survey&.delivered_at rescue '-' %></td>

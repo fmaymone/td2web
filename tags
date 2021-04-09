@@ -227,6 +227,7 @@ admins	./app/models/concerns/users/roles.rb	/^      def admins$/;"	f	class:Users
 admins	./app/models/organization.rb	/^  def admins$/;"	f	class:Organization
 after_activation	./app/models/concerns/participants/state_machine.rb	/^      def after_activation$/;"	f	class:Participants.StateMachine
 after_cancel	./app/models/concerns/participants/state_machine.rb	/^      def after_cancel$/;"	f	class:Participants.StateMachine
+after_completion	./app/models/concerns/team_diagnostics/state_machine.rb	/^      def after_completion$/;"	f	class:TeamDiagnostics.StateMachine
 after_create	./app/services/participant_services/creator.rb	/^    def after_create$/;"	f	class:ParticipantServices.Creator
 after_create	./app/services/team_diagnostic_services/question_creator.rb	/^    def after_create$/;"	f	class:TeamDiagnosticServices.QuestionCreator
 after_disqualification	./app/models/concerns/participants/state_machine.rb	/^      def after_disqualification$/;"	f	class:Participants.StateMachine
@@ -240,6 +241,7 @@ all_participants_are_disqualified?	./app/models/team_diagnostic.rb	/^  def all_p
 all_questions	./app/services/diagnostic_survey_services/question_service.rb	/^    def all_questions$/;"	f	class:DiagnosticSurveyServices.QuestionService
 all_questions_completed?	./app/services/diagnostic_survey_services/question_service.rb	/^    def all_questions_completed?$/;"	f	class:DiagnosticSurveyServices.QuestionService
 all_responses	./app/services/diagnostic_survey_services/question_service.rb	/^    def all_responses$/;"	f	class:DiagnosticSurveyServices.QuestionService
+allow_completion?	./app/models/concerns/team_diagnostics/state_machine.rb	/^      def allow_completion?$/;"	f	class:TeamDiagnostics.StateMachine
 allowed_params	./app/policies/application_translation_policy.rb	/^  def allowed_params$/;"	f	class:ApplicationTranslationPolicy
 allowed_params	./app/policies/diagnostic_policy.rb	/^  def allowed_params$/;"	f	class:DiagnosticPolicy
 allowed_params	./app/policies/diagnostic_question_policy.rb	/^  def allowed_params$/;"	f	class:DiagnosticQuestionPolicy
@@ -269,6 +271,7 @@ authorize_user	./app/services/entitlement_services/authorizer.rb	/^    def autho
 authorized?	./app/services/diagnostic_survey_services/survey_service.rb	/^    def authorized?$/;"	f	class:DiagnosticSurveyServices.SurveyService
 authorized_invitations	./app/services/entitlement_services/authorizer.rb	/^    def authorized_invitations(slug = nil)$/;"	f	class:EntitlementServices.Authorizer
 authorizer	./app/controllers/users/registrations_controller.rb	/^  def authorizer$/;"	f	class:Users
+auto_complete	./app/models/team_diagnostic.rb	/^  def self.auto_complete$/;"	F	class:TeamDiagnostic
 auto_deploy	./app/models/team_diagnostic.rb	/^  def self.auto_deploy$/;"	F	class:TeamDiagnostic
 available_team_diagnostic_open_ended_questions	./app/services/team_diagnostic_services/question_creator.rb	/^    def available_team_diagnostic_open_ended_questions$/;"	f	class:TeamDiagnosticServices.QuestionCreator
 build_options	./app/services/translation_services/search.rb	/^    def build_options(params = {})$/;"	f	class:TranslationServices
@@ -317,6 +320,9 @@ claim_invitation	./app/services/entitlement_services/invitation_claim.rb	/^    d
 claimed?	./app/models/invitation.rb	/^  def claimed?$/;"	f	class:Invitation
 cli_arg_version	./bin/bundle	/^  def cli_arg_version$/;"	f
 collection	./app/services/translation_services/csv_exporter.rb	/^    def collection$/;"	f	class:TranslationServices.CsvExporter
+complete	./app/controllers/team_diagnostics_controller.rb	/^  def complete$/;"	f	class:TeamDiagnosticsController
+complete!	./app/services/diagnostic_survey_services/survey_service.rb	/^    def complete!$/;"	f	class:DiagnosticSurveyServices.SurveyService
+complete?	./app/policies/team_diagnostic_policy.rb	/^  def complete?$/;"	f	class:TeamDiagnosticPolicy
 completed?	./app/services/diagnostic_survey_services/survey_service.rb	/^    def completed?$/;"	f	class:DiagnosticSurveyServices.SurveyService
 completed_surveys	./app/models/team_diagnostic.rb	/^  def completed_surveys$/;"	f	class:TeamDiagnostic
 configure_permitted_parameters	./app/controllers/application_controller.rb	/^  def configure_permitted_parameters$/;"	f
@@ -379,6 +385,7 @@ current_locale	./app/controllers/application_controller.rb	/^  def current_local
 current_question	./app/services/diagnostic_survey_services/question_service.rb	/^    def current_question$/;"	f	class:DiagnosticSurveyServices.QuestionService
 current_question	./app/services/diagnostic_survey_services/survey_service.rb	/^    def current_question$/;"	f	class:DiagnosticSurveyServices.SurveyService
 current_question_answered?	./app/services/diagnostic_survey_services/survey_service.rb	/^    def current_question_answered?$/;"	f	class:DiagnosticSurveyServices.SurveyService
+current_question_body	./app/helpers/diagnostic_surveys_helper.rb	/^  def current_question_body(service)$/;"	f	class:DiagnosticSurveysHelper
 current_question_number	./app/helpers/diagnostic_surveys_helper.rb	/^  def current_question_number(service)$/;"	f	class:DiagnosticSurveysHelper
 current_question_number	./app/services/diagnostic_survey_services/survey_service.rb	/^    def current_question_number$/;"	f	class:DiagnosticSurveyServices.SurveyService
 current_question_number_badge_class	./app/helpers/diagnostic_surveys_helper.rb	/^  def current_question_number_badge_class(service)$/;"	f	class:DiagnosticSurveysHelper
@@ -386,6 +393,7 @@ current_question_response	./app/services/diagnostic_survey_services/survey_servi
 current_step	./app/services/team_diagnostic_services/updater.rb	/^    def current_step$/;"	f	class:TeamDiagnosticServices.Updater
 current_tenant	./app/controllers/application_controller.rb	/^  def current_tenant$/;"	f	class:ApplicationController
 current_tenant	./app/helpers/application_helper.rb	/^  def current_tenant$/;"	f	class:ApplicationHelper
+current_user_has_no_organizations_or_diagnostics?	./app/helpers/team_diagnostics_helper.rb	/^  def current_user_has_no_organizations_or_diagnostics?$/;"	f	class:TeamDiagnosticsHelper
 days_until_deploy	./app/models/team_diagnostic.rb	/^  def days_until_deploy$/;"	f	class:TeamDiagnostic
 default_cancellation_letter	./app/models/team_diagnostic_letter.rb	/^  def self.default_cancellation_letter(locale:, team_diagnostic: nil)$/;"	F	class:TeamDiagnosticLetter
 default_cancellation_letter_subject	./app/models/team_diagnostic_letter.rb	/^  def self.default_cancellation_letter_subject(locale:)$/;"	F	class:TeamDiagnosticLetter
@@ -450,6 +458,7 @@ diagnostic_scope	./app/controllers/diagnostics_controller.rb	/^  def diagnostic_
 disqualify	./app/controllers/participants_controller.rb	/^  def disqualify$/;"	f	class:ParticipantsController
 disqualify!	./app/services/participant_services/updater.rb	/^    def disqualify!$/;"	f	class:ParticipantServices.Updater
 disqualify?	./app/policies/participant_policy.rb	/^  def disqualify?$/;"	f	class:ParticipantPolicy
+download_report?	./app/policies/team_diagnostic_policy.rb	/^  def download_report?$/;"	f	class:TeamDiagnosticPolicy
 due_at_is_in_the_future	./app/models/team_diagnostic.rb	/^  def due_at_is_in_the_future$/;"	f	class:TeamDiagnostic
 edit	./app/controllers/diagnostic_questions_controller.rb	/^  def edit$/;"	f	class:DiagnosticQuestionsController
 edit	./app/controllers/diagnostic_surveys_controller.rb	/^  def edit$/;"	f	class:DiagnosticSurveysController
@@ -495,6 +504,9 @@ entitlements_are_valid	./app/models/invitation.rb	/^  def entitlements_are_valid
 entitlements_for_select	./app/helpers/grants_helper.rb	/^  def entitlements_for_select(grant)$/;"	f	class:GrantsHelper
 env_var_version	./bin/bundle	/^  def env_var_version$/;"	f
 errors?	./app/services/entitlement_services/invitation_claim.rb	/^    def errors?$/;"	f	class:EntitlementServices.InvitationClaim
+event_description	./app/models/participant.rb	/^  def event_description$/;"	f	class:Participant
+event_description	./app/models/team_diagnostic_question.rb	/^  def event_description$/;"	f
+export_data?	./app/policies/team_diagnostic_policy.rb	/^  def export_data?$/;"	f	class:TeamDiagnosticPolicy
 extract_questions	./app/services/translation_services/family_tribes_extractor.rb	/^    def extract_questions$/;"	f	class:TranslationServices.FamilyTribesExtractor
 facilitator	./app/models/role.rb	/^    def facilitator$/;"	f	class:Role
 facilitator?	./app/models/role.rb	/^  def facilitator?$/;"	f
@@ -529,6 +541,7 @@ grant_scope	./app/controllers/grants_controller.rb	/^  def grant_scope$/;"	f	cla
 grantor_role_ids	./app/services/entitlement_services/invitation_creator.rb	/^    def grantor_role_ids$/;"	f	class:EntitlementServices.InvitationCreator.selected_entitlement
 grants_for_invitation	./app/services/entitlement_services/invitation_claim.rb	/^    def grants_for_invitation$/;"	f	class:EntitlementServices.InvitationClaim
 guard_deploy_step	./app/services/team_diagnostic_services/updater.rb	/^    def guard_deploy_step$/;"	f	class:TeamDiagnosticServices.Updater
+guard_report	./app/models/concerns/team_diagnostics/state_machine.rb	/^      def guard_report$/;"	f	class:TeamDiagnostics.StateMachine
 handle_near_empty_diagnostic	./app/services/participant_services/updater.rb	/^    def handle_near_empty_diagnostic$/;"	f	class:ParticipantServices.Updater
 header?	./app/services/participant_services/importer.rb	/^    def header?(rows)$/;"	f	class:ParticipantServices
 humanize_context	./app/services/app_context.rb	/^    def humanize_context(context)$/;"	f
@@ -569,7 +582,7 @@ initialize	./app/models/concerns/team_diagnostics/errors.rb	/^      def initiali
 initialize	./app/policies/application_policy.rb	/^    def initialize(user, scope)$/;"	f	class:ApplicationPolicy.Scope
 initialize	./app/policies/application_policy.rb	/^  def initialize(user, record)$/;"	f	class:ApplicationPolicy
 initialize	./app/services/diagnostic_survey_services/question_service.rb	/^    def initialize(diagnostic_survey:, locale: nil)$/;"	f	class:DiagnosticSurveyServices.QuestionService
-initialize	./app/services/diagnostic_survey_services/survey_service.rb	/^    def initialize(diagnostic_survey:, params: {})$/;"	f	class:DiagnosticSurveyServices.SurveyService
+initialize	./app/services/diagnostic_survey_services/survey_service.rb	/^    def initialize(diagnostic_survey:, params: {}, locale: nil)$/;"	f	class:DiagnosticSurveyServices.SurveyService
 initialize	./app/services/entitlement_services/authorizer.rb	/^    def initialize(tenant: nil, user: nil, params: nil, reference: nil)$/;"	f	class:EntitlementServices.Authorizer
 initialize	./app/services/entitlement_services/grant.rb	/^    def initialize(user:, entitlement:, grantor: nil, quota: nil)$/;"	f	class:EntitlementServices.Grant
 initialize	./app/services/entitlement_services/grant_usage.rb	/^    def initialize(user:, reference:)$/;"	f	class:EntitlementServices.GrantUsage
@@ -640,6 +653,7 @@ locked?	./app/models/user.rb	/^  def locked?$/;"	f	class:User
 lockfile	./bin/bundle	/^  def lockfile$/;"	f
 lockfile_version	./bin/bundle	/^  def lockfile_version$/;"	f
 log	./app/models/system_event.rb	/^  def self.log(event_source:, description:, incidental: nil, debug: nil, severity: :info)$/;"	F	class:SystemEvent
+log_completion	./app/models/concerns/team_diagnostics/state_machine.rb	/^      def log_completion$/;"	f	class:TeamDiagnostics.StateMachine
 manage_grants?	./app/policies/user_policy.rb	/^  def manage_grants?$/;"	f	class:UserPolicy
 matching_plus_missing	./app/services/translation_services/search.rb	/^    def matching_plus_missing$/;"	f	class:TranslationServices.Search
 matching_plus_missing_csv	./app/services/translation_services/search.rb	/^    def matching_plus_missing_csv$/;"	f	class:TranslationServices
@@ -650,6 +664,10 @@ members	./app/models/concerns/users/roles.rb	/^      def members$/;"	f	class:Use
 minimum_participants	./app/models/diagnostic.rb	/^  def minimum_participants$/;"	f	class:Diagnostic
 missing_letters	./app/models/concerns/team_diagnostics/letters.rb	/^      def missing_letters$/;"	f	class:TeamDiagnostics.Letters
 missing_translations	./app/services/translation_services/search.rb	/^    def missing_translations$/;"	f	class:TranslationServices
+modify_letters?	./app/policies/team_diagnostic_policy.rb	/^  def modify_letters?$/;"	f	class:TeamDiagnosticPolicy
+modify_participants?	./app/policies/team_diagnostic_policy.rb	/^  def modify_participants?$/;"	f	class:TeamDiagnosticPolicy
+modify_questions?	./app/policies/team_diagnostic_policy.rb	/^  def modify_questions?$/;"	f	class:TeamDiagnosticPolicy
+modify_setup?	./app/policies/team_diagnostic_policy.rb	/^  def modify_setup?$/;"	f	class:TeamDiagnosticPolicy
 module.exports	./babel.config.js	/^module.exports = function(api) {$/;"	f
 name	./app/models/concerns/users/profiles.rb	/^      def name$/;"	f	class:Users.Profiles
 nav_item_active?	./app/helpers/application_helper.rb	/^  def nav_item_active?(key, action = nil)$/;"	f
@@ -684,6 +702,7 @@ new?	./app/policies/team_diagnostic_question_policy.rb	/^  def new?$/;"	f	class:
 new?	./app/policies/tenant_policy.rb	/^  def new?$/;"	f	class:TenantPolicy
 new?	./app/policies/user_policy.rb	/^  def new?$/;"	f	class:UserPolicy
 new_blank_translation	./app/controllers/translations_controller.rb	/^  def new_blank_translation(_translation)$/;"	f	class:TranslationsController
+new_diagnostic?	./app/policies/organization_policy.rb	/^  def new_diagnostic?$/;"	f	class:OrganizationPolicy
 new_grant	./app/services/entitlement_services/grant.rb	/^    def new_grant$/;"	f	class:EntitlementServices.Grant
 next_question	./app/services/diagnostic_survey_services/question_service.rb	/^    def next_question(reference_question = nil)$/;"	f	class:DiagnosticSurveyServices.QuestionService
 next_question	./app/services/diagnostic_survey_services/survey_service.rb	/^    def next_question$/;"	f	class:DiagnosticSurveyServices.SurveyService
@@ -740,6 +759,8 @@ privileged_user?	./app/services/entitlement_services/grant_usage.rb	/^    def pr
 process_claim	./app/controllers/invitations_controller.rb	/^  def process_claim$/;"	f	class:InvitationsController
 process_claim?	./app/policies/invitation_policy.rb	/^  def process_claim?$/;"	f	class:InvitationPolicy
 process_invitation	./app/services/entitlement_services/invitation_claim.rb	/^    def process_invitation$/;"	f	class:EntitlementServices.InvitationClaim
+progress	./app/models/diagnostic_survey.rb	/^  def progress$/;"	f	class:DiagnosticSurvey
+progress_pct	./app/models/participant.rb	/^  def progress_pct$/;"	f	class:Participant
 pronoun	./app/models/concerns/users/profiles.rb	/^      def pronoun$/;"	f	class:Users.Profiles
 query_scope	./app/services/user_services/search.rb	/^    def query_scope$/;"	f	class:UserServices.Search
 question_body	./app/helpers/diagnostic_surveys_helper.rb	/^  def question_body(question)$/;"	f	class:DiagnosticSurveysHelper
@@ -842,6 +863,7 @@ set_tenant	./app/controllers/tenants_controller.rb	/^  def set_tenant$/;"	f	clas
 set_translation	./app/controllers/translations_controller.rb	/^  def set_translation$/;"	f	class:TranslationsController
 set_user	./app/controllers/grants_controller.rb	/^  def set_user$/;"	f	class:GrantsController
 set_user	./app/controllers/users_controller.rb	/^  def set_user$/;"	f	class:UsersController
+severity_class	./app/helpers/application_helper.rb	/^  def severity_class(severity)$/;"	f
 short_date	./app/helpers/application_helper.rb	/^  def short_date(date)$/;"	f
 show	./app/controllers/diagnostic_questions_controller.rb	/^  def show$/;"	f	class:DiagnosticQuestionsController
 show	./app/controllers/diagnostic_surveys_controller.rb	/^  def show$/;"	f	class:DiagnosticSurveysController
@@ -896,6 +918,8 @@ survey_is_active	./app/models/diagnostic_response.rb	/^  def survey_is_active$/;
 system!	./bin/setup	/^def system!(*args)$/;"	f
 t	./config/initializers/i18n_active_record.rb	/^  def t(options={})$/;"	f	class:String
 team_diagnostic_is_active	./app/models/participant.rb	/^  def team_diagnostic_is_active$/;"	f	class:Participant
+team_diagnostic_policy	./app/policies/participant_policy.rb	/^  def team_diagnostic_policy$/;"	f	class:ParticipantPolicy
+team_diagnostic_policy	./app/policies/team_diagnostic_question_policy.rb	/^  def team_diagnostic_policy$/;"	f	class:TeamDiagnosticQuestionPolicy
 team_diagnostic_state_pill_class	./app/helpers/team_diagnostics_helper.rb	/^  def team_diagnostic_state_pill_class(team_diagnostic)$/;"	f	class:TeamDiagnosticsHelper
 team_diagnostic_wizard_step_alert_class	./app/helpers/team_diagnostics_helper.rb	/^  def team_diagnostic_wizard_step_alert_class(step, service)$/;"	f	class:TeamDiagnosticsHelper
 team_name	./app/services/diagnostic_survey_services/survey_service.rb	/^    def team_name$/;"	f	class:DiagnosticSurveyServices.SurveyService

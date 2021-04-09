@@ -4,11 +4,12 @@ module DiagnosticSurveyServices
   # Service and helpers for presentation and completion of a DiagnosticSurvey
   class SurveyService
     STEPS = %i[intro rating open_ended conclusion].freeze
-    attr_reader :diagnostic_survey, :team_diagnostic_question, :step, :locale, :params, :response
+    attr_reader :diagnostic_survey, :team_diagnostic, :participant, :team_diagnostic_question, :step, :locale, :params, :response
 
     def initialize(diagnostic_survey:, params: {}, locale: nil)
       @params = params
       @diagnostic_survey = find_diagnostic_survey(diagnostic_survey)
+      @team_diagnostic = @diagnostic_survey.team_diagnostic
       @locale = locale || @params.fetch(:locale, @diagnostic_survey.locale)
       @question_service = DiagnosticSurveyServices::QuestionService.new(diagnostic_survey: @diagnostic_survey)
       @team_diagnostic_question = find_current_question
@@ -32,7 +33,7 @@ module DiagnosticSurveyServices
 
     # Return if the survey is active
     def authorized?
-      active?
+      active? || completed?
     end
 
     def active?
@@ -75,23 +76,19 @@ module DiagnosticSurveyServices
       response_count = @diagnostic_survey.diagnostic_responses.count
       result = @question_service.answer_question(question: current_question, response: @response, locale: @locale)
       if result
+        @diagnostic_survey.last_activity_at = result.created_at
+        @diagnostic_survey.save
         if completed?
           # If all questions have been answered mark as completed and log event
           complete!
-          SystemEvent.log(
-            event_source: @diagnostic_survey.participant,
-            incidental: @diagnostic_survey,
-            description: 'The Diagnostic Survey was completed',
-            severity: :warn
-          )
         elsif response_count.zero?
+          # If this is the first response, log the start of the survey
           SystemEvent.log(
             event_source: @diagnostic_survey.participant,
             incidental: @diagnostic_survey,
             description: 'The Diagnostic Survey was started',
             severity: :warn
           )
-          # If this is the first response, log the start of the survey
         end
         result
       else
@@ -122,6 +119,13 @@ module DiagnosticSurveyServices
 
       @diagnostic_survey.complete!
       @diagnostic_survey.reload
+
+      SystemEvent.log(
+        event_source: @diagnostic_survey.participant,
+        incidental: @diagnostic_survey,
+        description: 'The Diagnostic Survey was completed',
+        severity: :warn
+      )
     end
 
     private

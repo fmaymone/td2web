@@ -67,7 +67,7 @@
   <div class="col">
     <%= form_for(@service.team_diagnostic) do |form| %>
       <%= hidden_field_tag :step, @service.step %>
-      <%= form.submit 'Continue'.t, class: 'btn btn-primary' %>
+      <%= form.submit 'Continue'.t, class: 'btn btn-success' %>
     <% end if @service.next_step_accessible? && TeamDiagnosticPolicy.new(current_user, @service.team_diagnostic).modify_participants? %>
   </div>
 </div>
