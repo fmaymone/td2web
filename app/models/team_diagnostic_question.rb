@@ -93,7 +93,7 @@ class TeamDiagnosticQuestion < ApplicationRecord
   ### Instance Methods
 
   def event_description
-    matrix.zero? ? '' : matrix
+    body
   end
 
   def translations

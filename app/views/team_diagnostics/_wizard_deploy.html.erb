@@ -110,25 +110,23 @@
 
     <h3><%= 'Activity'.t %></h3>
     <table class="table table-sm">
-      <thead>
-        <tr>
-          <th scope="col"><%= 'Description'.t %></th>
-          <th scope="col"><%= 'Date'.t %></th>
-        </tr>
-      </thead>
       <tbody>
         <% @service.team_diagnostic.system_events.order(created_at: :desc).each do |event| %>
           <tr>
             <td>
+              <small>
               <span class="badge badge-<%= severity_class(event.severity) %>"><%= event.severity %></span>
               <%= event.description.t %> &mdash;
-              <% if event.incidental.present? %>
-                <%= event.incidental&.event_description %>
-              <% else %>
-                <%= @service.team_diagnostic.diagnostic.name.t %>
-              <% end %>
+                <% if event.incidental.present? %>
+                  <%= event.incidental&.event_description %>
+                <% else %>
+                  <%= @service.team_diagnostic.diagnostic.name.t %>
+                <% end %>
+              </small>
             </td>
-            <td><%= i18n_date_long event.created_at %></td>
+            <td>
+              <small><%= i18n_date_long event.created_at %></small>
+            </td>
           </tr>
         <% end %>
       </tbody>
