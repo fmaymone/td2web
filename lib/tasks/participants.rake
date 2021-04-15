@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 namespace :participants do
   desc 'Assign Random Answers'
-  task :auto_respond, [:id] => :environment do |t, args|
+  task :auto_respond, [:id] => :environment do |_t, args|
     participant = Participant.find(args[:id])
     exit(1) unless Rails.env.development?
     puts '--- Auto responding to participant survey'
@@ -9,7 +11,8 @@ namespace :participants do
     svc = DiagnosticSurveyServices::QuestionService.new(diagnostic_survey: diagnostic_survey)
     all_questions = svc.all_questions
     all_questions[0..-2].each do |q|
-      svc.answer_question(question: q, response: '1')
+      response = rand(9) + 1
+      svc.answer_question(question: q, response: response)
     end
     puts 'OK'
   end

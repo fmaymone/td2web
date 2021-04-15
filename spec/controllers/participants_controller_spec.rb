@@ -170,12 +170,12 @@ RSpec.describe ParticipantsController, type: :controller do
   end
 
   describe 'POST #resend_invitation' do
-    let(:participant) {
+    let(:participant) do
       p = create(:participant, team_diagnostic: teamdiagnostic_ready, state: 'approved')
       teamdiagnostic_ready.deploy!
       p.reload
       p
-    }
+    end
     describe 'logged in as a facilitator' do
       before(:each) { sign_in facilitator }
       it 'should resend an invitation' do

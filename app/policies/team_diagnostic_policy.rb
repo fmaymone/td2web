@@ -79,6 +79,10 @@ class TeamDiagnosticPolicy < ApplicationPolicy
     update? && record&.allow_completion?
   end
 
+  def export?
+    show? && record&.completed? || record&.reported?
+  end
+
   def entitled_diagnostics
     auth_service = EntitlementServices::Authorizer.new(user: user, reference: TeamDiagnosticServices::Creator::REFERENCE)
     return Diagnostic.active.all if auth_service.call("#{TeamDiagnosticServices::Creator::ENTITLEMENT_BASE}-any")

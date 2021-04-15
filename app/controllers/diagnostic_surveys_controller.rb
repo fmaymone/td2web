@@ -8,11 +8,15 @@ class DiagnosticSurveysController < ApplicationController
   # GET /diagnostic_surveys/:id
   # Landing/completion page
   def show
-    SystemEvent.log(
-      event_source: @service.team_diagnostic,
-      incidental: @service.participant,
-      description: 'The Diagnostic Survey was visited'
-    ) if @service.diagnostic_survey.active?
+    if @service.diagnostic_survey.active?
+      SystemEvent.log(
+        event_source: @service.team_diagnostic,
+        incidental: @service.participant,
+        description: 'The Diagnostic Survey was visited'
+      ) 
+    else
+      # NOOP
+    end
   end
 
   # GET /diagnostic_surveys/:id/edit

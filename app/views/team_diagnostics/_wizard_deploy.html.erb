@@ -80,7 +80,7 @@
     </p>
     <%= link_to('Download Report'.t, '#', class: 'btn btn-lg btn-success') if policy(@service.team_diagnostic).download_report? %>
     <br/>
-    <%= link_to('Export Data'.t, '#', class: 'btn btn btn-success') if policy(@service.team_diagnostic).export_data? %>
+    <%= link_to('Export Data'.t, export_team_diagnostic_path(id: @service.team_diagnostic.id, format: :csv), class: 'btn btn btn-success') if policy(@service.team_diagnostic).export_data? %>
   </div>
 
 </div>

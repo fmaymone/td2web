@@ -138,6 +138,17 @@ class TeamDiagnosticsController < ApplicationController
     redirect_to team_diagnostic_path(@team_diagnostic), notice: 'Team Diagnostic was completed'.t if @team_diagnostic.complete!
   end
 
+  def export
+    set_team_diagnostic
+    authorize @team_diagnostic
+    respond_to do |format|
+      format.csv do
+        @service = TeamDiagnosticServices::CsvExporter.new(@team_diagnostic)
+        send_data @service.call, filename: "#{@team_diagnostic.locale}-export-#{@team_diagnostic.id}.csv"
+      end
+    end
+  end
+
   private
 
   def record_scope
