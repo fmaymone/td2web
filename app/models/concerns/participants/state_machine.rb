@@ -20,7 +20,7 @@ module Participants
         end
 
         event :complete do
-          transitions from: :active, to: :completed, if: :survey_completed?
+          transitions from: :active, to: :completed
         end
 
         event :disqualify do

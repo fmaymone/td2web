@@ -77,7 +77,7 @@ module TeamDiagnostics
       end
 
       def after_completion
-        participants.active.each(&:cancel)
+        participants.active.each(&:cancel!)
         log_completion
       end
 

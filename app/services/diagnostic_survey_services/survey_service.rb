@@ -84,8 +84,8 @@ module DiagnosticSurveyServices
         elsif response_count.zero?
           # If this is the first response, log the start of the survey
           SystemEvent.log(
-            event_source: @diagnostic_survey.participant,
-            incidental: @diagnostic_survey,
+            event_source: @team_diagnostic,
+            incidental: @participant,
             description: 'The Diagnostic Survey was started',
             severity: :warn
           )
@@ -121,8 +121,8 @@ module DiagnosticSurveyServices
       @diagnostic_survey.reload
 
       SystemEvent.log(
-        event_source: @diagnostic_survey.participant,
-        incidental: @diagnostic_survey,
+        event_source: @team_diagnostic,
+        incidental: @participant,
         description: 'The Diagnostic Survey was completed',
         severity: :warn
       )

@@ -124,17 +124,17 @@ class TeamDiagnostic < ApplicationRecord
     deployment_issues.any?
   end
 
-  def deployment_overdue?
-    auto_deploy_at < Time.now
-  end
+  #def deployment_overdue?
+    #auto_deploy_at < Time.now
+  #end
 
-  def reminder_overdue?
-    reminder_at < Time.now
-  end
+  #def reminder_overdue?
+    #reminder_at < Time.now
+  #end
 
-  def days_until_deploy
-    ((auto_deploy_at - Time.now) / 1.day).ceil
-  end
+  #def days_until_deploy
+    #((auto_deploy_at - Time.now) / 1.day).ceil
+  #end
 
   def all_locales
     ([locale] + participant_locales).sort.uniq
@@ -144,9 +144,9 @@ class TeamDiagnostic < ApplicationRecord
     participants.pluck(:locale).sort.uniq
   end
 
-  def letter_locales
-    team_diagnostic_letters.pluck(:locale).sort.uniq
-  end
+  #def letter_locales
+    #team_diagnostic_letters.pluck(:locale).sort.uniq
+  #end
 
   def ready_for_deploy?
     (setup? || cancelled?) && !deployment_issues?
@@ -191,9 +191,9 @@ class TeamDiagnostic < ApplicationRecord
     end
   end
 
-  def all_participants_are_disqualified?
-    participants.any? && participants.participating.none?
-  end
+  #def all_participants_are_disqualified?
+    #participants.any? && participants.participating.none?
+  #end
 
   def perform_deployment
     diagnostic_responses.each(&:destroy)

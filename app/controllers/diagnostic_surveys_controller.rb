@@ -12,7 +12,7 @@ class DiagnosticSurveysController < ApplicationController
       event_source: @service.team_diagnostic,
       incidental: @service.participant,
       description: 'The Diagnostic Survey was visited'
-    )
+    ) if @service.diagnostic_survey.active?
   end
 
   # GET /diagnostic_surveys/:id/edit

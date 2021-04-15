@@ -24,7 +24,7 @@ module DiagnosticSurveys
         end
 
         event :complete do
-          transitions from: :active, to: :completed
+          transitions from: :active, to: :completed, after: :after_complete
         end
       end
 
@@ -48,6 +48,10 @@ module DiagnosticSurveys
 
       def no_other_active
         participant.diagnostic_surveys.active.where.not(id: id).none?
+      end
+
+      def after_complete
+        participant.complete!
       end
     end
   end
