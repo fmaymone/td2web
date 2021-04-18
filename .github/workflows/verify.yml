@@ -108,8 +108,7 @@ jobs:
 
       - name: Setup test database
         run: |
-          bin/rails db:create
-          rake db:migrate
+          rake db:test:prepare
           true
       - name: Run tests
         run: bundle exec rspec
