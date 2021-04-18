@@ -108,7 +108,7 @@ jobs:
 
       - name: Setup test database
         run: |
-          rake db:test:prepare
+          bundle exec rake db:test:prepare
           true
       - name: Run tests
         run: bundle exec rspec
