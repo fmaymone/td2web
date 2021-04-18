@@ -19,9 +19,9 @@ module TeamDiagnosticServices
                                         .where(active: true)
                                         .order('question_type ASC, matrix ASC')
                                         .pluck(:body)
-                                        .map{|r|
-                                          ApplicationTranslation.where(locale: locale , key: r ).first.value
-                                        }
+                                        .map do |r|
+                                          ApplicationTranslation.where(locale: locale, key: r).first.value
+                                        end
 
       [header] + @team_diagnostic.diagnostic_surveys.completed.map do |survey|
         [survey.id] + survey.diagnostic_responses

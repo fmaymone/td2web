@@ -248,8 +248,8 @@ class TeamDiagnostic < ApplicationRecord
       diagnostic_survey = participant.active_survey
       svc = DiagnosticSurveyServices::QuestionService.new(diagnostic_survey: diagnostic_survey)
       all_questions = svc.all_questions
-      all_questions[0..-1].each do |q|
-        response = rand(9) + 1
+      all_questions[0..].each do |q|
+        response = rand(1..9)
         svc.answer_question(question: q, response: response)
       end
       svc.diagnostic_survey.complete!

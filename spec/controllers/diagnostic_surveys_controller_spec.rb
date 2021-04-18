@@ -80,23 +80,23 @@ RSpec.describe DiagnosticSurveysController, type: :controller do
       describe 'for the first time' do
         it 'should create a system event' do
           put :update, params: { id: diagnostic_survey.id, team_diagnostic_question_id: question.id, response: '5' }
-          event = SystemEvent.where(incidental: diagnostic_survey).last
+          event = SystemEvent.where(incidental: diagnostic_survey.participant).order(created_at: :desc).first
           expect(event.description).to eq('The Diagnostic Survey was started')
-          expect(event.event_source).to eq(diagnostic_survey.participant)
+          expect(event.event_source).to eq(diagnostic_survey.team_diagnostic)
         end
       end
       describe 'for the final question' do
         it 'should create a system event' do
           svc = DiagnosticSurveyServices::QuestionService.new(diagnostic_survey: diagnostic_survey)
           all_questions = svc.all_questions
-          all_questions[0..-2].each do |q|
+          all_questions[0..].each do |q|
             svc.answer_question(question: q, response: '1')
           end
           last_question = all_questions.last
           put :update, params: { id: diagnostic_survey.id, team_diagnostic_question_id: last_question.id, response: '5' }
-          event = SystemEvent.where(incidental: diagnostic_survey).last
+          event = SystemEvent.where(incidental: diagnostic_survey.participant).order(created_at: :desc).first
           expect(event.description).to eq('The Diagnostic Survey was completed')
-          expect(event.event_source).to eq(diagnostic_survey.participant)
+          expect(event.event_source).to eq(diagnostic_survey.team_diagnostic)
         end
       end
     end

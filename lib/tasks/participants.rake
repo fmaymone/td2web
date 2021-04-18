@@ -11,7 +11,7 @@ namespace :participants do
     svc = DiagnosticSurveyServices::QuestionService.new(diagnostic_survey: diagnostic_survey)
     all_questions = svc.all_questions
     all_questions[0..-2].each do |q|
-      response = rand(9) + 1
+      response = rand(1..9)
       svc.answer_question(question: q, response: response)
     end
     puts 'OK'
