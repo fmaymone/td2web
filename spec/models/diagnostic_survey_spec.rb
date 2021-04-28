@@ -24,7 +24,7 @@ RSpec.describe DiagnosticSurvey, type: :model do
   include_context 'organizations'
   include_context 'diagnostics'
 
-  let(:teamdiagnostic) { create(:team_diagnostic, user_id: facilitator.id, organization_id: organization.id, diagnostic_id: team_diagnostic.id) }
+  let(:teamdiagnostic) { create(:team_diagnostic, user_id: facilitator.id, organization_id: organization.id, diagnostic_id: tda_diagnostic.id) }
   let(:participant) { create(:participant, team_diagnostic: teamdiagnostic, state: :approved) }
   let(:diagnostic_survey) { create(:diagnostic_survey, participant: participant, team_diagnostic: teamdiagnostic) }
   let(:diagnostic_survey2) { create(:diagnostic_survey, participant: participant, team_diagnostic: teamdiagnostic, state: :active) }

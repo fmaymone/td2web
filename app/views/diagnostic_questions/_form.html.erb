@@ -27,6 +27,9 @@
       <div class="col-3">
         <%= f.number_field :matrix, required: true, label: 'Matrix'.t %>
       </div>
+      <div class="col-3">
+        <%= f.number_field :weight, required: true, label: 'Weight'.t, step: 0.1 %>
+      </div>
     </div>
     <div class="form-row">
       <div class="col-6">

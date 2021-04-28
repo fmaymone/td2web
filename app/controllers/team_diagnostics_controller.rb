@@ -2,8 +2,10 @@
 
 # TeamDiagnostic Management Controller
 class TeamDiagnosticsController < ApplicationController
-  before_action :authenticate_user!
-  after_action :verify_authorized
+  before_action :authenticate_user!, except: [:report]
+  after_action :verify_authorized, except: [:report]
+
+  layout 'report', only: [:report]
 
   # GET /team_diagnostics
   # GET /team_diagnostics.json
@@ -147,6 +149,19 @@ class TeamDiagnosticsController < ApplicationController
         send_data @service.call, filename: "#{@team_diagnostic.locale}-export-#{@team_diagnostic.id}.csv"
       end
     end
+  end
+
+  # Authenticated by report token
+  def report
+    @team_diagnostic = TeamDiagnostic.find(params[:id])
+    @report = @team_diagnostic.reports.find(params[:report_id])
+    unless @report.token == params[:token]
+      head :not_allowed
+      return
+    end
+    @template = @report.report_template
+    @locale = current_locale || @report.team_diagnostic.locale
+    @page_title = @report.description
   end
 
   private

@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.4'
+ruby '3.0.1'
 
 # gem 'secure_headers'
 gem 'aasm'
@@ -28,11 +28,13 @@ gem 'i18n'
 gem 'i18n-active_record', require: 'i18n/active_record'
 gem 'i18n-timezones'
 gem 'image_processing'
+gem 'imgkit'
 gem 'jbuilder'
 gem 'kaminari'
 gem 'kaminari-i18n'
 gem 'liquid'
 gem 'mini_magick'
+gem 'pdfkit'
 gem 'pg'
 gem 'pg_search'
 gem 'pry'
@@ -48,6 +50,7 @@ gem 'sass-rails'
 gem 'sprockets-rails', git: 'https://github.com/rails/sprockets-rails.git'
 gem 'turbolinks'
 gem 'webpacker'
+gem 'wkhtmltopdf-heroku'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

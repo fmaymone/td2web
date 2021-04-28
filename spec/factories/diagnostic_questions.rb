@@ -17,6 +17,7 @@
 #  active        :boolean          default(FALSE), not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  weight        :decimal(, )      default(0.0), not null
 #
 FactoryBot.define do
   factory :diagnostic_question do

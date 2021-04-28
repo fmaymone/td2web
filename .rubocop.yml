@@ -1360,7 +1360,6 @@ Lint/BigDecimalNew:
 Lint/BooleanSymbol:
   Description: 'Check for `:true` and `:false` symbols.'
   Enabled: true
-  Safe: false
   VersionAdded: '0.50'
   VersionChanged: '0.83'
 
@@ -3906,7 +3905,7 @@ Style/SymbolProc:
 
 Style/TernaryParentheses:
   Description: 'Checks for use of parentheses around ternary conditions.'
-  Enabled: true
+  Enabled: false
   VersionAdded: '0.42'
   VersionChanged: '0.46'
   EnforcedStyle: require_no_parentheses

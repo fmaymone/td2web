@@ -52,10 +52,11 @@ Rails.application.routes.draw do
     end
     member do
       get 'wizard/:step', to: 'team_diagnostics#wizard', as: 'wizard'
+      get 'export.:format', to: 'team_diagnostics#export', as: 'export'
+      get 'report/:report_id', to: 'team_diagnostics#report', as: 'report'
       post :deploy, to: 'team_diagnostics#deploy'
       post :complete, to: 'team_diagnostics#complete'
       delete :cancel, to: 'team_diagnostics#cancel'
-      get 'export.:format', to: 'team_diagnostics#export', as: 'export'
     end
     resources :team_diagnostic_questions
     resources :team_diagnostic_letters

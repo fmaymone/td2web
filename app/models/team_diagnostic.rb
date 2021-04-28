@@ -66,6 +66,7 @@ class TeamDiagnostic < ApplicationRecord
   scope :pending_deployment, -> { setup.where(arel_table[:auto_deploy_at].lt(Time.now)) }
   scope :pending_reminder, -> { deployed.where(reminder_sent_at: nil).where(arel_table[:reminder_at].lt(Time.now)) }
   scope :pending_completion, -> { deployed.where(arel_table[:due_at].lt(Time.now)) }
+  scope :pending_report, -> { completed }
 
   ### Associations
   belongs_to :user
@@ -78,6 +79,7 @@ class TeamDiagnostic < ApplicationRecord
   has_many :diagnostic_responses, through: :diagnostic_surveys
   has_many :team_diagnostic_questions, dependent: :destroy
   has_many :system_events, as: :event_source
+  has_many :reports
 
   attr_accessor :deployment_succeeded
 
@@ -99,7 +101,21 @@ class TeamDiagnostic < ApplicationRecord
     end
   end
 
+  def self.auto_report
+    completed.each do |diagnostic|
+      next if diagnostic.reports.in_progress.any?
+
+      diagnostic.delay.perform_report
+    end
+  end
+
   ### Instance Methods
+
+  def responses
+    DiagnosticResponse
+      .includes(:diagnostic_survey)
+      .where(diagnostic_surveys: { state: :completed, team_diagnostic_id: id })
+  end
 
   def needs_attention?
     pending_actions.any?
@@ -160,9 +176,10 @@ class TeamDiagnostic < ApplicationRecord
   end
 
   def excess_participants?
-    return true unless diagnostic && %w[setup deployed].include?(state)
+    return false if %w[completed reported].include?(state)
+    return false unless diagnostic.present?
 
-    participants.participating.count >= diagnostic.maximum_participants
+    participants.participating.count > diagnostic.maximum_participants
   end
 
   def participants_pending_activation?
@@ -248,19 +265,36 @@ class TeamDiagnostic < ApplicationRecord
     diagnostic_surveys.pending.count + diagnostic_surveys.active.count
   end
 
+  # Autofill diagnostic survey responses for use in development and test
   def auto_respond
     return if Rails.env.production?
 
     participants.each do |participant|
-      diagnostic_survey = participant.active_survey
+      next unless (diagnostic_survey = participant.active_survey)
+
       svc = DiagnosticSurveyServices::QuestionService.new(diagnostic_survey: diagnostic_survey)
       all_questions = svc.all_questions
-      all_questions[0..].each do |q|
+      all_questions.each do |q|
         response = rand(1..9)
         svc.answer_question(question: q, response: response)
       end
       svc.diagnostic_survey.complete!
     end
+  end
+
+  def perform_report(force: false, options: {})
+    running_reports = reports.where(state: %i[running rendering])
+    return running_reports if !force && running_reports.any?
+
+    running_reports.all.map(&:reject)
+    report_template = diagnostic.report_template
+    report = reports.create!(
+      description: "#{name} Report",
+      report_template: report_template,
+      options: options
+    )
+    report.start
+    report
   end
 
   private
@@ -297,6 +331,8 @@ class TeamDiagnostic < ApplicationRecord
   end
 
   def due_at_is_in_the_future
+    return true if completed? || reported? || cancelled?
+
     (due_at.present? && due_at > Time.now) or
       errors.add(:due_date, 'must be in the future')
   end

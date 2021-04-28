@@ -31,9 +31,7 @@ module TeamDiagnostics
         end
 
         event :report do
-          transitions from: :completed, to: :reported do
-            guard { allow_completion? }
-          end
+          transitions from: :completed, to: :reported
         end
 
         event :cancel do
@@ -60,20 +58,24 @@ module TeamDiagnostics
         aasm.states(permitted: true).map(&:name)
       end
 
-      def guard_report
-        return true if allow_completion?
+      # def guard_report
+      # return true if allow_completion?
 
-        SystemEvent.log(
-          event_source: self,
-          incidental: nil,
-          description: 'The Diagnostic could not be marked as complete due to low participation',
-          severity: :error
-        )
-        false
-      end
+      # SystemEvent.log(
+      # event_source: self,
+      # incidental: nil,
+      # description: 'The Diagnostic could not be marked as complete due to low participation',
+      # severity: :error
+      # )
+      # false
+      # end
 
       def allow_completion?
         deployed? && (force_completion || diagnostic_surveys.completed.count >= diagnostic.minimum_participants)
+      end
+
+      def allow_reporting?
+        %w[deployed setup cancelled].include? state
       end
 
       def after_completion

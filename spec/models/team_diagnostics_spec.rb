@@ -6,13 +6,15 @@ RSpec.describe TeamDiagnostic, type: :model do
   include_context 'users'
   include_context 'organizations'
   include_context 'team_diagnostics'
+  include_context 'report_templates'
+  include_context 'report_template_pages'
 
   let(:participant) { create(:participant, team_diagnostic: teamdiagnostic) }
   let(:subject) { teamdiagnostic_ready }
 
   describe 'initialization' do
     it 'can be saved' do
-      subject = build(:team_diagnostic, user: facilitator, organization: organization, diagnostic: team_diagnostic)
+      subject = build(:team_diagnostic, user: facilitator, organization: organization, diagnostic: tda_diagnostic)
       assert(subject.save)
     end
   end
@@ -40,7 +42,7 @@ RSpec.describe TeamDiagnostic, type: :model do
       expect(subject.organization).to eq(organization)
     end
     it 'includes a diagtnostic' do
-      expect(subject.diagnostic).to eq(team_diagnostic)
+      expect(subject.diagnostic).to eq(tda_diagnostic)
     end
     it 'optionally includes a reference_diagnostic (subject)' do
       expect(subject.reference_diagnostic).to be_nil
@@ -62,6 +64,17 @@ RSpec.describe TeamDiagnostic, type: :model do
         TeamDiagnostic.auto_deploy
         subject.reload
         assert(subject.deployed?)
+      end
+    end
+  end
+
+  describe 'reporting' do
+    describe 'performing report' do
+      it 'should create a report if the diagnostic is completed' do
+        teamdiagnostic_completed.perform_report
+        teamdiagnostic_completed.reload
+        report = teamdiagnostic_completed.reports.first
+        expect(report.chart_data.keys.count).to be >= 2
       end
     end
   end

@@ -22,7 +22,7 @@ RSpec.describe DiagnosticsController, type: :controller do
     end
     describe 'GET /show' do
       it 'should be successful' do
-        get :show, params: { id: team_diagnostic.id }
+        get :show, params: { id: tda_diagnostic.id }
         expect(response).to be_successful
       end
     end
@@ -52,7 +52,7 @@ RSpec.describe DiagnosticsController, type: :controller do
     end
     describe 'GET /edit' do
       it 'should render the edit form' do
-        get :edit, params: { id: team_diagnostic.id }
+        get :edit, params: { id: tda_diagnostic.id }
         expect(response).to render_template('edit')
       end
     end
@@ -60,27 +60,27 @@ RSpec.describe DiagnosticsController, type: :controller do
       describe 'with valid attributes' do
         it 'should update the diagnostic' do
           new_name = 'foobar'
-          put :update, params: { id: team_diagnostic.id, diagnostic: { name: new_name } }
-          team_diagnostic.reload
-          expect(response).to redirect_to(diagnostic_path(team_diagnostic))
-          expect(team_diagnostic.name).to eq(new_name)
+          put :update, params: { id: tda_diagnostic.id, diagnostic: { name: new_name } }
+          tda_diagnostic.reload
+          expect(response).to redirect_to(diagnostic_path(tda_diagnostic))
+          expect(tda_diagnostic.name).to eq(new_name)
         end
       end
       describe 'with invalid attributes' do
         it 'should not update the diagnostic and rerender the form' do
           new_name = nil
-          old_name = team_diagnostic.name
-          put :update, params: { id: team_diagnostic.id, diagnostic: { name: new_name } }
-          team_diagnostic.reload
+          old_name = tda_diagnostic.name
+          put :update, params: { id: tda_diagnostic.id, diagnostic: { name: new_name } }
+          tda_diagnostic.reload
           expect(response).to render_template('edit')
-          expect(team_diagnostic.name).to eq(old_name)
+          expect(tda_diagnostic.name).to eq(old_name)
         end
       end
     end
     describe 'DELETE /destroy' do
       it 'raise an error' do
         expect  do
-          delete :destroy, params: { id: team_diagnostic.id }
+          delete :destroy, params: { id: tda_diagnostic.id }
         end.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
@@ -97,7 +97,7 @@ RSpec.describe DiagnosticsController, type: :controller do
     describe 'GET /edit' do
       it 'should disallow access' do
         expect do
-          get :edit, params: { id: team_diagnostic.id }
+          get :edit, params: { id: tda_diagnostic.id }
         end.to raise_error(ActiveRecord::RecordNotFound)
       end
     end

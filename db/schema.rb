@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_29_050820) do
+ActiveRecord::Schema.define(version: 2021_11_27_213425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -94,7 +94,8 @@ ActiveRecord::Schema.define(version: 2021_09_29_050820) do
     t.boolean "active", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["active", "category", "question_type", "factor", "matrix"], name: "general_idx"
+    t.decimal "weight", default: "0.0", null: false
+    t.index ["active", "category", "question_type", "factor", "matrix", "weight"], name: "general_idx"
     t.index ["diagnostic_id"], name: "index_diagnostic_questions_on_diagnostic_id"
     t.index ["slug"], name: "index_diagnostic_questions_on_slug", unique: true
   end
@@ -277,6 +278,48 @@ ActiveRecord::Schema.define(version: 2021_09_29_050820) do
     t.json "metadata", default: ""
     t.index ["team_diagnostic_id", "email"], name: "index_participants_on_team_diagnostic_id_and_email", unique: true
     t.index ["team_diagnostic_id", "state"], name: "index_participants_on_team_diagnostic_id_and_state"
+  end
+
+  create_table "report_template_pages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "report_template_id"
+    t.string "slug"
+    t.integer "index"
+    t.string "locale"
+    t.string "format"
+    t.string "name"
+    t.text "markup"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["report_template_id", "format", "locale", "index"], name: "order_idx"
+    t.index ["report_template_id", "slug", "format", "locale"], name: "slug_idx", unique: true
+  end
+
+  create_table "report_templates", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "tenant_id", null: false
+    t.uuid "diagnostic_id", null: false
+    t.string "name", null: false
+    t.string "state", default: "draft", null: false
+    t.integer "version", default: 1, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tenant_id", "diagnostic_id", "state", "version"], name: "report_templates_idx"
+  end
+
+  create_table "reports", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "team_diagnostic_id"
+    t.uuid "report_template_id"
+    t.string "state", default: "pending", null: false
+    t.integer "version", default: 1, null: false
+    t.datetime "started_at"
+    t.datetime "completed_at"
+    t.string "description"
+    t.text "note"
+    t.uuid "token"
+    t.json "chart_data"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.json "options", default: {}
+    t.index ["team_diagnostic_id", "state", "version"], name: "index_reports_on_team_diagnostic_id_and_state_and_version"
   end
 
   create_table "roles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

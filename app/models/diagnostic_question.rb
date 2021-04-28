@@ -17,10 +17,11 @@
 #  active        :boolean          default(FALSE), not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  weight        :decimal(, )      default(0.0), not null
 #
 class DiagnosticQuestion < ApplicationRecord
   ### Constants
-  ALLOWED_PARAMS = %i[diagnostic_id body body_positive category question_type factor matrix negative active].freeze
+  ALLOWED_PARAMS = %i[diagnostic_id body body_positive category question_type factor matrix negative weight active].freeze
   DEFAULT_FACTORS = ['Decision Making', 'Resources', 'Alignment', 'Values Diversity', 'Camaraderie', 'Constructive Interaction', 'Communication', 'Trust', 'Optimism', 'Team Leadership', 'Goals & Strategies', 'Respect', 'Accountability', 'Proactive'].freeze
   DEFAULT_CATEGORIES = %w[Productivity Positivity].freeze
   RATING_TYPE = 'Rating'
@@ -45,6 +46,7 @@ class DiagnosticQuestion < ApplicationRecord
   validates :question_type, presence: true
   validates :factor, presence: true
   validates :matrix, presence: true
+  validates :weight, numericality: { greater_than_or_equal_to: 0.0, less_than_or_equal_to: 1.0 }, presence: true
 
   ### Callbacks
   before_validation :create_slug, on: :create

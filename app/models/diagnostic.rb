@@ -36,6 +36,7 @@ class Diagnostic < ApplicationRecord
 
   ### Associations
   has_many :diagnostic_questions, dependent: :destroy
+  has_many :report_templates
 
   ### Class Methods
 
@@ -52,10 +53,16 @@ class Diagnostic < ApplicationRecord
 
   def maximum_participants
     case slug
-    when TLV_SLUG
+    when TLV_SLUG, LEAD_360_SLUG
       1
     else
       MAXIMUM_PARTICIPANTS
     end
+  end
+
+  def report_template(version: nil)
+    conditions = { state: 'published' }
+    conditions.merge!({ version: version }) if version
+    report_templates.where(conditions).order(version: :desc).first
   end
 end

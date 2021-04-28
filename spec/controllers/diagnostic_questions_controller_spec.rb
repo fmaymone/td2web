@@ -9,15 +9,15 @@ RSpec.describe DiagnosticQuestionsController, type: :controller do
   include_context 'diagnostics'
 
   let(:team_diagnostic_questions) do
-    create_list(:diagnostic_question, 5, diagnostic: team_diagnostic)
+    create_list(:diagnostic_question, 5, diagnostic: tda_diagnostic)
   end
 
   let(:question) { team_diagnostic_questions.first }
 
-  let(:diagnostic_params) { { diagnostic_id: team_diagnostic.id } }
+  let(:diagnostic_params) { { diagnostic_id: tda_diagnostic.id } }
 
   let(:valid_question_attributes) do
-    attributes_for(:diagnostic_question, diagnostic: team_diagnostic.id)
+    attributes_for(:diagnostic_question, diagnostic: tda_diagnostic.id)
   end
 
   describe 'Logged in as an Admin' do
@@ -105,7 +105,7 @@ RSpec.describe DiagnosticQuestionsController, type: :controller do
       it 'should succeed' do
         count = DiagnosticQuestion.count
         delete :destroy, params: diagnostic_params.merge(id: question.id)
-        expect(response).to redirect_to(diagnostic_diagnostic_questions_path(diagnostic_id: team_diagnostic.id))
+        expect(response).to redirect_to(diagnostic_diagnostic_questions_path(diagnostic_id: tda_diagnostic.id))
         expect(DiagnosticQuestion.count).to eq(count - 1)
       end
     end

@@ -1,0 +1,446 @@
+$gold: #AC6D2E;
+$lightgold: #F3e8d3; 
+$purple: #281E53;
+
+@media only screen {
+  section.report_page, section.cover_page {
+    width: 1054px;
+    height: 816px;
+    position: relative;
+    border-bottom: 1px solid $purple;
+  }
+}
+
+article:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+body {
+  font-family: Helvetica;
+}
+
+header {
+  h1 {
+    display: inline-block;
+    position: relative;
+    top: 40px;
+    left: 30px;
+    font-size: 2.5em;
+    font-weight: normal;
+    color: $gold
+  }
+}
+
+section.cover_page, section.report_page {
+  page-break-after: always;
+  article { height: 100%; width: 98%; }
+  div.copyright_notice {
+    position: relative;
+    text-align: right;
+    margin: 1em;
+    font-size: 0.8em;
+    top: -40px;
+  }
+  footer.page_footer {
+    height: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  div.diagnostic_type {
+    position: absolute;
+    top: 175px;
+    right: 55px;
+    font-size: 1em;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: $purple;
+  }
+  img.logo_left_top {
+    width: 100px;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+  }
+  img.logo_left_bottom {
+    width: 100px;
+    position: absolute;
+    right: 30px;
+    bottom: 20px;
+  }
+  div.chapter_page {
+    background-image: url("/reports/images/report_introduction_cover_page.jpg");
+    width: 100%;
+    margin-top: 100px;
+    min-height: 600px;
+    background-repeat: no-repeat;
+    h1.chapter_title, h1.intro_chapter_title {
+      margin: 0 !important;
+      position: relative;
+      right: 50px;
+      top: 450px;
+      text-align: right;
+      font-size: 3em;
+      color: $purple;
+      span.subheading {
+        color: $gold;
+        font-size: 0.8em;
+      }
+    }
+    h1.intro_chapter_title {
+      top: 300px;
+    }
+  }
+}
+
+
+section.cover_page {
+  header, footer {
+    min-height: 20px;
+    background: $gold;
+  }
+  .coverleft {
+    float: left;
+    width: 45%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 2.5em;
+    padding-bottom: 0.5em;
+    color: white;
+    background-color: #362C66;
+    h1 { font-size: 3.0em; color: white; font-weight: bold; }
+    h2 { font-size: 2.0em; color: #E7D4BC; font-weight: normal; }
+    p { font-size: 1.2em; color: white; }
+  }
+  .coverright {
+    height: 100%;
+    float: left;
+    width: 45%;
+    padding: 2em;
+    padding-top: 16em;
+  }
+  p.report_for {
+    color: $gold;
+    font-size: 1.2em;
+    text-transform: uppercase;
+  }
+  h1.team_name {
+    font-size: 2em;
+    color: black;
+  }
+  div.copyright_notice {
+    text-align: right;
+    margin: 1em;
+  }
+  div#report_welcome {
+    background-image: url("/reports/images/report_cover_world.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+section.report_page {
+  div.leftcol {
+    float: left;
+    width: 40%;
+		blockquote {
+			text-align: right;
+		}
+    img {
+      width: 95%;
+      padding-top: 20px;
+    }
+  }
+  div.rightcol {
+    float: left;
+    width: 60%;
+  }
+  p, li {
+    font-family: serif;
+    font-size: 1.3em;
+  }
+  p.summary {
+    color: $purple;
+    font-family: sans-serif;
+    font-size: 1.3em;
+    margin: auto 2em;
+  }
+	li {
+    line-height: 1.3em;
+	}
+  ul.wide li{
+    line-height: 3em;
+  }
+	em {
+		font-weight: bold;
+	}
+  header {
+    /* background image */
+    background-image: url("/reports/images/report_header.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 200px;
+    width: 100%;
+  }
+  blockquote {
+    font-size: 1.5em;
+    color: $purple;
+    font-weight: bold;
+    line-height: 1.2em;
+    footer {
+      height: auto;
+      position: relative;
+      margin-top: 1em;
+      font-size: 0.8em;
+      font-weight: normal;
+      font-style: italic;
+			line-height: 1em;
+			cite {
+				text-align: right;
+				font-size: 0.8em;
+				font-style: normal;
+			}
+    }
+    footer::before { content: '\2014' ; }
+  }
+  h2 {
+    font-size: 1.5em;
+    color: $purple;
+  }
+  h3 {
+    font-size: 1.2em;
+    color: $purple;
+    font-style: italic;
+  }
+  div.chart_container {
+    svg {
+      display: block;
+      margin: 0px auto;
+    }
+  }
+  img.centered {
+    display: block;
+    margin: 0px auto;
+    max-width: 800px;
+  }
+}
+
+article {
+  width: 100%;
+  font-size: 14px;
+  div.small_copyright {
+    line-height: 2em;
+    font-size: 0.8em;
+    position: absolute;
+    left: 2.5em;
+    bottom: 50px;
+    font-style: italic;
+  }
+  span.footer_separator {
+    color: $gold;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 2em;
+    font-size: 1.2em;
+  }
+  span.footer_page_number {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 2em;
+    font-size: 1.2em;
+  }
+  header {
+    h1 {
+      color: $purple;
+      font-size: 1.5em;
+    }
+  }
+  .content_col {
+    float: left;
+    margin: 1em;
+    font-family: serif;
+    em { font-size: 1.3em }
+  }
+  h1.chart_title {
+    font-size: 1.5em;
+  }
+}
+
+
+
+table#quadrants_figure {
+  font-family: sans-serif;
+  width: 75%;
+  margin: 0px auto;
+  .quadrant_strength {
+    font-weight: bold;
+    font-size: 1.3em;
+    text-align: center;
+  }
+  div.green { background: #496b4a; }
+  div.blue { background: #186ba0; }
+  div.brown { background: #87623d; }
+  div.red { background: #8f1f2b; }
+  div.quadrant_cell {
+    border-radius: 5px;
+    margin: 0.5em;
+    padding: 0.5em;
+    height: 11em;
+    width: 20em;
+    span.cellheader {
+      font-weight: bold;
+      font-size: 1.1em;
+      color: black;
+      span.positive {
+        color: white;
+      }
+    }
+    ul {
+      margin: 0.5em 0.5em 1em 0.5em;
+      padding-left: 1em;
+    }
+    li {
+      font-size: 0.8em;
+      color: white;
+      font-family: sans-serif;
+    }
+  }
+}
+
+div.action_plan {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "summary challenges_header actions_header outcomes_header"
+    "summary challenges challenges challenges"
+    "summary actions actions actions"
+    "summary outcomes outcomes outcomes";
+  .challenges_header { grid-area: challenges_header; }
+  .actions_header { grid-area: actions_header; }
+  .actions_header { grid-area: actions_header; }
+  .outcomes_header { grid-area: outcomes_header; }
+  .summary {
+    grid-area: summary;
+    font-family: serif;
+    padding: 1em;
+    font-size: 1.2em;
+  }
+  .column_header {
+    padding: 1em;
+    background-color: $lightgold;
+    margin: 0.5em;
+    font-size: 0.8em;
+  }
+  .plancell {
+    border: 2px solid $gold;
+    margin: 0.5em;
+    padding: 0.25em;
+    height: 10em;
+  }
+  .column_header_title {
+    color: $purple;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+}
+
+
+// Team Matrix Position Chart
+.team_matrix_position_chart_labels text {
+  font-size: 1.2em;
+  font-weight: bold;
+  font-family: "Helvetica"
+}
+
+.team_matrix_position_chart_xaxis .tick text,
+  .team_matrix_position_chart_yaxis .tick text {
+  font-size: 1.2em;
+  font-weight: bold;
+  font-family: "Helvetica"
+}
+// Team Matrix Position Chart
+
+
+// HighestLowest Charts
+table.highest_lowest_table {
+  border-spacing: 0 0.6em;
+  border-collapse: separate;
+  font-family: Helvetica;
+}
+table.highest_lowest_table thead th { font-size: 1.2em; }
+table.highest_lowest_table thead tr th:first-child {
+  text-align: left;
+  text-transform: uppercase;
+}
+table.highest_lowest_table thead tr th:last-child {
+  text-align: right;
+}
+
+table.highest_lowest_table tbody tr td {
+  height: 2em;
+}
+
+table.highest_lowest_table tbody tr[data-highestlowestcategory="highestproductivity"] {
+  background-color: #5A7C5D;
+  color: white;
+}
+table.highest_lowest_table tbody tr[data-highestlowestcategory="lowestproductivity"] {
+  background-color: #B8C6B8;
+  color: black;
+}
+table.highest_lowest_table tbody tr[data-highestlowestcategory="highestpositivity"] {
+  background-color: #186B80;
+  color: white;
+}
+table.highest_lowest_table tbody tr[data-highestlowestcategory="lowestpositivity"] {
+  background-color: #85B4CE;
+  color: black;
+}
+
+table.highest_lowest_table td {
+  padding: 1em 0.5em;
+}
+table.highest_lowest_table td:first-child {
+  width: 80%
+}
+table.highest_lowest_table td:last-child {
+  text-align: right;
+  font-size: 1.3em;
+}
+// HighestLowest Charts
+
+// Most/Least Agreement
+.agreement_chart_drawing_container {
+  width: 500px;
+  margin: 0px auto;
+}
+
+.agreement_legend {
+  font-size: 0.8em;
+  background-color: #eee;
+  padding: 0.25em 1em;
+  width: 600px;
+  font-family: Helvetica;
+  margin: 0px auto;
+}
+
+.agreement_legend p {
+  margin-block-start: 0.75em;
+  margin-block-end: 0.75em;
+}
+
+span.agreement_legend_item_number {
+  display: inline-block;
+  height: 1.2em;
+  width: 1.2em;
+  border-radius: 50%;
+  text-align: center;
+  padding: 0.3em;
+  color: white;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+// Most/Least Agreement

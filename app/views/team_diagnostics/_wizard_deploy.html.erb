@@ -1,65 +1,65 @@
 <div class="row">
   <div class="col-sm-6">
     <h3>
-      Status
+      <%= 'Status'.t %>
       <span class="badge badge-<%= team_diagnostic_state_pill_class(@service.team_diagnostic) %>"><%= @service.team_diagnostic.state.capitalize.t %></span>
     </h3>
 
     <% case @service.team_diagnostic.state
       when 'setup' %>
       <h3>
-        Deploy
+        <%= 'Deploy'.t %>
         <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.auto_deploy_at %></small>
       </h3>
       <h3>
-        Reminders
+        <%= 'Reminders'.t %>
         <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.reminder_at %></small>
       </h3>
       <h3>
-        Due
+        <%= 'Due'.t %>
         <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.due_at %></small>
       </h3>
     <% when 'deployed' %>
       <h3>
-        Deployed
+        <%= 'Deployed'.t %>
         <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.deployed_at %></small>
       </h3>
       <h3>
         <% if @service.team_diagnostic.reminder_sent_at.present? %>
-          Reminders Sent
+          <%= 'Reminders Sent'.t %>
           <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.reminder_sent_at %></small>
         <% else %>
-          Reminders
+          <%= 'Reminders'.t %>
           <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.reminder_at %></small>
         <% end %>
       </h3>
       <h3>
-        Due
+        <%= 'Due'.t %>
         <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.due_at %></small>
       </h3>
     <% when 'cancelled' %>
       <% if @service.team_diagnostic.deployed_at.present? %>
         <h3>
-          Deployed
+          <%= 'Deployed'.t %>
           <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.deployed_at %></small>
         </h3>
       <% end %>
     <% when 'completed' %>
       <h3>
-        Deployed
+        <%= 'Deployed'.t %>
         <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.deployed_at %></small>
       </h3>
       <h3>
-        Completed
+        <%= 'Completed'.t %>
         <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.completed_at %></small>
       </h3>
     <% when 'reported' %>
       <h3>
-        Deployed
+        <%= 'Deployed'.t %>
         <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.deployed_at %></small>
       </h3>
       <h3>
-        Completed
+        <%= 'Completed'.t %>
         <small class="text-nowrap"><%= i18n_date_long @service.team_diagnostic.completed_at %></small>
       </h3>
     <% end %>
@@ -78,7 +78,16 @@
       <%= link_to('Complete Diagnostic'.t, complete_team_diagnostic_path(id: @service.team_diagnostic.id), { method: :post, class: 'btn btn-warning', data: {confirm: 'Are you sure?'.t} }) if policy(@service.team_diagnostic).complete? %>
       <%= link_to('Cancel Diagnostic'.t, cancel_team_diagnostic_path(id: @service.team_diagnostic.id), { method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure?'.t} }) if policy(@service.team_diagnostic).cancel? %>
     </p>
-    <%= link_to('Download Report'.t, '#', class: 'btn btn-lg btn-success') if policy(@service.team_diagnostic).download_report? %>
+    <% report = @service.team_diagnostic.reports.order(updated_at: :desc).first %>
+    <% if report %>
+      <%= link_to('Download Report'.t, '#', class: 'btn btn-lg btn-success') if policy(@service.team_diagnostic).download_report? %>
+      <p>
+        <%= link_to('View Report'.t, report_team_diagnostic_path(id: @service.team_diagnostic.id, report_id: report.id, token: report.token), class: 'btn btn-success') %>
+      </p>
+      <% if @service.team_diagnostic.reported? %>
+        <%= link_to('View Report'.t, report_team_diagnostic_path(id: @service.team_diagnostic.id, report_id: @service.team_diagnostic.current_report.id, token: @service.team_diagnostic.current_report.token), class: 'btn btn-lg btn-success')%>
+      <% end %>
+    <% end %>
     <br/>
     <%= link_to('Export Data'.t, export_team_diagnostic_path(id: @service.team_diagnostic.id, format: :csv), class: 'btn btn btn-success') if policy(@service.team_diagnostic).export_data? %>
   </div>

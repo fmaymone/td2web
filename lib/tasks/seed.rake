@@ -46,6 +46,12 @@ namespace :db do
       require_relative '../../db/seed/diagnostic_questions'
       run_seeder(Seeds::DiagnosticQuestions)
     end
+
+    desc 'Report Templates'
+    task report_templates: :environment do
+      require_relative '../../db/seed/report_templates'
+      run_seeder(Seeds::ReportTemplates)
+    end
   end
 end
 

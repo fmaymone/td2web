@@ -47,7 +47,7 @@ RSpec.describe TeamDiagnosticsController, type: :controller do
 
   describe 'POST #create' do
     describe 'Logged in as a facilitator' do
-      let(:valid_attributes) { attributes_for(:team_diagnostic, user_id: facilitator.id, organization_id: organization.id, diagnostic_id: team_diagnostic.id) }
+      let(:valid_attributes) { attributes_for(:team_diagnostic, user_id: facilitator.id, organization_id: organization.id, diagnostic_id: tda_diagnostic.id) }
       let(:invalid_attributes) { valid_attributes.merge({ name: nil }) }
       before(:each) do
         sign_in facilitator

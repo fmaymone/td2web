@@ -29,6 +29,22 @@ class DiagnosticResponse < ApplicationRecord
   scope :rating, -> { includes(:team_diagnostic_question).where(team_diagnostic_questions: { question_type: TeamDiagnosticQuestion::RATING_TYPE }) }
   scope :open_ended, -> { includes(:team_diagnostic_question).where(team_diagnostic_questions: { question_type: TeamDiagnosticQuestion::OPEN_ENDED_TYPE }) }
 
+  def factor
+    team_diagnostic_question&.factor
+  end
+
+  def category
+    team_diagnostic_question&.categery
+  end
+
+  def response_type
+    team_diagnostic_question&.question_type
+  end
+
+  def question_id
+    team_diagnostic_question_id
+  end
+
   private
 
   def survey_is_active

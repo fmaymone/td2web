@@ -51,7 +51,7 @@ class TeamDiagnosticLetter < ApplicationRecord
   ### Class Methods
 
   def self.default_letter(type:, locale:, team_diagnostic: nil)
-    send("default_#{type}_letter", { locale: locale, team_diagnostic: team_diagnostic })
+    send("default_#{type}_letter", locale: locale, team_diagnostic: team_diagnostic)
   end
 
   def self.default_cover_letter(locale:, team_diagnostic: nil)

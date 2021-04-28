@@ -6,7 +6,38 @@ RSpec.shared_context 'team_diagnostics', shared_context: :metadate do
   include_context 'diagnostics'
 
   let(:teamdiagnostic) do
-    create(:team_diagnostic, user_id: facilitator.id, organization_id: organization.id, diagnostic_id: team_diagnostic.id)
+    create(:team_diagnostic, user_id: facilitator.id, organization_id: organization.id, diagnostic: tda_diagnostic)
+  end
+
+  let(:completed_teamdiagnostic) do
+    # Create team diagnostic
+    td = create(:team_diagnostic, user_id: facilitator.id, organization_id: organization.id, diagnostic: tda_diagnostic)
+    td.reload
+
+    # Create participants
+    Array.new(4) do
+      ParticipantServices::Creator.new(
+        user: facilitator, team_diagnostic: td, params: attributes_for(:participant, team_diagnostic: td)
+      ).call
+    end
+
+    ParticipantServices::Creator.new(
+      user: facilitator, team_diagnostic: td, params: attributes_for(:participant, team_diagnostic: td, locale: 'es')
+    ).call
+
+    # Assign Letters
+    td.team_diagnostic_letters << td.missing_letters.map do |letter|
+      letter.subject = 'foobar'
+      letter.body = 'foobar'
+      letter
+    end
+    td.save
+    td.reload
+
+    # Deploy
+    td.deploy!
+    td.reload
+    td
   end
 
   let(:teamdiagnostic_ready) do
@@ -19,6 +50,13 @@ RSpec.shared_context 'team_diagnostics', shared_context: :metadate do
   let(:teamdiagnostic_deployed) do
     td = teamdiagnostic_ready
     td.deploy!
+    td.reload
+    td
+  end
+
+  let(:teamdiagnostic_completed) do
+    td = teamdiagnostic_deployed
+    td.auto_respond
     td.reload
     td
   end

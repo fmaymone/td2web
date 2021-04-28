@@ -80,7 +80,7 @@ class TeamDiagnosticPolicy < ApplicationPolicy
   end
 
   def export?
-    show? && record&.completed? || record&.reported?
+    (show? && record&.completed?) || record&.reported?
   end
 
   def entitled_diagnostics

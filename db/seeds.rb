@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Load seed modules
-Dir[File.join(__dir__, 'seed', '*.rb')].sort.each { |file| require file }
+Dir[File.join(__dir__, 'seed', '*.rb')].each { |file| require file }
 
 ### Define the set of Seeder Modules here
 # NOTE: Order is important!
@@ -12,7 +12,8 @@ SEED_MODULES = [
   Seeds::Users,
   Seeds::Entitlements,
   Seeds::Diagnostics,
-  Seeds::DiagnosticQuestions
+  Seeds::DiagnosticQuestions,
+  Seeds::ReportTemplates
 ].freeze
 ###
 
