@@ -21,6 +21,7 @@ class Diagnostic < ApplicationRecord
   ORG_SLUG = 'ORG'
   LEAD_360_SLUG = 'L360'
   FAMILY_TRIBES_SLUG = 'FT'
+  MAXIMUM_PARTICIPANTS = 1000
 
   ### Concerns
   include Seeds::Seedable
@@ -46,6 +47,15 @@ class Diagnostic < ApplicationRecord
       1
     else
       2
+    end
+  end
+
+  def maximum_participants
+    case slug
+    when TLV_SLUG
+      1
+    else
+      MAXIMUM_PARTICIPANTS 
     end
   end
 end

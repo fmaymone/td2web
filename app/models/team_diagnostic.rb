@@ -115,6 +115,7 @@ class TeamDiagnostic < ApplicationRecord
     errors = []
     errors << 'Information is missing or invalid'.t unless valid?
     errors << 'Please invite more participants'.t unless sufficient_participants?
+    errors << 'Please invite fewer participants'.t if excess_participants?
     errors << 'Please create Open Ended Question translations'.t unless sufficient_open_ended_question_translations?
     errors << 'Please create letter translations'.t unless sufficient_letter_translations?
     errors
@@ -156,6 +157,12 @@ class TeamDiagnostic < ApplicationRecord
     return true unless diagnostic && %w[setup deployed].include?(state)
 
     participants.participating.count >= diagnostic.minimum_participants
+  end
+
+  def excess_participants?
+    return true unless diagnostic && %w[setup deployed].include?(state)
+
+    participants.participating.count <= diagnostic.maximum_participants
   end
 
   def participants_pending_activation?
