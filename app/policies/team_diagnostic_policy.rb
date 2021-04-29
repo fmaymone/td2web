@@ -111,11 +111,11 @@ class TeamDiagnosticPolicy < ApplicationPolicy
   end
 
   def export_data?
-    show? && record.completed?
+    admin? || staff?
   end
 
   def download_report?
-    export_data?
+    show? && record.completed?
   end
 
   def allowed_params
