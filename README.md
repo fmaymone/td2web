@@ -16,6 +16,8 @@ Rails conventions are followed as well as possible.
 
 Environment variables are configured in: `.env`
 
+Copy `env.sample` to `.env`
+
 ```
 # Example for development environment
 # ALL of the following ENVVARS must be set
@@ -49,7 +51,6 @@ Edit credentials with `bundle exec rails credentials:edit --environment RAILS_EN
 Run `bundle exec rspec` to run all tests and output a coverage report to `coverage/index`
 
 During development, run `bundle exec guard` in a dedicated terminal for automated tests
-
 
 # Services (job queues, cache servers, search engines, etc.)
 

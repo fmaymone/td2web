@@ -148,7 +148,7 @@ ActiveRecord::Schema.define(version: 2021_02_24_064302) do
     t.index ["slug"], name: "index_entitlements_on_slug", unique: true
   end
 
-  create_table "globalize_countries", force: :cascade do |t|
+  create_table "globalize_countries", id: :bigint, default: nil, force: :cascade do |t|
     t.string "code", limit: 2
     t.string "english_name", limit: 255
     t.string "date_format", limit: 255
@@ -182,7 +182,7 @@ ActiveRecord::Schema.define(version: 2021_02_24_064302) do
     t.index ["rfc_3066"], name: "idx_4871315_globalize_languages_rfc_3066_index"
   end
 
-  create_table "globalize_translations", force: :cascade do |t|
+  create_table "globalize_translations", id: :bigint, default: nil, force: :cascade do |t|
     t.string "type", limit: 255
     t.string "tr_key", limit: 512
     t.string "table_name", limit: 255

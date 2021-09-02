@@ -12,7 +12,7 @@ Load most seed data via `rake db:seed`
 bunzip2 -k db/seed/tdv1_i18n_data-utf8.sql.bz2
 
 # Local
-psql tdv2_dev db/seed/tdv1_i18n_data-utf8.sql
+psql tdv2_dev < db/seed/tdv1_i18n_data-utf8.sql
 
 # Staging Dokku
 ssh dokku@staging.tdv2.bellingham.dev postgres:connect tdv2staging01 < db/seed/tdv1_i18n_data.sql
@@ -21,9 +21,15 @@ ssh dokku@staging.tdv2.bellingham.dev postgres:connect tdv2staging01 < db/seed/t
 heroku pg:psql --app APPNAME < db/seed/tdv1_i18n_data.sql
 ```
 
+### Load Migrations
+
+```
+rake db:migrate
+```
+
 ### Convert TDv1 Globalize Translations to I18n::Translations
 
-( This only needs to be done once in development. )
+( This only needs to be done once in development. The seed data already includes this, so don't run it under normal circumstances.)
 
 ```
 psql tdv2_dev -c \

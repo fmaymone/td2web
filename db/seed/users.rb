@@ -37,7 +37,8 @@ module Seeds
         user_profile_attributes: {
           first_name: 'Admin',
           last_name: 'Admin',
-          country: 'USA'
+          country: 'USA',
+          phone_number: '5555555555'
         }
       )
       @success = user0.save
