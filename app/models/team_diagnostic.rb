@@ -162,7 +162,7 @@ class TeamDiagnostic < ApplicationRecord
   def excess_participants?
     return true unless diagnostic && %w[setup deployed].include?(state)
 
-    participants.participating.count <= diagnostic.maximum_participants
+    participants.participating.count >= diagnostic.maximum_participants
   end
 
   def participants_pending_activation?
