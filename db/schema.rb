@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_24_064302) do
+ActiveRecord::Schema.define(version: 2021_09_29_050820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -274,6 +274,7 @@ ActiveRecord::Schema.define(version: 2021_02_24_064302) do
     t.text "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.json "metadata", default: ""
     t.index ["team_diagnostic_id", "email"], name: "index_participants_on_team_diagnostic_id_and_email", unique: true
     t.index ["team_diagnostic_id", "state"], name: "index_participants_on_team_diagnostic_id_and_state"
   end

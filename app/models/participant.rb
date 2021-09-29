@@ -17,10 +17,11 @@
 #  notes              :text
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  metadata           :json
 #
 class Participant < ApplicationRecord
   ### Constants
-  ALLOWED_PARAMS = %i[email phone title first_name last_name locale timezone notes].freeze
+  ALLOWED_PARAMS = %i[email phone title first_name last_name locale timezone notes metadata].freeze
   PARTICIPATING_STATES = %i[approved active completed].freeze
 
   ### Concerns

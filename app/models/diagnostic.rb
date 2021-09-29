@@ -55,7 +55,7 @@ class Diagnostic < ApplicationRecord
     when TLV_SLUG
       1
     else
-      MAXIMUM_PARTICIPANTS 
+      MAXIMUM_PARTICIPANTS
     end
   end
 end

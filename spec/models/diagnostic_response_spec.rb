@@ -1,5 +1,17 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: diagnostic_responses
+#
+#  id                          :uuid             not null, primary key
+#  diagnostic_survey_id        :uuid             not null
+#  team_diagnostic_question_id :uuid             not null
+#  locale                      :string           not null
+#  response                    :text             not null
+#  created_at                  :datetime         not null
+#  updated_at                  :datetime         not null
+#
 require 'rails_helper'
 
 RSpec.describe DiagnosticResponse, type: :model do

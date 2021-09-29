@@ -17,6 +17,7 @@
 #  notes              :text
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  metadata           :json
 #
 FactoryBot.define do
   factory :participant do

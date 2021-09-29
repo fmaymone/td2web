@@ -161,7 +161,8 @@ module ParticipantServices
         email: row[3],
         phone: row[4],
         locale: row[5] || @team_diagnostic.locale,
-        timezone: row[6] || @team_diagnostic.timezone
+        timezone: row[6] || @team_diagnostic.timezone,
+        metadata: row[7]
       }
     end
 
