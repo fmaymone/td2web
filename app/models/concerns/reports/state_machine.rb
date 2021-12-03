@@ -30,7 +30,7 @@ module Reports
         event :render do
           transitions from: [:running], to: :rendering
           after do
-            service = ReportServices::Renderer.new(self, formats: :all)
+            service = ReportServices::Renderer.new(self, formats: :standard)
             service.delay.call
             true
           end

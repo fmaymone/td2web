@@ -10,6 +10,10 @@ module ReportServices
       Renderers::Html,
       Renderers::Pdf
     ].freeze
+    STANDARD_RENDERERS = [
+      Renderers::Html,
+      Renderers::Pdf
+    ].freeze
 
     def initialize(report, formats: :all, locale: nil)
       @report = report
@@ -25,21 +29,39 @@ module ReportServices
     def call
       @renderers.each do |renderer|
         renderer.new(report: @report, locale: @locale).call
+      rescue StandardError => e
+        log_rendering_error(e, renderer)
       end
+      @report.reload
+      @report.complete! if @report.rendering? && @report.report_files.present?
+    end
+
+    def all_formats
+      RENDERERS.map { |r| r::ID }
+    end
+
+    def standard_formats
+      STANDARD_RENDERERS.map { |r| r::ID }
     end
 
     private
 
-    def all_formats
-      RENDERERS.map { |r| r::ID }
+    def log_rendering_error(error, renderer)
+      renderer_name = renderer::ID
+      error_description = "Problem generating #{renderer_name}"
+      SystemEvent.log(event_source: @report.team_diagnostic, description: error_description, severity: :error, debug: error.message)
     end
 
     def get_formats(formats)
       case formats
       when :all
         all_formats
+      when :standard
+        standard_formats
+      when Array
+        all_formats.select { |format| formats.include?(format.to_sym) }
       else
-        [all_formats.find { |format| format.to_s == formats.to_s }].compact
+        []
       end
     end
 
