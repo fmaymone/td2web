@@ -23,7 +23,7 @@ module ReportServices
         @template = report.report_template
         @locale = locale
         @options = options || @report.options || {}
-        set_url_options
+        # set_url_options
       end
 
       def call
@@ -61,13 +61,17 @@ module ReportServices
 
       private
 
-      def set_url_options
-        Rails.application.routes.default_url_options[:host] = host_prefix
-        ActiveStorage::Current.host = host_prefix
-      end
+      # def set_url_options
+      # Rails.application.routes.default_url_options[:host] = host_prefix
+      # ActiveStorage::Current.host = host_prefix
+      # end
 
+      # def host_prefix
+      # [Rails.configuration.application_host, Rails.configuration.application_port].join(':')
+      # end
+      #
       def host_prefix
-        [Rails.configuration.application_host, Rails.configuration.application_port].join(':')
+        Rails.application.routes.default_url_options[:host]
       end
 
       def page_scope(locale)
@@ -115,7 +119,8 @@ module ReportServices
           'team_name' => @report.team_diagnostic.name,
           'locale' => locale,
           'organization' => @report.team_diagnostic.organization.name,
-          'tenant' => @report.team_diagnostic.organization.tenant.name
+          'tenant' => @report.team_diagnostic.organization.tenant.name,
+          'team_logo' => @report.team_diagnostic.logo_url
         }
       end
     end

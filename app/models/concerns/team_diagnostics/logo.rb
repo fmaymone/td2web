@@ -15,6 +15,10 @@ module TeamDiagnostics
       def destroy_logo
         logo.purge_later if _destroy_logo == '1'
       end
+
+      def logo_url
+        logo.attached? ? Rails.application.routes.url_helpers.url_for(logo) : nil
+      end
     end
   end
 end

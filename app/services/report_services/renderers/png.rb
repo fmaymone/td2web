@@ -18,7 +18,7 @@ module ReportServices
         ID
       end
 
-      def title(chart_name=nil)
+      def title(chart_name = nil)
         diagnostic_name = report.team_diagnostic.name.humanize
         file_chart_name = chart_name.titleize
         "#{diagnostic_name}-#{file_chart_name}"
