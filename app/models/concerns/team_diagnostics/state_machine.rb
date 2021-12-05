@@ -31,7 +31,7 @@ module TeamDiagnostics
         end
 
         event :report do
-          before { perform_report }
+          after { perform_report }
           transitions from: :completed, to: :reported
         end
 
@@ -76,7 +76,7 @@ module TeamDiagnostics
       end
 
       def allow_reporting?
-        %w[deployed setup cancelled].include? state
+        %w[deployed setup reported completed cancelled].include? state
       end
 
       def after_completion

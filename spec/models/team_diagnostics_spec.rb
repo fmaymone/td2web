@@ -71,9 +71,12 @@ RSpec.describe TeamDiagnostic, type: :model do
   describe 'reporting' do
     describe 'performing report' do
       it 'should create a report if the diagnostic is completed' do
-        teamdiagnostic_completed.perform_report
-        teamdiagnostic_completed.reload
-        report = teamdiagnostic_completed.reports.first
+        completed_teamdiagnostic.auto_respond
+        completed_teamdiagnostic.complete!
+        completed_teamdiagnostic.reload
+        completed_teamdiagnostic.report!
+        completed_teamdiagnostic.reload
+        report = completed_teamdiagnostic.reports.first
         expect(report.chart_data.keys.count).to be >= 2
       end
     end

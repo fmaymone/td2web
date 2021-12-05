@@ -21,9 +21,6 @@ RSpec.describe ReportServices::Renderers::Html do
   end
 
   it 'returns html output' do
-    service.report.report_files.destroy_all
-    service.report.reload
-
     output = service.generate(locale)
     assert(output.is_a?(String))
     expect(output).to match('Page 1')

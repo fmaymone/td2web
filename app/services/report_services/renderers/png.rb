@@ -18,8 +18,10 @@ module ReportServices
         ID
       end
 
-      def title(name = nil)
-        [name, TITLE].compact.join(' ')
+      def title(chart_name=nil)
+        diagnostic_name = report.team_diagnostic.name.humanize
+        file_chart_name = chart_name.titleize
+        "#{diagnostic_name}-#{file_chart_name}"
       end
 
       def chart_names
@@ -43,9 +45,7 @@ module ReportServices
         html_service = ReportServices::Renderers::Html.new(report: @report, locale: locale, options: @options)
         html_data = html_service.generate(locale)
         chart_names.each do |chart_name|
-          diagnostic_name = report.team_diagnostic.name.humanize
-          file_chart_name = chart_name.titleize
-          filename = "#{diagnostic_name}-#{file_chart_name}---#{locale}---#{Time.now.strftime('%Y%m%d')}.png"
+          filename = "#{title(chart_name)}---#{locale}---#{Time.now.strftime('%Y%m%d%H%M')}.png"
           image_service = IMGKit.new(html_data, quality: 95)
           chart_file = StringIO.new(chart_css(chart_name))
           image_service.stylesheets << chart_file
