@@ -9,14 +9,9 @@ RSpec.describe ReportServices::Renderers::Png do
 
   let(:team_diagnostic) { completed_teamdiagnostic }
   let(:locale) { 'en' }
-  let(:report) { team_diagnostic.reports.rendering.last }
+  let(:report_options) { {} }
+  let(:report) { team_diagnostic.init_report(options: report_options) }
   let(:service) { ReportServices::Renderers::Png.new(report: report, locale: locale) }
-
-  before(:each) do
-    team_diagnostic
-    team_diagnostic.perform_report
-    team_diagnostic.reload
-  end
 
   it 'creates png files for all charts for all teamdiagnostic locales' do
     locales = report.team_diagnostic.all_locales

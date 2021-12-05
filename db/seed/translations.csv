@@ -207,7 +207,6 @@ ar,Email Address,عنوان البريد الإلكتروني
 ar,Email Participants,مراسلة المشاركين
 ar,End,تاريخ الانتهاء
 ar,Enter your email address to login,أدخل بريدك الإلكتروني لتسجيل الدخول
-az,Mar [abbreviated month],Mar
 ar,Enter your email address to login.,أدخل بريدك الإلكتروني لتسجيل الدخول. 
 ar,Facilitator,الميسّر
 ar,Feb [abbreviated month],فبراير
@@ -492,6 +491,7 @@ az,Jul [abbreviated month],İyl
 az,July [month],Iyul
 az,Jun [abbreviated month],İyn
 az,June [month],Iyun
+az,Mar [abbreviated month],Mar
 az,March [month],Mart
 az,May [abbreviated month],May
 az,May [month],May
@@ -1123,7 +1123,6 @@ da,The Team Diagnostic generated report you requested is ready for,"Den Team Dia
 da,The Team Leader View Diagnostic generated report you requested is ready for,"Den Team Leader View™ rapport, du har bestilt, er klar til"
 da,The date for completing the Diagnostic.,Dato for færdiggørelse af testen.
 da,The date/time a Reminder Letter will be sent to Participants.,Dato/tidspunkt for afsendelse af påmindelsesmail til deltagerne.
-da,Your Company Logo,Dit Firmalogo
 da,The date/time the Diagnostic will be sent to Participants.,Dato/tidspunkt for afsendelse af testen til deltagerne.
 da,The diagnostic invitation has been resent.,Invitation til teamtesten er blevet genfremsendt.
 da,The image has been deleted.,Billedet er slettet.
@@ -1173,7 +1172,6 @@ da,Uploaded CSV File,CSV fil up-loaded
 da,Values Diversity,Værdsætter forskellighed
 da,View All Activity,Se alle aktiviteter
 da,We can convert your PDF results pages into a PPT for online presentation purposes.,Vi kan omdanne dine PDF resultatsider til PPT til brug for online præsentation.
-es,Cover Letter,Portada
 da,We can provide additional graphics (Quad and Polar) comparing results from one diagnostic view to another:,Vi kan tilbyde yderligere grafik (Kvadrant og Polær) til sammenligning af resultater mellem to forskellige tests:
 da,"We can provide additional graphics (Quad, Polar, and Bar Charts) comparing the results of your baseline Team Diagnostic with your benchmark Team Diagnostic.","Vi kan tilbyde yderligere grafik (kvadrant-, polær- og søjlediagrammer) til sammenligning mellem din første teamtest og din opfølgende teamtest."
 da,Wed [abbreviated weekday],Ons
@@ -1210,6 +1208,7 @@ da,You must enter at least one team member.,Du skal tilføje mindst et teammedle
 da,You will be receiving your Team Report on the date that you requested on your submitted prep form.,"Du vil modtage resultatet på den ønskede dato, du har indtastet."
 da,You will be receiving your report on the date that you requested on your submitted prep form.,"Du vil modtage rapporten på den ønskede dato, du har anført."
 da,Your  has been Deployed.  Check back here regularly for status.,Din Teamtest er afsendt. Hold øje med siden for status.
+da,Your Company Logo,Dit Firmalogo
 da,Your Current Reports,Dine eksisterende rapporter
 da,Your Organization View Diagnostic has been Deployed.  Check back here regularly for status.,Din Organization View™ test er afsendt. Hold øje med siden for status.
 da,"Your Organization View Diagnostic is Complete.  In order to access the Report for the Participants, you must first complete the Order for this Participant.","Din Organization View™ test er gennemført. For at give adgang til rapporten skal ordren afsluttes. OBS: Når rapporten er bestilt, er forhåndsvisning tilgængeligt, og der er mulighed for at ændre sideinddeling og sprog samt downloade den endelige version, så mange gange som ønsket. 
@@ -1247,7 +1246,6 @@ da,for Non Profit pricing.,for non-profit prissætning
 da,has just completed the Organization View Diagnostic.,har netop gennemført Organization View™.
 da,has just completed the Team 360 View Diagnostic.,har netop gennemført Team 360 View™.
 da,has just completed the Team Diagnostic Assessment.,har netop gennemført Team Diagnostic™.
-es,Wed [abbreviated weekday],Mié
 da,has just completed the Team Diagnostic.,har netop gennemført Team Diagnostic™.
 da,has just completed the Team Leader View Diagnostic.,har netop gennemført Team Leader View™.
 da,home,hjem
@@ -1427,7 +1425,6 @@ el,Thank you for using the Team Diagnostic Assessment.,Ευχαριστούμε 
 el,Thanks for your participation.,Ευχαριστούμε για τη συμμετοχή
 el,The url appears to be in invalid - please verify you clicked the entire link to access the diagnostic.,Το url link μοίαζει ανενεργό. Παρακαλώ βεβαιωθείτε ότι πατήσατε το πλήρες και σωστό link για να ξεκινήσετε το Διαγνωστικό.
 el,This Diagnostic has already been completed.,Αυτό το Διαγνωστικό έχει ήδη συμπληρωθεί
-es,Create New Report,Crear Nuevo Reporte
 el,This is to notify you of a change in status with your Team.,Αυτή η ειδοποίηση σας ενημερώνει για αλλαγή της εξέλιξης του διαγνωστικού της Ομάδας σας
 el,Thu [abbreviated weekday],Πεμ
 el,Thursday [weekday],Πέμπτη
@@ -1495,7 +1492,6 @@ es,"<li class=""special""> Step 2 of 5 </li>",Paso 2 de 5
 es,"<li class=""special""> Step 3 of 5 </li>",Paso 3 de 5
 es,"<li class=""special""> Step 4 of 5 </li>",Paso 4 de 5
 es,"<li class=""special""> Step 5 of 5 </li>",Paso 5 de 5
-es,Wednesday [weekday],Miércoles
 es,A Reminder Letter has been sent to the participants.,Una carta recordatoria ha sido enviada a los participantes.
 es,A Reminder was automatically sent on,Se ha enviado un recordatorio automáticamente en 
 es,Accountability,Responsabilidad (Accountability)
@@ -1552,6 +1548,8 @@ es,Congratulations! All Participants have completed the Team Leader View Diagnos
 es,Congratulations! All Team Members have completed the Team Diagnostic Assessment.,¡Felicitaciones! Todos los miembros del equipo han completado el Team Diagnostic.
 es,Congratulations! All Team Members have completed the Team Diagnostic Assessment. You will be receiving your Team Report within the next 24 hours.,¡Felicitaciones! Todos los miembros del equipo han completado el Team Diagnostic. Usted estará recibiendo el reporte de su equipo dentro de las próximas 24 horas.
 es,Constructive Interaction,Interacción Constructiva
+es,Cover Letter,Portada
+es,Create New Report,Crear Nuevo Reporte
 es,Customize Your Report,Personalizar su Reporte
 es,DO NOT FORWARD THIS EMAIL,NO REENVIAR ESTE EMAIL
 es,Dashboard,Panel de Control
@@ -1676,11 +1674,6 @@ es,Reminder Letter,Carta recordatoria
 es,Report PowerPoint Conversion,Conversión a PowerPoint del Reporte
 es,Report Ready,Informe está listo
 es,logout,Cerrar Sesión
-es,Questions Completed,Preguntas Completadas
-es,Questions that will appear for this Team,Preguntas que aparecerán para este equipo
-es,Recent Activity,Actividad reciente
-es,Remaining Assessments,Diagnósticos Restantes
-es,Report Status Change,Informe de Cambio de Estado
 es,"NOTE: The Team Time Zone drives when the auto-deployment occurs.  It automatically defaults to the time zone in your user profile.
   If your team is in a different time zone, please be sure to change it here. If multiple time zones, please use the time zo","Nota: La zona horaria por defecto determina cúando ocurre el envío automático. Se establece automáticamente de acuerdo a SU PROPIO perfil de usuario. Si el envío corresponde a otra zona horaria, por favor asegúrese de modificarla aqui. Si incluye múltiples zonas horarias, por favor utilice aquélla donde está la mayoría de los participantes."
 es,"NOTE: The Team Time Zone drives when the auto-deployment occurs.  It automatically defaults to the time zone in your user profile.
@@ -1735,6 +1728,11 @@ es,Preview,Previsualización
 es,Previous Question,Pregunta Anterior
 es,Proactive,Proactivo
 es,Progress,Progreso
+es,Questions Completed,Preguntas Completadas
+es,Questions that will appear for this Team,Preguntas que aparecerán para este equipo
+es,Recent Activity,Actividad reciente
+es,Remaining Assessments,Diagnósticos Restantes
+es,Report Status Change,Informe de Cambio de Estado
 es,Report is being generated and will be e-mailed when complete.,Se está generando el reporte y será enviado por email cuando se haya completado.
 es,Resend,Reenviar
 es,Resend the invitation email,Reenviar el email de invitación
@@ -1849,6 +1847,8 @@ es,We can provide additional graphics (Quad and Polar) comparing results from on
 eu,May [abbreviated month],Mai
 eu,May [month],Maiatza
 es,"We can provide additional graphics (Quad, Polar, and Bar Charts) comparing the results of your baseline Team Diagnostic with your benchmark Team Diagnostic.","Podemos ofrecerle gráficos adicionales (Cuadrantes, Diagrama Polar y Gráficos de Barra) comparando los resultados de un Team Diagnóstic basal a otro de referencia:"
+es,Wed [abbreviated weekday],Mié
+es,Wednesday [weekday],Miércoles
 es,Welcome,Bienvenido
 es,Welcome to the,Bienvenido a
 es,Welcome to the Organization View Diagnostic,Bienvenido al Organization View
@@ -2096,7 +2096,6 @@ fa,Tue [abbreviated weekday],س.
 fa,Tuesday [weekday],سه‌شنبه
 fa,Wed [abbreviated weekday],چ.
 fa,Wednesday [weekday],چهارشنبه
-fi,Completion Deadline,Loppuunsaattamisen takaraja
 fi,"""Send Diagnostic On"" needs to be at least 15 minutes from now to prevent the diagnostic from launching before you are finished with the set up","Kyselyn lähettämisen ajoittamiseksi tarvitaan ainakin 15 minuuttia, ettet vahingossa lähetä sitä ennen kuin olet saanut kaikki osat valmiiksi. "
 fi,"(Warning: Unless you add members to the team, the diagnostic will not deploy.)","(Varoitus: ellet lisää tiimiin jäseniä, kyselyä ei lähetetä.)"
 fi,High Productivity,Korkea tuottavuus
@@ -2156,6 +2155,7 @@ fi,Completed Assessments,Suoritetut arvioinnit
 fi,Completed Diagnostics,Valmiit kyselyt
 fi,Completed:,Valmis:
 fi,Completely Describes,Kuvaa täysin
+fi,Completion Deadline,Loppuunsaattamisen takaraja
 fi,Concierge Services,Avustavat palvelut
 fi,Congratulations! All Participants have completed the Team Diagnostic.,Onnittelut! Kaikki osallistujat ovat vastanneet Team Diagnostic arviointiin.
 fi,Congratulations! All Participants have completed the Team Leader View Diagnostic.,Onnittelut! Kaikki osallistujat ovat vastanneet Team Leader View arviointiin.
@@ -2223,7 +2223,6 @@ fi,Forgot Password,Salasana unohtui
 fi,Fri [abbreviated weekday],Pe
 fi,Friday [weekday],Perjantai
 fi,Functional Area,Toimialue
-fo,Feb [abbreviated month],Feb
 fi,General Profile Information,Yleiset käyttäjäprofiilin tiedot
 fi,General Report Information,Yleiset raporttia koskevat tiedot
 fi,Generate Report,Luo raportti
@@ -2331,9 +2330,6 @@ fi,Please contact,Ota yhteyttä
 fi,Please contact:,Ota yhteyttä:
 fi,Please enter a valid coupon code to apply a coupon.,Anna voimassa oleva alennuskoodi.
 fi,Please make sure to capture the entire link as it may break into two lines during the e-mail translation.,"Pidä huolta, että kopiot koko linkin sillä se jakautua kahdelle riville sähköpostissa."
-fi,Team Diagnostic Complete,Team Diagnostic on valmis
-fi,Team Diagnostic Email,Team Diagnostic sähköposti
-fo,February [month],Februar
 fi,"Please note: The TCI system administrator may complete this process for you. If this happens, a link to download the report will be sent by email or you can navigate to your portal and download it directly.","HUOM: TCI:n järjestelmänvalvoja täyttää tämän osuuden puolestasi. Jos tämä tapahtuu, sinulle lähetetään linkki sähköpostissa tai voit navigoida omassa portaalissasi ja ladata sen suoraan sieltä."
 fi,Preview,Esikatselu
 fi,Previous Question,Aikaisempi kysymys
@@ -2399,6 +2395,8 @@ you will manage the information, status, and activities for the each of the Repo
 or click the Create a New Report tab and fill out the appropriate information.","Team Coaching International toivottaa sinut tervetulleeksi ohajuspöydälle, jossa voit hallinnoida kaikkien raporttiesi tietoja, tilannetta ja toimintoja. 
 Käyttäessäsi ohjauspöytää voit joko klikata olemassa olevaa raporttia kohdassa ""Nykyiset raportit""ja näet sen hetkisen tilanteen ja voit hallinnoida toimintoja tai voit klikata ""Luo uusi raportti"" valintaa ja täyttää tiedot avautuvaan valintaikkunaan."
 fi,Team Diagnostic,Team Diagnostic
+fi,Team Diagnostic Complete,Team Diagnostic on valmis
+fi,Team Diagnostic Email,Team Diagnostic sähköposti
 fi,Team Diagnostic Use and Privacy Policy,Team Diagnosticin käyttö ja yksityisyyssuoja
 fi,Team Leader View Diagnostic,Team Leader View -arviointi
 fi,Team Leader View Diagnostic Complete,Team Leader View on valmis
@@ -2441,8 +2439,6 @@ fi,This is to notify you of a change in status with your Team.,Tiedoksi tiimiäs
 fi,"This letter is sent via email to introduce the Participants to the 
   Diagnostic. Click inside the box and scroll to make edits. When
   you are finished, click 'Next'","Tämä kirje lähetetään osallistujille, jotta he ymmärtävät mistä arvioinnissa on kyse. Klikkaa laatikon sisällä ja rullaa alas jos haluat tehdä muutoksia kirjeeseen. Kun olet valmis, klikkaa ""Seuraava""."
-fo,Aug [abbreviated month],Aug
-fo,August [month],August
 fi,"This letter is sent via email to remind the Participants to take the 
   Diagnostic. Click inside the box and scroll to make edits. When
   you are finished, click 'Next' below.","Tämä kirje lähtee osallistujille muistuttamaan heitä vastaamaan kyselyyn. Klikkaa ruutuun ja rullaa jos haluat tehdä muutoksia. Kun olet valmis, klikkaa ""Seuraava""."
@@ -2492,8 +2488,6 @@ fi,of, /
 fi,You have chosen to automatically send a Reminder on,Olet valinnut muistutuksen lähetettäväksi automaattisesti 
 fi,You have completed the diagnostic.,Olet saanut arvion päätökseen.
 fi,"You may Send Reminders to encourage the team to complete the Diagnostic by clicking the ""Send Reminders"" button below. Reminders will be sent to all members who have not yet completed and will contain a link to their Team Diagnostic.","Voit lähettää muistutuksia kannustaaksesi tiiminjäseniä vastaamaan klikkaamalla ""Lähetä muistutukset"" näppäintä. Muistutukset lähtevät kaikille niille, jotka eivät ole vielä saattaneet arviointiaan päätökseen, ja se sisältää myös linkin heidän omaan arviointiinsa."
-fo,Dec [abbreviated month],Des
-fo,December [month],Desember
 fi,"You may Send Reminders to encourage the team to complete the Diagnostic by clicking the ""Send Reminders"" button below. Reminders will be sent to all members who have not yet completed and will contain a link to their Team Leader View Diagnostic.","Voit lähettää muistutuksia kannustaaksesi tiimin jäseniä vastaamaan klikkaamalla allaolevaa ""Lähetä muistutuksia"" näppäintä. Muistutukset lähtevät kaikille, jotka eivät ole vielä vastanneet ja se sisältää heidän linkkinsä arviointiin."
 fi,You may choose to manually Deploy the Team Diagnostic now:,Voit halutessasi lähettää Team Diagnostic Arvioinnin nyt:
 fi,You may choose to manually Deploy the Team Leader View Diagnostic now:,Voit halutessasi lähettää Team Leader Arvioinnin nyt:
@@ -2535,6 +2529,12 @@ fi,translate,käännä
 fi,users,käyttäjät
 fo,Apr [abbreviated month],Apr
 fo,April [month],Apríl
+fo,Aug [abbreviated month],Aug
+fo,August [month],August
+fo,Dec [abbreviated month],Des
+fo,December [month],Desember
+fo,Feb [abbreviated month],Feb
+fo,February [month],Februar
 fo,Fri [abbreviated weekday],Frí
 fo,Friday [weekday],Fríggjadagur
 fo,Jan [abbreviated month],Jan
@@ -2984,7 +2984,6 @@ fx,Welcome to the Team Leader View,Bienvenue à l'outil d'évaluation Team Leade
 fx,Welcome to the Team Leader View Diagnostic,Bienvenue à l'outil d'évaluation Team Leader View
 fx,When,Quand
 fx,Will NOT appear on correspondence or in the report unless used as part of Individual/Team/Org Name above.,N’apparaîtra pas dans la correspondance ou dans le rapport à moins de faire partie de l’Individu/Équipe/Organisation ci-haut.
-ga,July [month],Iúil
 fx,You have chosen to automatically Deploy the Team 360 View Diagnostic Diagnostic on,Vous avez choisi de déployer le Team 360 View™ automatiquement le
 fx,You have chosen to automatically Deploy the Team Diagnostic Diagnostic on,Vous avez choisi de déployer le Team Diagnostic™ automatiquement le
 fx,You have chosen to automatically Deploy the Team Leader View Diagnostic Diagnostic on,Vous avez choisi de déployer le Team Leader View™ automatiquement le
@@ -3033,6 +3032,7 @@ ga,Friday [weekday],Dé haoine
 ga,Jan [abbreviated month],Ean
 ga,January [month],Eanáir
 ga,Jul [abbreviated month],Iúil
+ga,July [month],Iúil
 ga,Jun [abbreviated month],Meith
 ga,June [month],Meith
 ga,Mar [abbreviated month],Márta
@@ -3708,8 +3708,6 @@ ja,Team Assessment Email,help
 ja,Team Leadership,チーム・リーダーシップ
 ja,Team Members,チームメンバー
 ja,Thank you,ありがとうございました。
-ka,Wednesday [weekday],ოთხშაბათი
-kl,Apr [abbreviated month],Apr
 ja,Thank you for using the Team Diagnostic Assessment.,チーム・ダイアグノスティック・アセスメント™（チーム力診断サービス）をご利用頂きありがとうございました。
 ja,Thanks for your participation.,ご協力ありがとうございました。
 ja,The url appears to be in invalid - please verify you clicked the entire link to access the diagnostic.,URLのエラーです。　もう一度URLのすべてをコピー/貼り付けしてページを開いてください。改行などでURLが途切れないようにご注意ください。
@@ -3771,6 +3769,8 @@ ka,Thursday [weekday],ხუთშაბათი
 ka,Tue [abbreviated weekday],სამ
 ka,Tuesday [weekday],სამშაბათი
 ka,Wed [abbreviated weekday],ოთხ
+ka,Wednesday [weekday],ოთხშაბათი
+kl,Apr [abbreviated month],Apr
 kl,April [month],Aprili
 kl,Aug [abbreviated month],Aug
 kl,August [month],Augustusi
@@ -3928,7 +3928,6 @@ le,"If your e-mail system will not allow you to click through to the Team Assess
 le,Team Assessment Email,Team Leader View Assessment Email
 le,Team Members,Members
 le,Thank you for using the Team Diagnostic Assessment.,Thank you for using the Team Leader View Assessment.
-lo,Wednesday [weekday],ພຸດ
 le,This is to notify you of a change in status with your Team.,This is to notify you of a change in status with your deployment.
 le,Welcome to the Team Diagnostic Assessment,Welcome to the Team Leader View Assessment
 le,You will be receiving your Team Report on the date that you requested on your submitted prep form.,You will be receiving your Report on the date that you requested.
@@ -4008,6 +4007,7 @@ lo,Thursday [weekday],ພະຫັດ
 lo,Tue [abbreviated weekday],ຄ.
 lo,Tuesday [weekday],ອັງຄານ
 lo,Wed [abbreviated weekday],ພ.
+lo,Wednesday [weekday],ພຸດ
 lt,Apr [abbreviated month],Bal
 lt,April [month],Balandžio
 lt,Aug [abbreviated month],Rgp
@@ -5102,7 +5102,6 @@ en,Password is too short (minimum is 8 characters),Password is too short (minimu
 en,Thank you for registering,Thank you for registering
 en,Please Wait,Please Wait
 en,We are setting up your account,We are setting up your account
-en,Edit Invitation,Edit Invitation
 en,A message will soon appear in your email inbox with a link to confirm your email address,A message will soon appear in your email inbox with a link to confirm your email address
 en,Thank you for registering!,Thank you for registering!
 en,A message with a confirmation link has been sent to your email address. Please follow the link to activate your account,A message with a confirmation link has been sent to your email address. Please follow the link to activate your account
@@ -5180,6 +5179,7 @@ en,Create,Create
 en,Invitation,Invitation
 en,Grantor,Grantor
 en,Limit,Limit
+en,Edit Invitation,Edit Invitation
 en,Invitation was deactivated,Invitation was deactivated
 en,Deactivated,Deactivated
 en,Revoke,Revoke
@@ -5301,6 +5301,7 @@ es,We have a strong record for making smart decisions as a team.,Tenemos una só
 sv,We have a strong record for making smart decisions as a team.,Tidigare erfarenheter visar att vårt team tagit rätt beslut.
 tr,We have a strong record for making smart decisions as a team.,Ekip olarak akıllı kararlar almakta güçlüyüz.
 zh,We have a strong record for making smart decisions as a team.,我们一向能够以团队的方式作出明智的决定.
+tx,Our goals are unclear.,Team goals are unclear.
 le,We have a strong record for making smart decisions as a team.,"This team has a strong record for making smart decisions as a team.
 "
 ex,We have a strong record for making smart decisions as a team.,Tenemos un sólido historial de toma de decisions inteligentes en nuestro equipo.
@@ -5365,6 +5366,7 @@ og,There is not a “win/lose“ mentality on the team where my gains become som
 ft,There is not a “win/lose“ mentality on the team where my gains become someone else’s losses.,There is not a “win/lose” mentality on this family where my achievements become someone else’s losses.
 fx,There is not a “win/lose“ mentality on the team where my gains become someone else’s losses.,"Il n'y a pas une mentalité «gagnant/perdant» dans l’équipe où si je gagnais quelque chose, ce serait aux dépens de quelqu’un d’autre."
 tx,There is not a “win/lose“ mentality on the team where my gains become someone else’s losses.,"There does not appear to be a ""win/lose"" mentality on this team."
+ex,New or controversial ideas are discouraged.,Se desanima a tener ideas nuevas o controvertidas.
 po,There is not a “win/lose“ mentality on the team where my gains become someone else’s losses.,"Não existe uma mentalidade de ganha/perde, ou seja, para que eu ganhe algo não é necessário que os outros percam."
 en,"On our team, there is a collective ownership of results.","On our team, there is a collective ownership of results."
 ar,"On our team, there is a collective ownership of results.",في فريقنا: هناك تحمل جماعي للمسؤولية عن النتائج.
@@ -5411,7 +5413,6 @@ tr,New or controversial ideas are discouraged.,Yeni veya tartışmalı fikirler 
 zh,New or controversial ideas are discouraged.,新的或有争议的想法是不被鼓励的.
 le,New or controversial ideas are discouraged.,"New and/or controversial ideas are discouraged by this team.
 "
-ex,New or controversial ideas are discouraged.,Se desanima a tener ideas nuevas o controvertidas.
 og,New or controversial ideas are discouraged.,New or controversial ideas are discouraged in our organization.
 ft,New or controversial ideas are discouraged.,New and/or controversial ideas are discouraged in this family. 
 fx,New or controversial ideas are discouraged.,Les idées nouvelles ou controversées sont découragées.
@@ -5466,7 +5467,6 @@ zh,There is a strong sense of camaraderie and belonging on our team.,我们的�
 le,There is a strong sense of camaraderie and belonging on our team.,"There is a strong sense of camaraderie and belonging on this team.
 "
 ex,There is a strong sense of camaraderie and belonging on our team.,Hay un fuerte sentido de camaradería y pertenencia en nuestro equipo. 
-he,We are empathetic with each other.,יש לנו אמפטיה זה כלפי זה.
 og,There is a strong sense of camaraderie and belonging on our team.,There is a strong sense of camaraderie and belonging in our organization.
 ft,There is a strong sense of camaraderie and belonging on our team.,There is a strong sense of harmony and belonging in our family.
 fx,There is a strong sense of camaraderie and belonging on our team.,Il y a un sens très développé de camaraderie et d’appartenance dans l’équipe.
@@ -5510,7 +5510,6 @@ fr,Team members do not criticize others behind their backs.,Les membres de l’�
 he,Team members do not criticize others behind their backs.,"חברי הצוות אינם מעבירים ביקורת זה על זה מאחורי הגב.
 "
 it,Team members do not criticize others behind their backs.,I membri del team non criticano gli altri alle loro spalle.
-nl,Our goals are unclear.,Onze doelstellingen zijn niet duidelijk.
 ja,Team members do not criticize others behind their backs.,"私たちのチームでは、陰で他人を批判することはありません。
 "
 nl,Team members do not criticize others behind their backs.,Teamleden leveren geen kritiek op elkaar achter elkaars rug om.
@@ -5588,6 +5587,7 @@ ex,“Playing politics“ is not used to get one’s way on our team.,En nuestro
 og,“Playing politics“ is not used to get one’s way on our team.,"""Playing politics"" is not used to get one's way in our organization. "
 ft,“Playing politics“ is not used to get one’s way on our team.,“Playing politics” is not used to get one’s way in our family.
 fx,“Playing politics“ is not used to get one’s way on our team.,Il n’est pas nécessaire de «jouer politique» lorsqu’on veut obtenir quelque chose dans notre équipe.
+po,Our goals are unclear.,Os nossos objetivos não são claros.
 tx,“Playing politics“ is not used to get one’s way on our team.,Playing politics is not used by team members to get their way.
 gb,“Playing politics“ is not used to get one’s way on our team.,“Playing politics” is not used to get one’s way on our team.
 po,“Playing politics“ is not used to get one’s way on our team.,"Na nossa equipa as pessoas não usam ""manobras políticas"" para alcançar o que pretendem."
@@ -5732,12 +5732,12 @@ el,We have adequate resources to succeed.,έχουμε όσα εφόδια κα�
 fi,We have adequate resources to succeed.,Meillä on riittävät resurssit menestyäksemme.
 fr,We have adequate resources to succeed.,Nous avons les ressources nécessaires pour réussir.
 he,We have adequate resources to succeed.,יש לנו את המשאבים הנדרשים להצליח.
+de,We are empathetic with each other.,Wir haben Verständnis für einander.
 it,We have adequate resources to succeed.,Abbiamo le risorse necessarie per raggiungere i nostri obiettivi.
 ja,We have adequate resources to succeed.,私たちのチームには、成功するための十分なリソースがあります。
 no,We have adequate resources to succeed.,Vi har tilstrekkelig med ressurser for å lykkes.
 pl,We have adequate resources to succeed.,Dysponujemy odpowiednimi zasobami do skutecznego działania.
 pt,We have adequate resources to succeed.,Nós temos recursos adequados para ter êxito.
-no,Our goals are unclear.,Målene våre er uklare.
 ru,We have adequate resources to succeed.,"У нас достаточно ресурсов, чтобы добиться успеха."
 es,We have adequate resources to succeed.,Tenemos los recursos adecuados para tener éxito.
 sv,We have adequate resources to succeed.,Vi har de resurser som behövs för att lyckas.
@@ -5773,11 +5773,11 @@ es,There is a sense of interdependence among team members. We can count on each 
 sv,There is a sense of interdependence among team members. We can count on each other.,Vi har en känsla av ömsesidigt beroende i teamet. Vi kan räkna med varandra.
 tr,There is a sense of interdependence among team members. We can count on each other.,Ekip üyeleri arasında dayanışma hissi var. Birbirimize güvenebiliriz.
 zh,There is a sense of interdependence among team members. We can count on each other.,"团队成员间能够彼此独立, 也能互相依靠和支持."
+ar,We are not frequently frustrated with each other.,نحن لا نشعر بالإحباط من بعضنا بشكل متكرر.
 le,There is a sense of interdependence among team members. We can count on each other.,"There is interdependence among team members on this team; they can count on each other.
 "
 ex,There is a sense of interdependence among team members. We can count on each other.,Hay un sentido de interdependencia entre los miembros del equipo. Podemos contar unos con otros.
 og,There is a sense of interdependence among team members. We can count on each other.,There is a sense of interdependence across the organization.  We can count on each other.
-it,We are empathetic with each other.,Siamo comprensivi l’uno con l’altro.
 ft,There is a sense of interdependence among team members. We can count on each other.,There is a sense of interdependence among family members. We can count on each other.
 fx,There is a sense of interdependence among team members. We can count on each other.,Il y a un sens d’interdépendance parmi les membres de l’équipe. Nous pouvons compter les uns sur les autres.
 tx,There is a sense of interdependence among team members. We can count on each other.,There is interdependence among team members on the team; they can count on each other.
@@ -5814,10 +5814,11 @@ po,Our team is highly resilient and not easily defeated in our goals.,A nossa eq
 en,We are empathetic with each other.,We are empathetic with each other.
 ar,We are empathetic with each other.,نحن متعاطفون ومتفهمون لبعضنا.
 da,We are empathetic with each other.,Vi har en god evne i teamet til at sætte os i den andens sted.
-de,We are empathetic with each other.,Wir haben Verständnis für einander.
 el,We are empathetic with each other.,Νοιαζόματε και αλληλο-διαισθανόμαστε ο ένας τον άλλο. 
 fi,We are empathetic with each other.,Olemme myötätuntoisia toisiamme kohtaan.
 fr,We are empathetic with each other.,Nous sommes empathiques les uns avec les autres.
+he,We are empathetic with each other.,יש לנו אמפטיה זה כלפי זה.
+it,We are empathetic with each other.,Siamo comprensivi l’uno con l’altro.
 ja,We are empathetic with each other.,私たちは互いに共感しあっています。
 nl,We are empathetic with each other.,We kunnen ons goed in elkaar inleven.
 no,We are empathetic with each other.,Vi er empatiske med hverandre.
@@ -5864,7 +5865,6 @@ ft,We seem to be frequently frustrated with each other.,We are frequently frustr
 fx,We seem to be frequently frustrated with each other.,Nous semblons être souvent frustrés les uns envers les autres.
 tx,We seem to be frequently frustrated with each other.,Team members seem to be frequently frustrated with each other.
 po,We seem to be frequently frustrated with each other.,Parece que estamos frequentemente frustrados uns com os outros.
-ar,We are not frequently frustrated with each other.,نحن لا نشعر بالإحباط من بعضنا بشكل متكرر.
 da,We are not frequently frustrated with each other.,Vi bliver sjældent frustrerede over andre i teamet.
 de,We are not frequently frustrated with each other.,Wir sind nicht oft voneinander frustriert.
 el,We are not frequently frustrated with each other.,ΔΕΝ εκνευριζόμαστε συχνά ο ένας με τον άλλο.
@@ -6027,6 +6027,7 @@ ft,Our team seeks sufficient input in decision making.,Our family seeks basic in
 fx,Our team seeks sufficient input in decision making.,Notre équipe recueille suffisamment d’information avant de prendre une décision.
 tx,Our team seeks sufficient input in decision making.,The team seeks sufficient input in decision making.
 po,Our team seeks sufficient input in decision making.,A nossa equipa procura obter informações suficientes para proceder à tomada de decisões.
+ar,Our goals are clear.,أهدافنا واضحة.
 en,"In spite of limited resources, we find ways to accomplish our objectives.","In spite of limited resources, we find ways to accomplish our objectives."
 ar,"In spite of limited resources, we find ways to accomplish our objectives.",رغم محدودية الموارد، نجد طرقاً لتحقيق أهدافنا.
 de,"In spite of limited resources, we find ways to accomplish our objectives.","Trotz begrenzter Ressourcen finden wir Wege, um unsere Ziele zu erreichen."
@@ -6065,6 +6066,7 @@ nl,We are cohesive as a team and work well together.,Er is een goede samenhang b
 no,We are cohesive as a team and work well together.,Vi er et sammensveiset team som jobber godt sammen.
 pl,We are cohesive as a team and work well together.,Jesteśmy zintegrowanym zespołem i dobrze się nam razem pracuje.
 pt,We are cohesive as a team and work well together.,Nossa equipe é coesa e trabalha bem em conjunto.
+fi,We regularly acknowledge and celebrate our successes.,Tunnustamme ja juhlistamme onnistumisiamme säännöllisesti.
 ru,We are cohesive as a team and work well together.,У нас сплоченная команда и мы хорошо работаем вместе.
 es,We are cohesive as a team and work well together.,Nos sentimos unidos en el equipo y trabajamos bien juntos.
 sv,We are cohesive as a team and work well together.,Vi håller ihop som ett team och arbetar bra tillsammans.
@@ -6110,9 +6112,7 @@ en,We regularly acknowledge and celebrate our successes.,We regularly acknowledg
 ar,We regularly acknowledge and celebrate our successes.,نحن نقدّر نجاحاتنا ونحتفل بها بشكل مستمر ومنتظم.
 da,We regularly acknowledge and celebrate our successes.,Vi er opmærksomme på og fejrer vores succeser.
 de,We regularly acknowledge and celebrate our successes.,Wir würdigen und feiern unsere Erfolge regelmäßig. 
-it,Our goals are unclear.,I nostri obiettivi non sono chiari.
 el,We regularly acknowledge and celebrate our successes.,Είναι συχνό το να αναγνωρίζουμε και να «γιορτάζουμε» τις επιτυχίες μας.
-fi,We regularly acknowledge and celebrate our successes.,Tunnustamme ja juhlistamme onnistumisiamme säännöllisesti.
 fr,We regularly acknowledge and celebrate our successes.,Nous nous félicitons régulièrement de nos succès et les célébrons.
 he,We regularly acknowledge and celebrate our successes.,אנחנו מוקירים וחוגגים את ההצלחות שלנו באופן קבוע.
 it,We regularly acknowledge and celebrate our successes.,Noi riconosciamo e celebriamo i successi del nostro team regolarmente.
@@ -6151,7 +6151,6 @@ pl,"On our team, people become defensive when mistakes are pointed out.",Członk
 pt,"On our team, people become defensive when mistakes are pointed out.","Em nosso time, as pessoas ficam na defensiva quando erros são apontados."
 ru,"On our team, people become defensive when mistakes are pointed out.","Члены нашей команды сразу начинают защищаться, когда им указывают на ошибки."
 es,"On our team, people become defensive when mistakes are pointed out.",En nuestro equipo la gente se pone a la defensiva cuando se le señalan errores.
-pl,Our goals are unclear.,Nasze cele są niejasne.
 sv,"On our team, people become defensive when mistakes are pointed out.",I vårt team går människor i försvar när misstag uppmärksammas.
 tr,"On our team, people become defensive when mistakes are pointed out.","Hatalar gösterildiğinde, ekip üyeleri kendilerini savunmaya geçerler."
 zh,"On our team, people become defensive when mistakes are pointed out.","在我们团队中当错误被指出时, 人们会变得很抵触. "
@@ -6190,7 +6189,6 @@ og,"On our team, people do not become defensive when mistakes are pointed out.",
 ft,"On our team, people do not become defensive when mistakes are pointed out.","In our family, members are not defensive when mistakes are pointed out."
 fx,"On our team, people do not become defensive when mistakes are pointed out.","Dans notre équipe, les gens ne sont pas sur la défensive lorsqu’on identifie des erreurs."
 tx,"On our team, people do not become defensive when mistakes are pointed out.",The team does not have members who become defensive when mistakes are pointed out.
-pt,Our goals are unclear.,Nossas metas não são claras.
 po,"On our team, people do not become defensive when mistakes are pointed out.",Na nossa equipa as pessoas não adotam uma postura defensiva quando os erros lhes são apontados.
 en,"On our team, we avoid speaking the truth when speaking up might create upset or hurt feelings.","On our team, we avoid speaking the truth when speaking up might create upset or hurt feelings."
 en,"On our team, we do not avoid speaking the truth even when speaking up might create upset or hurt feelings.","On our team, we do not avoid speaking the truth even when speaking up might create upset or hurt feelings."
@@ -6251,7 +6249,6 @@ fx,"On our team, we do not avoid speaking the truth even when speaking up might 
 tx,"On our team, we do not avoid speaking the truth even when speaking up might create upset or hurt feelings.","The team's culture is not to ""sugar coat"" the truth in order to avoid upsetting or hurting team member's feelings."
 po,"On our team, we do not avoid speaking the truth even when speaking up might create upset or hurt feelings.","Na nossa equipa não evitamos dizer a verdade, mesmo quando isso pode aborrecer as pessoas ou ferir sentimentos."
 en,We have a shared commitment to open and honest communication.,We have a shared commitment to open and honest communication.
-ru,Our goals are unclear.,Наши цели не ясны.
 ar,We have a shared commitment to open and honest communication.,لدينا التزام مشترك بالتواصل المنفتح والصادق.
 da,We have a shared commitment to open and honest communication.,Vi føler en fælles forpligtelse til at sikre en god og ærlig kommunikation.
 de,We have a shared commitment to open and honest communication.,Wir setzen uns alle für offene und ehrliche Kommunikation ein. 
@@ -6300,6 +6297,7 @@ gb,We have an inspiring shared organizational vision.,We have an inspiring share
 po,We have an inspiring shared organizational vision.,A nossa equipa tem uma visão da organização inspiradora e partilhada por todos.
 en,Leadership is not empowered on our team.,Leadership is not empowered on our team.
 en,Leadership is empowered on our team.,Leadership is empowered on our team.
+fx,Our goals are unclear.,Nos objectifs ne sont pas clairs.
 ar,Leadership is not empowered on our team.,لا يوجد في فريقنا تمكين قياديّ.
 da,Leadership is not empowered on our team.,Vores team har alvorlige kompetenceproblemer.
 de,Leadership is not empowered on our team.,Führungsverhalten wird in unserem Team nicht unterstützt.
@@ -6426,7 +6424,6 @@ ft,Protecting one’s job and work territory is not prevalent on the team.,Turf 
 tx,Protecting one’s job and work territory is not prevalent on the team.,Turf protection is not prevalent on the team.
 po,Protecting one’s job and work territory is not prevalent on the team.,A proteção do seu próprio emprego e território de trabalho não são comportamentos frequentes na nossa equipa.
 en,"When the going gets tough, we tend to come together as a team.","When the going gets tough, we tend to come together as a team."
-ja,Our goals are unclear.,私たちのチームの目標は不明確です。
 ar,"When the going gets tough, we tend to come together as a team.",عندما تكون الظروف صعبة وقاسية فإننا نميل للاتحاد والعمل معاً كفريق.
 da,"When the going gets tough, we tend to come together as a team.","Når teamet møder modgang, står vi sammen og gør fælles front. "
 de,"When the going gets tough, we tend to come together as a team.","Wenn es schwierig wird, rücken wir als Team zusammen."
@@ -6470,6 +6467,13 @@ el,Our goals are unclear.,οι επιδιώξεις και οι στόχοι μ�
 fi,Our goals are unclear.,Tavoitteemme ovat epäselviä.
 fr,Our goals are unclear.,Nos objectifs ne sont pas clairs.
 he,Our goals are unclear.,היעדים שלנו אינם ברורים.
+it,Our goals are unclear.,I nostri obiettivi non sono chiari.
+ja,Our goals are unclear.,私たちのチームの目標は不明確です。
+nl,Our goals are unclear.,Onze doelstellingen zijn niet duidelijk.
+no,Our goals are unclear.,Målene våre er uklare.
+pl,Our goals are unclear.,Nasze cele są niejasne.
+pt,Our goals are unclear.,Nossas metas não são claras.
+ru,Our goals are unclear.,Наши цели не ясны.
 es,Our goals are unclear.,Nuestras metas no son claras.
 sv,Our goals are unclear.,Våra mål är otydliga.
 tr,Our goals are unclear.,Hedeflerimiz açık ve net değil.
@@ -6479,10 +6483,6 @@ le,Our goals are unclear.,"Team goals are unclear.
 ex,Our goals are unclear.,Nuestras metas no son claras.
 og,Our goals are unclear.,In this organization goals are not clear.
 ft,Our goals are unclear.,Our family goals are unclear.
-fx,Our goals are unclear.,Nos objectifs ne sont pas clairs.
-tx,Our goals are unclear.,Team goals are unclear.
-po,Our goals are unclear.,Os nossos objetivos não são claros.
-ar,Our goals are clear.,أهدافنا واضحة.
 da,Our goals are clear.,Vi har klare mål for arbejdet i vores team.
 de,Our goals are clear.,Unsere Ziele sind klar.
 el,Our goals are clear.,οι επιδιώξεις και οι στόχοι μας είναι ξεκάθαροι.
@@ -6613,7 +6613,6 @@ no,Members often withdraw from communication or respond emotionally when problem
 pl,Members often withdraw from communication or respond emotionally when problems arise.,"Kiedy pojawiają się problemy, członkowie zespołu często przestają się ze sobą komunikować albo reagują emocjonalnie."
 pt,Members often withdraw from communication or respond emotionally when problems arise.,Os membros de nosso time frequentemente se calam ou respondem emocionalmente quando surgem problemas.
 ru,Members often withdraw from communication or respond emotionally when problems arise.,В случае возникновения проблем члены команды перестают общаться или реагируют излишне эмоционально.
-tx,Creativity is one of our strengths as a team.,Creativity is a strength of this team.
 es,Members often withdraw from communication or respond emotionally when problems arise.,Los miembros del equipo frecuentemente eluden comunicarse o responden emocionalmente cuando surge un problema.
 sv,Members often withdraw from communication or respond emotionally when problems arise.,När problem uppstår är det vanligt att medlemmar i teamet slutar kommunicera eller reagerar känslomässigt.
 tr,Members often withdraw from communication or respond emotionally when problems arise.,"Sorunlar oluştuğunda, ekibimizin üyeleri genellikle iletişimden kaçınırlar veya duygusal tepki verirler."
@@ -6647,7 +6646,6 @@ tr,Members do not withdraw from communication or respond emotionally when proble
 zh,Members do not withdraw from communication or respond emotionally when problems arise.,"当发生问题时, 团队成员不会回避沟通或情绪化地回应. "
 le,Members do not withdraw from communication or respond emotionally when problems arise.,"Team members do not withdraw from communication or respond emotionally when problems arise.
 "
-no,We tend to dwell on our team’s past difficulties.,Vi har en tendens til å dvele ved teamets tidligere vanskeligheter.
 ex,Members do not withdraw from communication or respond emotionally when problems arise.,Los miembros del equipo no dejan de comunicarse ni responden con emocionalmente cuando surgen problemas. 
 og,Members do not withdraw from communication or respond emotionally when problems arise.,People in our organization do not withdraw from communication or respond emotionally when problems arise.
 ft,Members do not withdraw from communication or respond emotionally when problems arise.,Family members do not withdraw from communication or respond emotionally when problems arise.
@@ -6694,6 +6692,7 @@ he,We tend to dwell on our team’s past difficulties.,אנחנו נוטים ל�
 it,We tend to dwell on our team’s past difficulties.,Noi tendiamo a rimuginare sulle passate difficoltà del nostro team.
 ja,We tend to dwell on our team’s past difficulties.,私たちのチームでは、過去におきた困難についてくよくよ考える傾向があります。
 nl,We tend to dwell on our team’s past difficulties.,We hebben als team de neiging om te blijven hangen in problemen uit het verleden.
+no,We tend to dwell on our team’s past difficulties.,Vi har en tendens til å dvele ved teamets tidligere vanskeligheter.
 pl,We tend to dwell on our team’s past difficulties.,Mamy tendencję do rozpamiętywania trudnych sytuacji z przeszłości.
 pt,We tend to dwell on our team’s past difficulties.,Tendemos a ficar remoendo as dificuldades passadas de nosso time.
 ru,We tend to dwell on our team’s past difficulties.,Мы склонны слишком заострять внимание на прошлых трудностях.
@@ -6707,6 +6706,7 @@ ex,We tend to dwell on our team’s past difficulties.,Tendemos a estancarnos en
 og,We tend to dwell on our team’s past difficulties.,The organization tends to dwell on past difficulties.
 ft,We tend to dwell on our team’s past difficulties.,We tend to dwell on our family’s past difficulties.
 fx,We tend to dwell on our team’s past difficulties.,Nous avons tendance à ressasser les difficultés passées de l’équipe.
+po,We do not avoid conflict.,Nós não evitamos os conflitos.
 tx,We tend to dwell on our team’s past difficulties.,The team tends to dwell on past difficulties.
 po,We tend to dwell on our team’s past difficulties.,Tendemos a revisitar as anteriores dificuldades da nossa equipa.
 ar,We do not tend to dwell on our team’s past difficulties.,نحن لا نميل إلى التفكير الكثير في الصعوبات التي حدثت لنا -كفريق- في الماضي.
@@ -6781,6 +6781,7 @@ pt,We tailor our decision-making process to the situation.,Nós adequamos nosso 
 ru,We tailor our decision-making process to the situation.,Процесс принятия решения в отношении какой-либо ситуации определяется ситуацией.
 es,We tailor our decision-making process to the situation.,Modificamos nuestro proceso de toma de decisiones según los requerimientos de la situación.
 sv,We tailor our decision-making process to the situation.,Vi skräddarsyr vår beslutsprocess utifrån situationen.
+en,Please invite more participants,Please invite more participants
 tr,We tailor our decision-making process to the situation.,Karar verme sürecimizi içinde bulunduğumuz duruma göre şekillendiririz.
 zh,We tailor our decision-making process to the situation.,我们会根据具体情况调整决策过程.
 le,We tailor our decision-making process to the situation.,"The team tailors their decision making process to the situation.
@@ -6807,8 +6808,6 @@ nl,We have not had adequate training to be as effective as we need to be.,We heb
 no,We have not had adequate training to be as effective as we need to be.,Vi har ikke fått tilstrekkelig med opplæring for å kunne bli så effektive som vi behøver å være.
 pl,We have not had adequate training to be as effective as we need to be.,"Nie zostaliśmy odpowiednio przeszkoleni, by działać wystarczająco efektywne."
 pt,We have not had adequate training to be as effective as we need to be.,Nós não fomos treinados adequadamente para sermos efetivos como devemos ser.
-tx,We have had adequate training to be as effective as we need to be.,The team has had adequate training to be as effective as it needs to be.
-en,A question was deleted,A question was deleted
 ru,We have not had adequate training to be as effective as we need to be.,"Члены команды не обладают достаточной подготовкой для того, чтобы выполнять работу настолько эффективно, насколько требуется."
 es,We have not had adequate training to be as effective as we need to be.,No hemos tenido el entrenamiento adecuado para ser todo lo efectivos que necesitamos ser.
 sv,We have not had adequate training to be as effective as we need to be.,Vi har inte fått tillräcklig utbildning/träning för att vara så effektiva som vi behöver vara.
@@ -6847,6 +6846,7 @@ ex,We have had adequate training to be as effective as we need to be.,Hemos teni
 og,We have had adequate training to be as effective as we need to be.,Our organization does provide adequate training so we can be as effective as we need to be.
 ft,We have had adequate training to be as effective as we need to be.,We have had adequate family direction to be as effective as we need to be.
 fx,We have had adequate training to be as effective as we need to be.,Nous avons reçu la formation nécessaire pour être aussi efficaces que nous le devrions.
+tx,We have had adequate training to be as effective as we need to be.,The team has had adequate training to be as effective as it needs to be.
 po,We have had adequate training to be as effective as we need to be.,Nós fomos formados adequadamente para sermos tão eficazes como temos de ser.
 en,There is ongoing confusion over roles and responsibilities.,There is ongoing confusion over roles and responsibilities.
 en,There is not ongoing confusion over roles and responsibilities.,There is not ongoing confusion over roles and responsibilities.
@@ -7009,7 +7009,6 @@ tr,Our team knows how to work through conflict constructively.,Ekibimiz çatış
 zh,Our team knows how to work through conflict constructively.,我们团队知道如何建设性的解决冲突.
 le,Our team knows how to work through conflict constructively.,"This team knows how to work through conflict constructively.
 "
-en,A question was added,A question was added
 ex,Our team knows how to work through conflict constructively.,Nuestro equipo sabe cómo tratar con los conflictos constructivamente.
 og,Our team knows how to work through conflict constructively.,"In our organization, we know how to work through conflict constructively."
 ft,Our team knows how to work through conflict constructively.,Our family knows how to work through conflict constructively.
@@ -7114,6 +7113,7 @@ ex,Creativity is one of our strengths as a team.,La creatividad es una de nuestr
 og,Creativity is one of our strengths as a team.,Creativity is one of our organization’s strengths.
 ft,Creativity is one of our strengths as a team.,Creativity is one of our strengths as a family.
 fx,Creativity is one of our strengths as a team.,La créativité est une des forces de notre équipe.
+tx,Creativity is one of our strengths as a team.,Creativity is a strength of this team.
 po,Creativity is one of our strengths as a team.,A criatividade é um dos pontos fortes da nossa equipa.
 en,We are resistant to change and prefer to maintain the status quo.,We are resistant to change and prefer to maintain the status quo.
 en,We welcome change and do not prefer to maintain the status quo.,We welcome change and do not prefer to maintain the status quo.
@@ -7154,7 +7154,6 @@ he,We welcome change and do not prefer to maintain the status quo.,"אנחנו �
 it,We welcome change and do not prefer to maintain the status quo.,Noi amiamo il cambiamento e non preferiamo mantenere lo status quo.
 ja,We welcome change and do not prefer to maintain the status quo.,"私たちのチームは、現状にとどまることを好まず、変化を歓迎します。
 "
-en,Create your first Team Diagnostic,Create your first Team Diagnostic
 nl,We welcome change and do not prefer to maintain the status quo.,We juichen verandering toe en hoeven de zaken niet te houden zoals ze zijn.
 no,We welcome change and do not prefer to maintain the status quo.,Vi ønsker endringer velkommen og tilstreber ikke status quo.
 pl,We welcome change and do not prefer to maintain the status quo.,Chętnie wprowadzamy zmiany i nie staramy się utrzymywać status quo.
@@ -7263,7 +7262,6 @@ de,"Recognition, rewards and compensation are linked to performance on our team.
 el,"Recognition, rewards and compensation are linked to performance on our team.","στην ομάδα μας η αναγνώριση, οι επιβραβεύσεις και οι αμοιβές είναι συνδεδεμένες με την απόδοση."
 fi,"Recognition, rewards and compensation are linked to performance on our team.","Tiimissämme tunnustus, palkkiot ja kompensaatio yhdistetään suorituksen tasoon."
 tx,Even in heated debates we respectfully listen to each other.,Even in heated debates team members respectfully listen to each other.
-ex,We do not criticize and blame each other.,No nos criticamos ni nos culpamos unos a otros.
 fr,"Recognition, rewards and compensation are linked to performance on our team.","La reconnaissance, les récompenses et les compensations sont liées à la performance dans notre équipe."
 he,"Recognition, rewards and compensation are linked to performance on our team.","בצוות שלנו, הכרה, תגמול ופיצוי קשורים לביצועים."
 it,"Recognition, rewards and compensation are linked to performance on our team.","Apprezzamenti, premi e riconoscimenti sono legati alla performance nel nostro team."
@@ -7298,6 +7296,7 @@ ja,"We truly value diversity in thought, personality and lifestyle on our team."
 nl,"We truly value diversity in thought, personality and lifestyle on our team.","Wij waarderen onze onderlinge verschillen in denkwijze, persoonlijkheid en levensstijl."
 no,"We truly value diversity in thought, personality and lifestyle on our team.","I vårt team setter vi stor pris på at vi har ulike tankesett, livsstil og personligheter."
 pl,"We truly value diversity in thought, personality and lifestyle on our team.","W naszym zespole prawdziwie doceniamy różnorodność w sposobie myślenia, osobowości i stylu życia."
+en,Create your first Team Diagnostic,Create your first Team Diagnostic
 pt,"We truly value diversity in thought, personality and lifestyle on our team.","Nós verdadeiramente valorizamos a diversidade de ideias, personalidades e estilos de vida."
 ru,"We truly value diversity in thought, personality and lifestyle on our team.","В нашей команде очень высоко ценится индивидуальность, различия во взглядах и образе жизни."
 es,"We truly value diversity in thought, personality and lifestyle on our team.","Verdaderamente valoramos la diversidad en pensamiento, personalidad y estilo de vida de nuestro equipo."
@@ -7388,6 +7387,7 @@ tr,We do not criticize and blame each other.,Birbirimizi eleştirmeyiz ve suçla
 zh,We do not criticize and blame each other.,我们不彼此互相批评和指责.
 le,We do not criticize and blame each other.,"Team members do not criticize and point fingers of blame at each other.
 "
+ex,We do not criticize and blame each other.,No nos criticamos ni nos culpamos unos a otros.
 og,We do not criticize and blame each other.,We do not criticize and point fingers of blame at each other in our organization.
 en,Team Diagnostics,Team Diagnostics
 fx,We do not criticize and blame each other.,Nous ne nous critiquons pas et nous ne nous blâmons pas les uns les autres.
@@ -7432,7 +7432,6 @@ fr,There is an underlying sense of helplessness and hopelessness on our team.,Il
 he,There is an underlying sense of helplessness and hopelessness on our team.,יש תחושה לא מבוטאת של חוסר אונים וייאוש בצוות שלנו.
 it,There is an underlying sense of helplessness and hopelessness on our team.,Nel nostro team si percepisce un sentimento non dichiarato di impotenza e di mancanza di prospettive.
 ja,There is an underlying sense of helplessness and hopelessness on our team.,私たちのチームの根底には、無力感や絶望感があります。
-tx,We seek and support improvements in our processes.,The team seeks and supports improvements in their processes.
 nl,There is an underlying sense of helplessness and hopelessness on our team.,In ons team is er een onderstroom van hulpeloosheid en uitzichtloosheid.
 no,There is an underlying sense of helplessness and hopelessness on our team.,Det er en underliggende følelse av hjelpeløshet og håpløshet i teamet vårt.
 sv,We avoid conflict at all costs.,Vi undviker konflikter till varje pris.
@@ -7470,7 +7469,6 @@ es,There is not an underlying sense of helplessness and hopelessness on our team
 sv,There is not an underlying sense of helplessness and hopelessness on our team.,Det finns inte en underliggande känsla av hjälplöshet och hopplöshet i vårt team.
 tr,There is not an underlying sense of helplessness and hopelessness on our team.,Ekibimizde temelde acizlik ve umutsuzluk duygusu hakim değildir.
 zh,There is not an underlying sense of helplessness and hopelessness on our team.,在我们团队中没有潜藏着一种无助和无望的感觉.
-tr,Our team addresses problems in a timely manner.,Ekibimiz sorunlara zamanında müdahale eder.
 le,There is not an underlying sense of helplessness and hopelessness on our team.,"There is not an undercurrent of helplessness and hopelessness on this team.
 "
 ex,There is not an underlying sense of helplessness and hopelessness on our team.,No hay un sentimiento subyacente de indefensión y desesperanza en nuestro equipo.
@@ -7544,6 +7542,7 @@ fi,We seek and support improvements in our processes.,Haemme ja tuemme parannuks
 fr,We seek and support improvements in our processes.,Nous recherchons et soutenons les améliorations de nos procédures.
 he,We seek and support improvements in our processes.,אנחנו מחפשים שיפורים ותומכים בהם בתהליכים שלנו.
 it,We seek and support improvements in our processes.,Noi ricerchiamo e portiamo avanti miglioramenti nei nostri processi di lavoro.
+fi,Exhaustion is not an issue on our team.,Uupumus ei ole ongelma tiimissämme.
 ja,We seek and support improvements in our processes.,私たちのチームでは、仕事のプロセスにおいて改善できることを模索し互いにそれを支援します。	
 nl,We seek and support improvements in our processes.,Ons team is steeds op zoek naar (en ondersteunt) verbetering in zijn werkwijzen.
 no,We seek and support improvements in our processes.,"Vi leter etter, og tilstreber, forbedringer i våre arbeidsprosesser."
@@ -7560,6 +7559,7 @@ ex,We seek and support improvements in our processes.,Buscamos y apoyamos la mej
 og,We seek and support improvements in our processes.,Our organization seeks and supports improvements in our processes.
 ft,We seek and support improvements in our processes.,We seek and support improvements in our family  processes.
 fx,We seek and support improvements in our processes.,Nous recherchons et accueillons favorablement les améliorations à apporter à nos façons de faire.
+tx,We seek and support improvements in our processes.,The team seeks and supports improvements in their processes.
 po,We seek and support improvements in our processes.,Nós procuramos e apoiamos melhorias nos nossos processos.
 en,Exhaustion is an issue on our team.,Exhaustion is an issue on our team.
 en,Exhaustion is not an issue on our team.,Exhaustion is not an issue on our team.
@@ -7594,7 +7594,6 @@ ar,Exhaustion is not an issue on our team.,الإنهاك والإرهاق لا 
 da,Exhaustion is not an issue on our team.,Udmattelse er ikke et problem for teamet.
 de,Exhaustion is not an issue on our team.,Erschöpfung ist kein Thema in unserem Team.
 el,Exhaustion is not an issue on our team.,η κόπωση ΔΕΝ είναι «θέμα» στην ομάδα μας.
-fi,Exhaustion is not an issue on our team.,Uupumus ei ole ongelma tiimissämme.
 fr,Exhaustion is not an issue on our team.,L’épuisement n’est pas un problème dans notre équipe.
 he,Exhaustion is not an issue on our team.,"""עייפות החומר"" אינה עניין מרכזי בצוות שלנו.
 "
@@ -7639,6 +7638,7 @@ tr,There is a high level of accountability and follow through on our team.,Ekibi
 zh,There is a high level of accountability and follow through on our team.,"我们团队有很高的责任心, 能够负责执行到底."
 le,There is a high level of accountability and follow through on our team.,"There is a high level of accountability and follow-through on this team.
 "
+ru,Curiosity is valued on our team.,В нашей команде ценится любознательность.
 ex,There is a high level of accountability and follow through on our team.,Hay un gran nivel de responsabilidad (accountability) y seguimiento en nuestro equipo.
 og,There is a high level of accountability and follow through on our team.,There is a high level of accountability and follow through across our organization.
 ft,There is a high level of accountability and follow through on our team.,There is a high expectation of accountability and follow through in our family.
@@ -7652,7 +7652,6 @@ de,We are aligned on our priorities and strategies.,Wir sind uns über Prioritä
 el,We are aligned on our priorities and strategies.,είμαστε στοιχισμένοι στις προτεραιότητές μας και στις στρατηγικές μας.
 fi,We are aligned on our priorities and strategies.,Meillä on yhdenmukainen käsitys prioriteeteista ja strategiasta.
 fr,We are aligned on our priorities and strategies.,Nous sommes alignés en ce qui concerne nos priorités et nos stratégies.
-zh,Our team addresses problems in a timely manner.,我们团队会及时处理问题. 
 he,We are aligned on our priorities and strategies.,אנחנו מיושרים בקו אחד לגבי סדר העדיפויות והאסטרטגיות שלנו.
 it,We are aligned on our priorities and strategies.,Noi siamo allineati sulle nostre priorità e strategie.
 ja,We are aligned on our priorities and strategies.,私たちは、チームとしての優先事項や戦略について合意し一致協力しています。
@@ -7687,7 +7686,6 @@ nl,Curiosity is valued on our team.,Nieuwsgierigheid wordt gewaardeerd binnen on
 no,Curiosity is valued on our team.,Nysgjerrighet blir verdsatt i vårt team.
 pl,Curiosity is valued on our team.,Ciekawość jest u nas w cenie.
 pt,Curiosity is valued on our team.,A curiosidade é valorizada em nosso time.
-ru,Curiosity is valued on our team.,В нашей команде ценится любознательность.
 es,Curiosity is valued on our team.,La curiosidad es valorada en nuestro equipo.
 sv,Curiosity is valued on our team.,Nyfikenhet värdesätts i vårt team.
 tr,Curiosity is valued on our team.,Ekibimizde meraklılık olumlu bir değer olarak kabul görür.
@@ -7751,7 +7749,6 @@ ex,We do not avoid conflict.,No evitamos el conflicto.
 og,We do not avoid conflict.,"In our organization, we do not avoid conflict at all costs."
 fx,We do not avoid conflict.,Nous n’évitons pas les conflits.
 tx,We do not avoid conflict.,Team members do not avoid conflict.
-po,We do not avoid conflict.,Nós não evitamos os conflitos.
 en,We have team agreements regarding how we interact when conflict arises.,We have team agreements regarding how we interact when conflict arises.
 ar,We have team agreements regarding how we interact when conflict arises.,لدينا اتفاقيات في الفريق تبيّن كيفية تعاملنا عندما ينشأ خلاف.
 da,We have team agreements regarding how we interact when conflict arises.,"Vi har aftalt regler i teamet for, hvordan vi opfører os, når der opstår konflikter."
@@ -7796,8 +7793,6 @@ pl,Members of our team speak with contempt about other team members.,Niektórzy 
 pt,Members of our team speak with contempt about other team members.,"No nosso time, há pessoas que falam com desprezo sobre os seus membros."
 ru,Members of our team speak with contempt about other team members.,Члены нашей команды оскорбительно отзываются о других членах команды.
 es,Members of our team speak with contempt about other team members.,Hay miembros en nuestro equipo que hablan con desdén de otros.
-le,Our team addresses problems in a timely manner.,"This team addresses problems in a timely manner.
-"
 sv,Members of our team speak with contempt about other team members.,Medlemmar i vårt team uttrycker sig föraktfullt om andra i teamet.
 tr,Members of our team speak with contempt about other team members.,Ekip üyeleri birbirleri hakkında küçümseyerek konuşurlar.
 zh,Members of our team speak with contempt about other team members.,我们团队成员用轻蔑的语气谈论彼此.
@@ -7842,7 +7837,6 @@ en,There is an attitude of gratitude and appreciation in our team environment.,T
 ar,There is an attitude of gratitude and appreciation in our team environment.,هناك سلوك وشعور بالامتنان والشكر والتقدير في بيئة فريقنا.
 da,There is an attitude of gratitude and appreciation in our team environment.,Vi sætter pris på hinanden i teamet – og viser det. 
 de,There is an attitude of gratitude and appreciation in our team environment.,In unserem Team gehen wir dankbar und wertschätzend miteinander um.
-ex,Our team addresses problems in a timely manner.,Nuestro equipo enfrenta los problemas a tiempo.
 el,There is an attitude of gratitude and appreciation in our team environment.,υπάρχει αίσθημα ευχαρίστησης και θετικής αποδοχής στο περιβάλλον της ομάδας.
 fi,There is an attitude of gratitude and appreciation in our team environment.,Tiimin työilmapiiriä leimaa kiitollisuus ja arvostus.
 fr,There is an attitude of gratitude and appreciation in our team environment.,Il y a une attitude générale de gratitude et d’appréciation au sein de notre équipe.
@@ -7883,6 +7877,11 @@ pt,Our team addresses problems in a timely manner.,Nosso time trata os problemas
 ru,Our team addresses problems in a timely manner.,Наша команда своевременно берется за решение проблем.
 es,Our team addresses problems in a timely manner.,Nuestro equipo aborda los problemas de una forma oportuna.
 sv,Our team addresses problems in a timely manner.,"När problem uppstår i vårt team, tar vi snabbt tag i dem."
+tr,Our team addresses problems in a timely manner.,Ekibimiz sorunlara zamanında müdahale eder.
+zh,Our team addresses problems in a timely manner.,我们团队会及时处理问题. 
+le,Our team addresses problems in a timely manner.,"This team addresses problems in a timely manner.
+"
+ex,Our team addresses problems in a timely manner.,Nuestro equipo enfrenta los problemas a tiempo.
 og,Our team addresses problems in a timely manner.,Our organization addresses problems in a timely manner.
 ft,Our team addresses problems in a timely manner.,Our family addresses problems in a timely manner.
 fx,Our team addresses problems in a timely manner.,Notre équipe règle rapidement les problèmes.
@@ -7916,8 +7915,6 @@ ft,We are positive role models for the whole organization when it comes to embra
 fx,We are positive role models for the whole organization when it comes to embracing change.,Nous sommes un modèle pour l’ensemble de l’organisation dans notre façon de nous adapter au changement.
 tx,We are positive role models for the whole organization when it comes to embracing change.,"When it comes to embracing change, the team is a positive role model for the whole organization."
 gb,We are positive role models for the whole organization when it comes to embracing change.,We are positive role models for the whole organisation when it comes to embracing change.
-le,Symptoms of burnout are not present on our team.,"Symptoms of burnout are not present on this team.
-"
 po,We are positive role models for the whole organization when it comes to embracing change.,Nós somos uma referência positiva para toda a organização no que se refere à nossa abertura à mudança.
 en,Symptoms of burnout are present on our team.,Symptoms of burnout are present on our team.
 en,Symptoms of burnout are not present on our team.,Symptoms of burnout are not present on our team.
@@ -7966,6 +7963,8 @@ es,Symptoms of burnout are not present on our team.,En nuestro equipo no están 
 sv,Symptoms of burnout are not present on our team.,Det finns inga symtom på utbrändhet i vårt team.
 tr,Symptoms of burnout are not present on our team.,Ekibimizde tükenmişlik belirtileri yok.
 zh,Symptoms of burnout are not present on our team.,我们团队中不存在精力过分透支的症状.
+le,Symptoms of burnout are not present on our team.,"Symptoms of burnout are not present on this team.
+"
 ex,Symptoms of burnout are not present on our team.,No hay síntomas de agotamiento en nuestro equipo.
 og,Symptoms of burnout are not present on our team.,Symptoms of burnout are not present in our organization.
 ft,Symptoms of burnout are not present on our team.,Symptoms of apathy and weariness are not present in our family.
@@ -8052,6 +8051,7 @@ zh,There is a spirit of cooperation on our team.,我们团队中有良好的合�
 le,There is a spirit of cooperation on our team.,"There is a spirit of cooperation on this team.
 "
 ex,There is a spirit of cooperation on our team.,Hay un espíritu de cooperación en nuestro equipo.
+en,Please invite this participant,Please invite this participant
 og,There is a spirit of cooperation on our team.,There is a spirit of cooperation in our organization.
 ft,There is a spirit of cooperation on our team.,There is a spirit of cooperation in our family.
 fx,There is a spirit of cooperation on our team.,Il y a un esprit de coopération dans notre équipe.
@@ -8125,6 +8125,7 @@ it,We regularly provide each other with constructive feedback.,Noi ci scambiamo 
 ja,We regularly provide each other with constructive feedback.,私たちのチームでは、建設的なフィードバックが日常的にやりとりされています。
 nl,We regularly provide each other with constructive feedback.,We geven elkaar regelmatig positieve feedback.
 no,We regularly provide each other with constructive feedback.,Vi gir hverandre jevnlig konstruktive tilbakemeldinger.
+en,An invitiation email was sent,An invitiation email was sent
 pl,We regularly provide each other with constructive feedback.,Regularnie dostarczamy sobie nawzajem konstruktywnych informacji zwrotnych.
 pt,We regularly provide each other with constructive feedback.,Damos feedback construtivos uns aos outros com regularidade.
 ru,We regularly provide each other with constructive feedback.,Мы практикуем конструктивный обмен мнениями на регулярной основе.
@@ -8276,9 +8277,9 @@ tr,Our team is nimble and flexible in responding to problems as they arise.,Soru
 zh,Our team is nimble and flexible in responding to problems as they arise.,我们团队在问题发生时能够机敏而灵活地应对.
 le,Our team is nimble and flexible in responding to problems as they arise.,"This team is nimble and flexible in responding to problems as they arise.
 "
+en,A cancellation email was sent,A cancellation email was sent
 ex,Our team is nimble and flexible in responding to problems as they arise.,Nuestro equipo es hábil y flexible para responder a los problemas según surgen.
 og,Our team is nimble and flexible in responding to problems as they arise.,Our organization is nimble and flexible in responding to problems as they arise.
-da,New and/or controversial ideas are discouraged by this team.,Nye og/eller anderledes ideer er ikke velkomne på dette team.
 ft,Our team is nimble and flexible in responding to problems as they arise.,"As problems arise, our family responds quickly and with flexibility."
 fx,Our team is nimble and flexible in responding to problems as they arise.,Notre équipe est agile et flexible face aux problèmes qui surgissent.
 tx,Our team is nimble and flexible in responding to problems as they arise.,The team is nimble and flexible in responding to problems as they arise.
@@ -8309,8 +8310,8 @@ pl,There appears to be a “win/lose” mentality on this team where one person�
 pt,There appears to be a “win/lose” mentality on this team where one person’s gains become another person’s losses.,"Parece que há uma mentalidade ganha / perde, onde os  ganhos de um resultam em perdas para outra pessoa."
 es,There appears to be a “win/lose” mentality on this team where one person’s gains become another person’s losses.,Parece haber una mentalidad de “ganador/perdedor” donde las ganancias de uno resultan ser las pérdidas de otro.
 sv,There appears to be a “win/lose” mentality on this team where one person’s gains become another person’s losses.,Det verkar finnas en tävlingsmentalitet i det här teamet som innebär att den enes framgång blir den andres förlust.
+pt,There appears to be tremendous enthusiasm and optimism on this team.,Parece que há grande otimismo e entusiasmo neste time.
 zh,There appears to be a “win/lose” mentality on this team where one person’s gains become another person’s losses.,"该团队中存在“非输即赢”的心态, 即一个人的成功意味着其他人的失败。"
-de,New and/or controversial ideas are discouraged by this team.,Neue oder umstrittene Ideen werden in diesem Team ausgebremst.
 ex,There appears to be a “win/lose” mentality on this team where one person’s gains become another person’s losses.,Parece haber una mentalidad de “ganador/perdedor” donde las ganancias de uno resultan ser las pérdidas de otro.
 fx,There appears to be a “win/lose” mentality on this team where one person’s gains become another person’s losses.,"Il y a une mentalité «gagnant/perdant» dans cette équipe. Si une personne gagne quelque chose, c’est aux dépens de quelqu’un d’autre."
 ar,There does not appear to be a “win/lose” mentality on this team where one person’s gains become another person’s losses.,"لا يبدو أن هناك عقلية ""الفوز والخسارة"" في هذا الفريق حيث مكاسب شخص ما تصبح خسارة لشخص آخر."
@@ -8343,6 +8344,8 @@ fx,"On this team, there is collective ownership of results.","Dans cette équipe
 en,New and/or controversial ideas are discouraged by this team.,New and/or controversial ideas are discouraged by this team.
 en,New and/or controversial ideas are encouraged on this team.,New and/or controversial ideas are encouraged on this team.
 ar,New and/or controversial ideas are discouraged by this team.,يتم تثبيط الأفكار الجديدة و/أو المثيرة للجدل من قبل هذا الفريق.
+da,New and/or controversial ideas are discouraged by this team.,Nye og/eller anderledes ideer er ikke velkomne på dette team.
+de,New and/or controversial ideas are discouraged by this team.,Neue oder umstrittene Ideen werden in diesem Team ausgebremst.
 fi,New and/or controversial ideas are discouraged by this team.,Uusien ja/tai kiistanalaisten ideoiden esittämistä ei kannusteta tässä tiimissä.
 it,New and/or controversial ideas are discouraged by this team.,"Le idee innovative o su cui vi sono pareri opposti, sono scoraggiate in questo team."
 nl,New and/or controversial ideas are discouraged by this team.,Nieuwe of omstreden ideeën vinden geen vaste bodem in dit team. 
@@ -8419,6 +8422,7 @@ es,“Playing politics” is a tactic used by team members to get their way.,“
 sv,“Playing politics” is a tactic used by team members to get their way.,Taktiskt “rävspel” används för att få sin vilja igenom i det här teamet.
 zh,“Playing politics” is a tactic used by team members to get their way.,"在该团队中, 人们通过玩弄政治手腕来达到目的。"
 ex,“Playing politics” is a tactic used by team members to get their way.,“Actuar políticamente” es usado como un medio para salirse uno con la suya.
+es,There appears to be tremendous enthusiasm and optimism on this team.,Parece haber gran entusiasmo y optimismo en nuestro equipo.
 ar,“Playing politics” is not a tactic used by team members to get their way.,"""الألاعيب السياسة"" هي تقنية لا يتم استخدامها من قبل أعضاء فريقنا ليحققوا أجندتهم. "
 da,“Playing politics” is not a tactic used by team members to get their way.,"Taktisk spil bliver ikke brugt i dette team, når folk vil have deres vilje igennem."
 de,“Playing politics” is not a tactic used by team members to get their way.,"„Politische Spielchen“ ist keine Taktik, die von den Teammitgliedern benutzt wird, um ihren Willen durchzusetzen."
@@ -8459,8 +8463,7 @@ fi,There appears to be tremendous enthusiasm and optimism on this team.,Tiimiss�
 it,There appears to be tremendous enthusiasm and optimism on this team.,C’è un fortissimo entusiasmo ed ottimismo in questo team.
 nl,There appears to be tremendous enthusiasm and optimism on this team.,Volgens mij is dit team enorm enthousiast en optimistisch.
 pl,There appears to be tremendous enthusiasm and optimism on this team.,W zespole panuje ogromny entuzjazm i optymizm.
-pt,There appears to be tremendous enthusiasm and optimism on this team.,Parece que há grande otimismo e entusiasmo neste time.
-es,There appears to be tremendous enthusiasm and optimism on this team.,Parece haber gran entusiasmo y optimismo en nuestro equipo.
+en,Automatic deployment failed,Automatic deployment failed
 sv,There appears to be tremendous enthusiasm and optimism on this team.,Det verkar finnas en mycket stark entusiasm och optimism i det här teamet.
 zh,There appears to be tremendous enthusiasm and optimism on this team.,该团队非常热情和乐观。
 ex,There appears to be tremendous enthusiasm and optimism on this team.,Parece haber gran entusiasmo y optimismo en nuestro equipo.
@@ -8504,6 +8507,7 @@ fi,This team does not have an inefficient decision making process.,Tällä tiimi
 it,This team does not have an inefficient decision making process.,Questo team non ha un processo decisionale inefficiente.
 nl,This team does not have an inefficient decision making process.,Dit team heeft geen inefficiënte manier van beslissingen nemen.
 pl,This team does not have an inefficient decision making process.,Proces podejmowania decyzji w zespole jest efektywny.
+fi,A spirit of optimism lives on this team.,Tässä tiimissä on optimistinen henki.
 pt,This team does not have an inefficient decision making process.,Este time tem um processo decisório eficiente.
 es,This team does not have an inefficient decision making process.,Este equipo no tiene un proceso ineficiente de toma de decisiones.
 sv,This team does not have an inefficient decision making process.,Det här teamets beslutsprocess är effektiv.
@@ -8543,6 +8547,7 @@ ar,This team is highly resilient and not easily defeated in their goals.,هذا 
 da,This team is highly resilient and not easily defeated in their goals.,Teamet har stor modstandskraft og giver ikke så let op.
 de,This team is highly resilient and not easily defeated in their goals.,Dieses Team ist sehr belastbar und nicht leicht von seinen Zielen abzubringen.
 fi,This team is highly resilient and not easily defeated in their goals.,Tämä tiimi on varsin varsin sinnikäs eikä helposti anna periksi tavoitteissaan.
+en,Error sending reminders,Error sending reminders
 it,This team is highly resilient and not easily defeated in their goals.,Questo team è forte e non si fa fermare facilmente quando c’è da raggiungere un obiettivo.
 nl,This team is highly resilient and not easily defeated in their goals.,Dit team is zeer veerkrachtig en niet makkelijk uit het veld te slaan.
 pl,This team is highly resilient and not easily defeated in their goals.,Zespół jest bardzo wytrwały i łatwo nie rezygnuje z realizacji swych celów.
@@ -8587,6 +8592,7 @@ nl,Team members are rarely frustrated with each other.,De teamleden ergeren zich
 sv,Team members are rarely frustrated with each other.,Teammedlemmarna blir sällan frustrerade på varandra.
 zh,Team members are rarely frustrated with each other.,该团队成员很少对彼此感到失望.
 ex,Team members are rarely frustrated with each other.,Los miembros del equipo rara vez se frustran unos con otros.
+en,Deployment was successful,Deployment was successful
 fx,Team members are rarely frustrated with each other.,Les membres de l’équipe sont rarement frustrés les uns envers les autres.
 en,This team communicates clearly and efficiently.,This team communicates clearly and efficiently.
 ar,This team communicates clearly and efficiently.,هذا الفريق يتواصل بوضوح وكفاءة.
@@ -8626,7 +8632,6 @@ en,A spirit of optimism lives on this team.,A spirit of optimism lives on this t
 ar,A spirit of optimism lives on this team.,روح من التفاؤل تشعّ في هذا الفريق.
 da,A spirit of optimism lives on this team.,Der er en optimistisk stemning i teamet.
 de,A spirit of optimism lives on this team.,Ein Optimismusgeist lebt in diesem Team.
-fi,A spirit of optimism lives on this team.,Tässä tiimissä on optimistinen henki.
 it,A spirit of optimism lives on this team.,L’ottimismo è presente in questo team.
 nl,A spirit of optimism lives on this team.,Er heerst een sfeer van optimisme in dit team.
 pl,A spirit of optimism lives on this team.,W tym zespole żywy jest duch optymizmu.
@@ -8741,6 +8746,7 @@ sv,The team does not have members who become defensive when mistakes are pointed
 zh,The team does not have members who become defensive when mistakes are pointed out.,"当错误被指出时, 该团队的成员们不会变得很抵触。"
 ex,The team does not have members who become defensive when mistakes are pointed out.,El equipo no tiene miembros que se ponen a la defensiva cuando se señalan errores.
 fx,The team does not have members who become defensive when mistakes are pointed out.,"Dans l’équipe, les gens ne sont pas sur la défensive lorsqu’on identifie des erreurs."
+en,Manual deployment started,Manual deployment started
 en,The team tends to avoid speaking the truth when speaking up might create upset or hurt feelings.,The team tends to avoid speaking the truth when speaking up might create upset or hurt feelings.
 en,The team does not avoid speaking the truth even when speaking up might create upset or hurt feelings.,The team does not avoid speaking the truth even when speaking up might create upset or hurt feelings.
 ar,The team tends to avoid speaking the truth when speaking up might create upset or hurt feelings.,يميل الفريق إلى تجنب قول الحقيقة عندما يكون الكلام قد يؤدي إلى انزعاج أو قد يجرح المشاعر.
@@ -8767,11 +8773,11 @@ fx,The team tends to avoid speaking the truth when speaking up might create upse
 ar,The team does not avoid speaking the truth even when speaking up might create upset or hurt feelings.,الفريق لا يتجنب قول الحقيقة عندما يكون الكلام قد يؤدي إلى انزعاج أو قد يجرح المشاعر.
 da,The team does not avoid speaking the truth even when speaking up might create upset or hurt feelings.,I teamet bliver tingene ikke pakket ind for at undgå at såre hinanden eller skabe konflikt.
 de,The team does not avoid speaking the truth even when speaking up might create upset or hurt feelings.,"Das Team neigt nicht dazu zu vermeiden, die Wahrheit zu sagen, wenn dies andere verärgern oder verletzen könnte."
-zh,"The team has an inspiring, shared, organizational vision.",该团队拥有共同的、鼓舞人心的组织愿景。
 fi,The team does not avoid speaking the truth even when speaking up might create upset or hurt feelings.,"Tämä tiimi ei välttele totuuden sanomista silloinkaan, kun suoraan puhuminen voi kuohuttaa tai loukata tunteita."
 it,The team does not avoid speaking the truth even when speaking up might create upset or hurt feelings.,Nel team non si evita di dire la verità anche quando questa potrebbe turbare qualcuno o urtare i suoi sentimenti.
 nl,The team does not avoid speaking the truth even when speaking up might create upset or hurt feelings.,"Het team schrikt er niet voor terug om de waarheid te zeggen, ook als er mensen door van streek kunnen raken."
 pl,The team does not avoid speaking the truth even when speaking up might create upset or hurt feelings.,"W zespole nie unika się mówienia prawdy, jeśli mogłaby ona spowodować zranienie czyichś uczuć lub kogoś zdenerwować."
+de,Leadership is not empowered on the team.,Führungsverhalten wird im Team nicht unterstützt.
 pt,The team does not avoid speaking the truth even when speaking up might create upset or hurt feelings.,"No time não se evita dizer a verdade, mesmo quando isso pode criar incômodo ou ferir sentimentos."
 es,The team does not avoid speaking the truth even when speaking up might create upset or hurt feelings.,En el equipo no se evita decir la verdad cuando hacerlo pudiera generar incomodidad o herir los sentimientos de alguien.
 sv,The team does not avoid speaking the truth even when speaking up might create upset or hurt feelings.,Teammedlemmarna vågar vara uppriktiga även om någon kan bli upprörd eller sårad.
@@ -8803,6 +8809,7 @@ pl,"The team has an inspiring, shared, organizational vision.","Ten zespół ma 
 pt,"The team has an inspiring, shared, organizational vision.",O time compartilha uma visão organizacional inspiradora.
 es,"The team has an inspiring, shared, organizational vision.","El equipo tiene una visión compartida, organizacional e inspiradora."
 sv,"The team has an inspiring, shared, organizational vision.",Teamet har en inspirerande och gemensam vision för organisationen.
+zh,"The team has an inspiring, shared, organizational vision.",该团队拥有共同的、鼓舞人心的组织愿景。
 ex,"The team has an inspiring, shared, organizational vision.","El equipo tiene una visión compartida, organizacional e inspiradora."
 fx,"The team has an inspiring, shared, organizational vision.","L’équipe partage, et est inspirée par, la même vision globale."
 gb,"The team has an inspiring, shared, organizational vision.","The team has an inspiring, shared, organisational vision."
@@ -8810,7 +8817,6 @@ en,Leadership is not empowered on the team.,Leadership is not empowered on the t
 en,Leadership is empowered on this team.,Leadership is empowered on this team.
 ar,Leadership is not empowered on the team.,لا يوجد في الفريق تمكين قياديّ.
 da,Leadership is not empowered on the team.,"Teamet bakker ikke op, når nogen tager lederskab."
-de,Leadership is not empowered on the team.,Führungsverhalten wird im Team nicht unterstützt.
 fi,Leadership is not empowered on the team.,Tiimissä ei kannusteta kaikkia johtajuuteen.
 it,Leadership is not empowered on the team.,Nel team non sono ammessi atteggiamenti di comando.
 nl,Leadership is not empowered on the team.,In dit team is niet duidelijk wie de leiding heeft.
@@ -8898,7 +8904,6 @@ da,Playfulness and humor are absent in team member relationships.,De indbyrdes f
 de,Playfulness and humor are absent in team member relationships.,In den Beziehungen der Teammitglieder gibt es weder Spaß noch Humor.
 fi,Playfulness and humor are absent in team member relationships.,Leikkimielisyys ja huumori puuttuvat tiimin jäsenten välisistä suhteista.
 it,Playfulness and humor are absent in team member relationships.,Leggerezza e humor sono assenti nelle relazioni tra membri del team.
-es,Cynicism is prevalent on this team.,En este equipo prevalece el cinismo.
 nl,Playfulness and humor are absent in team member relationships.,Speelsheid en humor kennen de teamleden onderling niet.
 pl,Playfulness and humor are absent in team member relationships.,W relacjach między członkami zespołu nie ma wesołości ani poczucia humoru.
 pt,Playfulness and humor are absent in team member relationships.,Humor e diversão estão ausentes nas relações entre os membros do time.
@@ -8938,7 +8943,6 @@ en,Team members often withdraw from communication or respond emotionally when pr
 en,Team members do not withdraw from communication or respond emotionally when problems arise.,Team members do not withdraw from communication or respond emotionally when problems arise.
 ar,Team members often withdraw from communication or respond emotionally when problems arise.,غالبا ما ينسحب أعضاء الفريق من التواصل أو يستجيبون بانفعال عندما تحدث المشاكل.
 da,Team members often withdraw from communication or respond emotionally when problems arise.,"Folk i teamet bliver enten tavse eller argumenterer følelsesmæssigt, når der opstår problemer."
-sv,Cynicism is prevalent on this team.,Cynism är vanligt förekommande i det här teamet.
 de,Team members often withdraw from communication or respond emotionally when problems arise.,"Wenn es Probleme gibt, gehen Teammitglieder der Kommunikation oft aus dem Weg oder reagieren emotional."
 fi,Team members often withdraw from communication or respond emotionally when problems arise.,"Kun ongelmia ilmaantuu, tiimin jäsenet kiihtyvät tai käpertyvät itseensä."
 it,Team members often withdraw from communication or respond emotionally when problems arise.,I membri del team spesso evitano di comunicare oppure reagiscono emotivamente quando sorge un problema.
@@ -9058,6 +9062,7 @@ zh,The team has had adequate training to be as effective as it needs to be.,该�
 ex,The team has had adequate training to be as effective as it needs to be.,El equipo ha recibido el entrenamiento adecuado para ser todo lo efectivo que se espera.
 fx,The team has had adequate training to be as effective as it needs to be.,L’équipe a reçu la formation nécessaire pour être aussi efficace qu’elle le devrait.
 en,This team has ongoing confusion over roles and responsibilities.,This team has ongoing confusion over roles and responsibilities.
+de,Creativity is a strength on this team.,Kreativität ist in diesem Team eine Stärke.
 en,This team does not have ongoing confusion over roles and responsibilities.,This team does not have ongoing confusion over roles and responsibilities.
 ar,This team has ongoing confusion over roles and responsibilities.,هذا الفريق لديه فوضى مستمرة فيما يخص الأدوار والمسؤوليات. 
 da,This team has ongoing confusion over roles and responsibilities.,Der er forvirring over roller og ansvar i teamet.
@@ -9168,6 +9173,8 @@ it,Cynicism is prevalent on this team.,Il cinismo è prevalente in questo team.
 nl,Cynicism is prevalent on this team.,Er heerst cynisme in dit team.
 pl,Cynicism is prevalent on this team.,Cynizm jest powszechny w tym zespole.
 pt,Cynicism is prevalent on this team.,O cinismo é uma característica predominante deste time.
+es,Cynicism is prevalent on this team.,En este equipo prevalece el cinismo.
+sv,Cynicism is prevalent on this team.,Cynism är vanligt förekommande i det här teamet.
 zh,Cynicism is prevalent on this team.,冷嘲热讽在该团队很普遍。
 fx,Cynicism is prevalent on this team.,Il y a beaucoup de cynisme dans cette équipe.
 ar,Cynicism is not prevalent on this team.,استخدام أسلوب السخرية/التهكم غير شائع في هذا الفريق.
@@ -9185,7 +9192,6 @@ fx,Cynicism is not prevalent on this team.,Il n’y a pas de cynisme dans cette 
 en,Creativity is a strength on this team.,Creativity is a strength on this team.
 ar,Creativity is a strength on this team.,الإبداع هو نقطة قوة لدى هذا الفريق.
 da,Creativity is a strength on this team.,Kreativitet er en af teamets styrker.
-de,Creativity is a strength on this team.,Kreativität ist in diesem Team eine Stärke.
 fi,Creativity is a strength on this team.,Luovuus on yksi tämän tiimin vahvuuksista.
 it,Creativity is a strength on this team.,La creatività è uno dei punti di forza del team.
 nl,Creativity is a strength on this team.,Creativiteit is een kracht van dit team.
@@ -9226,6 +9232,7 @@ da,Team members are highly diverse in their individual skills and work styles.,"
 de,Team members are highly diverse in their individual skills and work styles.,Teammitglieder haben sehr unterschiedliche Fähigkeiten und Arbeitsweisen.
 fi,Team members are highly diverse in their individual skills and work styles.,Tiimin jäsenillä on erilaisia yksilöllisiä taitoja ja työtapoja.
 it,Team members are highly diverse in their individual skills and work styles.,I membri del team sono molto diversi in termini di competenze e stili di lavoro.
+zh,All members of the team are equally valued.,该团队所有成员都被平等地尊重和重视。
 nl,Team members are highly diverse in their individual skills and work styles.,Teamleden zijn heel verschillend in hun vaardigheden en manieren van werken.
 pt,Team members are highly diverse in their individual skills and work styles.,Os membros do time são muito diversos em termos de estilos de trabalho e habilidades individuais.
 sv,Team members are highly diverse in their individual skills and work styles.,Teammedlemmarna är mycket olika i sina individuella färdigheter och arbetssätt.
@@ -9295,7 +9302,6 @@ de,Even in heated debates team members respectfully listen to each other.,Auch i
 fi,Even in heated debates team members respectfully listen to each other.,Jopa kiivaissa väittelyissä tiimin jäsenet kuuntelevat toinen toistaan arvostaen.
 it,Even in heated debates team members respectfully listen to each other.,Anche nei dibattiti accesi tra membri del team ci si ascolta l’un l’altro con rispetto.
 nl,Even in heated debates team members respectfully listen to each other.,Zelfs in verhitte discussies luisteren de teamleden met respect naar elkaar.
-zh,All members of the team are equally valued.,该团队所有成员都被平等地尊重和重视。
 pl,"The team truly values diversity in thought, personality and lifestyle.","Ten zespół prawdziwie docenia różnorodność w sposobie myślenia, w osobowościach i stylu życia."
 pt,"The team truly values diversity in thought, personality and lifestyle.","O time verdadeiramente valoriza a diversidade de ideias, personalidades e estilos de vida."
 pl,Even in heated debates team members respectfully listen to each other.,Nawet podczas burzliwych debat członkowie tego zespołu z szacunkiem słuchają się nawzajem.
@@ -9554,6 +9560,7 @@ fx,Members of this team do not speak with contempt about other team members.,Des
 en,There is an attitude of gratitude and appreciation on this team.,There is an attitude of gratitude and appreciation on this team.
 ar,There is an attitude of gratitude and appreciation on this team.,هناك سلوك امتنان وشكر وتقدير في هذا الفريق.
 es,There are team agreements regarding how team members interact when conflict arises.,Existen acuerdos en cuanto a cómo deben interactuar los miembros del equipo cuando surge el conflicto.
+it,The team often makes excuses when the job doesn’t get done.,Il team spesso accampa scuse quando il lavoro non viene fatto.
 fx,There are team agreements regarding how team members interact when conflict arises.,L’équipe a une entente quant à la façon d'interagir lorsque surgit un conflit.
 en,Important Dates,Important Dates
 en,Letters,Letters
@@ -9639,7 +9646,6 @@ es,The team often makes excuses when the job doesn’t get done.,El equipo frecu
 sv,The team often makes excuses when the job doesn’t get done.,Teammedlemmar kommer ofta med bortförklaringar när arbetet inte blir gjort.
 zh,The team often makes excuses when the job doesn’t get done.,该团队经常会在工作没有完成时给出借口。
 ex,The team often makes excuses when the job doesn’t get done.,El equipo frecuentemente da excusas cuando no se completa el trabajo.
-it,The team often makes excuses when the job doesn’t get done.,Il team spesso accampa scuse quando il lavoro non viene fatto.
 nl,The team often makes excuses when the job doesn’t get done.,Het team komt vaak met smoesjes als een taak niet af is.
 pl,The team often makes excuses when the job doesn’t get done.,"Kiedy praca nie jest wykonana, ten zespół często ucieka się do wymówek."
 da,The team does not make excuses when the job doesn’t get done.,"Teamet finder ikke på undskyldninger for, hvorfor opgaver ikke er løst."
@@ -9797,6 +9803,7 @@ it,There appears to be a “win/lose” mentality on the team where one person�
 nl,There appears to be a “win/lose” mentality on the team where one person’s gains become another person’s losses.,Er lijkt een mentaliteit in het team te zijn van winnen en verliezen: het gewin van de één gaat ten koste van de ander.
 pl,There appears to be a “win/lose” mentality on the team where one person’s gains become another person’s losses.,"W tym zespole panuje nastawienie „ktoś zyskuje, ktoś traci"", gdzie wygrana jednej osoby oznacza porażkę innego członka zespołu."
 en,Team members do not criticize other team members behind their backs.,Team members do not criticize other team members behind their backs.
+da,The team leader inspires and supports the team as needed.,"Teamlederen inspirerer og støtter teamet i den grad, der er brug for."
 pt,There appears to be a “win/lose” mentality on the team where one person’s gains become another person’s losses.,"Existe neste time uma mentalidade ganha / perde, onde meus ganhos resultam em perdas para outra pessoa."
 es,There appears to be a “win/lose” mentality on the team where one person’s gains become another person’s losses.,"Parece haber una mentalidad de ""ganador/perdedor"" donde las ganancias de uno resultan ser las pérdidas de otro."
 fx,There appears to be a “win/lose” mentality on the team where one person’s gains become another person’s losses.,"Il y a une mentalité «gagnant/perdant» dans l’équipe. Si une personne gagne quelque chose, c’est aux dépens de quelqu’un d’autre."
@@ -9806,7 +9813,6 @@ da,There does not appear to be a “win/lose” mentality on the team where one 
 it,There does not appear to be a “win/lose” mentality on the team where one person’s gains become another person’s losses.,"Non c’è nel team una mentalità «win/lose», per cui i successi di uno diventano le sconfitte di qualcun altro."
 nl,There does not appear to be a “win/lose” mentality on the team where one person’s gains become another person’s losses.,Dit team lijkt geen mentaliteit te hebben van winnen ten koste van de ander.
 pl,There does not appear to be a “win/lose” mentality on the team where one person’s gains become another person’s losses.,"W tym zespole nie ma nastawienia „ktoś zyskuje, ktoś traci"", gdzie wygrana jednej osoby oznacza porażkę innego członka zespołu."
-es,Team members avoid conflict at all cost.,Los miembros del equipo evitan el conflicto a toda costa.
 pt,There does not appear to be a “win/lose” mentality on the team where one person’s gains become another person’s losses.,"Não existe neste time a mentalidade ganha / perde, onde meus ganhos resultam em perdas para outra pessoa."
 es,There does not appear to be a “win/lose” mentality on the team where one person’s gains become another person’s losses.,"No parece haber una mentalidad de ""ganador/perdedor"" donde las ganancias de uno resultan ser las pérdidas de otro."
 fx,There does not appear to be a “win/lose” mentality on the team where one person’s gains become another person’s losses.,"Il n'y a pas de mentalité «gagnant/perdant» dans l’équipe. Si une une personne gagne quelque chose, c’est aux dépens de quelqu’un d’autre."
@@ -9871,7 +9877,6 @@ es,There appears to be enthusiasm and optimism on the team.,En nuestro equipo pa
 fx,There appears to be enthusiasm and optimism on the team.,"Dans cette équipe, il se dégage de l’enthousiasme et de l’optimisme."
 en,The team leader inspires and supports the team as needed.,The team leader inspires and supports the team as needed.
 ar,The team leader inspires and supports the team as needed.,قائد الفريق يلهم الفريق ويدعمه كلما احتاج الأمر إلى ذلك.
-da,The team leader inspires and supports the team as needed.,"Teamlederen inspirerer og støtter teamet i den grad, der er brug for."
 it,The team leader inspires and supports the team as needed.,Il team leader ispira e supporta il team quando è necessario.
 nl,The team leader inspires and supports the team as needed.,De teamleider inspireert en steunt het team volgens de behoeften van de mensen.
 pl,The team leader inspires and supports the team as needed.,Lider tego zespołu inspiruje i wspiera zespół zgodnie z potrzebami.
@@ -9914,6 +9919,7 @@ nl,There is interdependence among team members on the team; they can count on ea
 pl,There is interdependence among team members on the team; they can count on each other.,"Członkowie tego zespołu mają poczucie, że zależą od siebie nawzajem i mogą na sobie polegać."
 pt,There is interdependence among team members on the team; they can count on each other.,Existe interdependência entre os membros do time. Eles podem contar uns com os outros.
 es,There is interdependence among team members on the team; they can count on each other.,Hay un sentido de interdependencia entre los miembros del equipo. Cuentan unos con otros.
+fx,The team regularly acknowledges and celebrates their successes.,L’équipe souligne régulièrement et célèbre ses succès.
 fx,There is interdependence among team members on the team; they can count on each other.,Il y a un sens d’interdépendance parmi les membres de l’équipe. Ils peuvent compter les uns sur les autres.
 en,The team is highly resilient and not easily defeated in its goals.,The team is highly resilient and not easily defeated in its goals.
 ar,The team is highly resilient and not easily defeated in its goals.,الفريق على درجة عالية من المرونة ولا يُغلَب على أهدافه بسهولة.
@@ -9992,7 +9998,6 @@ es,The team is cohesive and works well together.,El equipo es unido y sus miembr
 fx,The team is cohesive and works well together.,L’équipe est unie et travaille bien ensemble en tant qu’équipe.
 it,The team has established challenging goals and objectives.,Il team si è fissato degli obiettivi sfidanti.
 en,must be in the future,must be in the future
-fx,The team regularly acknowledges and celebrates their successes.,L’équipe souligne régulièrement et célèbre ses succès.
 en,This team tends to avoid speaking the truth when speaking up might create upset or hurt feelings.,This team tends to avoid speaking the truth when speaking up might create upset or hurt feelings.
 en,This team does not avoid speaking the truth even when speaking up might create upset or hurt feelings.,This team does not avoid speaking the truth even when speaking up might create upset or hurt feelings.
 ar,This team tends to avoid speaking the truth when speaking up might create upset or hurt feelings.,يميل هذا الفريق إلى تجنب قول الحقيقة عندما يكون الكلام قد يؤدي إلى انزعاج أو قد يجرح المشاعر.
@@ -10073,7 +10078,6 @@ da,Protecting one’s job and work territory is not prevalent among team members
 it,Protecting one’s job and work territory is not prevalent among team members.,Tra i membri del team non tende a prevalere la difesa del proprio ruolo e della propria area di lavoro.
 nl,Protecting one’s job and work territory is not prevalent among team members.,De eigen baan beschermen en terrein afbakenen is niet belangrijk in dit team.
 pl,Protecting one’s job and work territory is not prevalent among team members.,Obrona własnego terytorium nie jest powszechną postawą w tym zespole.
-es,There is a spirit of cooperation on the team.,Hay un espíritu de cooperación en el equipo.
 pt,Protecting one’s job and work territory is not prevalent among team members.,Não é predominante neste time a proteção de seu cargo e território de trabalho.
 es,Protecting one’s job and work territory is not prevalent among team members.,En el equipo no prevalece un sentido de territorialidad y protección del trabajo propio.
 fx,Protecting one’s job and work territory is not prevalent among team members.,La protection de ses propres fonctions ou de sa zone d'activité n'est pas un phénomène existant entre les membres de l'équipe.
@@ -10199,7 +10203,6 @@ da,Cynicism is not prevalent on the team.,Kynisme er ikke særlig udbredt i team
 it,Cynicism is not prevalent on the team.,Il cinismo non è prevalente nel team.
 nl,Cynicism is not prevalent on the team.,Er heerst geen cynisme in het team.
 pl,Cynicism is not prevalent on the team.,Cynizm nie jest powszechny w tym zespole.
-fx,There is a spirit of cooperation on the team.,Il y a un esprit de coopération dans l’équipe.
 pt,Cynicism is not prevalent on the team.,O cinismo não é uma característica predominante deste time.
 es,Cynicism is not prevalent on the team.,En el equipo no prevalece el cinismo.
 fx,Cynicism is not prevalent on the team.,Il n’y a pas de cynisme dans l’équipe.
@@ -10277,7 +10280,6 @@ fx,The team lacks the flexibility to respond to change.,L’équipe manque de fl
 ar,The team has the flexibility to respond to change.,يملك الفريق المرونة في الاستجابة للتغيير.
 da,The team has the flexibility to respond to change.,Teamet er fleksibelt nok til at håndtere forandringer.
 it,The team has the flexibility to respond to change.,Il team ha la flessibilità necessaria per rispondere al cambiamento.
-tr,Symptoms of burnout are present in our organization.,Kurumumuzda tükenmişlik belirtileri var.
 nl,The team has the flexibility to respond to change.,Het team is flexibel genoeg om op verandering te reageren.
 pl,The team has the flexibility to respond to change.,Ten zespół jest elastyczny w reagowaniu na zmianę.
 pt,The team has the flexibility to respond to change.,O time possui flexibilidade para reagir a mudanças.
@@ -10324,6 +10326,7 @@ es,Curiosity is valued on the team.,La curiosidad es valorada en el equipo.
 fx,Curiosity is valued on the team.,La curiosité est valorisée dans l’équipe.
 en,Team members do not avoid conflict.,Team members do not avoid conflict.
 pl,Team members avoid conflict at all cost.,Członkowie tego zespołu unikają konfliktu za wszelką cenę.
+es,Team members avoid conflict at all cost.,Los miembros del equipo evitan el conflicto a toda costa.
 ar,Team members do not avoid conflict.,أعضاء الفريق لا يتجنبون الخلاف مهما كانت الظروف.
 da,Team members do not avoid conflict.,Teamet er ikke konfliktsky.
 it,Team members do not avoid conflict.,Tra membri del team non si evita il conflitto a tutti i costi.
@@ -10406,6 +10409,8 @@ it,There is a spirit of cooperation on the team.,C’è spirito di cooperazione 
 nl,There is a spirit of cooperation on the team.,Er heerst een sfeer van samenwerking in het team.
 pl,There is a spirit of cooperation on the team.,W tym zespole panuje duch współpracy.
 pt,There is a spirit of cooperation on the team.,Existe espírito de cooperação no time.
+es,There is a spirit of cooperation on the team.,Hay un espíritu de cooperación en el equipo.
+fx,There is a spirit of cooperation on the team.,Il y a un esprit de coopération dans l’équipe.
 en,"The team draws out all opinions on the team, even the unpopular opinions.","The team draws out all opinions on the team, even the unpopular opinions."
 ar,"The team draws out all opinions on the team, even the unpopular opinions.",يشجع الفريق على إبداء كل الآراء فيه بحرية، حتى الآراء التي لا تحظى بشعبية.
 da,"The team draws out all opinions on the team, even the unpopular opinions.","Teamet afdækker alle forskellige holdninger, der er repræsenteret, også de upopulære."
@@ -10474,7 +10479,6 @@ pt,We have a strong record for making smart decisions in our organization.,Nós 
 es,We have a strong record for making smart decisions in our organization.,En nuestra organización tenemos una sólida historia en tomar decisiones inteligentes.
 tr,We have a strong record for making smart decisions in our organization.,Kurum olarak akıllı kararlar almakta güçlüyüz.
 fx,We have a strong record for making smart decisions in our organization.,Nous sommes réputés pour prendre des décisions judicieuses.
-en,What should we know about your team?,What should we know about your team?
 gb,We have a strong record for making smart decisions in our organization.,We have a strong record for making smart decisions in our organisation.
 da,"In this organization, goals are not clear.",Organisationens mål er uklare.
 en,There is a “win/lose” mentality in our organization where one person’s gains become someone else’s losses.,There is a “win/lose” mentality in our organization where one person’s gains become someone else’s losses.
@@ -10579,7 +10583,6 @@ es,“Playing politics” is used to get one’s way in our organization.,“Act
 tr,“Playing politics” is used to get one’s way in our organization.,Kurumumuzda işler politik yaklaşımlar la yürütülür.
 fx,“Playing politics” is used to get one’s way in our organization.,Il faut «jouer politique» lorsque nous voulons obtenir quelque chose dans cette organisation.
 gb,“Playing politics” is used to get one’s way in our organization.,“Playing politics” is used to get one’s way in our organisation.
-pt,Our leaders inspire and support us as needed.,Nossos líderes são inspiradores e nos apoiam quando necessário.
 ar,“Playing politics” is not used to get one’s way in our organization.,"""الألاعيب السياسة"" لا يتم استخدامها في منظمتنا ليحقق الناس أجندتهم."
 da,“Playing politics” is not used to get one’s way in our organization.,"Taktisk spil bliver ikke brugt i vores organisation, når folk vil have deres vilje igennem."
 it,“Playing politics” is not used to get one’s way in our organization.,Non si usa fare «manovre politiche» per farsi strada nella nostra organizzazione.
@@ -10618,6 +10621,7 @@ da,Our leaders inspire and support us as needed.,"Vores ledere inspirerer og st�
 it,Our leaders inspire and support us as needed.,I nostri leader ci ispirano e ci supportano quando è necessario.
 nl,Our leaders inspire and support us as needed.,Onze leidinggevenden geven inspiratie en steun naar behoefte.
 pl,Our leaders inspire and support us as needed.,Nasi liderzy inspirują i wspierają nas według potrzeb.
+pt,Our leaders inspire and support us as needed.,Nossos líderes são inspiradores e nos apoiam quando necessário.
 es,Our leaders inspire and support us as needed.,Nuestros líderes nos inspiran y apoyan cuando lo necesitamos.
 tr,Our leaders inspire and support us as needed.,Liderlerimiz bize gereken ilham ve desteği verir.
 fx,Our leaders inspire and support us as needed.,Nos dirigeants savent nous inspirer lorsque c’est nécessaire.
@@ -10656,7 +10660,6 @@ tr,There is a sense of interdependence across the organization. We can count on 
 fx,There is a sense of interdependence across the organization. We can count on each other.,Il y a un sens d’interdépendance à travers l’organisation. Nous pouvons compter les uns sur les autres.
 gb,There is a sense of interdependence across the organization. We can count on each other.,There is a sense of interdependence across the organisation. We can count on each other.
 en,Our organization is highly resilient and not easily defeated in our goals.,Our organization is highly resilient and not easily defeated in our goals.
-gb,Optimism is a strength in this organization.,Optimism is a strength in this organisation.
 ar,Our organization is highly resilient and not easily defeated in our goals.,منظمتنا على درجة عالية من المرونة ولا يمكن أن تُغلَب على أهدافها بسهولة.
 da,Our organization is highly resilient and not easily defeated in our goals.,Vores organisation har stor modstandskraft og giver ikke så let op.
 it,Our organization is highly resilient and not easily defeated in our goals.,La nostra organizzazione è forte e non si fa fermare facilmente quando c’è da raggiungere un obiettivo.
@@ -10694,7 +10697,6 @@ ar,We are not frequently frustrated with each other in our organization.,نحن 
 da,We are not frequently frustrated with each other in our organization.,Folk i organisationen bliver sjældent frustreret over hinanden.
 it,We are not frequently frustrated with each other in our organization.,Non proviamo spesso frustrazione l’uno con l’altro nella nostra organizzazione.
 nl,We are not frequently frustrated with each other in our organization.,In onze organisatie ergeren we ons zelden aan elkaar.
-en,The following items require attention,The following items require attention
 pl,We are not frequently frustrated with each other in our organization.,W naszej organizacji nie jesteśmy zbyt często sfrustrowani sobą nawzajem.
 pt,We are not frequently frustrated with each other in our organization.,Não estamos frequentemente frustrados uns com os outros em nossa organização.
 es,We are not frequently frustrated with each other in our organization.,En nuestra organización parecemos no estar frecuentemente frustrados unos con otros.
@@ -10733,6 +10735,7 @@ pt,Optimism is a strength in this organization.,Otimismo é um ponto forte desta
 es,Optimism is a strength in this organization.,El optimismo es una fortaleza de nuestra organización.
 tr,Optimism is a strength in this organization.,İyimserlik bu kurumun güçlü bir yanıdır.
 fx,Optimism is a strength in this organization.,L’optimisme est une force dans cette organisation.
+gb,Optimism is a strength in this organization.,Optimism is a strength in this organisation.
 en,Our organization has an appropriate leadership balance between driving for results and maintaining good relationships.,Our organization has an appropriate leadership balance between driving for results and maintaining good relationships.
 ar,Our organization has an appropriate leadership balance between driving for results and maintaining good relationships.,منظمتنا لديها توازن قياديّ مناسب بين التحرّك لتحقيق النتائج وبين الحفاظ على علاقات جيدة بين أعضاءها.
 da,Our organization has an appropriate leadership balance between driving for results and maintaining good relationships.,Ledelsesmæssigt balancerer organisationen fint imellem at skabe resultater og samtidig have et godt forhold til hinanden.
@@ -10831,7 +10834,6 @@ it,"In our organization, people do not avoid speaking the truth even when speaki
 nl,"In our organization, people do not avoid speaking the truth even when speaking up might create upset or hurt feelings.","In onze organisatie schrikken mensen er niet voor terug om de waarheid te zeggen, ook als anderen daardoor van streek kunnen raken."
 pl,"In our organization, people do not avoid speaking the truth even when speaking up might create upset or hurt feelings.","W naszej organizacji nie unika się mówienia prawdy, jeśli mogłaby ona spowodować zranienie czyichś uczuć lub kogoś zdenerwować."
 pt,"In our organization, people do not avoid speaking the truth even when speaking up might create upset or hurt feelings.","Em nossa organização, não evitamos dizer a verdade, mesmo quando isso pode criar incômodo ou ferir sentimentos."
-ar,Playfulness and humor are present in our relationships in the organization.,المرح والفكاهة موجودة في علاقاتنا في المنظمة.
 es,"In our organization, people do not avoid speaking the truth even when speaking up might create upset or hurt feelings.","En nuestra organización, la gente no evita decir la verdad incluso cuando hacerlo pudiera generar incomodidad o herir los sentimientos de alguien."
 tr,"In our organization, people do not avoid speaking the truth even when speaking up might create upset or hurt feelings.","Kurumumuzda kişiler, başkalarını üzebilecek veya hislerini incitebilecek bile olsa gerçeği söylemekten kaçınmazlar."
 fx,"In our organization, people do not avoid speaking the truth even when speaking up might create upset or hurt feelings.","Dans notre organisation, les individus n’évitent pas de dire les choses franchement afin d’éviter de fâcher ou de heurter qui que ce soit."
@@ -10905,7 +10907,6 @@ tr,Protecting one’s job and work territory is not prevalent in this organizati
 fx,Protecting one’s job and work territory is not prevalent in this organization.,La protection de ses propres fonctions ou de sa zone d'activité n'est pas un phénomène existant dans cette organisation.
 gb,Protecting one’s job and work territory is not prevalent in this organization.,Protecting one’s job and work territory is not prevalent in this organisation.
 en,"When the going gets tough, we tend to come together as an organization.","When the going gets tough, we tend to come together as an organization."
-da,Playfulness and humor are present in our relationships in the organization.,De indbyrdes forhold i organisationen er præget af humor og legelyst.
 ar,"When the going gets tough, we tend to come together as an organization.",عندما تكون الظروف صعبة وقاسية فإننا نميل للاتحاد والعمل معاً كمنظمة.
 da,"When the going gets tough, we tend to come together as an organization.","Når vi møder modgang, så står alle i organisationen sammen og gør fælles front."
 it,"When the going gets tough, we tend to come together as an organization.",Quando «il gioco si fa duro» noi tendiamo a unirci come organizzazione.
@@ -10948,7 +10949,8 @@ es,Playfulness and humor are absent in our relationships in the organization.,El
 tr,Playfulness and humor are absent in our relationships in the organization.,Kurumumuzdaki ilişkilerde eğlence ve mizahın yeri yoktur.
 fx,Playfulness and humor are absent in our relationships in the organization.,La légèreté et l’humour dans les interactions n’ont pas leur place dans l’organisation.
 gb,Playfulness and humor are absent in our relationships in the organization.,Playfulness and humour are absent in our relationships in the organisation.
-en,Information is missing or invalid,Information is missing or invalid
+ar,Playfulness and humor are present in our relationships in the organization.,المرح والفكاهة موجودة في علاقاتنا في المنظمة.
+da,Playfulness and humor are present in our relationships in the organization.,De indbyrdes forhold i organisationen er præget af humor og legelyst.
 it,Playfulness and humor are present in our relationships in the organization.,Leggerezza e humor sono presenti nelle nostre relazioni nell’organizzazione.
 nl,Playfulness and humor are present in our relationships in the organization.,Tussen de collega’s onderling is er speelsheid en humor in de organisatie.
 pl,Playfulness and humor are present in our relationships in the organization.,W relacjach w naszej organizacji jest wesołość i poczucie humoru.
@@ -10981,7 +10983,6 @@ tr,People in our organization often withdraw from communication or respond emoti
 fx,People in our organization often withdraw from communication or respond emotionally when problems arise.,"Dans notre organisation, les personnes arrêtent souvent de communiquer ou réagissent émotionnellement lorsque des problèmes surgissent."
 gb,People in our organization often withdraw from communication or respond emotionally when problems arise.,People in our organisation often withdraw from communication or respond emotionally when problems arise.
 ar,People in our organization do not withdraw from communication or respond emotionally when problems arise.,الأشخاص في منظمتنا: لا ينسحبون من التواصل ولا يستجيبون بانفعال عندما تحدث المشاكل.
-en,Participant could not be deployed,Participant could not be deployed
 da,People in our organization do not withdraw from communication or respond emotionally when problems arise.,"Folk i organisationen tier ikke eller tyer til følelsesmæssige argumenter, når der opstår problemer."
 it,People in our organization do not withdraw from communication or respond emotionally when problems arise.,Nella nostra organizzazione le persone non evitano di comunicare oppure reagiscono emotivamente quando sorge un problema.
 nl,People in our organization do not withdraw from communication or respond emotionally when problems arise.,Mensen in onze organisatie trekken zich niet terug uit de communicatie of reageren emotioneel als er problemen ontstaan.
@@ -11085,7 +11086,6 @@ ar,There is not ongoing confusion over roles and responsibilities in our organiz
 da,There is not ongoing confusion over roles and responsibilities in our organization.,Der er ikke forvirring over roller og ansvar i organisationen.
 it,There is not ongoing confusion over roles and responsibilities in our organization.,Non c’è una continua confusione riguardo a ruoli e responsabilità nella nostra organizzazione.
 nl,There is not ongoing confusion over roles and responsibilities in our organization.,Er is geen verwarring over rolverdeling en verantwoordelijkheden in onze organisatie.
-en,Participant was activated,Participant was activated
 pl,There is not ongoing confusion over roles and responsibilities in our organization.,W naszej organizacji panuje pewność co do ról i odpowiedzialności.
 pt,There is not ongoing confusion over roles and responsibilities in our organization.,Não há confusão sobre papeis e responsabilidades em nossa organização.
 es,There is not ongoing confusion over roles and responsibilities in our organization.,En nuestra organización no hay confusión constante sobre roles y responsabilidades.
@@ -11121,7 +11121,6 @@ it,"In our organization, we appreciate and invite feedback on work styles and pe
 nl,"In our organization, we appreciate and invite feedback on work styles and performance.",In onze organisatie stellen we feedback op prijs en vragen we om feedback over onze prestaties en manier van werken.
 pl,"In our organization, we appreciate and invite feedback on work styles and performance.",W naszej organizacji cenimy sobie i chętnie przyjmujemy informacje zwrotne o swoich stylach pracy i dokonaniach.
 pt,"In our organization, we appreciate and invite feedback on work styles and performance.","Na nossa organização, nós valorizamos e pedimos feedback sobre nosso comportamento e desempenho."
-nl,Creativity is one of our organization’s strengths.,Creativiteit is een kracht van onze organisatie.
 es,"In our organization, we appreciate and invite feedback on work styles and performance.",En nuestra organización apreciamos y buscamos la retroalimentación sobre nuestro estilo de trabajo y desempeño.
 tr,"In our organization, we appreciate and invite feedback on work styles and performance.",Kurumumuzda çalışma tarzımız ve performansımızla ilgili geribildirime açığız ve değer veririz.
 fx,"In our organization, we appreciate and invite feedback on work styles and performance.","Dans notre organisation, nous apprécions et encourageons le feedback sur les styles de travail ainsi que sur la performance."
@@ -11164,6 +11163,7 @@ en,Creativity is one of our organization’s strengths.,Creativity is one of our
 ar,Creativity is one of our organization’s strengths.,الإبداع هو أحد نقاط قوة منظمتنا.
 da,Creativity is one of our organization’s strengths.,Kreativitet er en af organisationens styrker.
 it,Creativity is one of our organization’s strengths.,La creatività è uno dei punti di forza della nostra organizzazione.
+nl,Creativity is one of our organization’s strengths.,Creativiteit is een kracht van onze organisatie.
 pl,Creativity is one of our organization’s strengths.,Kreatywność jest jedną z mocnych stron naszej organizacji.
 pt,Creativity is one of our organization’s strengths.,Criatividade é um dos pontos fortes de nossa organização.
 es,Creativity is one of our organization’s strengths.,La creatividad es una de las fortalezas de nuestra organización.
@@ -11230,7 +11230,6 @@ ar,"Recognition, rewards and compensation are linked to performance in our organ
 da,"Recognition, rewards and compensation are linked to performance in our organization.","I vores organisation bliver folk anerkendt, belønnet og godtgjort ud fra deres indsats."
 it,"Recognition, rewards and compensation are linked to performance in our organization.","Apprezzamenti, premi e riconoscimenti sono legati alla performance nella nostra organizzazione."
 nl,"Recognition, rewards and compensation are linked to performance in our organization.","Erkenning, beloning en compensatie gaan hand in hand met de prestaties in onze organisatie."
-nl,We criticize and blame each other in our organization.,In onze organisatie leveren we kritiek op elkaar en we geven elkaar de schuld van dingen.
 pl,"Recognition, rewards and compensation are linked to performance in our organization.","Uznanie, nagrody i wynagrodzenie są powiązane z osiąganymi wynikami w naszej organizacji."
 pt,"Recognition, rewards and compensation are linked to performance in our organization.","Em nossa organização, reconhecimento, bônus e remuneração estão ligados ao desempenho."
 es,"Recognition, rewards and compensation are linked to performance in our organization.","El reconocimiento, los premios y las compensaciones están ligados al desempeño en nuestra organización."
@@ -11264,6 +11263,7 @@ en,We do not criticize and blame each other in our organization.,We do not criti
 ar,We criticize and blame each other in our organization.,نحن ننتقد ويلوم بعضنا بعضاً في منظمتنا.
 da,We criticize and blame each other in our organization.,I vores organisation kritiserer og bebrejder vi hinanden.
 it,We criticize and blame each other in our organization.,Ci critichiamo e ci incolpiamo l’un l’altro nella nostra organizzazione.
+nl,We criticize and blame each other in our organization.,In onze organisatie leveren we kritiek op elkaar en we geven elkaar de schuld van dingen.
 pl,We criticize and blame each other in our organization.,W naszej organizacji krytukujemy i obwiniamy się nawzajem.
 pt,We criticize and blame each other in our organization.,"Nós criticamos e culpamos uns aos outros, na nossa organização."
 es,We criticize and blame each other in our organization.,En nuestra organización nos criticamos y culpamos unos a otros.
@@ -11340,7 +11340,6 @@ en,Our organization seeks and supports improvements in our processes.,Our organi
 ar,Our organization seeks and supports improvements in our processes.,منظمتنا تدعم وتسعى لتحسين عملياتنا وإجراءاتنا.
 da,Our organization seeks and supports improvements in our processes.,Vores organisation søger og opfordrer til forbedringer i vores arbejdsprocesser.
 it,Our organization seeks and supports improvements in our processes.,La nostra organizzazione ricerca e porta avanti miglioramenti dei nostri processi di lavoro.
-pt,Symptoms of burnout are present in our organization.,Sintomas de esgotamento (burnout) estão presentes em nossa organização.
 nl,Our organization seeks and supports improvements in our processes.,Onze organisatie is steeds op zoek naar (en ondersteunt) verbetering in onze werkwijzen.
 pl,Our organization seeks and supports improvements in our processes.,Nasza organizacja poszukuje i wspiera ulepszenia w naszych procesach.
 pt,Our organization seeks and supports improvements in our processes.,Nossa organização busca e apoia melhorias em nossos processos.
@@ -11425,7 +11424,6 @@ es,"In our organization, we do not avoid conflict at all costs.","En nuestra org
 tr,"In our organization, we do not avoid conflict at all costs.",Kurumumuzda çatışmadan kaçınılmaz.
 fx,"In our organization, we do not avoid conflict at all costs.","Dans notre organisation, nous n’évitons pas à tout prix les conflits."
 gb,"In our organization, we do not avoid conflict at all costs.","In our organisation, we do not avoid conflict at all costs."
-es,Symptoms of burnout are present in our organization.,Hay síntomas de desgaste presentes en nuestra organización.
 en,Our organization has clear agreements regarding how we interact when conflict arises.,Our organization has clear agreements regarding how we interact when conflict arises.
 ar,Our organization has clear agreements regarding how we interact when conflict arises.,منظمتنا لديها اتفاقيات بشأن كيفية تفاعلنا عندما ينشأ الخلاف.
 da,Our organization has clear agreements regarding how we interact when conflict arises.,"Organisationen har aftalt klare regler for, hvordan vi opfører os, når der opstår konflikter."
@@ -11501,6 +11499,9 @@ da,Symptoms of burnout are present in our organization.,Vores organisation udvis
 it,Symptoms of burnout are present in our organization.,Si notano sintomi di sovraffaticamento nella nostra organizzazione.
 nl,Symptoms of burnout are present in our organization.,Er zijn symptomen van burnout in onze organisatie.
 pl,Symptoms of burnout are present in our organization.,W naszej organizacji obecne są symptomy wypalenia zawodowego.
+pt,Symptoms of burnout are present in our organization.,Sintomas de esgotamento (burnout) estão presentes em nossa organização.
+es,Symptoms of burnout are present in our organization.,Hay síntomas de desgaste presentes en nuestra organización.
+tr,Symptoms of burnout are present in our organization.,Kurumumuzda tükenmişlik belirtileri var.
 fx,Symptoms of burnout are present in our organization.,Des signes de surmenage sont visibles dans notre organisation.
 gb,Symptoms of burnout are present in our organization.,Symptoms of burnout are present in our organisation.
 ar,Symptoms of burnout are not present in our organization.,أعراض الاحتراق النفسيّ غير موجودة في منظمتنا.
@@ -11574,7 +11575,6 @@ en,"In our organization, we regularly provide each other with constructive feedb
 ar,"In our organization, we regularly provide each other with constructive feedback.",في منظمتنا: نحن نتبادل تغذية راجعة بنّاءة وذلك بشكل منتظم ومستمر.
 da,"In our organization, we regularly provide each other with constructive feedback.",I vores organisation giver vi ofte hinanden konstruktive tilbagemeldinger.
 it,"In our organization, we regularly provide each other with constructive feedback.",Noi ci scambiamo regolarmente feedback costruttivi nella nostra organizzazione.
-gb,Our organization operates in a fear-based environment.,Our organisation operates in a fear-based environment.
 nl,"In our organization, we regularly provide each other with constructive feedback.",In onze organisatie geven we elkaar regelmatig constructieve feedback.
 pl,"In our organization, we regularly provide each other with constructive feedback.",W naszej organizacji regularnie dostarczamy sobie nawzajem konstruktywnych informacji zwrotnych.
 pt,"In our organization, we regularly provide each other with constructive feedback.","Em nossa organização, damos feedback construtivos uns aos outros com regularidade."
@@ -11615,6 +11615,7 @@ pt,Our organization operates in a fear-based environment.,Nossa organização tr
 es,Our organization operates in a fear-based environment.,Nuestra organización opera en un entorno basado en el miedo.
 tr,Our organization operates in a fear-based environment.,Kurumumuzda çalışma ortamında korku ve tedirginlik vardır.
 fx,Our organization operates in a fear-based environment.,Notre organisation évolue dans un climat de peur.
+gb,Our organization operates in a fear-based environment.,Our organisation operates in a fear-based environment.
 ar,Our organization does not operate in a fear-based environment.,منظمتنا لا تعمل في بيئة قائمة على الخوف.
 da,Our organization does not operate in a fear-based environment.,Arbejdsmiljøet i organisationen er ikke præget af frygt.
 it,Our organization does not operate in a fear-based environment.,Noi non lavoriamo in un ambiente fondato sulla paura.
@@ -11744,6 +11745,7 @@ nl,What is your assessment of the team?,Hoe beoordeelt u dit team?
 pl,What is your assessment of the team?,Jak oceniasz ten zespół?
 pt,What is your assessment of the team?,Qual é a sua avaliação sobre este time?
 es,What is your assessment of the team?,¿Cuál es su evaluación del equipo?
+nl,What are the top three strengths of the team?,Wat zijn de drie sterkste punten van het team?
 en,How will you know if the team building is a success?,How will you know if the team building is a success?
 ar,How will you know if the team building is a success?,كيف يمكنك أن تعلم أن تطوير الفريق كان ناجحاً؟ 
 da,How will you know if the team building is a success?,Hvordan vil du vide om teamudviklingsforløbet er en succes?
@@ -11758,6 +11760,7 @@ es,How will you know if the team building is a success?,¿Cómo sabrá usted que
 sv,How will you know if the team building is a success?,Vad behöver du se för att tycka att er teamutveckling varit en framgång?
 tr,How will you know if the team building is a success?,Ekip oluşturma çalışmasının başarılı olduğunu nasıl anlayacaksınız?
 po,How will you know if the team building is a success?,Como podemos saber se o programa de intervenção foi um sucesso?
+en,What should we know about your team?,What should we know about your team?
 ar,What should we know about your team?,ما الذي يجب علينا معرفته عن هذا الفريق؟ 
 da,What should we know about your team?,Hvad bør vi vide om dit team?
 de,What should we know about your team?,Was sollten wir über Ihr Team wissen?
@@ -11788,8 +11791,8 @@ da,What does the team value? You see it often; it gets repeated.,Hvad er meget v
 pl,What does the team value? You see it often; it gets repeated.,Co ten zespół ceni? Często to widzisz; to się powtarza
 pt,What does the team value? You see it often; it gets repeated.,O que este time valoriza? Você observa isso frequentemente; é algo que se repete.
 es,What does the team value? You see it often; it gets repeated.,¿Qué es lo que este equipo valora? Usted lo observa frecuentemente; se repite.
+en,What does the team value? You see it often; it gets repeated.,"What does the team value? You see it often, it gets repeated."
 it,What are the top three strengths of the team?,Quali sono i tre principali punti di forza di questo team ?
-nl,What are the top three strengths of the team?,Wat zijn de drie sterkste punten van het team?
 pl,What are the top three strengths of the team?,Jakie są trzy najsilniejsze strony tego zespołu?
 pt,What are the top three strengths of the team?,Quais são as três maiores forças deste time?
 es,What are the top three strengths of the team?,¿Cuáles son las tres mayores fortalezas de este equipo?
@@ -11836,6 +11839,7 @@ it,What are the top three things I need to bring to this team for them to succee
 nl,What are the top three things I need to bring to this team for them to succeed?,Wat zijn de drie belangrijkste dingen die ik dit team moet geven om het team optimaal te doen functioneren?
 sv,How do you measure the team‘s success?,Hur mäter du teamets framgång?
 pl,What are the top three things I need to bring to this team for them to succeed?,"Jakie trzy najważniejsze rzeczy są potrzebne do tego, aby zespół odniósł sukces?"
+ex,How do you measure the team‘s success?,¿Cómo mido el éxito del equipo?
 pt,What are the top three things I need to bring to this team for them to succeed?,Quais são as três coisas mais importantes que necessito fazer para ajudar este time a alcançar o êxito?
 es,What are the top three things I need to bring to this team for them to succeed?,¿Cuáles son los tres mayores aportes que necesito hacer a este equipo para ayudarlo a alcanzar el éxito?
 sv,What are the top three things I need to bring to this team for them to succeed?,Vilka är de tre viktigaste saker du som teamledare måste bidra med för att det här teamet ska lyckas?
@@ -11847,7 +11851,6 @@ ar,What will keep this team on the critical path?,ما الذي سيبقي هذ�
 da,What will keep this team on the critical path?,Hvad vil holde dette team på sporet?
 de,What will keep this team on the critical path?,Was wird dieses Team auf dem kritischen Weg halten?
 fi,What will keep this team on the critical path?,Mikä pitää tämän tiimin kriittisellä polulla?
-en,Team Diagnostic was cancelled,Team Diagnostic was cancelled
 it,What will keep this team on the critical path?,Cosa potrebbe mantenere questo team su una strada sbagliata ?
 nl,What will keep this team on the critical path?,Wat gaat dit team op de juiste weg houden?
 pl,What will keep this team on the critical path?,Co będzie utrzymywać zespół na ścieżce optymalnego sposobu działania?
@@ -11882,7 +11885,6 @@ pl,How do you measure the team‘s success?,Jak mierzysz sukces zespołu?
 pt,How do you measure the team‘s success?,Como você mede o sucesso do time?
 es,How do you measure the team‘s success?,¿Cómo mido el éxito del equipo?
 zh,How do you measure the team‘s success?,该如何衡量该团队的成功？
-ex,How do you measure the team‘s success?,¿Cómo mido el éxito del equipo?
 fx,How do you measure the team‘s success?,À partir de quel critère mesurez-vous le succès de cette équipe?
 en,"What is one thing, if the team learned to do it well, that would have enormous impact?","What is one thing, if the team learned to do it well, that would have enormous impact?"
 ar,"What is one thing, if the team learned to do it well, that would have enormous impact?",ما هو الشيء - الذي لو تعلم الفريق فعله بإتقان - فإنه سيصنع تأثيراً هائلاً؟
@@ -11973,7 +11975,6 @@ ar,"What is one thing, if the team learned to do it well, would have enormous im
 da,"What is one thing, if the team learned to do it well, would have enormous impact?","Hvad er en enkeltstående ting, som, hvis teamet lærte at mestre det, ville gøre en stor forskel?"
 it,"What is one thing, if the team learned to do it well, would have enormous impact?","Quale è quella cosa che, se il team imparasse a fare bene, avrebbe un enorme impatto ?"
 nl,"What is one thing, if the team learned to do it well, would have enormous impact?",Noem één ding dat een enorme invloed zou hebben als het team zou leren dat goed te doen.
-da,What are this organization’s top three priorities?,Hvad er organisationens tre primære prioriteter?
 pl,"What is one thing, if the team learned to do it well, would have enormous impact?","Określ jedną rzecz, która będzie miała ogromny wpływ na pracę tego zespołu, jeśli zespół nauczy się dobrze ją wykonywać."
 pt,"What is one thing, if the team learned to do it well, would have enormous impact?","O que seria algo que, se o time aprendesse a fazer muito bem, causaria um grande impacto?"
 es,"What is one thing, if the team learned to do it well, would have enormous impact?","¿Qué sería algo que, si el equipo aprendiera a hacer bien, tendría un impacto enorme?"
@@ -12004,6 +12005,7 @@ ar,What are the top three challenges facing this organization?,ما هي أهم 
 da,What are the top three challenges facing this organization?,Hvad er organisationens tre primære udfordringer?
 it,What are the top three challenges facing this organization?,Quali sono le tre più importanti sfide che questa organizzazione deve affrontare ?
 nl,What are the top three challenges facing this organization?,Wat zijn de drie grootste uitdagingen voor deze organisatie?
+en,We bring optimism to our life together.,We bring optimism to our life together.
 pl,What are the top three challenges facing this organization?,Jakie są trzy najważniejsze wyzwania stojące przed tą organizacją?
 pt,What are the top three challenges facing this organization?,Quais são os três principais desafios que esta organização está enfrentando?
 tr,What are the top three challenges facing this organization?,Bu kurumun karşısındaki en önemli üç zorluk nedir?
@@ -12011,6 +12013,7 @@ fx,What are the top three challenges facing this organization?,Quels sont les tr
 gb,What are the top three challenges facing this organization?,What are the top three challenges facing this organisation?
 en,What are this organization’s top three priorities?,What are this organization’s top three priorities?
 ar,What are this organization’s top three priorities?, ما هي أهم ثلاث أولويات لهذه المنظمة؟ 
+da,What are this organization’s top three priorities?,Hvad er organisationens tre primære prioriteter?
 it,What are this organization’s top three priorities?,Quali sono le tre più importanti priorità di questa organizzazione ?
 nl,What are this organization’s top three priorities?,Wat zijn de drie zaken die in deze organisatie de grootste prioriteit hebben?
 pl,What are this organization’s top three priorities?,Jakie są trzy najważniejsze priorytety dla tej organizacji?
@@ -12057,7 +12060,6 @@ nl,How do you know if the organization is successful?,Hoe weet je of de organisa
 pl,How do you know if the organization is successful?,"Skąd będzie wiadomo, że organizacja działa skutecznie?"
 pt,How do you know if the organization is successful?,Como saber se esta organização tem sucesso?
 tr,How do you know if the organization is successful?,Kurumun başarılı olup olmadığını nasıl anlıyorsunuz?
-en,Please invite this participant,Please invite this participant
 fx,How do you know if the organization is successful?,Sur quoi vous baserez-vous pour dire que cette organisation a du succès?
 gb,How do you know if the organization is successful?,How do you know if the organisation is successful?
 en,"What is one thing, if the organization learned to do it well, that would have enormous impact?","What is one thing, if the organization learned to do it well, that would have enormous impact?"
@@ -12105,7 +12107,6 @@ en,completed,completed
 en,reported,reported
 en,cancelled,cancelled
 en,Our family is tremendously enthusiastic and optimistic.,Our family is tremendously enthusiastic and optimistic.
-en,We bring optimism to our life together.,We bring optimism to our life together.
 en,We have an inspiring shared family vision.,We have an inspiring shared family vision.
 en,We tend to dwell on our family’s past difficulties.,We tend to dwell on our family’s past difficulties.
 en,We do not tend to dwell on our family’s past difficulties.,We do not tend to dwell on our family’s past difficulties.
@@ -12252,11 +12253,21 @@ en,team_diagnostic--participants--define_import-help,"You can upload a spreadshe
         <li> The spreadsheet must have this layout: </li>
       </ul>"
 en,There are new participants pending deployment,There are new participants pending deployment
-en,Please invite more participants,Please invite more participants
+en,The following items require attention,The following items require attention
+en,Information is missing or invalid,Information is missing or invalid
+en,Participant could not be deployed,Participant could not be deployed
+en,Participant was activated,Participant was activated
+en,Team Diagnostic was cancelled,Team Diagnostic was cancelled
+en,A question was deleted,A question was deleted
+en,A question was added,A question was added
 en,team_diagnostic-cancel_notification_letter-subject,Your Team Diagnostic Was Cancelled!
 en,team_diagnostic-cancel_notification_letter-body,"Dear {{facilitator_name}},
 
 Your {{assessment_name}} diagnostic for {{team_name}} was cancelled."
+en,A participant was added,A participant was added
+en,A participant was disqualified,A participant was disqualified
+en,A participant was removed,A participant was removed
+en,A participant was restored,A participant was restored
 en,team_diagnostic--letter-help,"<div class=""col-sm-8"">
               <p>
                 The system will automatically replace the variables with the
@@ -12301,7 +12312,6 @@ en,No custom questions,No custom questions
 en,Please add participants,Please add participants
 en,There are problems preventing deployment of your Team Diagnostic,There are problems preventing deployment of your Team Diagnostic
 en,Deploy Early,Deploy Early
-en,teamdiagnostic-pre-deploy-message,When the Diagnostic is deployed we will email an invitation to each of the participants. Come back here to view completion status and other important information regarding your TeamDiagnostic. You will be able to download a report after the Due Date or all participants have completed the Diagnostic
 en,Deployed,Deployed
 en,Team Diagnostic deployment failed,Team Diagnostic deployment failed
 en,Done,Done
@@ -12330,13 +12340,6 @@ en,This letter is sent to the facilitator when a Diagnostic is deployed,This let
 en,team_diagnostic-deployment_letter-description,This letter is sent to the facilitator when a Diagnostic is deployed
 en,There are unsaved changes,There are unsaved changes
 en,Revert,Revert
-en,An invitiation email was sent,An invitiation email was sent
-en,A cancellation email was sent,A cancellation email was sent
-en,Automatic deployment failed,Automatic deployment failed
-en,Error sending reminders,Error sending reminders
-en,Deployment was successful,Deployment was successful
-en,Manual deployment started,Manual deployment started
-en,template-teamdiagnostic-cancellation-letter-subject,{{assessment_name}} Cancellation Notice
 en,template-teamdiagnostic-reminder-letter-subject,Your {{assessment_name}} is due soon!
 en,template-teamdiagnostic-cover-letter-subject,{{assessment_name}}  for {{participant_name}}
 en,emailtemplate--html--reset_password_instructions,"<p>Hello {{name}}!</p>
@@ -12361,12 +12364,8 @@ en,Leave,Leave
 en,The Diagnostic Survey was completed,The Diagnostic Survey was completed
 en,The Diagnostic Survey was visited,The Diagnostic Survey was visited
 en,The Diagnostic Survey was started,The Diagnostic Survey was started
-en,What does the team value? You see it often; it gets repeated.,"What does the team value? You see it often, it gets repeated."
-en,A participant was added,A participant was added
-en,A participant was disqualified,A participant was disqualified
-en,A participant was removed,A participant was removed
-en,A participant was restored,A participant was restored
 en,HTML,HTML
+en,template-teamdiagnostic-cancellation-letter-subject,{{assessment_name}} Cancellation Notice
 en,template-teamdiagnostic-reminder-letter,"<p>Dear {{participant_name}}:</p><p>This is a reminder that the {{assessment_name}} is due on {{completion_date}}.</p><p>If you have questions, please contact me at {{facilitator_phone}} or send email to {{facilitator_email}}. I look forward to meeting with you to review your results and plan next steps.&nbsp;</p><p>Sincerely,<br>{{facilitator_name}}</p>"
 en,template-teamdiagnostic-cancellation-letter,"<p>Dear {{participant_name}}:</p><p>The {{assessment_name}} has been cancelled.</p><p>If you have questions, please contact me at {{facilitator_phone}} or send email to {{facilitator_email}}.</p><p>Sincerely,<br>{{facilitator_name}}</p>"
 en,template-teamdiagnostic-cover-letter,"<p><span style=""font-size: 24px;"">Welcome to the Team Diagnostic</span><br><strong><em>DO NOT FORWARD THIS EMAIL</em></strong></p><p>Dear {{participant_name}}:</p><p>I am pleased to have the opportunity to work with you using a unique diagnostic tool developed by Team Coaching International (TCI). This tool is based on a comprehensive model of performance effectiveness that delivers a detailed map for ongoing development.</p><p>The {{assessment_name}} evaluates the entire system (also known as team or organization) rather than evaluating individuals. The key to long-term effectiveness begins with an accurate profile of strengths and challenges. The TCI approach is based on systems theory and the work of leading authorities in this emerging team development field. The model and assessment incorporate the latest work in Emotional Intelligence, Appreciative Inquiry and academic research. The resulting profile measures two axes: factors that lead to increased productivity and factors of positivity that build a stronger culture. The {{assessment_name}} profile graphically benchmarks scores in 14 separate areas.</p><p>When completing the diagnostic, please keep in mind the specific system that you are assessing.</p><p>Answer the questions from the perspective of the system as it is today, not how it was in the past or how it might be in the future. Most people complete the diagnostic in 15 to 20 minutes. Our deadline for completion is {{completion_date}}. Thank you for your cooperation.</p><p>This is your personal link to the diagnostic. Each link is individually assigned. Do not share your link or this email with anyone.</p><p style=""text-align: center;""><a href=""{{assessment_link}}""><strong>Begin Assessment</strong></a><br>{{assessment_link}}</p><p>Please note that all diagnostic responses, including your individual written comments, will be presented anonymously as part of the overall diagnostic results. Individual responses will not be attributed to the individual that made them (i.e. your name will not appear by your written comments). We encourage you to be honest and candid to enable important issues to surface in service of improving interaction and dynamics.</p><p>If you have questions, please contact me at {{facilitator_phone}} or send email to {{facilitator_email}}. I look forward to meeting with you to review your results and plan next steps.</p><p>Sincerely,<br>{{facilitator_name}}</p><p><br></p><p style=""text-align: center;""><a href=""{{assessment_link}}""><strong>Begin Assessment</strong></a><br>{{assessment_link}}</p>"
@@ -12400,5 +12399,11 @@ en,"What does the team value? You see it often, it gets repeated.","What does th
 en,What does this organization value? You see it often; it gets repeated.,"What does this organization value? You see it often, it gets repeated."
 en,"What does this organization value? You see it often, it gets repeated.","What does this organization value? You see it often, it gets repeated."
 en,Please invite fewer participants,Please invite fewer participants
-en,Started generating a report,Started generating a report
+en,Metadata,Metadata
+en,Record,Record
+en,Error,Error
 en,View Report,View Report
+en,Starting report generation,Starting report generation
+en,Creating report files,Creating report files
+en,Report generation is complete,Report generation is complete
+en,Report cancelled,Report cancelled

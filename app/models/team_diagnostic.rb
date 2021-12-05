@@ -282,17 +282,21 @@ class TeamDiagnostic < ApplicationRecord
     end
   end
 
+  def init_report(options: {})
+    report_template = diagnostic.report_template
+    reports.create!(
+      description: "#{name} Report",
+      report_template: report_template,
+      options: options
+    )
+  end
+
   def perform_report(force: false, options: {})
     running_reports = reports.where(state: %i[running rendering])
     return running_reports if !force && running_reports.any?
 
     running_reports.all.map(&:reject)
-    report_template = diagnostic.report_template
-    report = reports.create!(
-      description: "#{name} Report",
-      report_template: report_template,
-      options: options
-    )
+    report = init_report(options: options)
     report.start
     report
   end

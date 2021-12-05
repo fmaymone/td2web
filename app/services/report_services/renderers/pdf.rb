@@ -15,12 +15,6 @@ module ReportServices
         build
       end
 
-      # def build
-      # filename = "#{report.team_diagnostic.name}-[#{title}][#{locale}]-#{Time.now.strftime('%Y%m%d')}.pdf"
-      # pdf_data = StringIO.new(generate_pdf)
-      # @report.report_files.attach(io: pdf_data, filename: filename, content_type: CONTENT_TYPE)
-      # end
-
       def build
         locales.each do |locale|
           build_for_locale(locale)

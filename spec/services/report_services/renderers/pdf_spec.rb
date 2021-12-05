@@ -9,16 +9,12 @@ RSpec.describe ReportServices::Renderers::Pdf do
 
   let(:team_diagnostic) { completed_teamdiagnostic }
   let(:locale) { 'en' }
-  let(:report) { team_diagnostic.reports.rendering.last }
+
+  let(:report_options) { {} }
+  let(:report) { team_diagnostic.init_report(options: report_options) }
 
   let(:service) do
     ReportServices::Renderers::Pdf.new(report: report, locale: locale)
-  end
-
-  before(:each) do
-    team_diagnostic
-    team_diagnostic.perform_report
-    team_diagnostic.reload
   end
 
   it 'can be intialized' do
@@ -26,9 +22,6 @@ RSpec.describe ReportServices::Renderers::Pdf do
   end
 
   it 'returns PDF output' do
-    service.report.report_files.destroy_all
-    service.report.reload
-
     service.call
     pdf_file = service.files.select { |f| f[:name].match ReportServices::Renderers::Pdf::TITLE }
     assert(pdf_file.present?)

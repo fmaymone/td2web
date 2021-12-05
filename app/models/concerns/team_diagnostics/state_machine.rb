@@ -31,6 +31,7 @@ module TeamDiagnostics
         end
 
         event :report do
+          before { perform_report }
           transitions from: :completed, to: :reported
         end
 

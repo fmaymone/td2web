@@ -9,16 +9,11 @@ RSpec.describe ReportServices::Renderers::Html do
 
   let(:team_diagnostic) { completed_teamdiagnostic }
   let(:locale) { 'en' }
-  let(:report) { team_diagnostic.reports.rendering.last }
+  let(:report_options) { {} }
+  let(:report) { team_diagnostic.init_report(options: report_options) }
 
   let(:service) do
     ReportServices::Renderers::Html.new(report: report, locale: locale)
-  end
-
-  before(:each) do
-    team_diagnostic
-    team_diagnostic.perform_report
-    team_diagnostic.reload
   end
 
   it 'can be initialized' do
@@ -26,6 +21,9 @@ RSpec.describe ReportServices::Renderers::Html do
   end
 
   it 'returns html output' do
+    service.report.report_files.destroy_all
+    service.report.reload
+
     output = service.generate(locale)
     assert(output.is_a?(String))
     expect(output).to match('Page 1')
