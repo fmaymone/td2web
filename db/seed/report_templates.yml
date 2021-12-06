@@ -1,0 +1,7 @@
+---
+:report_templates:
+  :version: 1
+  :key:
+    - :name
+    - :diagnostic_id
+  :data:

@@ -34,7 +34,7 @@ module Seeds
 
         seed_data = YAML.load(ERB.new(File.read(yaml_path)).result)
         data_description = seed_data.fetch(table_name.to_sym, { data: [] })
-        key_attribute = data_description.fetch(:key, :name)
+        key_attribute = data_description.fetch(:key, nil)
         data = data_description.fetch(:data)
         raise "Seed data empty: #{yaml_path}" if data.empty?
 
@@ -46,7 +46,8 @@ module Seeds
         begin
           transaction do
             data.each do |record|
-              if (old_record = where(key_attribute => record.fetch(key_attribute)).first).present?
+              has_key_attribute = key_attribute.present?
+              if has_key_attribute? && (old_record = where(*Seedable.keyed_values(record)).first).present?
                 old_record.attributes = record
                 data_changed = old_record.changed?
                 if old_record.save
@@ -75,7 +76,7 @@ module Seeds
                   puts "*** #{msg}" if debug
                   imported << { id: new_record.id, changes: new_record.previous_changes }
                 else
-                  msg = "SEED LOAD: Error Creating #{klass_name}['#{record[key_attribute]}'] : #{new_record.errors.to_a}"
+                  msg = "SEED LOAD: Error Creating #{klass_name}['#{Seedable.keyed_values(record).to_a.join}'] : #{new_record.errors.to_a}"
                   Rails.logger.info msg
                   puts "*** #{msg}" if debug
                   errors << { id: nil, errors: new_record.errors.to_a }
@@ -99,6 +100,22 @@ module Seeds
           Rails.logger.info msg
           puts "*** #{msg}" if debug
           false
+        end
+      end
+
+      def keyed_values(record, key)
+        case key
+          when String, Symbol
+            {
+              key.to_sym => record.fetch(key)
+            }
+          when Array
+            key.inject({}){|k, memo|
+              memo[k] = record.fetch(k)
+              memo
+            }
+          else
+            nil
         end
       end
     end
