@@ -20,7 +20,6 @@ class ReportTemplate < ApplicationRecord
   ### Concerns
   include ReportTemplates::StateMachine
   include Seeds::Seedable
-  include Seeds::SeedableCsv
 
   ### Validations
   validates :name, presence: true

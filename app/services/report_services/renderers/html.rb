@@ -8,7 +8,7 @@ module ReportServices
       TITLE = 'Full Report HTML'
       VERSION = 1
       CONTENT_TYPE = 'text/html'
-      LAYOUT_ASSETS_KEYWORD = '[[PACK_TAGS_HERE]]'
+      LAYOUT_ASSETS_KEYWORD = '[[ASSET_TAGS_HERE]]'
       LAYOUT_ASSET_PACKS = ['report'].freeze
 
       attr_reader :output
@@ -108,16 +108,16 @@ module ReportServices
         tags.join(' ')
       end
 
-      def page_template_data(data, page_index)
+      def page_template_data(page, data, page_index)
         data.merge(
-          { 'page' => page_index }
+          { 'page' => page_index, 'slug' => page.slug }
         )
       end
 
       def render_page(page, page_index, locale)
         apply_liquid_config
         template = Liquid::Template.parse(page.markup)
-        template.render(page_template_data(template_data(locale), page_index))
+        template.render(page_template_data(page, template_data(locale), page_index))
       end
 
       def apply_liquid_config

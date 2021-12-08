@@ -16,6 +16,9 @@
 #  updated_at         :datetime         not null
 #
 class ReportTemplatePage < ApplicationRecord
+  ### Concerns
+  include Seeds::Seedable
+
   # CONVENTIONS
   #
   # LAYOUT:

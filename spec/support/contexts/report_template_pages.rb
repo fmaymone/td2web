@@ -23,7 +23,7 @@ RSpec.shared_context 'report_template_pages', shared_context: :metadate do
                   organization: {{ organization }}
                   tenant: {{ tenant }}
                   /// Pack Tags Here
-                  [[PACK_TAGS_HERE]]
+                  [[ASSET_TAGS_HERE]]
                   /// End Pack Tags
                   Begin Layout
                   /// Report Content Pages Here
@@ -84,7 +84,7 @@ RSpec.shared_context 'report_template_pages', shared_context: :metadate do
                   organization: {{ organization }}
                   tenant: {{ tenant }}
                   /// Pack Tags Here
-                  [[PACK_TAGS_HERE]]
+                  [[ASSET_TAGS_HERE]]
                   /// End Pack Tags
                   Begin Layout ES
                   /// Report Content Pages Here

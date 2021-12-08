@@ -104,6 +104,7 @@ module ReportServices
 
       def base_template_data(locale)
         {
+          'report_title' => @report.template.name,
           'chart_data' => JSON.pretty_generate(@report.chart_data),
           'diagnostic_type' => @report.team_diagnostic.diagnostic.name,
           'team_name' => @report.team_diagnostic.name,

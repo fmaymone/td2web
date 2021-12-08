@@ -12,13 +12,17 @@ module Seeds
       #   ---
       #   :foobars:
       #     :version: 1
-      #     :key: :name
+      #     :key:
+      #      - :name
+      #      - :locale
       #     :data:
       #     - :name: foo
       #       :description: foo foo foo
+      #       :locale: aa
       #       :active: true
       #     - :name: bar
       #       :description: bar bar bar
+      #       :locale: aa
       #       :active: false
 
       def load_seed_data(yaml_path = nil)
@@ -47,7 +51,7 @@ module Seeds
           transaction do
             data.each do |record|
               has_key_attribute = key_attribute.present?
-              if has_key_attribute? && (old_record = where(*Seedable.keyed_values(record)).first).present?
+              if has_key_attribute && (old_record = where(seed_keyed_value_conditions(record, key_attribute)).first).present?
                 old_record.attributes = record
                 data_changed = old_record.changed?
                 if old_record.save
@@ -76,7 +80,7 @@ module Seeds
                   puts "*** #{msg}" if debug
                   imported << { id: new_record.id, changes: new_record.previous_changes }
                 else
-                  msg = "SEED LOAD: Error Creating #{klass_name}['#{Seedable.keyed_values(record).to_a.join}'] : #{new_record.errors.to_a}"
+                  msg = "SEED LOAD: Error Creating #{klass_name}['#{seed_keyed_value_conditions(record, key_attribute).to_a.join(':')}'] : #{new_record.errors.to_a}"
                   Rails.logger.info msg
                   puts "*** #{msg}" if debug
                   errors << { id: nil, errors: new_record.errors.to_a }
@@ -103,19 +107,16 @@ module Seeds
         end
       end
 
-      def keyed_values(record, key)
+      def seed_keyed_value_conditions(record, key)
         case key
-          when String, Symbol
-            {
-              key.to_sym => record.fetch(key)
-            }
-          when Array
-            key.inject({}){|k, memo|
-              memo[k] = record.fetch(k)
-              memo
-            }
-          else
-            nil
+        when String, Symbol
+          { key.to_sym => record.fetch(key) }
+        when Array
+          key.each_with_object({}) do |k, memo|
+            ks = k.to_sym
+            memo[ks] = record.fetch(ks)
+            memo
+          end
         end
       end
     end

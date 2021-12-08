@@ -5,34 +5,19 @@ namespace :db do
     desc 'Roles'
     task roles: :environment do
       require_relative '../../db/seed/roles'
-
-      if (seeder = Seeds::Roles.new).call
-        puts 'OK'
-      else
-        puts "FAILED: #{seeder.errors.join(', ')}"
-      end
+      run_seeder(Seeds::Roles)
     end
 
     desc 'Users'
     task users: :environment do
       require_relative '../../db/seed/users'
-
-      if (seeder = Seeds::Users.new).call
-        puts 'OK'
-      else
-        puts "FAILED: #{seeder.errors.join(', ')}"
-      end
+      run_seeder(Seeds::Users)
     end
 
     desc 'Entitlements'
     task entitlements: :environment do
       require_relative '../../db/seed/entitlements'
-
-      if (seeder = Seeds::Entitlements.new).call
-        puts 'OK'
-      else
-        puts "FAILED: #{seeder.errors.join(', ')}"
-      end
+      run_seeder(Seeds::Entitlements)
     end
 
     desc 'Diagnostics'
@@ -51,6 +36,12 @@ namespace :db do
     task report_templates: :environment do
       require_relative '../../db/seed/report_templates'
       run_seeder(Seeds::ReportTemplates)
+    end
+
+    desc 'Report Template Pages'
+    task report_template_pages: :environment do
+      require_relative '../../db/seed/report_template_pages'
+      run_seeder(Seeds::ReportTemplatePages)
     end
   end
 end

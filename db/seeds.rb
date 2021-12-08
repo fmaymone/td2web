@@ -13,7 +13,8 @@ SEED_MODULES = [
   Seeds::Entitlements,
   Seeds::Diagnostics,
   Seeds::DiagnosticQuestions,
-  Seeds::ReportTemplates
+  Seeds::ReportTemplates,
+  Seeds::ReportTemplatePages
 ].freeze
 ###
 
