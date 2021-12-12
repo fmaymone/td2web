@@ -104,7 +104,7 @@ module ReportServices
 
       def base_template_data(locale)
         {
-          'report_title' => @report.template.name,
+          'report_title' => @report.report_template.name,
           'chart_data' => JSON.pretty_generate(@report.chart_data),
           'diagnostic_type' => @report.team_diagnostic.diagnostic.name,
           'team_name' => @report.team_diagnostic.name,
@@ -112,7 +112,8 @@ module ReportServices
           'organization' => @report.team_diagnostic.organization.name,
           'tenant' => @report.team_diagnostic.organization.tenant.name,
           'team_logo' => @report.team_diagnostic.logo_url,
-          'year' => Time.now.year
+          'year' => Time.now.year,
+          'base_url' => Teamdiagnostic::Application::HOST_AND_PORT
         }
       end
     end

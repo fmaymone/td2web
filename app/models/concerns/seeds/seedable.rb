@@ -37,6 +37,7 @@ module Seeds
         puts "*** #{msg}" if debug
 
         seed_data = YAML.load(ERB.new(File.read(yaml_path)).result)
+
         data_description = seed_data.fetch(table_name.to_sym, { data: [] })
         key_attribute = data_description.fetch(:key, nil)
         data = data_description.fetch(:data)

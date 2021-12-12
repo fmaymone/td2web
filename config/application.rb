@@ -21,7 +21,7 @@ module Teamdiagnostic
     config.load_defaults 6.0
 
     ### Custom Application Configuration
-    application_host_and_port = ENV.fetch('APPLICATION_HOST', 'localhost:3000')
+    HOST_AND_PORT = application_host_and_port = ENV.fetch('APPLICATION_HOST', 'localhost:3000')
     application_host = application_host_and_port.split(':')[0]
     application_port = application_host_and_port.split(':')[1]
     config.application_host_and_port = application_host_and_port

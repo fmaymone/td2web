@@ -11,14 +11,15 @@ module Seeds
         .first&.id
     end
 
-    def initialize(message: nil)
+    def initialize(message: nil, filename: nil)
       @message = message || 'Load ReportTemplate Pages...'
+      @filename = filename
       @errors = []
       @success = false
     end
 
     def call
-      ReportTemplatePage.load_seed_data
+      ReportTemplatePage.load_seed_data(@filename)
     end
 
     private

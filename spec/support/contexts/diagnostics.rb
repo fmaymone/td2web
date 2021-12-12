@@ -11,7 +11,7 @@ RSpec.shared_context 'diagnostics', shared_context: :metadate do
   let(:completed_diagnostic_question_seed_data_filepath) { File.join(Rails.root, 'db', 'seed', 'diagnostic_questions_for_test.csv') }
   let(:completed_diagnostic_question_seed_data) { Seeds::DiagnosticQuestions.new(filename: completed_diagnostic_question_seed_data_filepath).call }
   let(:report_templates_seed_data_filepath) do
-    File.join(Rails.root, 'db', 'seed', 'report_templates_for_test.csv')
+    File.join(Rails.root, 'db', 'seed', 'report_templates_for_test.yml')
   end
   let(:report_templates_seed_data) { Seeds::ReportTemplates.new(filename: report_templates_seed_data_filepath).call }
 

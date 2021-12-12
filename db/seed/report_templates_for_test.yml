@@ -1,0 +1,13 @@
+---
+:report_templates:
+  :version: 1
+  :key:
+  - tenant_id
+  - name
+  - diagnostic_id
+  :data:
+  - :tenant_id: <%= Tenant.default_tenant.id %>
+    :diagnostic_id: <%= Diagnostic.where(slug: Diagnostic::TDA_SLUG).first&.id %>
+    :name: TDA Diagnostic Report (en)
+    :state: published
+    :version: 1

@@ -16,6 +16,9 @@
 #  updated_at         :datetime         not null
 #
 class ReportTemplatePage < ApplicationRecord
+  ### Constants
+  LAYOUT_PAGE_SLUG = 'layout'
+
   ### Concerns
   include Seeds::Seedable
 
@@ -28,8 +31,8 @@ class ReportTemplatePage < ApplicationRecord
   ### Scopes
   scope :locale, ->(locale) { where(locale: locale) }
   scope :format, ->(format) { where(format: format) }
-  scope :layout_page, -> { where(slug: 'layout') }
-  scope :content_pages, -> { where.not(slug: 'layout') }
+  scope :layout_page, -> { where(slug: LAYOUT_PAGE_SLUG) }
+  scope :content_pages, -> { where.not(slug: LAYOUT_PAGE_SLUG) }
 
   validates :index, uniqueness: { scope: %i[locale format] }
 

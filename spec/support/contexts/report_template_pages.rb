@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.shared_context 'report_template_pages', shared_context: :metadate do
-  include_context 'report_templates'
-
   let(:team_diagnostic_report_template_html_layout) do
     create(:report_template_page,
            report_template: teamdiagnostic_report_template,

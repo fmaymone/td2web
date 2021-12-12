@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe ReportServices::Renderers::Png do
   include_context 'team_diagnostics'
   include_context 'report_templates'
-  include_context 'report_template_pages'
+  include_context 'report_template_pages_for_renderers'
 
   let(:team_diagnostic) { completed_teamdiagnostic }
   let(:locale) { 'en' }

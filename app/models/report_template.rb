@@ -22,7 +22,7 @@ class ReportTemplate < ApplicationRecord
   include Seeds::Seedable
 
   ### Validations
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: { scope: %i[tenant_id diagnostic_id state version] }
   validates :state, presence: true
   validates :version, presence: true
 

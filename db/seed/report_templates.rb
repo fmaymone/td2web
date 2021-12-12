@@ -4,14 +4,15 @@
 module Seeds
   # ReportTemplate seed data
   class ReportTemplates
-    def initialize(message: nil)
+    def initialize(filename: nil, message: nil)
+      @filename = filename
       @message = message || 'Load ReportTemplates...'
       @errors = []
       @success = false
     end
 
     def call
-      ReportTemplate.load_seed_data
+      ReportTemplate.load_seed_data(@filename)
     end
 
     private

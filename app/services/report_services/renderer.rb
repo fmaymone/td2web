@@ -10,12 +10,14 @@ module ReportServices
       Renderers::Html,
       Renderers::Pdf
     ].freeze
+
+    # Renderers run by default
     STANDARD_RENDERERS = [
       Renderers::Html,
       Renderers::Pdf
     ].freeze
 
-    def initialize(report, formats: :all, locale: nil)
+    def initialize(report, formats: :standard, locale: nil)
       @report = report
       @team_diagnostic = report.team_diagnostic
       @locale = locale
@@ -32,8 +34,7 @@ module ReportServices
       rescue StandardError => e
         log_rendering_error(e, renderer)
       end
-      @report.reload
-      @report.complete! if @report.rendering? && @report.report_files.present?
+      complete_report
     end
 
     def all_formats
@@ -45,6 +46,18 @@ module ReportServices
     end
 
     private
+
+    def complete_report
+      @report.reload
+      if @report.rendering? && @report.report_files.present?
+        @report.complete
+        @report.save
+        @report.reload
+        @report.completed?
+      else
+        false
+      end
+    end
 
     def log_rendering_error(error, renderer)
       renderer_name = renderer::ID

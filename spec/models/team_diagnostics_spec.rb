@@ -7,7 +7,6 @@ RSpec.describe TeamDiagnostic, type: :model do
   include_context 'organizations'
   include_context 'team_diagnostics'
   include_context 'report_templates'
-  include_context 'report_template_pages'
 
   let(:participant) { create(:participant, team_diagnostic: teamdiagnostic) }
   let(:subject) { teamdiagnostic_ready }
