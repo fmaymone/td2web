@@ -71,7 +71,6 @@ RSpec.describe TeamDiagnostic, type: :model do
     describe 'performing report' do
       it 'should create a report if the diagnostic is completed' do
         completed_teamdiagnostic.auto_respond
-        completed_teamdiagnostic.complete!
         completed_teamdiagnostic.reload
         completed_teamdiagnostic.report!
         completed_teamdiagnostic.reload
