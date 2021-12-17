@@ -78,20 +78,18 @@
       <%= link_to('Complete Diagnostic'.t, complete_team_diagnostic_path(id: @service.team_diagnostic.id), { method: :post, class: 'btn btn-warning', data: {confirm: 'Are you sure?'.t} }) if policy(@service.team_diagnostic).complete? %>
       <%= link_to('Cancel Diagnostic'.t, cancel_team_diagnostic_path(id: @service.team_diagnostic.id), { method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure?'.t} }) if policy(@service.team_diagnostic).cancel? %>
     </p>
-    <% report = @service.team_diagnostic.reports.completed.order(updated_at: :desc).first %>
-    <% if report %>
-      <%= link_to('Download Report'.t, '#', class: 'btn btn-lg btn-success') if policy(@service.team_diagnostic).download_report? %>
-      <p>
-        <%= link_to('View Report'.t, report_team_diagnostic_path(id: @service.team_diagnostic.id, report_id: report.id, token: report.token), class: 'btn btn-success') %>
-      </p>
-      <% if @service.team_diagnostic.reported? %>
-        <%= link_to('View Report'.t, report_team_diagnostic_path(id: @service.team_diagnostic.id, report_id: @service.team_diagnostic.current_report.id, token: @service.team_diagnostic.current_report.token), class: 'btn btn-lg btn-success')%>
-      <% end %>
-    <% end %>
     <br/>
     <%= link_to('Export Data'.t, export_team_diagnostic_path(id: @service.team_diagnostic.id, format: :csv), class: 'btn btn btn-success') if policy(@service.team_diagnostic).export_data? %>
   </div>
+</div>
 
+<div class="row">
+  <div class="col">
+    <%= form_for(@service.team_diagnostic) do |form| %>
+      <%= hidden_field_tag :step, @service.step %>
+      <%= form.submit 'Continue'.t, class: 'btn btn-success' %>
+    <% end if @service.next_step_accessible? %>
+  </div>
 </div>
 
 <div class="row">

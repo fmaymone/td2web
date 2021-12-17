@@ -298,11 +298,13 @@ ActiveRecord::Schema.define(version: 2021_11_27_213425) do
     t.uuid "tenant_id", null: false
     t.uuid "diagnostic_id", null: false
     t.string "name", null: false
+    t.string "locale", default: "en", null: false
     t.string "state", default: "draft", null: false
     t.integer "version", default: 1, null: false
+    t.json "template"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["tenant_id", "diagnostic_id", "state", "version"], name: "report_templates_idx"
+    t.index ["tenant_id", "diagnostic_id", "locale", "state", "version"], name: "report_templates_idx"
   end
 
   create_table "reports", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
