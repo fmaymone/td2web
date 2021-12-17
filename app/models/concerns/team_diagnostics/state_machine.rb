@@ -80,6 +80,8 @@ module TeamDiagnostics
       end
 
       def after_completion
+        self.completed_at = Time.now
+        save
         participants.active.each(&:cancel!)
         log_completion
       end

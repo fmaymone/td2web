@@ -45,7 +45,7 @@ RSpec.describe ReportServices::Renderers::Html do
     service.call
     report.report_files.reload
     assert(report.report_files.attached?)
-    html_attachment = report.report_files.last.blob.download
+    html_attachment = report.rendered_files(format: :html).last[:object].blob.download
     assert(html_attachment.match?('Team Diagnostic Report'))
     assert(service.files.first[:name].match 'Full Report HTML')
   end
@@ -56,7 +56,7 @@ RSpec.describe ReportServices::Renderers::Html do
     service.report.save
     service.report.reload
     service.call
-    html_attachment = report.report_files.last.blob.download
+    html_attachment = report.rendered_files(format: :html).last[:object].blob.download
     assert(html_attachment.match?('Team Diagnostic Report'))
     assert(service.files.first[:name].match 'Full Report HTML')
     page_1_index = html_attachment.index('Page 1')
@@ -68,7 +68,7 @@ RSpec.describe ReportServices::Renderers::Html do
     service.report.save!
     service.report.reload
     service.call
-    html_attachment = report.report_files.last.blob.download
+    html_attachment = report.rendered_files(format: :html).last[:object].blob.download
     assert(html_attachment.match?('Team Diagnostic Report'))
     assert(service.files.first[:name].match 'Full Report HTML')
     page_1_index = html_attachment.index('Page 1')

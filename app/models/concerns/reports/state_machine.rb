@@ -31,6 +31,7 @@ module Reports
             reset_token
             save!
             service = ReportServices::DataGenerator.new(self)
+            # Datagenerator SHOULD trigger the render event if successful
             service.delay.call
           end
         end
@@ -40,6 +41,7 @@ module Reports
           after do
             log_report_event(:render)
             service = ReportServices::Renderer.new(self, formats: :standard)
+            # Renderer SHOULD trigger the complete event if successful
             service.delay.call
             true
           end

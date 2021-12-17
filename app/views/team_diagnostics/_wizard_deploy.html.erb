@@ -78,7 +78,7 @@
       <%= link_to('Complete Diagnostic'.t, complete_team_diagnostic_path(id: @service.team_diagnostic.id), { method: :post, class: 'btn btn-warning', data: {confirm: 'Are you sure?'.t} }) if policy(@service.team_diagnostic).complete? %>
       <%= link_to('Cancel Diagnostic'.t, cancel_team_diagnostic_path(id: @service.team_diagnostic.id), { method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure?'.t} }) if policy(@service.team_diagnostic).cancel? %>
     </p>
-    <% report = @service.team_diagnostic.reports.order(updated_at: :desc).first %>
+    <% report = @service.team_diagnostic.reports.completed.order(updated_at: :desc).first %>
     <% if report %>
       <%= link_to('Download Report'.t, '#', class: 'btn btn-lg btn-success') if policy(@service.team_diagnostic).download_report? %>
       <p>

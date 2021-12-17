@@ -95,10 +95,10 @@ class TeamDiagnosticsController < ApplicationController
     # redirect_to @team_diagnostic unless @team_diagnostic.setup? || @team_diagnostic.deployed?
 
     case @service.step
-    when TeamDiagnostics::Wizard::PARTICIPANTS_STEP
+    when TeamDiagnostic::PARTICIPANTS_STEP
       @participant_service = ParticipantServices::Creator.new(user: @current_user, team_diagnostic: @team_diagnostic, params: {})
       @participant = @participant_service.participant
-    when TeamDiagnostics::Wizard::QUESTIONS_STEP
+    when TeamDiagnostic::QUESTIONS_STEP
       @question_service = TeamDiagnosticServices::QuestionCreator.new(user: @current_user, team_diagnostic: @team_diagnostic, params: {})
       @team_diagnostic_question = @question_service.team_diagnostic_question
     end

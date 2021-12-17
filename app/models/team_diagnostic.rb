@@ -280,6 +280,7 @@ class TeamDiagnostic < ApplicationRecord
       end
       svc.diagnostic_survey.complete!
     end
+    complete!
   end
 
   def init_report(options: {})
@@ -291,6 +292,12 @@ class TeamDiagnostic < ApplicationRecord
     )
   end
 
+  # Trigger the generation of a new report
+  #
+  # may force cancelling any running reports
+  # may supply options including page_order
+  # options: {page_order: :default || [2,5,6,10] }
+  #
   def perform_report(force: false, options: {})
     running_reports = reports.where(state: %i[running rendering])
     return running_reports if !force && running_reports.any?
