@@ -76,7 +76,7 @@ class TeamDiagnosticsController < ApplicationController
       success = @service.call
       @team_diagnostic = @service.team_diagnostic
       if success
-        format.html { redirect_to @team_diagnostic, notice: 'Team Diagnostic updated'.t }
+        format.html { redirect_to @team_diagnostic, notice: @service.update_notice }
         format.json { render :show, status: :ok, location: @team_diagnostic }
       else
         @participant_service = ParticipantServices::Creator.new(user: @current_user, team_diagnostic: @team_diagnostic, params: {})
@@ -101,6 +101,8 @@ class TeamDiagnosticsController < ApplicationController
     when TeamDiagnostic::QUESTIONS_STEP
       @question_service = TeamDiagnosticServices::QuestionCreator.new(user: @current_user, team_diagnostic: @team_diagnostic, params: {})
       @team_diagnostic_question = @question_service.team_diagnostic_question
+    when TeamDiagnostic::REPORT_STEP
+      @report_service = TeamDiagnosticServices::Reporter.new(@team_diagnostic)
     end
     set_organization
     @current_page = @service.step_name.capitalize

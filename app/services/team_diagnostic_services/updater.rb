@@ -6,7 +6,7 @@ module TeamDiagnosticServices
     REFERENCE = 'TeamDiagnostics#update'
     WHITELISTED_PARAMS = [:id].freeze
 
-    attr_reader :params, :user, :team_diagnostic, :errors, :step
+    attr_reader :params, :user, :team_diagnostic, :errors, :step, :updated
 
     def initialize(user:, id:, params: {})
       @errors = []
@@ -17,6 +17,7 @@ module TeamDiagnosticServices
       @params = sanitize_params(params)
       @team_diagnostic = initialize_team_diagnostic
       @step = get_step(params[:step])
+      @updated = false
     end
 
     def call
@@ -99,10 +100,14 @@ module TeamDiagnosticServices
       letters.sort_by(&:locale)
     end
 
+    def update_notice
+      @updated ? 'Team Diagnostic updated'.t : nil
+    end
+
     private
 
     def after_save
-      SystemEvent.log(event_source: @team_diagnostic, description: 'Updated')
+      SystemEvent.log(event_source: @team_diagnostic, description: 'Updated') if @updated
     end
 
     def letter_data_present?
@@ -135,11 +140,12 @@ module TeamDiagnosticServices
     def update_team_diagnostic
       TeamDiagnostic.transaction do
         @team_diagnostic.assign_attributes(@params || {})
+        @updated = @team_diagnostic.has_changes_to_save?
         if valid? && @team_diagnostic.save
           @team_diagnostic.increment_wizard! if @step == @team_diagnostic.wizard
           true
         else
-          false
+          @updated = false
         end
       end
     rescue StandardError

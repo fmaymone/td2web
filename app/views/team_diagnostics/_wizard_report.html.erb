@@ -2,7 +2,93 @@
   <div class="col-sm-6">
     <h3>
       <%= 'Status'.t %>
-      <span class="badge badge-<%= team_diagnostic_state_pill_class(@service.team_diagnostic) %>"><%= @service.team_diagnostic.state.capitalize.t %></span>
+      <span class="badge badge-<%= @report_service.status_css_class %>">
+        <%= @report_service.status.to_s.capitalize.t %>
+      </span>
     </h3>
-  </div
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Your <%= @service.team_diagnostic.diagnostic.name %> Report</h5>
+      <div class="card-text">Your report is completed!</div>
+      <div class="alert alert-info card-text">
+        Please be patient as your report is rendering. It will be done very soon.
+      </div>
+      <div class="alert alert-danger card-text">
+        There seems to be a problem. Please review your page setup and regenerate your report.
+      </div>
+      <%= link_to('View','#', class: 'btn btn-success') %>
+      <%= link_to('Download PDF','#', class: 'btn btn-info') %>
+      <%= link_to('Download PPT','#', class: 'btn btn-info') %>
+      <hr/>
+
+      <h5 class="card-title">Report Charts</h5>
+      <div class="card-text">Use report charts in your own reports and documents.</div>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <span class="badge bg-info">PNG</span>
+          Highest/Lowest Positivity
+        </li>
+        <li class="list-group-item">
+          <span class="badge bg-info">PNG</span>
+          Highest/Lowest Productivity
+        </li>
+      </ul>
+      </div>
+      <div class="card-footer text-muted">
+        In progress..
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-sm-12">
+    <h2>Pages</h2>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Selected Pages</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Page 1</li> 
+              <li class="list-group-item">Page 2</li> 
+              <li class="list-group-item">Page 3</li> 
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Available Pages</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Page 4</li> 
+              <li class="list-group-item">Page 5</li> 
+              <li class="list-group-item">Page 6</li> 
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <%= link_to('Generate Report'.t, '#', class: 'btn btn-primary') %>  
+  </div>
+  <% if @report_service.may_reset? %>
+    <div class="col-sm-6">
+      <%= link_to('Reset Report'.t, '#', class: 'btn btn-primary') %>  
+    </div>
+  <% end %>
 </div>

@@ -83,14 +83,16 @@
   </div>
 </div>
 
+<% if @service.next_step_accessible? && @service.team_diagnostic.wizard == TeamDiagnostic::DEPLOY_STEP %>
 <div class="row">
   <div class="col">
     <%= form_for(@service.team_diagnostic) do |form| %>
       <%= hidden_field_tag :step, @service.step %>
       <%= form.submit 'Continue'.t, class: 'btn btn-success' %>
-    <% end if @service.next_step_accessible? %>
+    <% end %>
   </div>
 </div>
+<% end %>
 
 <div class="row">
   <div id="team_diagnostic--wizard--step-attention_items" class="col">

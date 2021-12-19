@@ -32,7 +32,20 @@ module TeamDiagnosticServices
     end
 
     def status
+      return :stalled if stalled?
+      return :running if running?
+      return :completed if current_report.completed?
 
+      :pending
+    end
+
+    def status_css_class
+      {
+        stalled: 'danger',
+        running: 'warning',
+        completed: 'success',
+        pending: 'info'
+      }.fetch(status, 'dark')
     end
 
     def stalled?
@@ -46,12 +59,16 @@ module TeamDiagnosticServices
       @team_diagnostic.reports.where(state: [:running, :rendering]).any?
     end
 
+    def may_reset?
+      status != :pending
+    end
+
     private
 
     def init_report(options: {})
       report_template = @team_diagnostic.diagnostic.report_template
       @team_diagnostic.reports.create!(
-        description: "#{name} Report",
+        description: "#{@team_diagnostic.name} Report",
         report_template: report_template,
         options: options
       )
