@@ -11,4 +11,7 @@
 #
 class GrantUsage < ApplicationRecord
   belongs_to :grant
+
+  # TODO: Add a polymorphic association to the article of the grant so
+  #   that the grant can be re-used in the event of a system error
 end
