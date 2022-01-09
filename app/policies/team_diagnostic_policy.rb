@@ -79,6 +79,10 @@ class TeamDiagnosticPolicy < ApplicationPolicy
     update? && record&.allow_completion?
   end
 
+  def generate_report?
+    update? && record&.completed?
+  end
+
   def export?
     (show? && record&.completed?) || record&.reported?
   end

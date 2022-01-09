@@ -12,14 +12,13 @@ module Reports
       reject: 'Report cancelled'
     }.freeze
 
+    VALID_REPORT_STATES = %i[pending running rendering completed].freeze
+    STALLED_AGE = 1.hour
 
     included do
       scope :in_progress, -> { where(state: %i[running rendering]) }
 
       include AASM
-
-      VALID_REPORT_STATES = [:pending, :running, :rendering, :completed]
-      STALLED_AGE = 1.hour
 
       aasm column: :state do
         state :pending, initial: true
@@ -80,13 +79,12 @@ module Reports
           severity: :warn
         )
       end
-
     end
 
     class_methods do
       def stalled
-        where(state: [:running, :rendering]).
-          where('updated_at < :stalled_time', stalled_time: Time.now - STALLED_AGE)
+        where(state: %i[running rendering])
+          .where('updated_at < :stalled_time', stalled_time: Time.now - STALLED_AGE)
       end
     end
   end

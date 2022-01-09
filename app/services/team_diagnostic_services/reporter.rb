@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TeamDiagnosticServices
   # TeamDiagnostic Reporting View Service
   class Reporter
@@ -14,8 +16,7 @@ module TeamDiagnosticServices
     # (re)Generate TeamDiagnostic Report
     def call(options: {})
       cancel
-      report = perform_report(force: true, options: options)
-      report
+      perform_report(force: true, options: options)
     end
 
     # Latest report
@@ -29,6 +30,7 @@ module TeamDiagnosticServices
         report.reject
         report.save
       end
+      @team_diagnostic.reports.reload
     end
 
     def status
@@ -56,7 +58,7 @@ module TeamDiagnosticServices
     end
 
     def running?
-      @team_diagnostic.reports.where(state: [:running, :rendering]).any?
+      @team_diagnostic.reports.where(state: %i[running rendering]).any?
     end
 
     def may_reset?
@@ -81,7 +83,7 @@ module TeamDiagnosticServices
     # options: {page_order: :default || [2,5,6,10] }
     #
     def perform_report(force: false, options: {})
-      @team_diagnostic.reports.stalled.each(:reject)
+      @team_diagnostic.reports.stalled.map(&:reject)
       @team_diagnostic.reports.reload
 
       running_reports = @team_diagnostic.reports.where(state: %i[running rendering])
@@ -92,6 +94,5 @@ module TeamDiagnosticServices
       report.start
       report
     end
-
   end
 end

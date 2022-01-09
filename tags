@@ -211,6 +211,7 @@ ReportTemplatePageTest	./spec/models/report_template_page_test.rb	/^class Report
 ReportTemplatePages	./db/seed/report_template_pages.rb	/^  class ReportTemplatePages$/;"	c	class:Seeds
 ReportTemplates	./app/models/concerns/report_templates/state_machine.rb	/^module ReportTemplates$/;"	m
 ReportTemplates	./db/seed/report_templates.rb	/^  class ReportTemplates$/;"	c	class:Seeds
+Reporter	./app/services/team_diagnostic_services/reporter.rb	/^  class Reporter$/;"	c	class:TeamDiagnosticServices
 Reports	./app/models/concerns/reports/files.rb	/^module Reports$/;"	m
 Reports	./app/models/concerns/reports/state_machine.rb	/^module Reports$/;"	m
 RequestSpecHelper	./spec/support/request_spec_helper.rb	/^module RequestSpecHelper$/;"	m
@@ -268,6 +269,7 @@ TeamDiagnosticQuestionsController	./app/controllers/team_diagnostic_questions_co
 TeamDiagnosticServices	./app/services/team_diagnostic_services/creator.rb	/^module TeamDiagnosticServices$/;"	m
 TeamDiagnosticServices	./app/services/team_diagnostic_services/csv_exporter.rb	/^module TeamDiagnosticServices$/;"	m
 TeamDiagnosticServices	./app/services/team_diagnostic_services/question_creator.rb	/^module TeamDiagnosticServices$/;"	m
+TeamDiagnosticServices	./app/services/team_diagnostic_services/reporter.rb	/^module TeamDiagnosticServices$/;"	m
 TeamDiagnosticServices	./app/services/team_diagnostic_services/updater.rb	/^module TeamDiagnosticServices$/;"	m
 TeamDiagnosticServices	./app/services/team_diagnostic_services/validator.rb	/^module TeamDiagnosticServices$/;"	m
 TeamDiagnostics	./app/models/concerns/team_diagnostics/errors.rb	/^module TeamDiagnostics$/;"	m
@@ -446,6 +448,7 @@ call	./app/services/report_services/renderers/png.rb	/^      def call$/;"	f	clas
 call	./app/services/team_diagnostic_services/creator.rb	/^    def call$/;"	f	class:TeamDiagnosticServices.Creator
 call	./app/services/team_diagnostic_services/csv_exporter.rb	/^    def call$/;"	f	class:TeamDiagnosticServices.CsvExporter
 call	./app/services/team_diagnostic_services/question_creator.rb	/^    def call$/;"	f	class:TeamDiagnosticServices.QuestionCreator
+call	./app/services/team_diagnostic_services/reporter.rb	/^    def call(options: {})$/;"	f	class:TeamDiagnosticServices.Reporter
 call	./app/services/team_diagnostic_services/updater.rb	/^    def call$/;"	f	class:TeamDiagnosticServices.Updater
 call	./app/services/team_diagnostic_services/validator.rb	/^    def call$/;"	f	class:TeamDiagnosticServices.Validator
 call	./app/services/translation_services/creator.rb	/^    def call$/;"	f	class:TranslationServices
@@ -467,6 +470,7 @@ call	./db/seed/tenants.rb	/^    def call$/;"	f	class:Seeds.Tenants
 call	./db/seed/translations.rb	/^    def call$/;"	f	class:Seeds.Translations
 call	./db/seed/users.rb	/^    def call$/;"	f	class:Seeds.Users
 cancel	./app/controllers/team_diagnostics_controller.rb	/^  def cancel$/;"	f	class:TeamDiagnosticsController
+cancel	./app/services/team_diagnostic_services/reporter.rb	/^    def cancel$/;"	f	class:TeamDiagnosticServices.Reporter
 cancel?	./app/policies/team_diagnostic_policy.rb	/^  def cancel?$/;"	f	class:TeamDiagnosticPolicy
 cancel_deployment	./app/models/team_diagnostic.rb	/^  def cancel_deployment$/;"	f	class:TeamDiagnostic
 cancel_notification_letter	./app/mailers/team_diagnostic_mailer.rb	/^  def cancel_notification_letter(diagnostic)$/;"	f	class:TeamDiagnosticMailer
@@ -611,6 +615,7 @@ current_question_number	./app/helpers/diagnostic_surveys_helper.rb	/^  def curre
 current_question_number	./app/services/diagnostic_survey_services/survey_service.rb	/^    def current_question_number$/;"	f	class:DiagnosticSurveyServices.SurveyService
 current_question_number_badge_class	./app/helpers/diagnostic_surveys_helper.rb	/^  def current_question_number_badge_class(service)$/;"	f	class:DiagnosticSurveysHelper
 current_question_response	./app/services/diagnostic_survey_services/survey_service.rb	/^    def current_question_response$/;"	f	class:DiagnosticSurveyServices.SurveyService
+current_report	./app/services/team_diagnostic_services/reporter.rb	/^    def current_report$/;"	f	class:TeamDiagnosticServices.Reporter
 current_step	./app/services/team_diagnostic_services/updater.rb	/^    def current_step$/;"	f	class:TeamDiagnosticServices.Updater
 current_tenant	./app/controllers/application_controller.rb	/^  def current_tenant$/;"	f	class:ApplicationController
 current_tenant	./app/helpers/application_helper.rb	/^  def current_tenant$/;"	f	class:ApplicationHelper
@@ -776,6 +781,8 @@ functional_area_options	./app/services/team_diagnostic_services/updater.rb	/^   
 gemfile	./bin/bundle	/^  def gemfile$/;"	f
 generate	./app/services/report_services/renderers/html.rb	/^      def generate(locale)$/;"	f	class:ReportServices.Renderers.Html
 generate	./app/services/report_services/renderers/pdf.rb	/^      def generate(locale)$/;"	f	class:ReportServices.Renderers.Pdf
+generate_report	./app/controllers/team_diagnostics_controller.rb	/^  def generate_report$/;"	f	class:TeamDiagnosticsController
+generate_report?	./app/policies/team_diagnostic_policy.rb	/^  def generate_report?$/;"	f	class:TeamDiagnosticPolicy
 generate_token	./app/models/invitation.rb	/^  def generate_token$/;"	f	class:Invitation.assigned_entitlements.email_body
 get_diagnostic_question	./app/services/team_diagnostic_services/question_creator.rb	/^    def get_diagnostic_question(params)$/;"	f	class:TeamDiagnosticServices.QuestionCreator
 get_formats	./app/services/report_services/renderer.rb	/^    def get_formats(formats)$/;"	f	class:ReportServices.Renderer
@@ -880,6 +887,7 @@ index?	./app/policies/user_policy.rb	/^  def index?$/;"	f	class:UserPolicy
 industry_options	./app/services/organization_services/creator.rb	/^    def industry_options$/;"	f	class:OrganizationServices.Creator
 industry_options	./app/services/organization_services/updater.rb	/^    def industry_options$/;"	f	class:OrganizationServices.Updater
 init_report	./app/models/team_diagnostic.rb	/^  def init_report(options: {})$/;"	f	class:TeamDiagnostic
+init_report	./app/services/team_diagnostic_services/reporter.rb	/^    def init_report(options: {})$/;"	f	class:TeamDiagnosticServices.Reporter
 init_stats	./app/services/participant_services/importer.rb	/^    def init_stats$/;"	f	class:ParticipantServices
 initialize	./app/models/concerns/team_diagnostics/errors.rb	/^      def initialize(msg)$/;"	f	class:TeamDiagnostics.Errors.DeploymentIssueError
 initialize	./app/policies/application_policy.rb	/^    def initialize(user, scope)$/;"	f	class:ApplicationPolicy.Scope
@@ -908,6 +916,7 @@ initialize	./app/services/report_services/renderers/base.rb	/^      def initiali
 initialize	./app/services/team_diagnostic_services/creator.rb	/^    def initialize(user:, params: {})$/;"	f	class:TeamDiagnosticServices.Creator
 initialize	./app/services/team_diagnostic_services/csv_exporter.rb	/^    def initialize(team_diagnostic)$/;"	f	class:TeamDiagnosticServices.CsvExporter
 initialize	./app/services/team_diagnostic_services/question_creator.rb	/^    def initialize(team_diagnostic:, user:, params: {})$/;"	f	class:TeamDiagnosticServices.QuestionCreator
+initialize	./app/services/team_diagnostic_services/reporter.rb	/^    def initialize(team_diagnostic)$/;"	f	class:TeamDiagnosticServices.Reporter
 initialize	./app/services/team_diagnostic_services/updater.rb	/^    def initialize(user:, id:, params: {})$/;"	f	class:TeamDiagnosticServices.Updater
 initialize	./app/services/team_diagnostic_services/validator.rb	/^    def initialize(service, record: nil, action: :create)$/;"	f	class:TeamDiagnosticServices.Validator
 initialize	./app/services/translation_services/creator.rb	/^    def initialize(params = {})$/;"	f	class:TranslationServices.Creator
@@ -992,6 +1001,7 @@ manage_grants?	./app/policies/user_policy.rb	/^  def manage_grants?$/;"	f	class:
 matching_plus_missing	./app/services/translation_services/search.rb	/^    def matching_plus_missing$/;"	f	class:TranslationServices.Search
 matching_plus_missing_csv	./app/services/translation_services/search.rb	/^    def matching_plus_missing_csv$/;"	f	class:TranslationServices
 maximum_participants	./app/models/diagnostic.rb	/^  def maximum_participants$/;"	f	class:Diagnostic
+may_reset?	./app/services/team_diagnostic_services/reporter.rb	/^    def may_reset?$/;"	f	class:TeamDiagnosticServices.Reporter
 member	./app/models/role.rb	/^    def member$/;"	f	class:Role
 member?	./app/models/role.rb	/^  def member?$/;"	f
 member?	./app/policies/application_policy.rb	/^  def member?$/;"	f	class:ApplicationPolicy
@@ -1092,6 +1102,7 @@ pending_actions	./app/models/team_diagnostic.rb	/^  def pending_actions$/;"	f	cl
 pending_invitation?	./app/models/participant.rb	/^  def pending_invitation?$/;"	f	class:Participant
 perform_deployment	./app/models/team_diagnostic.rb	/^  def perform_deployment$/;"	f	class:TeamDiagnostic
 perform_report	./app/models/team_diagnostic.rb	/^  def perform_report(force: false, options: {})$/;"	f	class:TeamDiagnostic
+perform_report	./app/services/team_diagnostic_services/reporter.rb	/^    def perform_report(force: false, options: {})$/;"	f	class:TeamDiagnosticServices.Reporter
 permitted_params	./app/services/user_services/creator.rb	/^    def permitted_params(params)$/;"	f	class:UserServices
 permitted_state_events	./app/models/concerns/team_diagnostics/state_machine.rb	/^      def permitted_state_events$/;"	f	class:TeamDiagnostics.StateMachine
 permitted_states	./app/models/concerns/team_diagnostics/state_machine.rb	/^      def permitted_states$/;"	f	class:TeamDiagnostics.StateMachine
@@ -1133,6 +1144,7 @@ reminder_letter	./app/mailers/diagnostic_survey_mailer.rb	/^  def reminder_lette
 reminder_letter_body	./app/models/concerns/diagnostic_surveys/messaging.rb	/^      def reminder_letter_body(loc = nil)$/;"	f	class:DiagnosticSurveys.Messaging
 reminder_letter_subject	./app/models/concerns/diagnostic_surveys/messaging.rb	/^      def reminder_letter_subject(loc = nil)$/;"	f	class:DiagnosticSurveys.Messaging
 render_page	./app/services/report_services/renderers/html.rb	/^      def render_page(page, page_index, locale)$/;"	f	class:ReportServices.Renderers.Html
+rendered_files	./app/models/concerns/reports/files.rb	/^      def rendered_files(format: nil)$/;"	f	class:Reports.Files
 report	./app/controllers/team_diagnostics_controller.rb	/^  def report$/;"	f	class:TeamDiagnosticsController
 report_data	./app/services/report_services/data_generator.rb	/^    def report_data$/;"	f	class:ReportServices.DataGenerator
 report_template	./app/models/diagnostic.rb	/^  def report_template(version: nil)$/;"	f	class:Diagnostic
@@ -1175,6 +1187,7 @@ revoke_note	./app/services/entitlement_services/revocation.rb	/^    def revoke_n
 roled_dashboard_partial_name	./app/controllers/home_controller.rb	/^  def roled_dashboard_partial_name$/;"	f	class:HomeController
 roles_for_select	./app/helpers/users_helper.rb	/^  def roles_for_select(user = nil)$/;"	f	class:UsersHelper
 run_seeder	./db/seeds.rb	/^def run_seeder(seeder)$/;"	f
+running?	./app/services/team_diagnostic_services/reporter.rb	/^    def running?$/;"	f	class:TeamDiagnosticServices.Reporter
 sanitize_params	./app/services/entitlement_services/invitation_creator.rb	/^    def sanitize_params(params)$/;"	f	class:EntitlementServices.InvitationCreator.selected_entitlement.grantor_role_ids
 sanitize_params	./app/services/organization_services/creator.rb	/^    def sanitize_params(params = {})$/;"	f	class:OrganizationServices.Creator
 sanitize_params	./app/services/organization_services/organization_updater.rb	/^    def sanitize_params(params = {})$/;"	f	class:OrganizationServices.OrganizationUpdater
@@ -1263,8 +1276,12 @@ staff	./app/models/concerns/users/roles.rb	/^      def staff$/;"	f	class:Users.R
 staff	./app/models/role.rb	/^    def staff$/;"	f	class:Role
 staff?	./app/models/role.rb	/^  def staff?$/;"	f
 staff?	./app/policies/application_policy.rb	/^  def staff?$/;"	f	class:ApplicationPolicy
+stalled	./app/models/concerns/reports/state_machine.rb	/^      def stalled$/;"	f	class:Reports.StateMachine
+stalled?	./app/services/team_diagnostic_services/reporter.rb	/^    def stalled?$/;"	f	class:TeamDiagnosticServices.Reporter
 standard_formats	./app/services/report_services/renderer.rb	/^    def standard_formats$/;"	f	class:ReportServices.Renderer
 started?	./app/services/diagnostic_survey_services/survey_service.rb	/^    def started?$/;"	f	class:DiagnosticSurveyServices.SurveyService
+status	./app/services/team_diagnostic_services/reporter.rb	/^    def status$/;"	f	class:TeamDiagnosticServices.Reporter
+status_css_class	./app/services/team_diagnostic_services/reporter.rb	/^    def status_css_class$/;"	f	class:TeamDiagnosticServices.Reporter
 step_accessible?	./app/services/team_diagnostic_services/updater.rb	/^    def step_accessible?(step)$/;"	f	class:TeamDiagnosticServices.Updater
 step_attention_items	./app/services/team_diagnostic_services/updater.rb	/^    def step_attention_items$/;"	f	class:TeamDiagnosticServices.Updater
 step_completed_or_present?	./app/services/team_diagnostic_services/updater.rb	/^    def step_completed_or_present?$/;"	f	class:TeamDiagnosticServices.Updater
@@ -1345,6 +1362,7 @@ update?	./app/policies/user_policy.rb	/^  def update?$/;"	f	class:UserPolicy
 update_consent?	./app/policies/user_policy.rb	/^  def update_consent?$/;"	f	class:UserPolicy
 update_consents	./app/models/concerns/user_profiles/consent.rb	/^      def update_consents(params)$/;"	f	class:UserProfiles.Consent
 update_consents	./app/models/concerns/users/profiles.rb	/^      def update_consents(params)$/;"	f	class:Users.Profiles
+update_notice	./app/services/team_diagnostic_services/updater.rb	/^    def update_notice$/;"	f	class:TeamDiagnosticServices.Updater
 update_organization	./app/services/organization_services/updater.rb	/^    def update_organization$/;"	f	class:OrganizationServices.Updater.initialize_organization
 update_participant	./app/services/participant_services/updater.rb	/^    def update_participant$/;"	f	class:ParticipantServices.Updater
 update_team_diagnostic	./app/services/team_diagnostic_services/updater.rb	/^    def update_team_diagnostic$/;"	f	class:TeamDiagnosticServices.Updater

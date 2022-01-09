@@ -93,6 +93,8 @@ class TeamDiagnosticsController < ApplicationController
     @team_diagnostic = @service.team_diagnostic
     authorize @team_diagnostic
     # redirect_to @team_diagnostic unless @team_diagnostic.setup? || @team_diagnostic.deployed?
+    @current_page = @service.step_name.capitalize
+    set_organization
 
     case @service.step
     when TeamDiagnostic::PARTICIPANTS_STEP
@@ -104,8 +106,6 @@ class TeamDiagnosticsController < ApplicationController
     when TeamDiagnostic::REPORT_STEP
       @report_service = TeamDiagnosticServices::Reporter.new(@team_diagnostic)
     end
-    set_organization
-    @current_page = @service.step_name.capitalize
   end
 
   # DELETE /team_diagnostics/1
@@ -164,6 +164,21 @@ class TeamDiagnosticsController < ApplicationController
     @template = @report.report_template
     @locale = current_locale || @report.team_diagnostic.locale
     @page_title = @report.description
+  end
+
+  def generate_report
+    @service = TeamDiagnosticServices::Updater.new(user: @current_user, id: record_scope.find(params[:id]), params: params)
+    @team_diagnostic = @service.team_diagnostic
+    authorize @team_diagnostic
+
+    @report_service = TeamDiagnosticServices::Reporter.new(@team_diagnostic)
+
+    # TODO: specify page options from params
+    #   options: {page_order: :default || [2,5,6,10] }
+    options = {}
+    @report_service.call(options: options)
+    notice = 'Your report is being generated'.t
+    redirect_to wizard_team_diagnostic_path(@team_diagnostic, step: @team_diagnostic.wizard), notice: notice
   end
 
   private

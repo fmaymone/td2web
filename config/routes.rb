@@ -56,6 +56,7 @@ Rails.application.routes.draw do
       get 'report/:report_id', to: 'team_diagnostics#report', as: 'report'
       post :deploy, to: 'team_diagnostics#deploy'
       post :complete, to: 'team_diagnostics#complete'
+      post :generate_report, to: 'team_diagnostics#generate_report'
       delete :cancel, to: 'team_diagnostics#cancel'
     end
     resources :team_diagnostic_questions

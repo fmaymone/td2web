@@ -9,41 +9,49 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-sm-12">
+<% if @report_service.status != :pending %>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Your <%= @service.team_diagnostic.diagnostic.name %> Report</h5>
+          <% case @report_service.status 
+          when :stalled %>
+        <div class="alert alert-danger card-text">
+          There seems to be a problem. Please review your page setup and regenerate your report.
+        </div>
+      <% when :running %>
+        <div class="alert alert-info card-text">
+          Please be patient as your report is rendering. It will be done very soon.
+        </div>
+      <% when :completed %>
+        <div class="card-text">Your report is completed!</div>
+        <%= link_to('View','#', class: 'btn btn-success') %>
+        <%= link_to('Download PDF','#', class: 'btn btn-info') %>
+        <%= link_to('Download Powerpoint','#', class: 'btn btn-info') %>
+      <% end %>
 
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Your <%= @service.team_diagnostic.diagnostic.name %> Report</h5>
-      <div class="card-text">Your report is completed!</div>
-      <div class="alert alert-info card-text">
-        Please be patient as your report is rendering. It will be done very soon.
-      </div>
-      <div class="alert alert-danger card-text">
-        There seems to be a problem. Please review your page setup and regenerate your report.
-      </div>
-      <%= link_to('View','#', class: 'btn btn-success') %>
-      <%= link_to('Download PDF','#', class: 'btn btn-info') %>
-      <%= link_to('Download PPT','#', class: 'btn btn-info') %>
-      <hr/>
-
-      <h5 class="card-title">Report Charts</h5>
-      <div class="card-text">Use report charts in your own reports and documents.</div>
-      <ul class="list-group">
-        <li class="list-group-item">
-          <span class="badge bg-info">PNG</span>
-          Highest/Lowest Positivity
-        </li>
-        <li class="list-group-item">
-          <span class="badge bg-info">PNG</span>
-          Highest/Lowest Productivity
-        </li>
-      </ul>
-      </div>
-      <div class="card-footer text-muted">
-        In progress..
-      </div>
+      <% if @report_service.status == :completed %>
+        <hr/>
+        <h5 class="card-title">Report Charts</h5>
+        <div class="card-text">Use report charts in your own reports and documents.</div>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <span class="badge bg-info">PNG</span>
+            Highest/Lowest Positivity
+          </li>
+          <li class="list-group-item">
+            <span class="badge bg-info">PNG</span>
+            Highest/Lowest Productivity
+          </li>
+        </ul>
+      <% end %>
     </div>
+    <div class="card-footer text-muted">
+      In progress..
+    </div>
+  </div>
+<% end %>
 
 
   </div>
@@ -52,7 +60,7 @@
 
 <div class="row">
   <div class="col-sm-12">
-    <h2>Pages</h2>
+    <h3>Report Pages</h3>
     <div class="row">
       <div class="col-sm-6">
         <div class="card">
@@ -82,9 +90,10 @@
   </div>
 </div>
 
+<hr/>
 <div class="row">
   <div class="col-sm-6">
-    <%= link_to('Generate Report'.t, '#', class: 'btn btn-primary') %>  
+    <%= link_to('Generate Report'.t, generate_report_team_diagnostic_path(id: @team_diagnostic.id), class: 'btn btn-primary', method: :post) %>  
   </div>
   <% if @report_service.may_reset? %>
     <div class="col-sm-6">
