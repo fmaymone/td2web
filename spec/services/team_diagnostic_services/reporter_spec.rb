@@ -4,8 +4,9 @@ require 'rails_helper'
 
 RSpec.describe TeamDiagnosticServices::Reporter do
   include_context 'team_diagnostics'
+  include_context 'report_templates'
 
-  let(:team_diagnostic) { completed_teamdiagnostic }
+  let(:team_diagnostic) { teamdiagnostic_completed }
 
   describe 'initialization' do
     it 'should initialize the service' do

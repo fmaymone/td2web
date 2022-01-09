@@ -33,6 +33,7 @@ class Report < ApplicationRecord
   ### Associations
   belongs_to :team_diagnostic
   belongs_to :report_template
+  has_many :system_events, as: :event_source
 
   ### Callbacks
   before_validation :reset_token
