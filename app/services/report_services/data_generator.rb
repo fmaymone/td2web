@@ -58,12 +58,14 @@ module ReportServices
           SystemEvent.log(event_source: @report, incidental: @report.team_diagnostic, description: "Error generating chart data for #{generator.class}", debug: "#{e.message}\n---\n#{e.backtrace.join("\n")}", severity: :error)
         end
       end
-      SystemEvent.log(
-        event_source: @report.team_diagnostic,
-        incidental: @report,
-        description: 'Error generating Report chart data',
-        severity: :error
-      ) if any_errors
+      if any_errors
+        SystemEvent.log(
+          event_source: @report.team_diagnostic,
+          incidental: @report,
+          description: 'Error generating Report chart data',
+          severity: :error
+        )
+      end
       data
     end
   end

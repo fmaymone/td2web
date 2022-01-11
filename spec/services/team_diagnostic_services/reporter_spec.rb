@@ -15,13 +15,13 @@ RSpec.describe TeamDiagnosticServices::Reporter do
     end
     it 'throws an error if a team diagnostic is not provided' do
       expect do
-        service = TeamDiagnosticServices::Reporter.new(true)
+        TeamDiagnosticServices::Reporter.new(true)
       end.to raise_error
     end
   end
 
   describe 'calling the service' do
-    let(:service) { service = TeamDiagnosticServices::Reporter.new(team_diagnostic) }
+    let(:service) { TeamDiagnosticServices::Reporter.new(team_diagnostic) }
     describe 'with options'
     describe 'without page options' do
       it 'generates a report' do
@@ -29,9 +29,52 @@ RSpec.describe TeamDiagnosticServices::Reporter do
         report_count = Report.count
         service.call
         expect(Report.count).to eq(report_count + 1)
-        binding.pry; true
       end
-      it 'cancels all existing/running reports before running a new report'
+      it 'cancels all existing/running reports before running a new report' do
+        service.call
+        report = Report.last
+        report.state = 'running'
+        report.save
+        service = TeamDiagnosticServices::Reporter.new(team_diagnostic)
+        service.call
+        report.reload
+        assert(report.rejected?)
+      end
+    end
+    describe 'report status' do
+      it 'should return :pending if a report has not been created' do
+        expect(service.status).to eq(:pending)
+      end
+      it 'should return :stalled if a report stalled during processing' do
+        service.call
+        report = Report.last
+        report.state = 'running'
+        report.updated_at = 1.day.ago
+        report.save(touch: false)
+        service = TeamDiagnosticServices::Reporter.new(team_diagnostic)
+        expect(service.status).to eq(:stalled)
+      end
+      it 'should return :running if the report is still running but not stalled' do
+        service.call
+        report = Report.last
+        report.state = 'running'
+        report.save
+        service = TeamDiagnosticServices::Reporter.new(team_diagnostic)
+        expect(service.status).to eq(:running)
+      end
+      it 'should return :completed if the report completed successfully' do
+        service.call
+        expect(service.status).to eq(:completed)
+      end
+      it 'should return css classes' do
+        service.call
+        expect(service.status_css_class).to eq('success')
+      end
+      it 'will return whether the report may be reset' do
+        refute(service.may_reset?)
+        service.call
+        assert(service.may_reset?)
+      end
     end
   end
 end

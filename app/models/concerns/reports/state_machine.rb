@@ -13,7 +13,7 @@ module Reports
     }.freeze
 
     VALID_REPORT_STATES = %i[pending running rendering completed].freeze
-    STALLED_AGE = 1.hour
+    STALLED_AGE = 10.minutes
 
     included do
       scope :in_progress, -> { where(state: %i[running rendering]) }

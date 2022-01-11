@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.3'
+ruby '3.1.0'
 
 # gem 'secure_headers'
 gem 'aasm'
@@ -51,6 +51,8 @@ gem 'sprockets-rails', git: 'https://github.com/rails/sprockets-rails.git'
 gem 'turbolinks'
 gem 'webpacker'
 gem 'wkhtmltopdf-heroku'
+gem 'net-smtp'
+gem 'net-imap'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
