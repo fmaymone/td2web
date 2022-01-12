@@ -27,11 +27,11 @@ class SystemEvent < ApplicationRecord
 
   def self.log(event_source:, description:, incidental: nil, debug: nil, severity: :info)
     system_event = create(
-      event_source: event_source,
-      incidental: incidental,
-      description: description,
-      debug: debug,
-      severity: severity
+      event_source:,
+      incidental:,
+      description:,
+      debug:,
+      severity:
     )
 
     log_message = format('SystemEvent[%s] for %s[%s] -- %s', system_event.severity, system_event.event_source_type, system_event.event_source_id, system_event.description)

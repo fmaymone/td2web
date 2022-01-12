@@ -38,7 +38,7 @@ module ReportServices
       # among all members for all answers:
       #  extrema_response_by_cateogry("min", "Positivity")
       def extrema_response_by_category(extrema, category)
-        skope = all_responses.rating.where(category: category)
+        skope = all_responses.rating.where(category:)
 
         case extrema
         when 'min'
@@ -55,7 +55,7 @@ module ReportServices
       def avg_response_by_factor(factor)
         all_responses.rating
                      .includes(:team_diagnostic_question)
-                     .where(team_diagnostic_questions: { factor: factor })
+                     .where(team_diagnostic_questions: { factor: })
                      .average('CAST(response as INTEGER)')
                      .round(1)
       end
@@ -81,7 +81,7 @@ module ReportServices
       # example:
       #  all_avg_responses_by_category("Positivity")
       def all_avg_responses_by_category(category)
-        responses = rating_questions.where(category: category)
+        responses = rating_questions.where(category:)
                                     .each_with_object([]) do |q, memo|
           memo << {
             body: q.body,
@@ -98,10 +98,10 @@ module ReportServices
       # example:
       #  all_avg_factor_responses_by_category("Positivity")
       def all_avg_factor_responses_by_category(category)
-        responses = rating_questions.where(category: category)
+        responses = rating_questions.where(category:)
                                     .pluck(:factor).uniq.each_with_object([]) do |factor, memo|
           memo << {
-            factor: factor,
+            factor:,
             response: avg_response_by_factor(factor)
           }
         end
@@ -178,11 +178,11 @@ module ReportServices
       end
 
       def member_answers_by_category(member, category)
-        member_answers(member).where(category: category)
+        member_answers(member).where(category:)
       end
 
       def member_answers_by_factor(member, factor)
-        member_answers(member).where(factor: factor)
+        member_answers(member).where(factor:)
       end
 
       def member_answers_by_question_id(member, question_id)

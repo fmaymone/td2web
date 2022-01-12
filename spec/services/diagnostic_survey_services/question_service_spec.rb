@@ -12,13 +12,13 @@ RSpec.describe DiagnosticSurveyServices::QuestionService do
   let(:question2) { all_questions[1] }
   let(:question3) { all_questions[2] }
   let(:question4) { all_questions[3] }
-  let(:question1_response1) { create(:diagnostic_response, diagnostic_survey: diagnostic_survey, team_diagnostic_question: question1) }
-  let(:question2_response1) { create(:diagnostic_response, diagnostic_survey: diagnostic_survey, team_diagnostic_question: question2) }
-  let(:question3_response1) { create(:diagnostic_response, diagnostic_survey: diagnostic_survey, team_diagnostic_question: question3) }
-  let(:question4_response1) { create(:diagnostic_response, diagnostic_survey: diagnostic_survey, team_diagnostic_question: question4) }
+  let(:question1_response1) { create(:diagnostic_response, diagnostic_survey:, team_diagnostic_question: question1) }
+  let(:question2_response1) { create(:diagnostic_response, diagnostic_survey:, team_diagnostic_question: question2) }
+  let(:question3_response1) { create(:diagnostic_response, diagnostic_survey:, team_diagnostic_question: question3) }
+  let(:question4_response1) { create(:diagnostic_response, diagnostic_survey:, team_diagnostic_question: question4) }
 
   describe 'initialization' do
-    let(:service) { DiagnosticSurveyServices::QuestionService.new(diagnostic_survey: diagnostic_survey) }
+    let(:service) { DiagnosticSurveyServices::QuestionService.new(diagnostic_survey:) }
 
     it 'should initialize' do
       service
@@ -27,7 +27,7 @@ RSpec.describe DiagnosticSurveyServices::QuestionService do
   end
 
   describe 'question helpers' do
-    let(:service) { DiagnosticSurveyServices::QuestionService.new(diagnostic_survey: diagnostic_survey) }
+    let(:service) { DiagnosticSurveyServices::QuestionService.new(diagnostic_survey:) }
 
     it 'should list all questions' do
       expect(service.all_questions.pluck(:id).sort).to eq(diagnostic_survey.questions.pluck(:id).sort)
@@ -78,13 +78,13 @@ RSpec.describe DiagnosticSurveyServices::QuestionService do
         expect(service.next_question).to eq(question3)
         question_count = all_questions.count
         all_questions[0..(question_count - 3)].each do |q|
-          create(:diagnostic_response, diagnostic_survey: diagnostic_survey, team_diagnostic_question: q)
+          create(:diagnostic_response, diagnostic_survey:, team_diagnostic_question: q)
         rescue StandardError
           nil
         end
         expect(service.next_question).to eq(all_questions.last)
         all_questions.each do |q|
-          create(:diagnostic_response, diagnostic_survey: diagnostic_survey, team_diagnostic_question: q)
+          create(:diagnostic_response, diagnostic_survey:, team_diagnostic_question: q)
         rescue StandardError
           nil
         end
@@ -103,7 +103,7 @@ RSpec.describe DiagnosticSurveyServices::QuestionService do
     describe 'when all questions have been answered' do
       let(:all_questions) { teamdiagnostic_deployed.team_diagnostic_questions.order(matrix: :asc).to_a }
       before do
-        all_questions.each { |q| create(:diagnostic_response, diagnostic_survey: diagnostic_survey, team_diagnostic_question: q) }
+        all_questions.each { |q| create(:diagnostic_response, diagnostic_survey:, team_diagnostic_question: q) }
       end
 
       it 'should return the last question for previous_question' do

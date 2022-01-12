@@ -24,14 +24,14 @@ class ParticipantsController < ApplicationController
 
   # GET /participants/new
   def new
-    @service = ParticipantServices::Creator.new(user: current_user, team_diagnostic: @team_diagnostic, params: params)
+    @service = ParticipantServices::Creator.new(user: current_user, team_diagnostic: @team_diagnostic, params:)
     @participant = @service.participant
     authorize @participant
   end
 
   # GET /participants/1/edit
   def edit
-    @service = ParticipantServices::Updater.new(user: current_user, id: @participant.id, params: params)
+    @service = ParticipantServices::Updater.new(user: current_user, id: @participant.id, params:)
     @participant = @service.participant
     authorize @participant
   end
@@ -39,7 +39,7 @@ class ParticipantsController < ApplicationController
   # POST /participants
   # POST /participants.json
   def create
-    @service = ParticipantServices::Creator.new(user: current_user, team_diagnostic: @team_diagnostic, params: params)
+    @service = ParticipantServices::Creator.new(user: current_user, team_diagnostic: @team_diagnostic, params:)
     authorize @service.participant
 
     respond_to do |format|
@@ -58,7 +58,7 @@ class ParticipantsController < ApplicationController
   # PATCH/PUT /participants/1
   # PATCH/PUT /participants/1.json
   def update
-    @service = ParticipantServices::Updater.new(user: current_user, id: @participant.id, params: params)
+    @service = ParticipantServices::Updater.new(user: current_user, id: @participant.id, params:)
     authorize @service.participant
 
     respond_to do |format|
@@ -115,7 +115,7 @@ class ParticipantsController < ApplicationController
     activated = @service.activate!
     notice = activated ? 'Participant was activated'.t : 'Participant could not be activated'.t
     respond_to do |format|
-      format.html { redirect_to wizard_team_diagnostic_path(id: @service.participant.team_diagnostic.id, step: TeamDiagnostics::Wizard::PARTICIPANTS_STEP), notice: notice }
+      format.html { redirect_to wizard_team_diagnostic_path(id: @service.participant.team_diagnostic.id, step: TeamDiagnostics::Wizard::PARTICIPANTS_STEP), notice: }
       format.json { head :no_content }
     end
   end

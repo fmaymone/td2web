@@ -21,14 +21,21 @@ RSpec.describe TeamDiagnosticServices::Reporter do
   end
 
   describe 'calling the service' do
+    before do
+      Report.destroy_all
+    end
     let(:service) { TeamDiagnosticServices::Reporter.new(team_diagnostic) }
     describe 'with options'
     describe 'without page options' do
       it 'generates a report' do
-        Report.destroy_all
         report_count = Report.count
         service.call
         expect(Report.count).to eq(report_count + 1)
+        #service.team_diagnostic.reload
+        #expect(service.team_diagnostic.reports.count).to eq(1)
+        #report = service.team_diagnostic.reports.last
+        #files = report.rendered_files
+        #binding.pry; true
       end
       it 'cancels all existing/running reports before running a new report' do
         service.call

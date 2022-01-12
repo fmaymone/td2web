@@ -34,6 +34,8 @@ gem 'kaminari'
 gem 'kaminari-i18n'
 gem 'liquid'
 gem 'mini_magick'
+gem 'net-imap'
+gem 'net-smtp'
 gem 'pdfkit'
 gem 'pg'
 gem 'pg_search'
@@ -51,8 +53,6 @@ gem 'sprockets-rails', git: 'https://github.com/rails/sprockets-rails.git'
 gem 'turbolinks'
 gem 'webpacker'
 gem 'wkhtmltopdf-heroku'
-gem 'net-smtp'
-gem 'net-imap'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

@@ -78,7 +78,7 @@ class Participant < ApplicationRecord
   def create_active_survey
     cancel_surveys
     diagnostic_surveys
-      .create(team_diagnostic: team_diagnostic, locale: locale)
+      .create(team_diagnostic:, locale:)
       .activate!
   end
 

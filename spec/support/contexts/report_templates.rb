@@ -8,8 +8,8 @@ RSpec.shared_context 'report_templates', shared_context: :metadate do
   let(:teamdiagnostic_report_template) do
     diagnostic = teamdiagnostic.diagnostic
     name = 'TDA Diagnostic Report (en)'
-    ReportTemplate.where(diagnostic: diagnostic, name: name).first ||
-      create(:report_template, diagnostic: teamdiagnostic.diagnostic, name: name)
+    ReportTemplate.where(diagnostic:, name:).first ||
+      create(:report_template, diagnostic: teamdiagnostic.diagnostic, name:)
   end
 
   let(:completed_teamdiagnostic_report_template) { create(:report_template, diagnostic: completed_teamdiagnostic.diagnostic) }

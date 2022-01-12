@@ -39,8 +39,8 @@ class Entitlement < ApplicationRecord
   ### Scopes
   scope :active, -> { where(active: true) }
   scope :account, -> { where(account: true) }
-  scope :for_role, ->(role) { where(active: true, account: true, role: role) }
-  scope :for_reference, ->(reference) { where(active: true, reference: reference) }
+  scope :for_role, ->(role) { where(active: true, account: true, role:) }
+  scope :for_reference, ->(reference) { where(active: true, reference:) }
 
   ### Associations
   belongs_to :role

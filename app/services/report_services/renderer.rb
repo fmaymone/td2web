@@ -8,13 +8,15 @@ module ReportServices
     # Renderers in order of dependency
     RENDERERS = [
       Renderers::Html,
-      Renderers::Pdf
+      Renderers::Pdf,
+      Renderers::Png
     ].freeze
 
     # Renderers run by default
     STANDARD_RENDERERS = [
       Renderers::Html,
-      Renderers::Pdf
+      Renderers::Pdf,
+      Renderers::Png
     ].freeze
 
     def initialize(report, formats: :standard, locale: nil)

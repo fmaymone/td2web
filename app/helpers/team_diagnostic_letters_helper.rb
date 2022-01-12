@@ -9,7 +9,7 @@ module TeamDiagnosticLettersHelper
     data_target = "##{section}"
     content_tag(:div, id: header, class: 'card-header') do
       content_tag(:h2, class: 'mb-0') do
-        content_tag(:button, class: "btn btn-#{btn_class}", type: 'button', data: { toggle: 'collapse', target: data_target }, aria: { expanded: expanded, section: section }, &block) +
+        content_tag(:button, class: "btn btn-#{btn_class}", type: 'button', data: { toggle: 'collapse', target: data_target }, aria: { expanded:, section: }, &block) +
           '&nbsp;'.html_safe +
           content_tag(:button, 'Add'.t, class: 'btn btn-primary btn-sm', type: 'button')
       end

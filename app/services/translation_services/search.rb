@@ -60,7 +60,7 @@ module TranslationServices
       i18n_missing_keys.map do |key|
         ApplicationTranslation.new(
           locale: @options[:tlocale],
-          key: key
+          key:
         )
       end
     end
@@ -86,11 +86,11 @@ module TranslationServices
     end
 
     def filter_locale(locale = nil)
-      @skope = @skope.where(locale: locale) if locale
+      @skope = @skope.where(locale:) if locale
     end
 
     def filter_key(key = nil)
-      @skope = @skope.where(key: key) if key.present?
+      @skope = @skope.where(key:) if key.present?
     end
 
     def filter_value(value = nil)
@@ -131,7 +131,7 @@ module TranslationServices
         paginate: (params[:paginate] || DEFAULT_PARAMS[:paginate]).downcase != 'false',
         page: [(params[:page] || 1).to_i, 1].max,
         page_size: [(params[:page_size] || DEFAULT_PARAMS[:page_size]).to_i, 1].max,
-        tlocale: tlocale,
+        tlocale:,
         key: params[:key] || nil,
         value: params[:value] || nil,
         search: (params[:q] || '').empty? ? nil : params[:q],

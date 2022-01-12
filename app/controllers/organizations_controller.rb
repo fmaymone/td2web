@@ -24,14 +24,14 @@ class OrganizationsController < ApplicationController
   # GET /organizations/new
   def new
     authorize Organization
-    @service = OrganizationServices::Creator.new(user: @current_user, params: params)
+    @service = OrganizationServices::Creator.new(user: @current_user, params:)
     @organization = @service.organization
     @current_page = 'New'
   end
 
   # GET /organizations/1/edit
   def edit
-    @service = OrganizationServices::Updater.new(user: @current_user, params: params)
+    @service = OrganizationServices::Updater.new(user: @current_user, params:)
     @organization = @service.organization
     raise ActiveRecord::RecordNotFound unless @organization
 
@@ -44,7 +44,7 @@ class OrganizationsController < ApplicationController
   def create
     authorize Organization
     actual_user = params[:user_id] ? User.find(params[:user_id]) : nil
-    @service = OrganizationServices::Creator.new(grantor: @current_user, user: actual_user || @current_user, params: params)
+    @service = OrganizationServices::Creator.new(grantor: @current_user, user: actual_user || @current_user, params:)
     @organization = @service.organization
 
     respond_to do |format|
@@ -61,7 +61,7 @@ class OrganizationsController < ApplicationController
   # PATCH/PUT /organizations/1
   # PATCH/PUT /organizations/1.json
   def update
-    @service = OrganizationServices::Updater.new(user: @current_user, params: params)
+    @service = OrganizationServices::Updater.new(user: @current_user, params:)
     @organization = @service.organization
     raise ActiveRecord::RecordNotFound unless @organization
 

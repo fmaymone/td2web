@@ -51,49 +51,49 @@ class TeamDiagnosticLetter < ApplicationRecord
   ### Class Methods
 
   def self.default_letter(type:, locale:, team_diagnostic: nil)
-    send("default_#{type}_letter", locale: locale, team_diagnostic: team_diagnostic)
+    send("default_#{type}_letter", locale:, team_diagnostic:)
   end
 
   def self.default_cover_letter(locale:, team_diagnostic: nil)
     TeamDiagnosticLetter.new(
-      team_diagnostic: team_diagnostic,
+      team_diagnostic:,
       letter_type: 'cover',
-      locale: locale,
-      subject: ApplicationTranslation.where(key: "#{DEFAULT_COVER_LETTER}-subject", locale: locale).first&.value || '--',
-      body: ApplicationTranslation.where(key: DEFAULT_COVER_LETTER, locale: locale).first&.value || '--'
+      locale:,
+      subject: ApplicationTranslation.where(key: "#{DEFAULT_COVER_LETTER}-subject", locale:).first&.value || '--',
+      body: ApplicationTranslation.where(key: DEFAULT_COVER_LETTER, locale:).first&.value || '--'
     )
   end
 
   def self.default_cover_letter_subject(locale:)
-    ApplicationTranslation.where(key: "#{DEFAULT_COVER_LETTER}-subject", locale: locale).first&.value || '--'
+    ApplicationTranslation.where(key: "#{DEFAULT_COVER_LETTER}-subject", locale:).first&.value || '--'
   end
 
   def self.default_reminder_letter(locale:, team_diagnostic: nil)
     TeamDiagnosticLetter.new(
-      team_diagnostic: team_diagnostic,
+      team_diagnostic:,
       letter_type: 'reminder',
-      locale: locale,
-      subject: default_reminder_letter_subject(locale: locale),
-      body: ApplicationTranslation.where(key: DEFAULT_REMINDER_LETTER, locale: locale).first&.value || '--'
+      locale:,
+      subject: default_reminder_letter_subject(locale:),
+      body: ApplicationTranslation.where(key: DEFAULT_REMINDER_LETTER, locale:).first&.value || '--'
     )
   end
 
   def self.default_reminder_letter_subject(locale:)
-    ApplicationTranslation.where(key: "#{DEFAULT_REMINDER_LETTER}-subject", locale: locale).first&.value || '--'
+    ApplicationTranslation.where(key: "#{DEFAULT_REMINDER_LETTER}-subject", locale:).first&.value || '--'
   end
 
   def self.default_cancellation_letter(locale:, team_diagnostic: nil)
     TeamDiagnosticLetter.new(
-      team_diagnostic: team_diagnostic,
+      team_diagnostic:,
       letter_type: 'cancellation',
-      locale: locale,
-      subject: default_cancellation_letter_subject(locale: locale),
-      body: ApplicationTranslation.where(key: DEFAULT_CANCELLATION_LETTER, locale: locale).first&.value || '--'
+      locale:,
+      subject: default_cancellation_letter_subject(locale:),
+      body: ApplicationTranslation.where(key: DEFAULT_CANCELLATION_LETTER, locale:).first&.value || '--'
     )
   end
 
   def self.default_cancellation_letter_subject(locale:)
-    ApplicationTranslation.where(key: "#{DEFAULT_CANCELLATION_LETTER}-subject", locale: locale).first&.value || '--'
+    ApplicationTranslation.where(key: "#{DEFAULT_CANCELLATION_LETTER}-subject", locale:).first&.value || '--'
   end
 
   ### Instance Methods

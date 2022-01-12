@@ -58,10 +58,10 @@ RSpec.describe OrganizationServices::Creator do
     end
     describe 'creating a organization for other user' do
       let(:service_with_valid_params) do
-        OrganizationServices::Creator.new(user: user, grantor: admin, params: valid_attributes)
+        OrganizationServices::Creator.new(user:, grantor: admin, params: valid_attributes)
       end
       let(:service_with_invalid_params) do
-        OrganizationServices::Creator.new(user: user, grantor: admin, params: invalid_attributes)
+        OrganizationServices::Creator.new(user:, grantor: admin, params: invalid_attributes)
       end
       it 'should create the organization with user membership' do
         service = service_with_valid_params
@@ -75,10 +75,10 @@ RSpec.describe OrganizationServices::Creator do
   end
   describe 'as a facilitator with appropriate grants' do
     let(:service_with_valid_params) do
-      OrganizationServices::Creator.new(user: user, params: valid_attributes)
+      OrganizationServices::Creator.new(user:, params: valid_attributes)
     end
     let(:service_with_invalid_params) do
-      OrganizationServices::Creator.new(user: user, params: invalid_attributes)
+      OrganizationServices::Creator.new(user:, params: invalid_attributes)
     end
     describe 'with valid params' do
       it 'should create the organization with user membership' do
@@ -107,7 +107,7 @@ RSpec.describe OrganizationServices::Creator do
   end
   describe 'as a facilitator without appropriate grants' do
     let(:service_with_valid_params) do
-      OrganizationServices::Creator.new(user: user, params: valid_attributes)
+      OrganizationServices::Creator.new(user:, params: valid_attributes)
     end
     describe 'with valid params' do
       it 'should not create the organizationmembership' do

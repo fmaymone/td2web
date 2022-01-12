@@ -14,7 +14,7 @@ RSpec.describe ReportServices::Renderers::Pdf do
   let(:report) { team_diagnostic.init_report(options: report_options) }
 
   let(:service) do
-    ReportServices::Renderers::Pdf.new(report: report, locale: locale)
+    ReportServices::Renderers::Pdf.new(report:, locale:)
   end
 
   it 'can be intialized' do

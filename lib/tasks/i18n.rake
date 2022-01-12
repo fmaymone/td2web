@@ -8,9 +8,9 @@ namespace :i18n do
       args.extras.each do |arg|
         locale, key, value = arg.split(':').map { |a| a.chomp.strip }
         xltn = Translation.new(
-          locale: locale,
-          key: key,
-          value: value
+          locale:,
+          key:,
+          value:
         )
         print "*** #{locale} translation: '#{key}' ==> '#{value}' "
         puts xltn.save ? 'OK' : 'FAIL'
@@ -27,7 +27,7 @@ namespace :i18n do
     puts "*** Exporting translations to #{filename}..."
     File.open(filename, 'w') do |f|
       f.puts(
-        TranslationServices::CsvExporter.new(filename: filename).call
+        TranslationServices::CsvExporter.new(filename:).call
       )
     end
   end

@@ -38,13 +38,13 @@ RSpec.describe TranslationServices::Search do
     end
     it 'should filter translations by key' do
       key = 'foozzz1'
-      search = TranslationServices::Search.new(key: key)
+      search = TranslationServices::Search.new(key:)
       results = search.call
       expect(results.count).to eq(1)
     end
     it 'should filter translations by value' do
       value = 'foo'
-      search = TranslationServices::Search.new(value: value)
+      search = TranslationServices::Search.new(value:)
       results = search.call
       expect(results.count).to eq(2)
     end
@@ -66,14 +66,14 @@ RSpec.describe TranslationServices::Search do
     end
     it 'handles pagination' do
       page_size = 2
-      search = TranslationServices::Search.new(page: 1, page_size: page_size, paginate: 'true')
+      search = TranslationServices::Search.new(page: 1, page_size:, paginate: 'true')
       results = search.call
       expect(results.count).to eq(page_size)
       page_size = 4
-      search = TranslationServices::Search.new(page: 1, page_size: page_size, paginate: 'true')
+      search = TranslationServices::Search.new(page: 1, page_size:, paginate: 'true')
       results = search.call
       expect(results.count).to eq(page_size)
-      search = TranslationServices::Search.new(page: 1, page_size: page_size, paginate: 'true')
+      search = TranslationServices::Search.new(page: 1, page_size:, paginate: 'true')
       results = search.call
       expect(results.count).to eq(page_size)
     end

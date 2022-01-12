@@ -12,7 +12,7 @@ RSpec.describe ReportServices::Renderers::Base do
 
   it 'can be initialized and called' do
     locale = 'en'
-    service = ReportServices::Renderers::Base.new(report: report, locale: locale)
+    service = ReportServices::Renderers::Base.new(report:, locale:)
     assert(service.call)
   end
 end

@@ -25,7 +25,7 @@ RSpec.describe ParticipantServices::Creator do
   describe 'initialization' do
     it 'can be initialized' do
       service = service_class.new(
-        user: user,
+        user:,
         team_diagnostic: diagnostic,
         params: {}
       )
@@ -38,7 +38,7 @@ RSpec.describe ParticipantServices::Creator do
       it 'creates a new participant' do
         count = Participant.count
         service = service_class.new(
-          user: user,
+          user:,
           team_diagnostic: diagnostic,
           params: valid_attributes
         )
@@ -53,7 +53,7 @@ RSpec.describe ParticipantServices::Creator do
       it 'fails to create a participant' do
         count = Participant.count
         service = service_class.new(
-          user: user,
+          user:,
           team_diagnostic: diagnostic,
           params: invalid_attributes
         )

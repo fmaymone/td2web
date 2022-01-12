@@ -68,7 +68,7 @@ class UsersController < ApplicationController
       notice = 'User was locked'.t
     end
     respond_to do |format|
-      format.html { redirect_to users_path, notice: notice }
+      format.html { redirect_to users_path, notice: }
     end
   end
 

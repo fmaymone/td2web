@@ -35,7 +35,7 @@ module EntitlementServices
 
     def authorize_user(slug = nil)
       skope = @user.grants.valid.where(reference: @references)
-      skope = skope.includes(:entitlement).where(entitlements: { slug: slug }) if slug
+      skope = skope.includes(:entitlement).where(entitlements: { slug: }) if slug
       skope.any?
     end
 
@@ -43,7 +43,7 @@ module EntitlementServices
       token = @params[:token]
       return false unless token.present?
 
-      skope = @tenant.invitations.unclaimed.where(token: token)
+      skope = @tenant.invitations.unclaimed.where(token:)
       if slug
         skope.to_a.select { |i| i.assigned_entitlements.any? { |e| e[:entitlement].reference == slug } }
       else

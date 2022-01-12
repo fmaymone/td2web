@@ -12,7 +12,7 @@ RSpec.describe ReportServices::Renderers::Html do
   let(:report) { team_diagnostic.init_report(options: report_options) }
 
   let(:service) do
-    ReportServices::Renderers::Html.new(report: report, locale: locale)
+    ReportServices::Renderers::Html.new(report:, locale:)
   end
 
   it 'can be initialized' do

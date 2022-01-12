@@ -24,7 +24,7 @@ RSpec.describe ParticipantServices::Updater do
 
   describe 'initialization' do
     it 'can be initialized' do
-      service = service_class.new(user: user, id: participant.id, params: valid_attributes)
+      service = service_class.new(user:, id: participant.id, params: valid_attributes)
       expect(service).to be_a(service_class)
     end
   end
@@ -32,7 +32,7 @@ RSpec.describe ParticipantServices::Updater do
   describe 'calling the service' do
     describe 'with valid attributes' do
       it 'updates the application record' do
-        service = service_class.new(user: user, id: participant.id, params: valid_attributes)
+        service = service_class.new(user:, id: participant.id, params: valid_attributes)
         updated_participant = service.call
         expect(updated_participant).to be_a(Participant)
         participant.reload
@@ -42,7 +42,7 @@ RSpec.describe ParticipantServices::Updater do
 
     describe 'with invalid attributes' do
       it 'fails to update the application record' do
-        service = service_class.new(user: user, id: participant.id, params: invalid_attributes)
+        service = service_class.new(user:, id: participant.id, params: invalid_attributes)
         refute(service.call)
         refute(service.valid?)
         participant.reload
@@ -54,7 +54,7 @@ RSpec.describe ParticipantServices::Updater do
   describe 'disqualifying the participant' do
     it 'should disqualify a participant' do
       assert(participant.approved?)
-      service = service_class.new(user: user, id: participant.id, params: invalid_attributes)
+      service = service_class.new(user:, id: participant.id, params: invalid_attributes)
       service.disqualify!
       participant.reload
       assert(participant.disqualified?)

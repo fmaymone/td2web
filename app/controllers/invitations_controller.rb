@@ -21,7 +21,7 @@ class InvitationsController < ApplicationController
   def create
     authorize Invitation
     # logger.info "Allowed ==> " + allowed_params.inspect
-    @service = EntitlementServices::InvitationCreator.new(grantor: current_user, params: params)
+    @service = EntitlementServices::InvitationCreator.new(grantor: current_user, params:)
     @service.call
     if @service.success?
       redirect_to invitations_path, notice: 'Invitation sent'.t

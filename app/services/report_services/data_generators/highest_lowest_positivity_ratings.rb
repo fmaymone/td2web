@@ -42,7 +42,7 @@ module ReportServices
           keys << obj[:body]
           data << [obj[:body], obj[:response]]
         end
-        { keys: keys, data: data }
+        { keys:, data: }
       end
 
       def extract_labels(labels, responses)

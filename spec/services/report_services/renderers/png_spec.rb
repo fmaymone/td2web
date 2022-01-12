@@ -11,7 +11,7 @@ RSpec.describe ReportServices::Renderers::Png do
   let(:locale) { 'en' }
   let(:report_options) { {} }
   let(:report) { team_diagnostic.init_report(options: report_options) }
-  let(:service) { ReportServices::Renderers::Png.new(report: report, locale: locale) }
+  let(:service) { ReportServices::Renderers::Png.new(report:, locale:) }
 
   it 'creates png files for all charts for all teamdiagnostic locales' do
     locales = report.team_diagnostic.all_locales

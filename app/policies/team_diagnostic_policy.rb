@@ -62,7 +62,7 @@ class TeamDiagnosticPolicy < ApplicationPolicy
   def create_grant_authorized?
     return false unless record&.diagnostic&.present?
 
-    service = EntitlementServices::Authorizer.new(user: user, reference: TeamDiagnosticServices::Creator::REFERENCE)
+    service = EntitlementServices::Authorizer.new(user:, reference: TeamDiagnosticServices::Creator::REFERENCE)
     service.call("#{TeamDiagnosticServices::Creator::ENTITLEMENT_BASE}-any") ||
       service.call("#{TeamDiagnosticServices::Creator::ENTITLEMENT_BASE}-#{record.diagnostic.slug.downcase}")
   end
@@ -88,7 +88,7 @@ class TeamDiagnosticPolicy < ApplicationPolicy
   end
 
   def entitled_diagnostics
-    auth_service = EntitlementServices::Authorizer.new(user: user, reference: TeamDiagnosticServices::Creator::REFERENCE)
+    auth_service = EntitlementServices::Authorizer.new(user:, reference: TeamDiagnosticServices::Creator::REFERENCE)
     return Diagnostic.active.all if auth_service.call("#{TeamDiagnosticServices::Creator::ENTITLEMENT_BASE}-any")
 
     Diagnostic.active.all.select do |diagnostic|

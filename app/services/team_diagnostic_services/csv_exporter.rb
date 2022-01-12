@@ -20,7 +20,7 @@ module TeamDiagnosticServices
                                         .order('question_type ASC, matrix ASC')
                                         .pluck(:body)
                                         .map do |r|
-                                          ApplicationTranslation.where(locale: locale, key: r).first.value
+                                          ApplicationTranslation.where(locale:, key: r).first.value
                                         end
 
       [header] + @team_diagnostic.diagnostic_surveys.completed.map do |survey|

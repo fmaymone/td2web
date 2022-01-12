@@ -71,8 +71,8 @@ module TeamDiagnosticServices
       report_template = @team_diagnostic.diagnostic.report_template
       @team_diagnostic.reports.create!(
         description: "#{@team_diagnostic.name} Report",
-        report_template: report_template,
-        options: options
+        report_template:,
+        options:
       )
     end
 

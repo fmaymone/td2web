@@ -7,7 +7,7 @@ RSpec.describe EntitlementServices::GrantUsage do
   include_context 'users'
 
   let(:user) { facilitator }
-  let(:grant) { EntitlementServices::Grant.new(user: user, entitlement: entitlement_for_facilitators, quota: 2).call }
+  let(:grant) { EntitlementServices::Grant.new(user:, entitlement: entitlement_for_facilitators, quota: 2).call }
 
   before(:each) do
     admin
@@ -17,7 +17,7 @@ RSpec.describe EntitlementServices::GrantUsage do
     it 'should create a usage of the grant' do
       count = GrantUsage.count
       expect(grant.usages.count).to eq(0)
-      service = EntitlementServices::GrantUsage.new(user: user, reference: grant.reference)
+      service = EntitlementServices::GrantUsage.new(user:, reference: grant.reference)
       assert(service.call)
       grant.reload
       expect(GrantUsage.count).to eq(count + 1)
@@ -32,7 +32,7 @@ RSpec.describe EntitlementServices::GrantUsage do
       it 'should create the usage if the block returns true' do
         count = GrantUsage.count
         expect(grant.usages.count).to eq(0)
-        service = EntitlementServices::GrantUsage.new(user: user, reference: grant.reference)
+        service = EntitlementServices::GrantUsage.new(user:, reference: grant.reference)
         assert(service.call { 1.positive? })
         grant.reload
         expect(GrantUsage.count).to eq(count + 1)
@@ -41,7 +41,7 @@ RSpec.describe EntitlementServices::GrantUsage do
       it 'should not create a usage if the block returns false' do
         count = GrantUsage.count
         expect(grant.usages.count).to eq(0)
-        service = EntitlementServices::GrantUsage.new(user: user, reference: grant.reference)
+        service = EntitlementServices::GrantUsage.new(user:, reference: grant.reference)
         refute(service.call { 0.positive? })
         grant.reload
         expect(GrantUsage.count).to eq(count)
@@ -55,7 +55,7 @@ RSpec.describe EntitlementServices::GrantUsage do
       grant.save!
       count = GrantUsage.count
       expect(grant.usages.count).to eq(0)
-      service = EntitlementServices::GrantUsage.new(user: user, reference: grant.reference)
+      service = EntitlementServices::GrantUsage.new(user:, reference: grant.reference)
       refute(service.call)
       expect(GrantUsage.count).to eq(count)
     end

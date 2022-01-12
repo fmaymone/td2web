@@ -22,7 +22,7 @@ FactoryBot.define do
   factory :grant do
     active { true }
     reference { AppContext.list[rand(AppContext.list.size - 1)] }
-    entitlement { create(:entitlement, reference: reference) }
+    entitlement { create(:entitlement, reference:) }
     description { Faker::Lorem.paragraph }
     staff_notes { Faker::Lorem.paragraph }
     quota { Faker::Number.within(range: 1...9999) }

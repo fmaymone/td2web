@@ -49,7 +49,7 @@ module DiagnosticSurveys
       end
 
       def letter_section(letter_type, section, locale)
-        letter = team_diagnostic.team_diagnostic_letters.typed(letter_type).where(locale: locale).last
+        letter = team_diagnostic.team_diagnostic_letters.typed(letter_type).where(locale:).last
         unless letter
           SystemEvent.log(event_source: team_diagnostic, incidental: self,
                           description: "Missing #{letter_type} letter #{section} for #{locale}",

@@ -23,13 +23,13 @@ RSpec.describe DiagnosticResponse, type: :model do
     let(:team_diagnostic_question) { teamdiagnostic_deployed.team_diagnostic_questions.rating.first }
     let(:team_diagnostic_question2) { teamdiagnostic_deployed.team_diagnostic_questions.rating.last }
     let(:diagnostic_survey) do
-      create(:diagnostic_survey, participant: participant, team_diagnostic: teamdiagnostic_deployed, state: 'active')
+      create(:diagnostic_survey, participant:, team_diagnostic: teamdiagnostic_deployed, state: 'active')
       teamdiagnostic_deployed
       teamdiagnostic_deployed.reload
       teamdiagnostic.diagnostic_surveys.first
     end
-    let(:diagnostic_response) { build(:diagnostic_response, diagnostic_survey: diagnostic_survey, team_diagnostic_question: team_diagnostic_question) }
-    let(:diagnostic_response2) { build(:diagnostic_response, diagnostic_survey: diagnostic_survey, team_diagnostic_question: team_diagnostic_question) }
+    let(:diagnostic_response) { build(:diagnostic_response, diagnostic_survey:, team_diagnostic_question:) }
+    let(:diagnostic_response2) { build(:diagnostic_response, diagnostic_survey:, team_diagnostic_question:) }
 
     it 'should only be creatable or editable if the diagnostic survey is not active' do
       assert(diagnostic_response.diagnostic_survey.active?)

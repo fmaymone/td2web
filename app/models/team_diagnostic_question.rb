@@ -77,10 +77,10 @@ class TeamDiagnosticQuestion < ApplicationRecord
         question.body_positive || 'PLACEHOLDER'
       end
       TeamDiagnosticQuestion.new(
-        team_diagnostic: team_diagnostic,
+        team_diagnostic:,
         slug: question.slug,
-        body: body,
-        body_positive: body_positive,
+        body:,
+        body_positive:,
         category: question.category,
         question_type: question.question_type,
         factor: question.factor,

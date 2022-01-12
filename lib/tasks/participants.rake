@@ -8,11 +8,11 @@ namespace :participants do
     puts '--- Auto responding to participant survey'
 
     diagnostic_survey = participant.active_survey
-    svc = DiagnosticSurveyServices::QuestionService.new(diagnostic_survey: diagnostic_survey)
+    svc = DiagnosticSurveyServices::QuestionService.new(diagnostic_survey:)
     all_questions = svc.all_questions
     all_questions[0..-2].each do |q|
       response = rand(1..9)
-      svc.answer_question(question: q, response: response)
+      svc.answer_question(question: q, response:)
     end
     puts 'OK'
   end

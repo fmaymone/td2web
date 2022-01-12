@@ -19,7 +19,7 @@ module Seeds
       password = Array.new(12) { rand(32..125).chr }.join
       log('*** Creating "administrator" Admin account...')
 
-      if User.where(username: username).exists?
+      if User.where(username:).exists?
         log("=== Account with username: '#{username}' already exists.")
         @success = true
         return @success
@@ -28,11 +28,11 @@ module Seeds
       user0 = User.new(
         tenant: Tenant.default_tenant,
         role: Role.admin,
-        username: username,
+        username:,
         email: 'admin@example.com',
         locale: 'en',
         timezone: 'Pacific Time (US & Canada)',
-        password: password,
+        password:,
         password_confirmation: password,
         user_profile_attributes: {
           first_name: 'Admin',

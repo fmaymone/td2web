@@ -38,8 +38,8 @@ module TranslationServices
           object: service.object,
           index: index + 1,
           data: rowdata,
-          error: error,
-          status: status
+          error:,
+          status:
         }
         yield(record_info) if block.present?
       end

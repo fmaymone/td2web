@@ -54,7 +54,7 @@ class Invitation < ApplicationRecord
 
   def self.find_by_tenant_and_token(token:, tenant:)
     Invitation.unclaimed
-              .where(token: token, tenant_id: tenant.id)
+              .where(token:, tenant_id: tenant.id)
               .order(created_at: :asc)
               .limit(1).first
   end
@@ -77,7 +77,7 @@ class Invitation < ApplicationRecord
       next unless entitlement.present?
 
       quota = data[:quota] || 1
-      { entitlement: entitlement, quota: quota }
+      { entitlement:, quota: }
     end.compact
   end
 
@@ -106,7 +106,7 @@ class Invitation < ApplicationRecord
       'domain' => tenant.domain,
       'email' => email,
       'invitation_link' => Rails.application.routes.url_helpers
-                                .claim_invitations_url(token: token, host: Rails.application.config.application_host_and_port)
+                                .claim_invitations_url(token:, host: Rails.application.config.application_host_and_port)
     }
   end
 

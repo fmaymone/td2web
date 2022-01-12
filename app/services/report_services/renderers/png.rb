@@ -42,7 +42,7 @@ module ReportServices
       end
 
       def build_for_locale(locale)
-        html_service = ReportServices::Renderers::Html.new(report: @report, locale: locale, options: @options)
+        html_service = ReportServices::Renderers::Html.new(report: @report, locale:, options: @options)
         html_data = html_service.generate(locale)
         chart_names.each do |chart_name|
           filename = "#{title(chart_name)}---#{locale}---#{Time.now.strftime('%Y%m%d%H%M')}.png"
@@ -50,7 +50,7 @@ module ReportServices
           chart_file = StringIO.new(chart_css(chart_name))
           image_service.stylesheets << chart_file
           png_file = StringIO.new(image_service.to_png)
-          @report.report_files.attach(io: png_file, filename: filename, content_type: CONTENT_TYPE)
+          @report.report_files.attach(io: png_file, filename:, content_type: CONTENT_TYPE)
         end
       end
 

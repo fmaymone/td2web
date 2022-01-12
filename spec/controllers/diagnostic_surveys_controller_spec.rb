@@ -87,7 +87,7 @@ RSpec.describe DiagnosticSurveysController, type: :controller do
       end
       describe 'for the final question' do
         it 'should create a system event' do
-          svc = DiagnosticSurveyServices::QuestionService.new(diagnostic_survey: diagnostic_survey)
+          svc = DiagnosticSurveyServices::QuestionService.new(diagnostic_survey:)
           all_questions = svc.all_questions
           all_questions[0..].each do |q|
             svc.answer_question(question: q, response: '1')

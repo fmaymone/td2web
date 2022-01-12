@@ -56,7 +56,7 @@ module ParticipantServices
     def valid?(action = :update)
       return false unless @errors.empty?
 
-      @errors = Validator.new(self, action: action).call
+      @errors = Validator.new(self, action:).call
       @errors.empty?
     end
 

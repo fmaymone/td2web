@@ -131,7 +131,7 @@ module DiagnosticSurveyServices
     def randomly_complete
       @question_service.all_questions.each do |q|
         response = rand(1..9)
-        @question_service.answer_question(question: q, response: response)
+        @question_service.answer_question(question: q, response:)
       end
       complete!
       @diagnostic_survey.last_activity_at = Time.now

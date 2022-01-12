@@ -29,7 +29,7 @@ class OrganizationPolicy < ApplicationPolicy
 
   def new?
     admin? || staff? ||
-      EntitlementServices::Authorizer.new(tenant: user.tenant, user: user, reference: OrganizationServices::Creator::REFERENCE).call
+      EntitlementServices::Authorizer.new(tenant: user.tenant, user:, reference: OrganizationServices::Creator::REFERENCE).call
   end
 
   def create?

@@ -12,7 +12,7 @@ RSpec.describe EntitlementServices::InvitationCreator do
   let(:sample_email) { Faker::Internet.email }
   let(:sample) do
     EntitlementServices::InvitationCreator.new(
-      grantor: grantor,
+      grantor:,
       params: {
         email: sample_email,
         description: 'Test invitation',
@@ -23,7 +23,7 @@ RSpec.describe EntitlementServices::InvitationCreator do
   end
   let(:invalid_sample) do
     EntitlementServices::InvitationCreator.new(
-      grantor: grantor,
+      grantor:,
       params: {
         email: nil,
         description: nil,

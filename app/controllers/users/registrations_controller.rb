@@ -122,7 +122,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def authorizer
     invitation
     params[:token] = @invitation.token
-    authorizer = EntitlementServices::Authorizer.new(user: nil, params: params, tenant: @current_tenant, reference: 'Users::Registrations#')
+    authorizer = EntitlementServices::Authorizer.new(user: nil, params:, tenant: @current_tenant, reference: 'Users::Registrations#')
     raise ActiveRecord::RecordNotFound unless authorizer.call
 
     authorizer

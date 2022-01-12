@@ -47,7 +47,7 @@ module DiagnosticSurveys
       # end
 
       def no_other_active
-        participant.diagnostic_surveys.active.where.not(id: id).none?
+        participant.diagnostic_surveys.active.where.not(id:).none?
       end
 
       def after_complete

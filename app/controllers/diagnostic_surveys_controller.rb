@@ -62,7 +62,7 @@ class DiagnosticSurveysController < ApplicationController
 
   # Initialize the SurveyService object
   def set_service
-    @service = DiagnosticSurveyServices::SurveyService.new(diagnostic_survey: @diagnostic_survey, params: params, locale: @current_locale)
+    @service = DiagnosticSurveyServices::SurveyService.new(diagnostic_survey: @diagnostic_survey, params:, locale: @current_locale)
     raise ActiveRecord::RecordNotFound unless @service.authorized?
 
     @service

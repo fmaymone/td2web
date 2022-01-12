@@ -13,7 +13,7 @@ RSpec.describe TeamDiagnostic, type: :model do
 
   describe 'initialization' do
     it 'can be saved' do
-      subject = build(:team_diagnostic, user: facilitator, organization: organization, diagnostic: tda_diagnostic)
+      subject = build(:team_diagnostic, user: facilitator, organization:, diagnostic: tda_diagnostic)
       assert(subject.save)
     end
   end

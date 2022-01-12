@@ -7,7 +7,7 @@ module Seeds
     def self.template_id(name:, tenant: nil)
       tenant_id = (tenant || Tenant.default_tenant).id
       ReportTemplate
-        .where(tenant_id: tenant_id, name: name, state: :published)
+        .where(tenant_id:, name:, state: :published)
         .first&.id
     end
 

@@ -7,7 +7,7 @@ RSpec.describe TeamDiagnosticServices::Updater do
   include_context 'organizations'
   include_context 'diagnostics'
 
-  let(:team_diagnostic) { create(:team_diagnostic, user: facilitator, organization: organization) }
+  let(:team_diagnostic) { create(:team_diagnostic, user: facilitator, organization:) }
   let(:team_diagnostic2) { create(:team_diagnostic, user: facilitator2, organization: organization2) }
   let(:new_description) { "#{team_diagnostic.description}foobar" }
   let(:valid_params) { { description: new_description } }

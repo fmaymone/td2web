@@ -30,9 +30,9 @@ RSpec.describe Organization, type: :mode, metadate: true do
         tenant1 = create(:tenant)
         tenant2 = create(:tenant)
         name = 'Acme, Inc.'
-        organization1 = build(:organization, name: name, tenant: tenant1)
-        organization2 = build(:organization, name: name, tenant: tenant2)
-        organization3 = build(:organization, name: name, tenant: tenant1)
+        organization1 = build(:organization, name:, tenant: tenant1)
+        organization2 = build(:organization, name:, tenant: tenant2)
+        organization3 = build(:organization, name:, tenant: tenant1)
         assert(organization1.save)
         assert(organization2.save)
         assert(organization3.save)

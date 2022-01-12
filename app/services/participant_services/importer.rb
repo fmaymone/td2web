@@ -88,7 +88,7 @@ module ParticipantServices
                       when 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
                         parse_xlsx(file)
                       else
-                        @errors << '%{content_type} is not a supported file format for Participant import'.t(content_type: content_type)
+                        @errors << '%{content_type} is not a supported file format for Participant import'.t(content_type:)
                         []
                       end
     end

@@ -272,11 +272,11 @@ class TeamDiagnostic < ApplicationRecord
     participants.each do |participant|
       next unless (diagnostic_survey = participant.active_survey)
 
-      svc = DiagnosticSurveyServices::QuestionService.new(diagnostic_survey: diagnostic_survey)
+      svc = DiagnosticSurveyServices::QuestionService.new(diagnostic_survey:)
       all_questions = svc.all_questions
       all_questions.each do |q|
         response = rand(1..9)
-        svc.answer_question(question: q, response: response)
+        svc.answer_question(question: q, response:)
       end
       svc.diagnostic_survey.complete!
     end
@@ -287,8 +287,8 @@ class TeamDiagnostic < ApplicationRecord
     report_template = diagnostic.report_template
     reports.create!(
       description: "#{name} Report",
-      report_template: report_template,
-      options: options
+      report_template:,
+      options:
     )
   end
 
@@ -303,7 +303,7 @@ class TeamDiagnostic < ApplicationRecord
     return running_reports if !force && running_reports.any?
 
     running_reports.all.map(&:reject)
-    report = init_report(options: options)
+    report = init_report(options:)
     report.start
     report
   end

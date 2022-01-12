@@ -68,7 +68,7 @@ module EntitlementServices
 
         grant_service = EntitlementServices::Grant.new(
           user: @user,
-          entitlement: entitlement,
+          entitlement:,
           quota: data[:quota]
         )
         if grant_service.call
@@ -101,9 +101,9 @@ module EntitlementServices
         quota = e[:quota]
         Grant.new(
           user: @user,
-          entitlement: entitlement,
+          entitlement:,
           grantor: invitation.grantor,
-          quota: quota
+          quota:
         )
       end
     end

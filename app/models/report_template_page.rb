@@ -29,8 +29,8 @@ class ReportTemplatePage < ApplicationRecord
   # the slug `layout` for a given report template, format, and locale
 
   ### Scopes
-  scope :locale, ->(locale) { where(locale: locale) }
-  scope :format, ->(format) { where(format: format) }
+  scope :locale, ->(locale) { where(locale:) }
+  scope :format, ->(format) { where(format:) }
   scope :layout_page, -> { where(slug: LAYOUT_PAGE_SLUG) }
   scope :content_pages, -> { where.not(slug: LAYOUT_PAGE_SLUG) }
 

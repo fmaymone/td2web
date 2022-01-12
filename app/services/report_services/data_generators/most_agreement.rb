@@ -51,7 +51,7 @@ module ReportServices
             data << { label: deviation[:question], values: responses }
           end
 
-          { labels: labels, data: data }
+          { labels:, data: }
         end
       end
     end

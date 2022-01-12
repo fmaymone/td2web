@@ -14,7 +14,7 @@ class TeamDiagnosticQuestionsController < ApplicationController
 
   def create
     authorize TeamDiagnosticQuestion
-    @question_service = TeamDiagnosticServices::QuestionCreator.new(user: @current_user, team_diagnostic: @team_diagnostic, params: params)
+    @question_service = TeamDiagnosticServices::QuestionCreator.new(user: @current_user, team_diagnostic: @team_diagnostic, params:)
     respond_to do |format|
       @created = @question_service.call
       @team_diagnostic_question = @question_service.team_diagnostic_question
@@ -34,7 +34,7 @@ class TeamDiagnosticQuestionsController < ApplicationController
     authorize @team_diagnostic_question
     @team_diagnostic_question.destroy
     SystemEvent.log(event_source: @team_diagnostic, description: 'A question was deleted')
-    @question_service = TeamDiagnosticServices::QuestionCreator.new(user: @current_user, team_diagnostic: @team_diagnostic, params: params)
+    @question_service = TeamDiagnosticServices::QuestionCreator.new(user: @current_user, team_diagnostic: @team_diagnostic, params:)
     respond_to do |format|
       format.js
     end

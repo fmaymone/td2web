@@ -22,8 +22,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def user_timezone(&block)
-    @user_timezone ||= Time.use_zone(current_user.timezone, &block)
+  def user_timezone(&)
+    @user_timezone ||= Time.use_zone(current_user.timezone, &)
   end
 
   def current_tenant
@@ -67,7 +67,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_entitlements!(slug = nil)
-    authorizer = EntitlementServices::Authorizer.new(params: params, user: current_user)
+    authorizer = EntitlementServices::Authorizer.new(params:, user: current_user)
     raise EntitlementServices::Authorizer::AuthorizationError, 'Entitlement authorization failed' unless authorizer.call(slug)
 
     true

@@ -56,8 +56,8 @@ RSpec.shared_context 'users', shared_context: :metadate do
                  user_profile_attributes: attributes_for(:user_profile),
                  confirmed_at: DateTime.now)
     user.save!
-    create(:grant, user: user, grantor: admin, reference: OrganizationServices::Creator::REFERENCE, entitlement: create_organization_entitlement, quota: 3)
-    create(:grant, user: user, grantor: admin, reference: TeamDiagnosticServices::Creator::REFERENCE, entitlement: create_diagnostic_tda_entitlement, quota: 3)
+    create(:grant, user:, grantor: admin, reference: OrganizationServices::Creator::REFERENCE, entitlement: create_organization_entitlement, quota: 3)
+    create(:grant, user:, grantor: admin, reference: TeamDiagnosticServices::Creator::REFERENCE, entitlement: create_diagnostic_tda_entitlement, quota: 3)
     user
   end
   let(:facilitator2) do
@@ -71,7 +71,7 @@ RSpec.shared_context 'users', shared_context: :metadate do
                  user_profile_attributes: attributes_for(:user_profile),
                  confirmed_at: DateTime.now)
     user.save!
-    create(:grant, user: user, grantor: admin, reference: OrganizationServices::Creator::REFERENCE, entitlement: create_organization_entitlement, quota: 3)
+    create(:grant, user:, grantor: admin, reference: OrganizationServices::Creator::REFERENCE, entitlement: create_organization_entitlement, quota: 3)
     user
   end
   let(:member) do
@@ -99,7 +99,7 @@ RSpec.shared_context 'users', shared_context: :metadate do
                  user_profile_attributes: attributes_for(:user_profile),
                  confirmed_at: DateTime.now)
     user.save!
-    create(:grant, user: user, grantor: admin, entitlement: entitlement)
+    create(:grant, user:, grantor: admin, entitlement:)
     user.reload
     user
   end

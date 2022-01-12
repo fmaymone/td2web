@@ -75,7 +75,7 @@ module Reports
         SystemEvent.log(
           event_source: self,
           incidental: nil,
-          description: description,
+          description:,
           severity: :warn
         )
       end

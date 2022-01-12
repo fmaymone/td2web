@@ -62,7 +62,7 @@ class Diagnostic < ApplicationRecord
 
   def report_template(version: nil)
     conditions = { state: 'published' }
-    conditions.merge!({ version: version }) if version
+    conditions.merge!({ version: }) if version
     report_templates.where(conditions).order(version: :desc).first
   end
 end

@@ -7,7 +7,7 @@ RSpec.describe TeamDiagnosticServices::Creator do
   include_context 'organizations'
   include_context 'diagnostics'
 
-  let(:valid_params) { attributes_for(:team_diagnostic, user: facilitator, organization: organization, diagnostic: tda_diagnostic) }
+  let(:valid_params) { attributes_for(:team_diagnostic, user: facilitator, organization:, diagnostic: tda_diagnostic) }
   let(:invalid_params) { valid_params.merge(diagnostic_id: nil, name: nil) }
 
   describe 'initialization' do

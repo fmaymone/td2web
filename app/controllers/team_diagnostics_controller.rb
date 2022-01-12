@@ -31,7 +31,7 @@ class TeamDiagnosticsController < ApplicationController
   # GET /team_diagnostics/new
   def new
     authorize TeamDiagnostic
-    @service = TeamDiagnosticServices::Creator.new(user: @current_user, params: params)
+    @service = TeamDiagnosticServices::Creator.new(user: @current_user, params:)
     @team_diagnostic = @service.team_diagnostic
     set_organization
     @current_page = 'New'.t
@@ -39,7 +39,7 @@ class TeamDiagnosticsController < ApplicationController
 
   # GET /team_diagnostics/1/edit
   def edit
-    @service = TeamDiagnosticServices::Updater.new(user: @current_user, id: record_scope.find(params[:id]), params: params)
+    @service = TeamDiagnosticServices::Updater.new(user: @current_user, id: record_scope.find(params[:id]), params:)
     @team_diagnostic = @service.team_diagnostic
     set_organization
 
@@ -50,7 +50,7 @@ class TeamDiagnosticsController < ApplicationController
   # POST /team_diagnostics
   # POST /team_diagnostics.json
   def create
-    @service = TeamDiagnosticServices::Creator.new(user: @current_user, params: params)
+    @service = TeamDiagnosticServices::Creator.new(user: @current_user, params:)
     authorize @service.team_diagnostic
 
     respond_to do |format|
@@ -69,7 +69,7 @@ class TeamDiagnosticsController < ApplicationController
   # PATCH/PUT /team_diagnostics/1
   # PATCH/PUT /team_diagnostics/1.json
   def update
-    @service = TeamDiagnosticServices::Updater.new(user: @current_user, id: record_scope.find(params[:id]), params: params)
+    @service = TeamDiagnosticServices::Updater.new(user: @current_user, id: record_scope.find(params[:id]), params:)
     authorize @service.team_diagnostic
 
     respond_to do |format|
@@ -89,7 +89,7 @@ class TeamDiagnosticsController < ApplicationController
   end
 
   def wizard
-    @service = TeamDiagnosticServices::Updater.new(user: @current_user, id: record_scope.find(params[:id]), params: params)
+    @service = TeamDiagnosticServices::Updater.new(user: @current_user, id: record_scope.find(params[:id]), params:)
     @team_diagnostic = @service.team_diagnostic
     authorize @team_diagnostic
     # redirect_to @team_diagnostic unless @team_diagnostic.setup? || @team_diagnostic.deployed?
@@ -167,7 +167,7 @@ class TeamDiagnosticsController < ApplicationController
   end
 
   def generate_report
-    @service = TeamDiagnosticServices::Updater.new(user: @current_user, id: record_scope.find(params[:id]), params: params)
+    @service = TeamDiagnosticServices::Updater.new(user: @current_user, id: record_scope.find(params[:id]), params:)
     @team_diagnostic = @service.team_diagnostic
     authorize @team_diagnostic
 

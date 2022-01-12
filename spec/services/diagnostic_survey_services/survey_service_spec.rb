@@ -16,15 +16,15 @@ RSpec.describe DiagnosticSurveyServices::SurveyService do
   let(:question2) { all_questions.to_a[1] }
   let(:question3) { all_questions.to_a[2] }
   let(:question4) { all_questions.to_a[3] }
-  let(:rating_response) { create(:diagnostic_response, diagnostic_survey: diagnostic_survey, team_diagnostic_question: all_questions.rating.first) }
-  let(:open_ended_response) { create(:diagnostic_response, diagnostic_survey: diagnostic_survey, team_diagnostic_question: all_questions.open_ended.first) }
-  let(:question1_response1) { create(:diagnostic_response, diagnostic_survey: diagnostic_survey, team_diagnostic_question: question1) }
-  let(:question2_response1) { create(:diagnostic_response, diagnostic_survey: diagnostic_survey, team_diagnostic_question: question2) }
-  let(:question3_response1) { create(:diagnostic_response, diagnostic_survey: diagnostic_survey, team_diagnostic_question: question3) }
-  let(:question4_response1) { create(:diagnostic_response, diagnostic_survey: diagnostic_survey, team_diagnostic_question: question4) }
-  let(:all_rating_responses) { all_questions.rating.each { |q| create(:diagnostic_response, diagnostic_survey: diagnostic_survey, team_diagnostic_question: q) } }
-  let(:all_open_ended_responses) { all_questions.open_ended.each { |q| create(:diagnostic_response, diagnostic_survey: diagnostic_survey, team_diagnostic_question: q) } }
-  let(:service) { DiagnosticSurveyServices::SurveyService.new(diagnostic_survey: diagnostic_survey) }
+  let(:rating_response) { create(:diagnostic_response, diagnostic_survey:, team_diagnostic_question: all_questions.rating.first) }
+  let(:open_ended_response) { create(:diagnostic_response, diagnostic_survey:, team_diagnostic_question: all_questions.open_ended.first) }
+  let(:question1_response1) { create(:diagnostic_response, diagnostic_survey:, team_diagnostic_question: question1) }
+  let(:question2_response1) { create(:diagnostic_response, diagnostic_survey:, team_diagnostic_question: question2) }
+  let(:question3_response1) { create(:diagnostic_response, diagnostic_survey:, team_diagnostic_question: question3) }
+  let(:question4_response1) { create(:diagnostic_response, diagnostic_survey:, team_diagnostic_question: question4) }
+  let(:all_rating_responses) { all_questions.rating.each { |q| create(:diagnostic_response, diagnostic_survey:, team_diagnostic_question: q) } }
+  let(:all_open_ended_responses) { all_questions.open_ended.each { |q| create(:diagnostic_response, diagnostic_survey:, team_diagnostic_question: q) } }
+  let(:service) { DiagnosticSurveyServices::SurveyService.new(diagnostic_survey:) }
   let(:service_by_id) { DiagnosticSurveyServices::SurveyService.new(diagnostic_survey: diagnostic_survey.id) }
 
   describe 'initialization' do
@@ -66,12 +66,12 @@ RSpec.describe DiagnosticSurveyServices::SurveyService do
     describe 'when team_diagnostic_question_id is provided in params' do
       let(:service) do
         DiagnosticSurveyServices::SurveyService
-          .new(diagnostic_survey: diagnostic_survey,
+          .new(diagnostic_survey:,
                params: { team_diagnostic_question_id: question1.id })
       end
       let(:service_invalid_question) do
         DiagnosticSurveyServices::SurveyService
-          .new(diagnostic_survey: diagnostic_survey,
+          .new(diagnostic_survey:,
                params: { team_diagnostic_question_id: 0 })
       end
       describe 'when it doesn\'t exist' do
@@ -91,7 +91,7 @@ RSpec.describe DiagnosticSurveyServices::SurveyService do
     describe 'returning the current question response' do
       let(:service) do
         DiagnosticSurveyServices::SurveyService
-          .new(diagnostic_survey: diagnostic_survey,
+          .new(diagnostic_survey:,
                params: { team_diagnostic_question_id: question2.id })
       end
       it 'should return the response' do
@@ -150,11 +150,11 @@ RSpec.describe DiagnosticSurveyServices::SurveyService do
   describe 'navigation' do
     let(:service) do
       DiagnosticSurveyServices::SurveyService
-        .new(diagnostic_survey: diagnostic_survey)
+        .new(diagnostic_survey:)
     end
     let(:service2) do
       DiagnosticSurveyServices::SurveyService
-        .new(diagnostic_survey: diagnostic_survey,
+        .new(diagnostic_survey:,
              params: { team_diagnostic_question_id: question2.id })
     end
     describe 'when there are no answered questions' do
@@ -195,8 +195,8 @@ RSpec.describe DiagnosticSurveyServices::SurveyService do
         question1_response1
         count = DiagnosticResponse.count
         service = DiagnosticSurveyServices::SurveyService.new(
-          diagnostic_survey: diagnostic_survey,
-          params: { team_diagnostic_question_id: question2.id, response: answer, locale: locale }
+          diagnostic_survey:,
+          params: { team_diagnostic_question_id: question2.id, response: answer, locale: }
         )
         expect(service.answer_question).to be_a(DiagnosticResponse)
         expect(DiagnosticResponse.count).to eq(count + 1)
@@ -216,8 +216,8 @@ RSpec.describe DiagnosticSurveyServices::SurveyService do
         answer = "#{question1_response1.response} updated"
         count = DiagnosticResponse.count
         service = DiagnosticSurveyServices::SurveyService.new(
-          diagnostic_survey: diagnostic_survey,
-          params: { team_diagnostic_question_id: question1.id, response: answer, locale: locale }
+          diagnostic_survey:,
+          params: { team_diagnostic_question_id: question1.id, response: answer, locale: }
         )
         expect(service.answer_question).to be_a(DiagnosticResponse)
         expect(DiagnosticResponse.count).to eq(count)

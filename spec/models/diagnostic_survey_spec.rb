@@ -26,8 +26,8 @@ RSpec.describe DiagnosticSurvey, type: :model do
 
   let(:teamdiagnostic) { create(:team_diagnostic, user_id: facilitator.id, organization_id: organization.id, diagnostic_id: tda_diagnostic.id) }
   let(:participant) { create(:participant, team_diagnostic: teamdiagnostic, state: :approved) }
-  let(:diagnostic_survey) { create(:diagnostic_survey, participant: participant, team_diagnostic: teamdiagnostic) }
-  let(:diagnostic_survey2) { create(:diagnostic_survey, participant: participant, team_diagnostic: teamdiagnostic, state: :active) }
+  let(:diagnostic_survey) { create(:diagnostic_survey, participant:, team_diagnostic: teamdiagnostic) }
+  let(:diagnostic_survey2) { create(:diagnostic_survey, participant:, team_diagnostic: teamdiagnostic, state: :active) }
 
   describe 'state machine' do
     it 'can be activated if there are no other active Surveys' do

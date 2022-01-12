@@ -12,7 +12,7 @@ module EntitlementServices
       @grant = find_grant
     end
 
-    def call(&_block)
+    def call(&)
       return yield if privileged_user?
 
       if @grant
