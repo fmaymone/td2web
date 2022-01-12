@@ -31,11 +31,11 @@ RSpec.describe TeamDiagnosticServices::Reporter do
         report_count = Report.count
         service.call
         expect(Report.count).to eq(report_count + 1)
-        #service.team_diagnostic.reload
-        #expect(service.team_diagnostic.reports.count).to eq(1)
-        #report = service.team_diagnostic.reports.last
-        #files = report.rendered_files
-        #binding.pry; true
+        # service.team_diagnostic.reload
+        # expect(service.team_diagnostic.reports.count).to eq(1)
+        # report = service.team_diagnostic.reports.last
+        # files = report.rendered_files
+        # binding.pry; true
       end
       it 'cancels all existing/running reports before running a new report' do
         service.call

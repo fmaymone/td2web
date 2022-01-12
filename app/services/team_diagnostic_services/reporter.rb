@@ -16,7 +16,7 @@ module TeamDiagnosticServices
     # (re)Generate TeamDiagnostic Report
     def call(options: {})
       cancel
-      perform_report(force: true, options: options)
+      perform_report(force: true, options:)
     end
 
     # Latest report
@@ -90,7 +90,7 @@ module TeamDiagnosticServices
       return running_reports.order(updated_at: :desc).first if !force && running_reports.any?
 
       running_reports.all.map(&:reject)
-      report = init_report(options: options)
+      report = init_report(options:)
       report.start
       report
     end

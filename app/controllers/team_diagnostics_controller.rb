@@ -176,9 +176,9 @@ class TeamDiagnosticsController < ApplicationController
     # TODO: specify page options from params
     #   options: {page_order: :default || [2,5,6,10] }
     options = {}
-    @report_service.call(options: options)
+    @report_service.call(options:)
     notice = 'Your report is being generated'.t
-    redirect_to wizard_team_diagnostic_path(@team_diagnostic, step: @team_diagnostic.wizard), notice: notice
+    redirect_to wizard_team_diagnostic_path(@team_diagnostic, step: @team_diagnostic.wizard), notice:
   end
 
   private
