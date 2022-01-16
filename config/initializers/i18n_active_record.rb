@@ -3,15 +3,18 @@
 require 'i18n/backend/active_record'
 
 Rails.application.reloader.to_prepare do
-  Translation = I18n::Backend::ActiveRecord::Translation
+  was_defined = defined?(Translation)
+  Translation = I18n::Backend::ActiveRecord::Translation unless was_defined
 
   begin
     if Translation.table_exists?
       I18n.backend = I18n::Backend::ActiveRecord.new
 
       I18n::Backend::ActiveRecord.send(:include, I18n::Backend::Memoize)
-      I18n::Backend::Simple.send(:include, I18n::Backend::Memoize)
-      I18n::Backend::Simple.send(:include, I18n::Backend::Pluralization)
+      unless was_defined
+        I18n::Backend::Simple.send(:include, I18n::Backend::Memoize)
+        I18n::Backend::Simple.send(:include, I18n::Backend::Pluralization)
+      end
 
       I18n.backend = I18n::Backend::Chain.new(I18n::Backend::Simple.new, I18n.backend)
     end
