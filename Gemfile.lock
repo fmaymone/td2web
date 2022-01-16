@@ -266,6 +266,10 @@ GEM
       digest
       net-protocol
       strscan
+    net-pop (0.1.1)
+      digest
+      net-protocol
+      timeout
     net-protocol (0.1.2)
       io-wait
       timeout
@@ -524,6 +528,7 @@ DEPENDENCIES
   listen
   mini_magick
   net-imap
+  net-pop
   net-smtp
   pdfkit
   pessimize
