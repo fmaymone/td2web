@@ -32,6 +32,6 @@ end
 class String
   def t(options={})
     return '' if self == ''
-    I18n.t(self, **options)
+    I18n.t(self, deep_interpolation: true, **options)
   end
 end

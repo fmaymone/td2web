@@ -40,7 +40,7 @@ module ReportServices
           locale = info[1]
           {
             name: file_name,
-            locale:,
+            locale: locale,
             url: Rails.application.routes.url_helpers.url_for(file),
             format: file.content_type,
             date: file.created_at,

@@ -9,55 +9,59 @@
   </div>
 </div>
 
+
 <% if @report_service.status != :pending %>
   <div class="row">
     <div class="col-sm-12">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Your <%= @service.team_diagnostic.diagnostic.name %> Report</h5>
-          <% case @report_service.status 
-          when :stalled %>
-        <div class="alert alert-danger card-text">
-          There seems to be a problem. Please review your page setup and regenerate your report.
-        </div>
+    <% case @report_service.status 
+        when :stalled %>
+          <div class="card">
+            <div class="card-body">
+              <div class="alert alert-danger card-text">
+                There seems to be a problem. Please review your page setup and regenerate your report.
+              </div>
+            </div>
+          </div>
       <% when :running %>
-        <div class="alert alert-info card-text">
-          Please be patient as your report is rendering. It will be done very soon.
-        </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="alert alert-info card-text">
+                Please be patient as your report is rendering. It will be done very soon.
+              </div>
+            </div>
+          </div>
       <% when :completed %>
-        <div class="card-text">Your report is completed!</div>
-        <%= link_to('View','#', class: 'btn btn-success') %>
-        <%= link_to('Download PDF','#', class: 'btn btn-info') %>
-        <%= link_to('Download Powerpoint','#', class: 'btn btn-info') %>
-      <% end %>
-
-      <% if @report_service.status == :completed %>
-        <hr/>
-        <h5 class="card-title">Report Charts</h5>
-        <div class="card-text">Use report charts in your own reports and documents.</div>
-        <ul class="list-group">
-          <li class="list-group-item">
-            <span class="badge bg-info">PNG</span>
-            Highest/Lowest Positivity
-          </li>
-          <li class="list-group-item">
-            <span class="badge bg-info">PNG</span>
-            Highest/Lowest Productivity
-          </li>
-        </ul>
-      <% end %>
-    </div>
-    <div class="card-footer text-muted">
-      In progress..
+        <% @team_diagnostic.all_locales.each do |locale| %>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= 'Report for'.t(:locale => locale) %></h5>
+              <p>
+                <%= link_to('View'.t, report_team_diagnostic_path(id: @team_diagnostic.id, report_id: @report_service.current_report&.id, token: @report_service.current_report&.token,locale: locale), class: 'btn btn-success', target: '_blank') %>
+                <% pdf_file = @report_service.current_report&.pdf_files(locale: locale)&.last %>
+                <%= link_to('Download PDF', pdf_file[:url], class: 'btn btn-info', target: '_blank') if pdf_file %>
+              </p>
+              <ul class="list-group">
+                <% png_files = @report_service.current_report&.png_files(locale: locale) %>
+                <% png_files.each do |png_file| %>
+                  <li class="list-group-item">
+                    <%= link_to(png_file[:url], target: '_blank') do %>
+                      <span class="badge">PNG</span>
+                    <% end %>
+                    <%= png_file[:name] %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+    <% end %>
     </div>
   </div>
 <% end %>
 
 
-  </div>
-</div>
 
-
+<!--
 <div class="row">
   <div class="col-sm-12">
     <h3>Report Pages</h3>
@@ -90,14 +94,12 @@
   </div>
 </div>
 
+
+-->
+
 <hr/>
 <div class="row">
   <div class="col-sm-6">
     <%= link_to('Generate Report'.t, generate_report_team_diagnostic_path(id: @team_diagnostic.id), class: 'btn btn-primary', method: :post) %>  
   </div>
-  <% if @report_service.may_reset? %>
-    <div class="col-sm-6">
-      <%= link_to('Reset Report'.t, '#', class: 'btn btn-primary') %>  
-    </div>
-  <% end %>
 </div>
