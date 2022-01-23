@@ -7,7 +7,20 @@
       </span>
     </h3>
   </div>
+  <div class="col-sm-6 text-right">
+    <% if @report_service.status != :running %>
+        <% case @report_service.status 
+            when :pending %>
+          <%= link_to('Create Report'.t, generate_report_team_diagnostic_path(id: @team_diagnostic.id), class: 'btn btn-primary', method: :post) %>  
+        <%  when :stalled %>
+          <%= link_to('Create Report'.t, generate_report_team_diagnostic_path(id: @team_diagnostic.id), class: 'btn btn-primary', method: :post) %>  
+        <%  when :completed %>
+          <%= link_to('Regenerate Report'.t, generate_report_team_diagnostic_path(id: @team_diagnostic.id), method: :post) %>  
+        <% end %>
+    <% end %>
+  </div>
 </div>
+
 
 
 <% if @report_service.status != :pending %>
@@ -34,7 +47,7 @@
         <% @team_diagnostic.all_locales.each do |locale| %>
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title"><%= 'Report for'.t(:locale => locale) %></h5>
+              <h5 class="card-title"><%= 'Report'.t %> <span class="badge badge-info"><%= locale %></span></h5>
               <p>
                 <%= link_to('View'.t, report_team_diagnostic_path(id: @team_diagnostic.id, report_id: @report_service.current_report&.id, token: @report_service.current_report&.token,locale: locale), class: 'btn btn-success', target: '_blank') %>
                 <% pdf_file = @report_service.current_report&.pdf_files(locale: locale)&.last %>
@@ -97,9 +110,3 @@
 
 -->
 
-<hr/>
-<div class="row">
-  <div class="col-sm-6">
-    <%= link_to('Generate Report'.t, generate_report_team_diagnostic_path(id: @team_diagnostic.id), class: 'btn btn-primary', method: :post) %>  
-  </div>
-</div>

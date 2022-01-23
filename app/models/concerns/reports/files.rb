@@ -18,7 +18,7 @@ module Reports
       # format: 'mimetype',
       # date: Time,
       # object: ActiveStorage instance
-      #}
+      # }
 
       def rendered_files(format: nil)
         service = ReportServices::Renderers::Base.new(report: self)
@@ -37,17 +37,16 @@ module Reports
       end
 
       def html_files(locale:)
-        rendered_files(format: :html).select{|f| f[:locale] == locale.to_s}
+        rendered_files(format: :html).select { |f| f[:locale] == locale.to_s }
       end
 
       def pdf_files(locale:)
-        rendered_files(format: :pdf).select{|f| f[:locale] == locale.to_s}
+        rendered_files(format: :pdf).select { |f| f[:locale] == locale.to_s }
       end
 
       def png_files(locale:)
-        rendered_files(format: :png).select{|f| f[:locale] == locale.to_s}
+        rendered_files(format: :png).select { |f| f[:locale] == locale.to_s }
       end
-
     end
   end
 end
