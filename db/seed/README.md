@@ -24,7 +24,11 @@ heroku pg:psql --app APPNAME < db/seed/tdv1_i18n_data.sql
 ### Load Migrations
 
 ```
+# Local
 rake db:migrate
+
+# Staging
+ssh dokku@staging.tdv2.bellingham.dev run staging.tdv2.bellingham.dev rake db:migrate
 ```
 
 ### Convert TDv1 Globalize Translations to I18n::Translations

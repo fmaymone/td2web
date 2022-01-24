@@ -46,6 +46,36 @@ Edit credentials with `bundle exec rails credentials:edit --environment RAILS_EN
 
 ## Database
 
+### Backups
+
+Database backup dumps are stored encrypted in Digital Ocean Spaces.
+
+
+```
+```
+
+Create Backup:
+
+```
+# Configure Dokku Postgres for remote backups on Digital Ocean Spaces:
+ssh dokku@staging.tdv2.bellingham.dev postgres:backup-auth tdv2staging01 SPACES_ID SPACES_KEY us-east-1 s3v4 https://tdv2staging.sfo2.digitaloceanspaces.com
+
+# Optionally set encryption
+ssh dokku@staging.tdv2.bellingham.dev postgres:backup-set-encryption tdv2staging01 ENCRYPTION_KEY
+
+# Backup db instance (first) to spaces folder (second)
+ssh dokku@staging.tdv2.bellingham.dev postgres:backup tdv2staging01 tdv2staging01
+
+# Schedule backup of instance for every day at 3am (use crontab format) to spaces folder
+ssh dokku@staging.tdv2.bellingham.dev postgres:backup-schedule tdv2staging01 "0 3 * * *" tdv2staging01
+```
+
+Export data from staging:
+
+```
+ssh dokku@staging.tdv2.bellingham.dev postgres:export tdv2staging01 > tmp/staging.dump
+```
+
 # Testing
 
 Run `bundle exec rspec` to run all tests and output a coverage report to `coverage/index`
