@@ -18,7 +18,7 @@ namespace :team_diagnostics do
 
   desc 'Auto-Respond'
   task :auto_respond, [:id] => :environment do |_t, args|
-    #exit(1) if Rails.env.production?
+    # exit(1) if Rails.env.production?
 
     team_diagnostic = TeamDiagnostic.find(args[:id])
 
