@@ -12418,3 +12418,7 @@ en,Reset Report,Reset Report
 en,Your report is being generated,Your report is being generated
 en,Running,Running
 en,Reminders,Reminders
+en,View,View
+en,Report for,Report for %{locale} Language
+en,Create Report,Create Report
+en,Regenerate Report,Regenerate Report
