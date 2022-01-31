@@ -72,7 +72,7 @@ section.cover_page, section.report_page {
     bottom: 20px;
   }
   div.chapter_page {
-    background-image: url("/reports/images/report_introduction_cover_page.jpg");
+    background-image: url("~report_introduction_cover_page.jpg");
     width: 100%;
     margin-top: 100px;
     min-height: 600px;
@@ -136,7 +136,7 @@ section.cover_page {
     margin: 1em;
   }
   div#report_welcome {
-    background-image: url("/reports/images/report_cover_world.png");
+    background-image: url("~report_cover_world.png");
     background-repeat: no-repeat;
     background-size: contain;
   }
@@ -179,7 +179,7 @@ section.report_page {
 	}
   header {
     /* background image */
-    background-image: url("/reports/images/report_header.jpg");
+    background-image: url("~report_header.jpg");
     background-repeat: no-repeat;
     background-size: contain;
     height: 200px;

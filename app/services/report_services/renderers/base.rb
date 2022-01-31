@@ -61,7 +61,12 @@ module ReportServices
       private
 
       def host_prefix
-        Rails.application.routes.default_url_options[:host]
+        host =  Rails.application.routes.default_url_options[:host]
+        "#{protocol_prefix}#{host}"
+      end
+
+      def protocol_prefix
+        ENV.fetch('APPLICATION_PROTOCOL', ( Rails.env.production? ? 'https' : 'http' )) + '://'
       end
 
       def page_scope(locale)
@@ -113,7 +118,7 @@ module ReportServices
           'tenant' => @report.team_diagnostic.organization.tenant.name,
           'team_logo' => @report.team_diagnostic.logo_url,
           'year' => Time.now.year,
-          'base_url' => Teamdiagnostic::Application::HOST_AND_PORT
+          'base_url' => protocol_prefix + Teamdiagnostic::Application::HOST_AND_PORT
         }
       end
     end

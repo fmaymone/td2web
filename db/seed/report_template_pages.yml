@@ -21,6 +21,7 @@
           <meta charset="utf-8">
           <meta http-equiv="content-type" content="text/html;charset=utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1">
+          [[ASSET_TAGS_HERE]]
         </head>
         <body>
           [[REPORT_CONTENT_HERE]]
@@ -154,7 +155,7 @@
         <footer class="page_footer">
           <div class="copyright_notice">
             <span class="small_copyright">
-              &copy; Team Coaching International {year}} All Rights Reserved
+              &copy; Team Coaching International {{year}} All Rights Reserved
             </span>
             <span class="footer_separator">|</span>
             <span class="footer_page_number">{{page}}</span>
@@ -194,7 +195,7 @@
           <footer class="page_footer">
             <div class="copyright_notice">
               <span class="small_copyright">
-                &copy; Team Coaching International {year}} All Rights Reserved
+                &copy; Team Coaching International {{year}} All Rights Reserved
               </span>
               <span class="footer_separator">|</span>
               <span class="footer_page_number">{{page}}</span>

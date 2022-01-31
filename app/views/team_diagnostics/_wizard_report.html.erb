@@ -51,7 +51,9 @@
             <div class="card-body">
               <h5 class="card-title"><%= 'Report'.t %> <span class="badge badge-info"><%= locale %></span></h5>
               <p>
-                <%= link_to('View'.t, report_team_diagnostic_path(id: @team_diagnostic.id, report_id: @report_service.current_report&.id, token: @report_service.current_report&.token,locale: locale), class: 'btn btn-success', target: '_blank') %>
+                <%= link_to('View'.t, report_team_diagnostic_path(id: @team_diagnostic.id, report_id: @report_service.current_report&.id, token: @report_service.current_report&.token,locale: locale, format: :html), class: 'btn btn-success', target: '_blank') %>
+                <% html_file = @report_service.current_report&.html_files(locale: locale)&.last %>
+                <%= link_to('Download HTML', html_file[:url], class: 'btn btn-info') if html_file %>
                 <% pdf_file = @report_service.current_report&.pdf_files(locale: locale)&.last %>
                 <%= link_to('Download PDF', pdf_file[:url], class: 'btn btn-info', target: '_blank') if pdf_file %>
               </p>
