@@ -14,11 +14,11 @@ global.$ = require("jquery")
 require("bootstrap")
 
 // Application javascript components
-require("./src/froala_editor")
-require("./src/translation_search")
-require("./src/translation_editor")
-require("./src/team_diagnostic_form")
-require("./src/local_persistence")
+require("../src/froala_editor")
+require("../src/translation_search")
+require("../src/translation_editor")
+require("../src/team_diagnostic_form")
+require("../src/local_persistence")
 
 // Application Stylesheets
 require("../stylesheets/application.scss")
@@ -27,5 +27,5 @@ require("../stylesheets/application.scss")
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
 //
-// const images = require.context('../images', true)
-// const imagePath = (name) => images(name, true)
+const images = require.context('../images', true)
+const imagePath = (name) => images(name, true)
