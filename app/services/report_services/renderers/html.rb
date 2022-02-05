@@ -72,13 +72,12 @@ module ReportServices
       def layout_asset_tags(locale)
         tags = []
         LAYOUT_ASSET_PACKS.each do |packname|
-          # There is no report.css...yet
-          # css_path = Webpacker.manifest.lookup("#{packname}.css")
-          # if css_path
-          # tags << <<~END_OF_TAGS
-          # <link rel="#{host_prefix}#{css_path}"></link>
-          # END_OF_TAGS
-          # end
+          css_path = Webpacker.manifest.lookup("#{packname}.css")
+          if css_path
+            tags << <<~END_OF_TAGS
+            <link rel="stylesheet" href="#{host_prefix}#{css_path}"></link>
+            END_OF_TAGS
+          end
 
           tags << <<~END_OF_TAGS
             <style>

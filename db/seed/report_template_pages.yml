@@ -54,7 +54,7 @@
           <div class="coverright">
             <p class="report_for">Report For:</p>
             <h1 class="team_name">{{team_name}}</h1>
-            <img class="logo_left_bottom" src="{{base_url}}/reports/images/report_tci_logo.jpg"></img>
+            <img class="logo_left_bottom" src="{{base_url}}/images/report_tci_logo.jpg"></img>
           </div>
         </article>
         <footer class="page_footer"></footer>
@@ -69,7 +69,7 @@
       <section id="{{slug}}" class="cover_page" data-page="{{page}}">
         <header></header>
         <article>
-          <img class="logo_left_top" src="{{base_url}}/reports/images/report_tci_logo.jpg"></img>
+          <img class="logo_left_top" src="{{base_url}}/images/report_tci_logo.jpg"></img>
           <div class="chapter_page">
             <h1 class="intro_chapter_title">Introduction</h1>
           </div>
@@ -141,7 +141,7 @@
         </header>
         <article>
           <div class="leftcol">
-            <img src="{{base_url}}/reports/images/report_the_goal_stock.jpg"></img>
+            <img src="{{base_url}}/images/report_the_goal_stock.jpg"></img>
           </div>
           <div class="rightcol">
             <p>
@@ -176,7 +176,7 @@
         </header>
         <article>
           <div class="leftcol">
-            <img src="{{base_url}}/reports/images/report_introduction_content_what_is_team1.jpg"></img>
+            <img src="{{base_url}}/images/report_introduction_content_what_is_team1.jpg"></img>
           </div>
           <div class="rightcol">
             <blockquote>
@@ -217,7 +217,7 @@
         </header>
         <article>
           <div class="leftcol">
-            <img src="{{base_url}}/reports/images/report_introduction_content_what_is_team2.jpg"></img>
+            <img src="{{base_url}}/images/report_introduction_content_what_is_team2.jpg"></img>
           </div>
           <div class="rightcol">
             <p>
@@ -254,7 +254,7 @@
         </header>
         <article>
           <div class="leftcol">
-            <img src="{{base_url}}/reports/images/report_introduction_content_what_is_team3.jpg"></img>
+            <img src="{{base_url}}/images/report_introduction_content_what_is_team3.jpg"></img>
           </div>
           <div class="rightcol">
             <p>
@@ -488,7 +488,7 @@
           <div class="diagnostic_type">Team Diagnostic&trade;</div>
         </header>
         <article>
-          <img class="centered" src="{{base_url}}/reports/images/report_productivity_strengths.jpg" ></img>
+          <img class="centered" src="{{base_url}}/images/report_productivity_strengths.jpg" ></img>
         </article>
         <footer class="page_footer">
           <div class="copyright_notice">
@@ -553,7 +553,7 @@
           <div class="diagnostic_type">Team Diagnostic&trade;</div>
         </header>
         <article>
-          <img class="centered" src="{{base_url}}/reports/images/report_positivity_strengths.jpg"></img>
+          <img class="centered" src="{{base_url}}/images/report_positivity_strengths.jpg"></img>
         </article>
         <footer class="page_footer">
           <div class="copyright_notice">
@@ -579,7 +579,7 @@
         </header>
         <article>
           <div class="leftcol">
-            <img src="{{base_url}}/reports/images/report_introduction_content_the_model_positivity_productivity.jpg"></img>
+            <img src="{{base_url}}/images/report_introduction_content_the_model_positivity_productivity.jpg"></img>
           </div>
           <div class="rightcol">
             <blockquote>
@@ -617,7 +617,7 @@
         </header>
         <article>
           <div class="leftcol">
-            <img src="{{base_url}}/reports/images/report_multiple_views_1.jpg" style="width: 80%;" ></img>
+            <img src="{{base_url}}/images/report_multiple_views_1.jpg" style="width: 80%;" ></img>
           </div>
           <div class="rightcol">
             <p>
@@ -654,7 +654,7 @@
         </header>
         <article>
           <div class="leftcol">
-            <img src="{{base_url}}/reports/images/report_multiple_views_2.jpg" style="width: 80%;"></img>
+            <img src="{{base_url}}/images/report_multiple_views_2.jpg" style="width: 80%;"></img>
           </div>
           <div class="rightcol">
             <h3>Bar Charts</h3>
@@ -697,7 +697,7 @@
         </header>
         <article>
           <div class="leftcol">
-            <img src="{{base_url}}/reports/images/report_multiple_views_3.jpg" style="width: 80%;"></img>
+            <img src="{{base_url}}/images/report_multiple_views_3.jpg" style="width: 80%;"></img>
           </div>
           <div class="rightcol">
             <h3>Least Agreement/Most Agreement</h3>
@@ -734,7 +734,7 @@
       <section id="{{slug}}" class="cover_page" data-page="{{page}}">
         <header></header>
         <article>
-          <img class="logo_left_top" src="{{base_url}}/reports/images/report_tci_logo.jpg"></img>
+          <img class="logo_left_top" src="{{base_url}}/images/report_tci_logo.jpg"></img>
           <div class="chapter_page">
             <h1 class="chapter_title">
               Your Team Results
@@ -981,7 +981,7 @@
         </header>
         <article>
           <div class="leftcol">
-            <img src="{{base_url}}/reports/images/report_conclusion_on_going_coaching.jpg"></img>
+            <img src="{{base_url}}/images/report_conclusion_on_going_coaching.jpg"></img>
           </div>
           <div class="rightcol">
             <p>
@@ -1046,7 +1046,7 @@
         </header>
         <article>
           <div class="leftcol">
-            <img src="{{base_url}}/reports/images/report_ongoing_team_development.jpg"></img>
+            <img src="{{base_url}}/images/report_ongoing_team_development.jpg"></img>
           </div>
           <div class="rightcol">
             <h2>Next Steps</h2>
@@ -1078,7 +1078,7 @@
       <section id="{{slug}}" class="cover_page" data-page="{{page}}">
         <header></header>
         <article>
-          <img class="logo_left_top" src="{{base_url}}/reports/images/report_tci_logo.jpg"></img>
+          <img class="logo_left_top" src="{{base_url}}/images/report_tci_logo.jpg"></img>
           <div class="chapter_page">
             <h1 class="chapter_title">Your Actions</h1>
           </div>
