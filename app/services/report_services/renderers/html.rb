@@ -75,7 +75,7 @@ module ReportServices
           css_path = Webpacker.manifest.lookup("#{packname}.css")
           if css_path
             tags << <<~END_OF_TAGS
-            <link rel="stylesheet" href="#{host_prefix}#{css_path}"></link>
+              <link rel="stylesheet" href="#{host_prefix}#{css_path}"></link>
             END_OF_TAGS
           end
 

@@ -47,16 +47,16 @@ module ReportServices
       private
 
       def configure_generator_for_locale(locale)
-        page_size = ( locale.to_s == 'en' ? 'letter' : 'A4' )
+        page_size = (locale.to_s == 'en' ? 'letter' : 'A4')
         PDFKit.configure do |config|
           config.default_options = {
-            page_size: page_size,
+            page_size:,
             orientation: 'Landscape',
             print_media_type: true,
             margin_top: '0.1cm',
             margin_bottom: '0.1cm',
             margin_left: '0.1cm',
-            margin_right: '0.1cm' 
+            margin_right: '0.1cm'
           }
         end
       end

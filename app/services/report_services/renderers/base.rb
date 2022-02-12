@@ -61,12 +61,12 @@ module ReportServices
       private
 
       def host_prefix
-        host =  Rails.application.routes.default_url_options[:host]
+        host = Rails.application.routes.default_url_options[:host]
         "#{protocol_prefix}#{host}"
       end
 
       def protocol_prefix
-        ENV.fetch('APPLICATION_PROTOCOL', ( Rails.env.production? ? 'https' : 'http' )) + '://'
+        "#{ENV.fetch('APPLICATION_PROTOCOL', (Rails.env.production? ? 'https' : 'http'))}://"
       end
 
       def page_scope(locale)
