@@ -83,7 +83,7 @@
   </div>
 </div>
 
-<% if @service.next_step_accessible? && @service.team_diagnostic.wizard == TeamDiagnostic::DEPLOY_STEP %>
+<% if @service.team_diagnostic.completed? && @service.team_diagnostic.wizard == TeamDiagnostic::DEPLOY_STEP %>
 <div class="row">
   <div class="col">
     <%= form_for(@service.team_diagnostic) do |form| %>
