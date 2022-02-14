@@ -92,7 +92,6 @@ class TeamDiagnosticsController < ApplicationController
     @service = TeamDiagnosticServices::Updater.new(user: @current_user, id: record_scope.find(params[:id]), params:)
     @team_diagnostic = @service.team_diagnostic
     authorize @team_diagnostic
-    # redirect_to @team_diagnostic unless @team_diagnostic.setup? || @team_diagnostic.deployed?
     @current_page = @service.step_name.capitalize
     set_organization
 

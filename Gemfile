@@ -54,6 +54,7 @@ gem 'sprockets-rails', git: 'https://github.com/rails/sprockets-rails.git'
 gem 'turbolinks'
 gem 'webpacker'
 gem 'wkhtmltopdf-heroku'
+gem 'rexml'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
