@@ -32,6 +32,7 @@ module ReportServices
         filename = "#{report.team_diagnostic.name}-#{title}---#{locale}---#{Time.now.strftime('%Y%m%d%H%M')}.html"
         html_data = StringIO.new(generate(locale))
         @report.report_files.attach(io: html_data, filename:, content_type: CONTENT_TYPE)
+        html_data.rewind
       end
 
       def format
@@ -82,7 +83,7 @@ module ReportServices
           tags << <<~END_OF_TAGS
             <style>
               @page {
-                size: #{@locale.to_s == 'en' ? 'letter' : 'A4'}  landscape;
+                size: #{locale.to_s == 'en' ? 'letter' : 'A4'}  landscape;
               }
               #{optional_style}
             </style>

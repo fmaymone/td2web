@@ -25,6 +25,7 @@ class Report < ApplicationRecord
   ### Concerns
   include Reports::StateMachine
   include Reports::Files
+  include Reports::Pages
 
   ### Validations
 
@@ -47,4 +48,5 @@ class Report < ApplicationRecord
   def reset_token
     self.token = Digest::UUID.uuid_v4
   end
+
 end

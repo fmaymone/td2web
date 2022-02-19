@@ -22,11 +22,13 @@ module TeamDiagnosticServices
     # Latest report
     def current_report
       skope = @team_diagnostic.reports.order(started_at: :desc)
-      skope.completed.first || skope.rendering.first || skope.running.first || init_report
+      skope.completed.first || skope.rendering.first || skope.running.first || skope.pending.first ||
+        init_report
     end
 
     def cancel
-      @team_diagnostic.reports.where(state: Report::VALID_REPORT_STATES).each do |report|
+      reject_report_states = Report::VALID_REPORT_STATES - [ :pending ]
+      @team_diagnostic.reports.where(state: reject_report_states).each do |report|
         report.reject
         report.save
       end
@@ -63,6 +65,31 @@ module TeamDiagnosticServices
 
     def may_reset?
       status != :pending
+    end
+
+    def all_pages(locale='en')
+			current_report.available_pages(locale)
+    end
+
+		def available_pages(locale='en')
+      a = all_pages(locale).to_a
+      @available_pages = current_report.page_order.map{|index| a[index - 1] }.compact
+      @available_pages = (a - @available_pages) + @available_pages
+
+      @available_pages
+		end
+
+    def custom_pagination?
+      all_pages.map(&:index) != selected_pages.map(&:index)
+    end
+
+		def selected_pages(locale='en')
+      current_report.selected_pages(locale)
+		end
+
+    def page_selected?(page)
+      page_index = ( page.respond_to?(:index) ? page.index : page ).to_i
+      selected_pages.map(&:index).include?(page_index)
     end
 
     private

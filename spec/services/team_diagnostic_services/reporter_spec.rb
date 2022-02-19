@@ -83,5 +83,13 @@ RSpec.describe TeamDiagnosticServices::Reporter do
         assert(service.may_reset?)
       end
     end
+
+    describe 'report page selection' do
+      it 'returns whether a report page is selected' do
+        # TODO
+        service
+        true
+      end
+    end
   end
 end

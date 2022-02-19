@@ -45,19 +45,38 @@ module ReportServices
         html_service = ReportServices::Renderers::Html.new(report: @report, locale:, options: @options)
         html_data = html_service.generate(locale)
         chart_names.each do |chart_name|
+          html_copy = html_data.dup
           filename = "#{title(chart_name)}---#{locale}---#{Time.now.strftime('%Y%m%d%H%M')}.png"
-          image_service = IMGKit.new(html_data, quality: 95)
-          chart_file = StringIO.new(chart_css(chart_name))
-          image_service.stylesheets << chart_file
+          image_service = IMGKit.new(html_copy, quality: 95)
+          chart_css_file = StringIO.new(chart_css(chart_name))
+          image_service.stylesheets = []
+          image_service.stylesheets << chart_css_file
           png_file = StringIO.new(image_service.to_png)
           @report.report_files.attach(io: png_file, filename:, content_type: CONTENT_TYPE)
+          png_file.rewind
         end
       end
 
+      # def chart_css(chart_name)
+      # <<~EOCSS
+      # section { display: none; }
+      # ##{chart_name} { display: block; }
+      # ##{chart_name} header, ##{chart_name} footer { display: none;}
+      # EOCSS
+      # end
+
       def chart_css(chart_name)
         <<~EOCSS
-          section { display: none; }
+          section.report_page {
+            border: none;
+            height: auto;
+            width: auto;
+            margin: 0;
+            padding: 0;
+          }
+          section:not(##{chart_name}) { display: none; }
           ##{chart_name} { display: block; }
+          ##{chart_name} header, ##{chart_name} footer { display: none;}
         EOCSS
       end
     end

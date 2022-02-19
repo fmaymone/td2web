@@ -1,0 +1,55 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">
+      <%='Report Type'.t %>
+      <span class="badge--report-option-selection badge badge-info"><%= 'Default'.t %></span>
+      <!-- <span class="badge--report-option-selection badge badge-light"><%= 'Comparison'.t %> </span> <span class="badge--report-option-selection badge badge-light"><%= 'Custom'.t %></span> -->
+    </h5>
+    <div class="row">
+      <div class="col-12">
+      </div>
+    </div>
+  </div>
+</div>
+
+<%#= render partial: 'wizard_report_options_variations', {report_service: report_service} %>
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">
+      <%= 'Report Pages'.t %>
+      <span id="report_pages-selection_default_badge"
+        class="badge--report-option-selection badge badge-<%= report_service.custom_pagination? ? 'light' : 'info' %>"
+        data-selected="<%= report_service.custom_pagination? ? 'false' : 'true' %>"><%= 'Default'.t %></span>
+      <span id="report_pages-selection_custom_badge"
+        class="badge--report-option-selection badge badge-<%= report_service.custom_pagination? ? 'info' : 'light' %>"
+        data-selected="<%= report_service.custom_pagination? ? 'true' : 'false' %>"><%= 'Customize'.t %></span>
+    </h5>
+    <div id="report-page-selection" class="row" style="<%= report_service.custom_pagination? ? '' : 'display: none;' %>" data-report_id="<%= @report_service.current_report.id %>">
+      <div class="col-12">
+        <b><%= 'Page Selection and Order'.t %></b>
+        <div id="list--report_pages">
+          <div id="list--report_pages_selected" class="list-group list--report_pages">
+            <% report_service.available_pages.each_with_index do |page, index| %>
+              <div id="report_pages--list_item-<%= page.id %>" class="list-group-item"
+                data-index="<%= index + 1 %>" data-pagenumber="<%=page.index%>"
+                data-pageid="<%= page.id%>" data-active="<%= report_service.page_selected?(page) ? 'true' : 'false' %>"
+                style="order: <%= index + 1 %>"
+                draggable=true>
+                <input type="hidden" name="page_order[]" value="<%= index + 1 %>"></input>
+                <span class="list--controls">
+                  <span class="list--control-select badge badge-<%= report_service.page_selected?(page) ? 'success' : 'secondary' %>">
+                    <%= page.index %>
+                  </span>
+                  &nbsp;
+                </span>
+                &nbsp;
+                <%= page.name %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

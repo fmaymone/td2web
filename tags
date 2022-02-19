@@ -162,6 +162,7 @@ OrganizationUser	./app/models/organization_user.rb	/^class OrganizationUser < Ap
 Organizations	./app/models/concerns/users/organizations.rb	/^  module Organizations$/;"	m	class:Users
 OrganizationsController	./app/controllers/organizations_controller.rb	/^class OrganizationsController < ApplicationController$/;"	c
 OrganizationsHelper	./app/helpers/organizations_helper.rb	/^module OrganizationsHelper$/;"	m
+Pages	./app/models/concerns/reports/pages.rb	/^  module Pages$/;"	m	class:Reports
 Participant	./app/models/participant.rb	/^class Participant < ApplicationRecord$/;"	c
 ParticipantImports	./app/models/concerns/team_diagnostics/participant_imports.rb	/^  module ParticipantImports$/;"	m	class:TeamDiagnostics
 ParticipantPolicy	./app/policies/participant_policy.rb	/^class ParticipantPolicy < ApplicationPolicy$/;"	c
@@ -213,6 +214,7 @@ ReportTemplates	./app/models/concerns/report_templates/state_machine.rb	/^module
 ReportTemplates	./db/seed/report_templates.rb	/^  class ReportTemplates$/;"	c	class:Seeds
 Reporter	./app/services/team_diagnostic_services/reporter.rb	/^  class Reporter$/;"	c	class:TeamDiagnosticServices
 Reports	./app/models/concerns/reports/files.rb	/^module Reports$/;"	m
+Reports	./app/models/concerns/reports/pages.rb	/^module Reports$/;"	m
 Reports	./app/models/concerns/reports/state_machine.rb	/^module Reports$/;"	m
 RequestSpecHelper	./spec/support/request_spec_helper.rb	/^module RequestSpecHelper$/;"	m
 RequireTranslationValue	./db/migrate/20200726230654_require_translation_value.rb	/^class RequireTranslationValue < ActiveRecord::Migration[6.0]$/;"	c
@@ -363,6 +365,8 @@ all_avg_factor_responses_by_category	./app/services/report_services/data_generat
 all_avg_responses_by_category	./app/services/report_services/data_generators/base.rb	/^      def all_avg_responses_by_category(category)$/;"	f	class:ReportServices.DataGenerators.Base
 all_formats	./app/services/report_services/renderer.rb	/^    def all_formats$/;"	f	class:ReportServices.Renderer
 all_locales	./app/models/team_diagnostic.rb	/^  def all_locales$/;"	f	class:TeamDiagnostic
+all_pages	./app/models/concerns/reports/pages.rb	/^      def all_pages(locale='en')$/;"	f	class:Reports.Pages
+all_pages	./app/services/team_diagnostic_services/reporter.rb	/^    def all_pages(locale='en')$/;"	f	class:TeamDiagnosticServices.Reporter
 all_questions	./app/services/diagnostic_survey_services/question_service.rb	/^    def all_questions$/;"	f	class:DiagnosticSurveyServices.QuestionService
 all_questions_completed?	./app/services/diagnostic_survey_services/question_service.rb	/^    def all_questions_completed?$/;"	f	class:DiagnosticSurveyServices.QuestionService
 all_responses	./app/services/diagnostic_survey_services/question_service.rb	/^    def all_responses$/;"	f	class:DiagnosticSurveyServices.QuestionService
@@ -404,6 +408,8 @@ auto_complete	./app/models/team_diagnostic.rb	/^  def self.auto_complete$/;"	F	c
 auto_deploy	./app/models/team_diagnostic.rb	/^  def self.auto_deploy$/;"	F	class:TeamDiagnostic
 auto_report	./app/models/team_diagnostic.rb	/^  def self.auto_report$/;"	F	class:TeamDiagnostic
 auto_respond	./app/models/team_diagnostic.rb	/^  def auto_respond$/;"	f	class:TeamDiagnostic
+available_pages	./app/models/concerns/reports/pages.rb	/^      def available_pages(locale='en')$/;"	f	class:Reports.Pages
+available_pages	./app/services/team_diagnostic_services/reporter.rb	/^		def available_pages(locale='en')$/;"	f	class:TeamDiagnosticServices.Reporter
 available_team_diagnostic_open_ended_questions	./app/services/team_diagnostic_services/question_creator.rb	/^    def available_team_diagnostic_open_ended_questions$/;"	f	class:TeamDiagnosticServices.QuestionCreator
 avg_response_by_factor	./app/services/report_services/data_generators/base.rb	/^      def avg_response_by_factor(factor)$/;"	f	class:ReportServices.DataGenerators.Base
 avg_response_by_question_id	./app/services/report_services/data_generators/base.rb	/^      def avg_response_by_question_id(question_id)$/;"	f	class:ReportServices.DataGenerators.Base
@@ -419,7 +425,7 @@ bundler_requirement	./bin/bundle	/^  def bundler_requirement$/;"	f
 bundler_version	./bin/bundle	/^  def bundler_version$/;"	f
 call	./app/services/entitlement_services/authorizer.rb	/^    def call(slug = nil)$/;"	f	class:EntitlementServices.Authorizer
 call	./app/services/entitlement_services/grant.rb	/^    def call$/;"	f	class:EntitlementServices.Grant
-call	./app/services/entitlement_services/grant_usage.rb	/^    def call(&_block)$/;"	f	class:EntitlementServices.GrantUsage
+call	./app/services/entitlement_services/grant_usage.rb	/^    def call(&)$/;"	f	class:EntitlementServices.GrantUsage
 call	./app/services/entitlement_services/invitation_claim.rb	/^    def call$/;"	f	class:EntitlementServices.InvitationClaim
 call	./app/services/entitlement_services/invitation_creator.rb	/^    def call$/;"	f	class:EntitlementServices.InvitationCreator
 call	./app/services/entitlement_services/invitation_deactivator.rb	/^    def call$/;"	f	class:EntitlementServices.InvitationDeactivator
@@ -620,6 +626,9 @@ current_step	./app/services/team_diagnostic_services/updater.rb	/^    def curren
 current_tenant	./app/controllers/application_controller.rb	/^  def current_tenant$/;"	f	class:ApplicationController
 current_tenant	./app/helpers/application_helper.rb	/^  def current_tenant$/;"	f	class:ApplicationHelper
 current_user_has_no_organizations_or_diagnostics?	./app/helpers/team_diagnostics_helper.rb	/^  def current_user_has_no_organizations_or_diagnostics?$/;"	f	class:TeamDiagnosticsHelper
+custom_pagination?	./app/services/team_diagnostic_services/reporter.rb	/^    def custom_pagination?$/;"	f	class:TeamDiagnosticServices.Reporter.available_pages
+customize_report	./app/controllers/team_diagnostics_controller.rb	/^  def customize_report$/;"	f	class:TeamDiagnosticsController
+customize_report	./app/policies/team_diagnostic_policy.rb	/^  def customize_report$/;"	f	class:TeamDiagnosticPolicy
 data_for_export	./app/services/team_diagnostic_services/csv_exporter.rb	/^    def data_for_export$/;"	f	class:TeamDiagnosticServices.CsvExporter
 default_cancellation_letter	./app/models/team_diagnostic_letter.rb	/^  def self.default_cancellation_letter(locale:, team_diagnostic: nil)$/;"	F	class:TeamDiagnosticLetter
 default_cancellation_letter_subject	./app/models/team_diagnostic_letter.rb	/^  def self.default_cancellation_letter_subject(locale:)$/;"	F	class:TeamDiagnosticLetter
@@ -788,51 +797,6 @@ get_diagnostic_question	./app/services/team_diagnostic_services/question_creator
 get_formats	./app/services/report_services/renderer.rb	/^    def get_formats(formats)$/;"	f	class:ReportServices.Renderer
 get_renderers	./app/services/report_services/renderer.rb	/^    def get_renderers(formats)$/;"	f	class:ReportServices.Renderer
 get_step	./app/services/team_diagnostic_services/updater.rb	/^    def get_step(step_number = nil)$/;"	f	class:TeamDiagnosticServices.Updater
-globalize_countries	./db/seed/tdv1_i18n_data-utf8.sql	/^CREATE TABLE public.globalize_countries ($/;"	t
-globalize_countries.code	./db/seed/tdv1_i18n_data-utf8.sql	/^    code character(2),$/;"	F
-globalize_countries.currency_code	./db/seed/tdv1_i18n_data-utf8.sql	/^    currency_code character(3),$/;"	F
-globalize_countries.currency_decimal_sep	./db/seed/tdv1_i18n_data-utf8.sql	/^    currency_decimal_sep character(2),$/;"	F
-globalize_countries.currency_format	./db/seed/tdv1_i18n_data-utf8.sql	/^    currency_format character varying(255),$/;"	F
-globalize_countries.date_format	./db/seed/tdv1_i18n_data-utf8.sql	/^    date_format character varying(255),$/;"	F
-globalize_countries.decimal_sep	./db/seed/tdv1_i18n_data-utf8.sql	/^    decimal_sep character(2),$/;"	F
-globalize_countries.english_name	./db/seed/tdv1_i18n_data-utf8.sql	/^    english_name character varying(255),$/;"	F
-globalize_countries.id	./db/seed/tdv1_i18n_data-utf8.sql	/^    id bigint NOT NULL,$/;"	F
-globalize_countries.idx_4871306_globalize_countries_code_index	./db/seed/tdv1_i18n_data-utf8.sql	/^CREATE INDEX idx_4871306_globalize_countries_code_index ON public.globalize_countries USING btree (code);$/;"	i
-globalize_countries.number_grouping_scheme	./db/seed/tdv1_i18n_data-utf8.sql	/^    number_grouping_scheme character varying(255)$/;"	F
-globalize_countries.thousands_sep	./db/seed/tdv1_i18n_data-utf8.sql	/^    thousands_sep character(2),$/;"	F
-globalize_languages	./db/seed/tdv1_i18n_data-utf8.sql	/^CREATE TABLE public.globalize_languages ($/;"	t
-globalize_languages.direction	./db/seed/tdv1_i18n_data-utf8.sql	/^    direction character varying(255),$/;"	F
-globalize_languages.english_name	./db/seed/tdv1_i18n_data-utf8.sql	/^    english_name character varying(255),$/;"	F
-globalize_languages.english_name_locale	./db/seed/tdv1_i18n_data-utf8.sql	/^    english_name_locale character varying(255),$/;"	F
-globalize_languages.english_name_modifier	./db/seed/tdv1_i18n_data-utf8.sql	/^    english_name_modifier character varying(255),$/;"	F
-globalize_languages.id	./db/seed/tdv1_i18n_data-utf8.sql	/^    id bigint NOT NULL,$/;"	F
-globalize_languages.idx_4871315_globalize_languages_iso_639_1_index	./db/seed/tdv1_i18n_data-utf8.sql	/^CREATE INDEX idx_4871315_globalize_languages_iso_639_1_index ON public.globalize_languages USING btree (iso_639_1);$/;"	i
-globalize_languages.idx_4871315_globalize_languages_iso_639_2_index	./db/seed/tdv1_i18n_data-utf8.sql	/^CREATE INDEX idx_4871315_globalize_languages_iso_639_2_index ON public.globalize_languages USING btree (iso_639_2);$/;"	i
-globalize_languages.idx_4871315_globalize_languages_iso_639_3_index	./db/seed/tdv1_i18n_data-utf8.sql	/^CREATE INDEX idx_4871315_globalize_languages_iso_639_3_index ON public.globalize_languages USING btree (iso_639_3);$/;"	i
-globalize_languages.idx_4871315_globalize_languages_rfc_3066_index	./db/seed/tdv1_i18n_data-utf8.sql	/^CREATE INDEX idx_4871315_globalize_languages_rfc_3066_index ON public.globalize_languages USING btree (rfc_3066);$/;"	i
-globalize_languages.iso_639_1	./db/seed/tdv1_i18n_data-utf8.sql	/^    iso_639_1 character(2),$/;"	F
-globalize_languages.iso_639_2	./db/seed/tdv1_i18n_data-utf8.sql	/^    iso_639_2 character(3),$/;"	F
-globalize_languages.iso_639_3	./db/seed/tdv1_i18n_data-utf8.sql	/^    iso_639_3 character(3),$/;"	F
-globalize_languages.macro_language	./db/seed/tdv1_i18n_data-utf8.sql	/^    macro_language boolean,$/;"	F
-globalize_languages.native_name	./db/seed/tdv1_i18n_data-utf8.sql	/^    native_name character varying(255),$/;"	F
-globalize_languages.native_name_locale	./db/seed/tdv1_i18n_data-utf8.sql	/^    native_name_locale character varying(255),$/;"	F
-globalize_languages.native_name_modifier	./db/seed/tdv1_i18n_data-utf8.sql	/^    native_name_modifier character varying(255),$/;"	F
-globalize_languages.pluralization	./db/seed/tdv1_i18n_data-utf8.sql	/^    pluralization character varying(255),$/;"	F
-globalize_languages.rfc_3066	./db/seed/tdv1_i18n_data-utf8.sql	/^    rfc_3066 character varying(255),$/;"	F
-globalize_languages.scope	./db/seed/tdv1_i18n_data-utf8.sql	/^    scope character(1)$/;"	F
-globalize_translations	./db/seed/tdv1_i18n_data-utf8.sql	/^CREATE TABLE public.globalize_translations ($/;"	t
-globalize_translations.built_in	./db/seed/tdv1_i18n_data-utf8.sql	/^    built_in boolean,$/;"	F
-globalize_translations.facet	./db/seed/tdv1_i18n_data-utf8.sql	/^    facet character varying(255),$/;"	F
-globalize_translations.id	./db/seed/tdv1_i18n_data-utf8.sql	/^    id bigint NOT NULL,$/;"	F
-globalize_translations.idx_4871324_globalize_translations_table_name_index	./db/seed/tdv1_i18n_data-utf8.sql	/^CREATE INDEX idx_4871324_globalize_translations_table_name_index ON public.globalize_translations USING btree (table_name, item_id, language_id);$/;"	i
-globalize_translations.idx_4871324_globalize_translations_tr_key_index	./db/seed/tdv1_i18n_data-utf8.sql	/^CREATE INDEX idx_4871324_globalize_translations_tr_key_index ON public.globalize_translations USING btree (tr_key, language_id);$/;"	i
-globalize_translations.item_id	./db/seed/tdv1_i18n_data-utf8.sql	/^    item_id bigint,$/;"	F
-globalize_translations.language_id	./db/seed/tdv1_i18n_data-utf8.sql	/^    language_id bigint,$/;"	F
-globalize_translations.namespace	./db/seed/tdv1_i18n_data-utf8.sql	/^    namespace character varying(255)$/;"	F
-globalize_translations.pluralization_index	./db/seed/tdv1_i18n_data-utf8.sql	/^    pluralization_index bigint,$/;"	F
-globalize_translations.table_name	./db/seed/tdv1_i18n_data-utf8.sql	/^    table_name character varying(255),$/;"	F
-globalize_translations.text	./db/seed/tdv1_i18n_data-utf8.sql	/^    text text,$/;"	F
-globalize_translations.tr_key	./db/seed/tdv1_i18n_data-utf8.sql	/^    tr_key character varying(512),$/;"	F
 grant_consent	./app/controllers/home_controller.rb	/^  def grant_consent$/;"	f	class:HomeController
 grant_consent	./app/models/concerns/user_profiles/consent.rb	/^      def grant_consent(key)$/;"	f	class:UserProfiles.Consent
 grant_params	./app/controllers/grants_controller.rb	/^  def grant_params$/;"	f	class:GrantsController
@@ -845,6 +809,7 @@ header?	./app/services/participant_services/importer.rb	/^    def header?(rows)$
 highest	./app/services/report_services/data_generators/highest_lowest_positivity_ratings.rb	/^      def highest$/;"	f	class:ReportServices.DataGenerators.HighestLowestPositivityRatings
 highest	./app/services/report_services/data_generators/highest_lowest_productivity_ratings.rb	/^      def highest$/;"	f	class:ReportServices.DataGenerators.HighestLowestProductivityRatings
 host_prefix	./app/services/report_services/renderers/base.rb	/^      def host_prefix$/;"	f	class:ReportServices.Renderers.Base
+html_files	./app/models/concerns/reports/files.rb	/^      def html_files(locale:)$/;"	f	class:Reports.Files
 humanize_context	./app/services/app_context.rb	/^    def humanize_context(context)$/;"	f
 i18n_date_long	./app/helpers/application_helper.rb	/^  def i18n_date_long(date)$/;"	f
 i18n_key_options	./app/services/entitlement_services/invitation_creator.rb	/^    def i18n_key_options$/;"	f	class:EntitlementServices.InvitationCreator.selected_entitlement
@@ -887,7 +852,7 @@ index?	./app/policies/user_policy.rb	/^  def index?$/;"	f	class:UserPolicy
 industry_options	./app/services/organization_services/creator.rb	/^    def industry_options$/;"	f	class:OrganizationServices.Creator
 industry_options	./app/services/organization_services/updater.rb	/^    def industry_options$/;"	f	class:OrganizationServices.Updater
 init_report	./app/models/team_diagnostic.rb	/^  def init_report(options: {})$/;"	f	class:TeamDiagnostic
-init_report	./app/services/team_diagnostic_services/reporter.rb	/^    def init_report(options: {})$/;"	f	class:TeamDiagnosticServices.Reporter
+init_report	./app/services/team_diagnostic_services/reporter.rb	/^    def init_report(options: {})$/;"	f	class:TeamDiagnosticServices.Reporter.available_pages
 init_stats	./app/services/participant_services/importer.rb	/^    def init_stats$/;"	f	class:ParticipantServices
 initialize	./app/models/concerns/team_diagnostics/errors.rb	/^      def initialize(msg)$/;"	f	class:TeamDiagnostics.Errors.DeploymentIssueError
 initialize	./app/policies/application_policy.rb	/^    def initialize(user, scope)$/;"	f	class:ApplicationPolicy.Scope
@@ -1080,8 +1045,10 @@ organization_role_badge	./app/helpers/organizations_helper.rb	/^  def organizati
 over_quota?	./app/models/grant.rb	/^  def over_quota?$/;"	f	class:Grant
 owner?	./app/policies/application_policy.rb	/^  def owner?$/;"	f	class:ApplicationPolicy
 owner?	./app/policies/participant_policy.rb	/^  def owner?$/;"	f	class:ParticipantPolicy
+page_order	./app/models/concerns/reports/pages.rb	/^      def page_order$/;"	f	class:Reports.Pages
 page_order	./app/services/report_services/renderers/base.rb	/^      def page_order(locale)$/;"	f	class:ReportServices.Renderers.Base
 page_scope	./app/services/report_services/renderers/base.rb	/^      def page_scope(locale)$/;"	f	class:ReportServices.Renderers.Base
+page_selected?	./app/services/team_diagnostic_services/reporter.rb	/^    def page_selected?(page)$/;"	f	class:TeamDiagnosticServices.Reporter.available_pages
 page_template_data	./app/services/report_services/renderers/html.rb	/^      def page_template_data(page, data, page_index)$/;"	f	class:ReportServices.Renderers.Html
 page_title	./app/helpers/application_helper.rb	/^  def page_title$/;"	f	class:ApplicationHelper
 paginate	./app/services/translation_services/search.rb	/^    def paginate$/;"	f	class:TranslationServices
@@ -1097,16 +1064,19 @@ participant_name	./app/services/diagnostic_survey_services/survey_service.rb	/^ 
 participant_state_badge_class	./app/helpers/participants_helper.rb	/^  def participant_state_badge_class(participant)$/;"	f	class:ParticipantsHelper
 participants_pending_activation	./app/models/team_diagnostic.rb	/^  def participants_pending_activation$/;"	f	class:TeamDiagnostic
 participants_pending_activation?	./app/models/team_diagnostic.rb	/^  def participants_pending_activation?$/;"	f	class:TeamDiagnostic
+pdf_files	./app/models/concerns/reports/files.rb	/^      def pdf_files(locale:)$/;"	f	class:Reports.Files
+pdfkit_options	./app/services/report_services/renderers/pdf.rb	/^      def pdfkit_options(locale)$/;"	f	class:ReportServices.Renderers.Pdf
 pending_actions	./app/models/participant.rb	/^  def pending_actions$/;"	f	class:Participant
 pending_actions	./app/models/team_diagnostic.rb	/^  def pending_actions$/;"	f	class:TeamDiagnostic
 pending_invitation?	./app/models/participant.rb	/^  def pending_invitation?$/;"	f	class:Participant
 perform_deployment	./app/models/team_diagnostic.rb	/^  def perform_deployment$/;"	f	class:TeamDiagnostic
 perform_report	./app/models/team_diagnostic.rb	/^  def perform_report(force: false, options: {})$/;"	f	class:TeamDiagnostic
-perform_report	./app/services/team_diagnostic_services/reporter.rb	/^    def perform_report(force: false, options: {})$/;"	f	class:TeamDiagnosticServices.Reporter
+perform_report	./app/services/team_diagnostic_services/reporter.rb	/^    def perform_report(force: false, options: {})$/;"	f	class:TeamDiagnosticServices.Reporter.available_pages
 permitted_params	./app/services/user_services/creator.rb	/^    def permitted_params(params)$/;"	f	class:UserServices
 permitted_state_events	./app/models/concerns/team_diagnostics/state_machine.rb	/^      def permitted_state_events$/;"	f	class:TeamDiagnostics.StateMachine
 permitted_states	./app/models/concerns/team_diagnostics/state_machine.rb	/^      def permitted_states$/;"	f	class:TeamDiagnostics.StateMachine
 plugins	./postcss.config.js	/^  plugins: [$/;"	p	class:module.exports
+png_files	./app/models/concerns/reports/files.rb	/^      def png_files(locale:)$/;"	f	class:Reports.Files
 png_files	./app/services/report_services/renderers/png.rb	/^      def png_files$/;"	f	class:ReportServices.Renderers.Png
 policy_for_action	./app/services/app_context.rb	/^    def policy_for_action(reference)$/;"	f
 policy_method	./app/services/organization_services/validator.rb	/^    def policy_method$/;"	f	class:OrganizationServices.Validator.validate_access
@@ -1123,6 +1093,7 @@ process_responses	./app/services/report_services/data_generators/highest_lowest_
 progress	./app/models/diagnostic_survey.rb	/^  def progress$/;"	f	class:DiagnosticSurvey
 progress_pct	./app/models/participant.rb	/^  def progress_pct$/;"	f	class:Participant
 pronoun	./app/models/concerns/users/profiles.rb	/^      def pronoun$/;"	f	class:Users.Profiles
+protocol_prefix	./app/services/report_services/renderers/base.rb	/^      def protocol_prefix$/;"	f	class:ReportServices.Renderers.Base
 query_scope	./app/services/user_services/search.rb	/^    def query_scope$/;"	f	class:UserServices.Search
 question_body	./app/helpers/diagnostic_surveys_helper.rb	/^  def question_body(question)$/;"	f	class:DiagnosticSurveysHelper
 question_id	./app/models/diagnostic_response.rb	/^  def question_id$/;"	f	class:DiagnosticResponse
@@ -1203,6 +1174,8 @@ sanitized_translation	./app/helpers/application_helper.rb	/^  def sanitized_tran
 search	./app/services/translation_services/search.rb	/^    def search(search = nil)$/;"	f	class:TranslationServices
 seed_keyed_value_conditions	./app/models/concerns/seeds/seedable.rb	/^      def seed_keyed_value_conditions(record, key)$/;"	f	class:Seeds.Seedable
 selected_entitlement	./app/services/entitlement_services/invitation_creator.rb	/^    def selected_entitlement(id)$/;"	f	class:EntitlementServices.InvitationCreator
+selected_pages	./app/models/concerns/reports/pages.rb	/^      def selected_pages(locale='en')$/;"	f	class:Reports.Pages
+selected_pages	./app/services/team_diagnostic_services/reporter.rb	/^		def selected_pages(locale='en')$/;"	f	class:TeamDiagnosticServices.Reporter.available_pages
 selected_team_diagnostic_open_ended_questions	./app/services/team_diagnostic_services/question_creator.rb	/^    def selected_team_diagnostic_open_ended_questions$/;"	f	class:TeamDiagnosticServices.QuestionCreator
 send_cancel_notification_message	./app/models/concerns/team_diagnostics/messaging.rb	/^      def send_cancel_notification_message$/;"	f	class:TeamDiagnostics.Messaging
 send_cancellation_message	./app/models/concerns/diagnostic_surveys/messaging.rb	/^      def send_cancellation_message$/;"	f	class:DiagnosticSurveys.Messaging
@@ -1377,7 +1350,7 @@ user_options	./app/services/organization_services/creator.rb	/^    def user_opti
 user_options	./app/services/organization_services/updater.rb	/^    def user_options$/;"	f	class:OrganizationServices.Updater
 user_params	./app/controllers/users_controller.rb	/^  def user_params$/;"	f	class:UsersController
 user_set_password_path	./app/controllers/users/confirmations_controller.rb	/^  def user_set_password_path(resource)$/;"	f	class:Users
-user_timezone	./app/controllers/application_controller.rb	/^  def user_timezone(&block)$/;"	f	class:ApplicationController
+user_timezone	./app/controllers/application_controller.rb	/^  def user_timezone(&)$/;"	f	class:ApplicationController
 valid?	./app/services/entitlement_services/grant.rb	/^    def valid?$/;"	f	class:EntitlementServices.Grant
 valid?	./app/services/entitlement_services/grant_usage.rb	/^    def valid?$/;"	f	class:EntitlementServices.GrantUsage
 valid?	./app/services/entitlement_services/invitation_claim.rb	/^    def valid?(params = nil)$/;"	f	class:EntitlementServices.InvitationClaim

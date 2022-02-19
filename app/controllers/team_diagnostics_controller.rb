@@ -114,7 +114,7 @@ class TeamDiagnosticsController < ApplicationController
     # @team_diagnostic.destroy
     # respond_to do |format|
     # format.html { redirect_to team_diagnostics_url, notice: 'Team Diagnostic deleted'.t }
-    # format.json { head :no_content }
+    # format.json { :no_content }
     # end
   end
 
@@ -156,12 +156,12 @@ class TeamDiagnosticsController < ApplicationController
   def report
     @team_diagnostic = TeamDiagnostic.find(params[:id])
     @report = @team_diagnostic.reports.find(params[:report_id])
-    unless @report.token == params[:token]
-      head :not_allowed
-      return
-    end
-    @template = @report.report_template
+    head :not_allowed if @report.token != params[:token]
     @locale = current_locale || @report.team_diagnostic.locale
+    @report_service = TeamDiagnosticServices::Reporter.new(@team_diagnostic)
+    @html_file = @report_service.current_report&.html_files(locale: @locale)&.last
+    raise ActiveRecord::RecordNotFound unless @html_file
+
     @page_title = @report.description
   end
 
@@ -172,12 +172,18 @@ class TeamDiagnosticsController < ApplicationController
 
     @report_service = TeamDiagnosticServices::Reporter.new(@team_diagnostic)
 
-    # TODO: specify page options from params
-    #   options: {page_order: :default || [2,5,6,10] }
-    options = {}
+    options = {page_order: params[:page_order], report_variation: params[:report_variation]}
+    logger.info("ZZZZ: #{options.inspect}")
     @report_service.call(options:)
     notice = 'Your report is being generated'.t
     redirect_to wizard_team_diagnostic_path(@team_diagnostic, step: @team_diagnostic.wizard), notice:
+  end
+
+  def customize_report
+    @service = TeamDiagnosticServices::Updater.new(user: @current_user, id: record_scope.find(params[:id]), params:)
+    @team_diagnostic = @service.team_diagnostic
+    authorize @team_diagnostic
+    @report_service = TeamDiagnosticServices::Reporter.new(@team_diagnostic)
   end
 
   private

@@ -47,6 +47,10 @@ class TeamDiagnosticPolicy < ApplicationPolicy
     update?
   end
 
+  def customize_report
+    update?
+  end
+
   def destroy?
     update?
   end

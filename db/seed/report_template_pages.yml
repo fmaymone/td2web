@@ -24,7 +24,9 @@
           [[ASSET_TAGS_HERE]]
         </head>
         <body>
+        <div id="report_content">
           [[REPORT_CONTENT_HERE]]
+        </div>
         </body>
       </html>
   - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'TDA Diagnostic Report (en)') %>
@@ -1037,7 +1039,7 @@
     :index: 28
     :locale: en
     :format: html
-    :name: TDA Report Conclusion - Ongoing Coaching (en)
+    :name: TDA Report Conclusion - Ongoing Team Development (en)
     :markup: |
       <section id="{{slug}}" class="report_page" data-page="{{page}}">
         <header>
@@ -1151,7 +1153,7 @@
       </section>
   - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'TDA Diagnostic Report (en)') %>
     :slug: page_action_plan_2
-    :index: 32
+    :index: 31
     :locale: en
     :format: html
     :name: TDA Report Conclusion - Team Action Plan (2) (en)
@@ -1207,10 +1209,10 @@
       </section>
   - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'TDA Diagnostic Report (en)') %>
     :slug: page_notes
-    :index: 33
+    :index: 32
     :locale: en
     :format: html
-    :name: TDA Report Conclusion - Team Action Plan (2) (en)
+    :name: TDA Report Conclusion - Notes (en)
     :markup: |
       <section id="{{slug}}" class="report_page" data-page="{{page}}">
         <header>

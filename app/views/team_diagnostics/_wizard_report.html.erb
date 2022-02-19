@@ -6,21 +6,7 @@
       </span>
     </h3>
   </div>
-  <div class="col-sm-6 text-right">
-    <% if @report_service.status != :running %>
-        <% case @report_service.status 
-            when :pending %>
-          <%= link_to('Create Report'.t, generate_report_team_diagnostic_path(id: @team_diagnostic.id), class: 'btn btn-primary', method: :post) %>  
-        <%  when :stalled %>
-          <%= link_to('Create Report'.t, generate_report_team_diagnostic_path(id: @team_diagnostic.id), class: 'btn btn-primary', method: :post) %>  
-        <%  when :completed %>
-          <%= link_to('Regenerate Report'.t, generate_report_team_diagnostic_path(id: @team_diagnostic.id), method: :post) %>  
-        <% end %>
-    <% end %>
-  </div>
 </div>
-
-
 
 <% if @report_service.status != :pending %>
   <div class="row">
@@ -76,41 +62,54 @@
   </div>
 <% end %>
 
+<%= form_tag generate_report_team_diagnostic_path(id: @team_diagnostic.id), id: 'report--options-form', method: :post do %>
 
-
-<!--
-<div class="row">
-  <div class="col-sm-12">
-    <h3>Report Pages</h3>
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Selected Pages</h5>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Page 1</li> 
-              <li class="list-group-item">Page 2</li> 
-              <li class="list-group-item">Page 3</li> 
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Available Pages</h5>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Page 4</li> 
-              <li class="list-group-item">Page 5</li> 
-              <li class="list-group-item">Page 6</li> 
-            </ul>
-          </div>
-        </div>
-      </div>
+  <div class="row" id="report-options">
+    <div class="col-12">
+      <%= render partial: 'wizard_report_options', locals: {report_service: @report_service } %>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-6 text-right">
+    </div>
+    <div class="col-6 text-right">
+      <% if @report_service.status != :running %>
+        <% case @report_service.status 
+        when :pending %>
+      <button type"submit" class="btn btn-primary" id="create_report_button">
+        <%= 'Create Report'.t %>
+      </button>
+    <%  when :stalled %>
+      <button type"submit" class="btn btn-primary" id="create_report_button">
+        <%= 'Create Report'.t %>
+      </button>
+    <%  when :completed %>
+      <button type"submit" class="btn btn-primary" id="create_report_button">
+        <%= 'Regenerate Report'.t %>
+      </button>
+    <% end %>
+  <% end %>
+</div>
 </div>
 
+<% end %>
 
+<!-- 
+  <div class="row">
+    <div class="col-6 text-right">
+    </div>
+    <div class="col-6 text-right">
+      <% if @report_service.status != :running %>
+          <% case @report_service.status 
+              when :pending %>
+            <%= link_to('Create Report'.t, generate_report_team_diagnostic_path(id: @team_diagnostic.id), id: 'create_report_button', class: 'btn btn-primary', method: :post) %>  
+          <%  when :stalled %>
+            <%= link_to('Create Report'.t, generate_report_team_diagnostic_path(id: @team_diagnostic.id), id: 'create_report_button', class: 'btn btn-primary', method: :post) %> 
+          <%  when :completed %>
+            <%= link_to('Regenerate Report'.t, generate_report_team_diagnostic_path(id: @team_diagnostic.id), id: 'create_report_button', class: 'btn btn-small btn-warning', method: :post) %>  
+          <% end %>
+      <% end %>
+    </div>
+  </div>
 -->
-

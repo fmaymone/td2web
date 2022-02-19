@@ -1,0 +1,35 @@
+#list--report_pages {
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  font-size: 0.8em;
+}
+
+.list--report_pages .list-group-item {
+  padding: 0.2em 0.5em;
+  margin: 0.3em;
+  border: 2px solid #eee;
+  cursor: pointer;
+}
+
+span.list--control-up, span.list--control-down, span.list--control-select {
+  cursor: pointer;
+}
+
+.badge--report-option-selection {
+  cursor: pointer;
+}
+
+.drag_click {
+  background: #17a2b8;
+  opacity: 0.3;
+}
+
+.drag_hover {
+  margin-top: 1em;
+  border-top: 2px dashed #17a2b8 !important;
+}
+
+
+#report-options .card {
+  margin: 0.5em;
+}

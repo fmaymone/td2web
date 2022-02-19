@@ -2,6 +2,7 @@ h2.team_diagnostic--wizard--step-header {
   margin-bottom: 0;
 }
 
-#available_questions, #selected_questions {
-  list-style-type: none;
+.list-group-item .over {
+  border: 2px dotted #555;
 }
+
