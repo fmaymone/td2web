@@ -27,6 +27,9 @@ class Entitlement < ApplicationRecord
   CREATE_DIAGNOSTIC_L360 = 'create-diagnostic-l360'
   CREATE_DIAGNOSTIC_FT = 'create-diagnostic-ft'
   CREATE_DIAGNOSTIC_ANY = 'create-diagnostic-any'
+  GENERATE_REPORT_STANDARD = 'generate-report-standard'
+  GENERATE_REPORT_COMPARISON = 'generate-report-comparison'
+  GENERATE_REPORT_SEGMENTED = 'generate-report-segmented'
 
   ### Concerns
   include Seeds::Seedable

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_27_213425) do
+ActiveRecord::Schema.define(version: 2022_07_27_233853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -64,6 +64,24 @@ ActiveRecord::Schema.define(version: 2021_11_27_213425) do
     t.index ["created_at"], name: "index_audits_on_created_at"
     t.index ["request_uuid"], name: "index_audits_on_request_uuid"
     t.index ["user_id", "user_type"], name: "user_index"
+  end
+
+  create_table "coupons", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "code", null: false
+    t.string "description", null: false
+    t.boolean "stackable", default: false, null: false
+    t.boolean "active", default: true, null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "discount", default: 0, null: false
+    t.uuid "product_id", null: false
+    t.uuid "owner_id"
+    t.string "owner_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["active", "product_id"], name: "coupons_product_idx"
+    t.index ["code"], name: "index_coupons_on_code", unique: true
+    t.index ["owner_id", "owner_type"], name: "coupons_owner_idx"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -278,6 +296,20 @@ ActiveRecord::Schema.define(version: 2021_11_27_213425) do
     t.json "metadata", default: ""
     t.index ["team_diagnostic_id", "email"], name: "index_participants_on_team_diagnostic_id_and_email", unique: true
     t.index ["team_diagnostic_id", "state"], name: "index_participants_on_team_diagnostic_id_and_state"
+  end
+
+  create_table "products", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "slug", null: false
+    t.string "name", null: false
+    t.text "description"
+    t.decimal "price", default: "0.0", null: false
+    t.jsonb "volume_pricing", default: {}, null: false
+    t.integer "product_type", default: 1, null: false
+    t.boolean "active", default: true, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["active"], name: "index_products_on_active"
+    t.index ["name"], name: "index_products_on_name", unique: true
   end
 
   create_table "report_template_pages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

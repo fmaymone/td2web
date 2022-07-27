@@ -66,3 +66,17 @@
     :description: 'Create any Diagnostic'
     :quota: 100
     :active: true
+  - :slug: <%= Entitlement::GENERATE_REPORT_STANDARD %>
+    :account: true
+    :role_id: <%= Role.facilitator.id %>
+    :reference: <%= TeamDiagnosticServices::Reporter::REFERENCE %>
+    :description: 'Generate Standard Report'
+    :quota: 1
+    :active: true
+  - :slug: <%= Entitlement::GENERATE_REPORT_COMPARISON %>
+    :account: true
+    :role_id: <%= Role.facilitator.id %>
+    :reference: <%= TeamDiagnosticServices::Reporter::REFERENCE %>
+    :description: 'Generate Comparison Report'
+    :quota: 1
+    :active: true
