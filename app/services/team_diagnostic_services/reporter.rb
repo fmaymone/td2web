@@ -110,6 +110,8 @@ module TeamDiagnosticServices
     # options: {page_order: :default || [2,5,6,10] }
     #
     def perform_report(force: false, options: {})
+      # TODO check for entitlements
+      #
       @team_diagnostic.reports.stalled.map(&:reject)
       @team_diagnostic.reports.reload
 
