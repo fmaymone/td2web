@@ -18,6 +18,8 @@
 class Entitlement < ApplicationRecord
   ### Constants
   ALLOWED_PARAMS = %i[account active role_id reference slug description quota].freeze
+
+  ### Named Entitlements
   REGISTER_AS_FACILITATOR = 'register-facilitator'
   CREATE_ORGANIZATION = 'create-organization'
   CREATE_DIAGNOSTIC_TDA = 'create-diagnostic-tda'
@@ -30,6 +32,7 @@ class Entitlement < ApplicationRecord
   GENERATE_REPORT_STANDARD = 'generate-report-standard'
   GENERATE_REPORT_COMPARISON = 'generate-report-comparison'
   GENERATE_REPORT_SEGMENTED = 'generate-report-segmented'
+  CASE_STUDY = 'generate-case-study'
 
   ### Concerns
   include Seeds::Seedable

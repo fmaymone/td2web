@@ -299,12 +299,13 @@ ActiveRecord::Schema.define(version: 2022_07_27_233853) do
   end
 
   create_table "products", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.integer "product_type", default: 0, null: false
     t.string "slug", null: false
     t.string "name", null: false
     t.text "description"
     t.decimal "price", default: "0.0", null: false
     t.jsonb "volume_pricing", default: {}, null: false
-    t.integer "product_type", default: 1, null: false
+    t.jsonb "entitlement_detail", default: {}, null: false
     t.boolean "active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -330,13 +331,11 @@ ActiveRecord::Schema.define(version: 2022_07_27_233853) do
     t.uuid "tenant_id", null: false
     t.uuid "diagnostic_id", null: false
     t.string "name", null: false
-    t.string "locale", default: "en", null: false
     t.string "state", default: "draft", null: false
     t.integer "version", default: 1, null: false
-    t.json "template"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["tenant_id", "diagnostic_id", "locale", "state", "version"], name: "report_templates_idx"
+    t.index ["tenant_id", "diagnostic_id", "state", "version"], name: "report_templates_idx"
   end
 
   create_table "reports", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
