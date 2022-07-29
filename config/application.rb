@@ -36,6 +36,7 @@ module Teamdiagnostic
     config.action_mailer.default_url_options = { host: application_host, port: application_port }
 
     config.autoload_paths += %w[app/services]
+    config.active_record.use_yaml_unsafe_load = true
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

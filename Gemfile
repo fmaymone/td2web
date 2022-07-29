@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.0'
+ruby '3.1.2'
 
 # gem 'secure_headers'
 gem 'aasm'
@@ -45,7 +45,7 @@ gem 'pry-inline'
 gem 'pry-rails'
 gem 'puma'
 gem 'pundit'
-gem 'rails'
+gem 'rails', '~> 6.1'
 gem 'rails-i18n'
 gem 'rexml'
 gem 'roo'
