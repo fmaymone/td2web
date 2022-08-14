@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module ReportServices
   # Report chart data generator
   module DataGenerators

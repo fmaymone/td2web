@@ -44,6 +44,8 @@ class User < ApplicationRecord
   belongs_to :tenant
   has_many :grants, dependent: :destroy
   has_many :team_diagnostics
+  has_many :coupons, as: :orderable, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
   ### Attributes
 

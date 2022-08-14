@@ -8,15 +8,15 @@ class CreateCoupons < ActiveRecord::Migration[6.1]
       t.date :start_date
       t.date :end_date
       t.integer :discount, null: false, default: 0
-      t.uuid :product_id, null: false
+      t.uuid :product_id
       t.uuid :owner_id
       t.string :owner_type
 
       t.timestamps
     end
 
-    add_index :coupons, :code, unique: true
-    add_index :coupons, [:owner_id, :owner_type], name: 'coupons_owner_idx'
-    add_index :coupons, [ :active, :product_id ], name: 'coupons_product_idx'
+    add_index :coupons, [:active, :code ], unique: true, name: 'idx_coupons_general'
+    add_index :coupons, [:owner_id, :owner_type], name: 'idx_coupons_owner'
+    add_index :coupons, [ :active, :product_id ], name: 'idx_coupons_product'
   end
 end

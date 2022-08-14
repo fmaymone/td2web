@@ -59,6 +59,7 @@ module OrganizationServices
         Organization.transaction do
           @organization.save!
           assign_membership!
+          # assign_coupons!
         end
         true
       else
@@ -76,6 +77,26 @@ module OrganizationServices
       )
       @errors += association.errors.full_messages unless association.valid?
       association.save!
+    end
+
+    def assign_coupons!
+      return true if coupons.any?
+
+      add_nonprofit_coupon
+      true
+    end
+
+    def add_nonprofit_coupon
+      return true unless @organization.nonprofit?
+
+      Coupon.create(
+        owner: @organization,
+        description: Coupon::NONPROFIT_DISCOUNT_DESCRIPTION,
+        stackable: false,
+        active: true,
+        start_date: Time.current,
+        discount: 10
+      )
     end
 
     def sanitize_params(params = {})

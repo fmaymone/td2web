@@ -43,6 +43,12 @@ namespace :db do
       require_relative '../../db/seed/report_template_pages'
       run_seeder(Seeds::ReportTemplatePages)
     end
+
+    desc 'Products'
+    task products: :environment do
+      require_relative '../../db/seed/products'
+      run_seeder(Seeds::Products)
+    end
   end
 end
 

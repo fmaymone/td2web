@@ -59,11 +59,24 @@ module OrganizationServices
         @errors << e.to_s
       end
       if valid? && @organization.save
+        deactivate_nonprofit_coupon_if_profit
         @organization
       else
         @errors += @organization.errors.full_messages
         false
       end
+    end
+
+    def deactivate_nonprofit_coupon_if_profit
+      unless @organization.nonprofit?
+        coupons = @organization.coupons.where(description: Coupon::NONPROFIT_DISCOUNT_DESCRIPTION)
+        if @organization.orders.any?
+          coupons.update_all(active: false)
+        else
+          coupons.destroy_all
+        end
+      end
+      @organization.coupons.reload
     end
 
     def sanitize_params(params = {})

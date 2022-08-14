@@ -48,5 +48,4 @@ class Report < ApplicationRecord
   def reset_token
     self.token = Digest::UUID.uuid_v4
   end
-
 end

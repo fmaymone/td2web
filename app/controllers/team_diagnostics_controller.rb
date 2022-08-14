@@ -172,7 +172,7 @@ class TeamDiagnosticsController < ApplicationController
 
     @report_service = TeamDiagnosticServices::Reporter.new(@team_diagnostic)
 
-    options = {page_order: params[:page_order], report_variation: params[:report_variation]}
+    options = { page_order: params[:page_order], report_variation: params[:report_variation] }
     logger.info("ZZZZ: #{options.inspect}")
     @report_service.call(options:)
     notice = 'Your report is being generated'.t

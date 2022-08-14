@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_27_233853) do
+ActiveRecord::Schema.define(version: 2022_09_07_223954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -74,14 +74,14 @@ ActiveRecord::Schema.define(version: 2022_07_27_233853) do
     t.date "start_date"
     t.date "end_date"
     t.integer "discount", default: 0, null: false
-    t.uuid "product_id", null: false
+    t.uuid "product_id"
     t.uuid "owner_id"
     t.string "owner_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["active", "product_id"], name: "coupons_product_idx"
-    t.index ["code"], name: "index_coupons_on_code", unique: true
-    t.index ["owner_id", "owner_type"], name: "coupons_owner_idx"
+    t.index ["active", "code"], name: "idx_coupons_general", unique: true
+    t.index ["active", "product_id"], name: "idx_coupons_product"
+    t.index ["owner_id", "owner_type"], name: "idx_coupons_owner"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -257,6 +257,50 @@ ActiveRecord::Schema.define(version: 2022_07_27_233853) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["claimed_by_id"], name: "index_invitations_on_claimed_by_id"
     t.index ["tenant_id", "active", "token"], name: "index_invitations_on_tenant_id_and_active_and_token"
+  end
+
+  create_table "order_discounts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "order_id", null: false
+    t.uuid "coupon_id", null: false
+    t.string "description", null: false
+    t.decimal "total", default: "0.0", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coupon_id"], name: "index_order_discounts_on_coupon_id"
+    t.index ["order_id"], name: "index_order_discounts_on_order_id"
+  end
+
+  create_table "order_items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "order_id", null: false
+    t.uuid "product_id", null: false
+    t.string "description", null: false
+    t.integer "quantity", default: 0, null: false
+    t.decimal "unit_price", default: "0.0", null: false
+    t.decimal "total", default: "0.0", null: false
+    t.integer "index", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "idx_order_items_order_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["product_id"], name: "index_order_items_on_product_id"
+  end
+
+  create_table "orders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "orderid", null: false
+    t.bigint "user_id"
+    t.uuid "orderable_id", null: false
+    t.string "orderable_type", null: false
+    t.decimal "subtotal", default: "0.0", null: false
+    t.decimal "tax", default: "0.0", null: false
+    t.decimal "total", default: "0.0", null: false
+    t.datetime "submitted_at"
+    t.integer "payment_method", default: 0, null: false
+    t.string "state", default: "pending", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["orderable_id", "orderable_type"], name: "idx_orders_orderable"
+    t.index ["state", "user_id", "orderid"], name: "idx_orders_general", unique: true
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "organization_users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -518,4 +562,8 @@ ActiveRecord::Schema.define(version: 2022_07_27_233853) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "order_discounts", "coupons"
+  add_foreign_key "order_discounts", "orders"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "products"
 end

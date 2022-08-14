@@ -7,8 +7,6 @@ module OrganizationServices
 
     attr_reader :params, :user, :organization, :errors
 
-    def initialize(user:, params: {}); end
-
     private
 
     def sanitize_params(params = {})

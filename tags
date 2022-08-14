@@ -35,8 +35,10 @@ Channel	./app/channels/application_cable/channel.rb	/^  class Channel < ActionCa
 Connection	./app/channels/application_cable/connection.rb	/^  class Connection < ActionCable::Connection::Base$/;"	c	class:ApplicationCable
 Consent	./app/models/concerns/user_profiles/consent.rb	/^  module Consent$/;"	m	class:UserProfiles
 ConsentUnauthorizedError	./app/models/concerns/user_profiles/consent.rb	/^    class ConsentUnauthorizedError < StandardError; end$/;"	c	class:UserProfiles.Consent
+Coupon	./app/models/coupon.rb	/^class Coupon < ApplicationRecord$/;"	c
 CreateActiveStorageTables	./db/migrate/20201210064758_create_active_storage_tables.active_storage.rb	/^class CreateActiveStorageTables < ActiveRecord::Migration[5.2]$/;"	c
 CreateActiveStorageVariantRecords	./db/migrate/20210224044641_create_active_storage_variant_records.active_storage.rb	/^class CreateActiveStorageVariantRecords < ActiveRecord::Migration[6.0]$/;"	c
+CreateCoupons	./db/migrate/20220727233853_create_coupons.rb	/^class CreateCoupons < ActiveRecord::Migration[6.1]$/;"	c
 CreateDelayedJobs	./db/migrate/20200701065659_create_delayed_jobs.rb	/^class CreateDelayedJobs < ActiveRecord::Migration[6.0]$/;"	c
 CreateDiagnosticQuestions	./db/migrate/20201115231031_create_diagnostic_questions.rb	/^class CreateDiagnosticQuestions < ActiveRecord::Migration[6.0]$/;"	c
 CreateDiagnosticResponses	./db/migrate/20210224064302_create_diagnostic_responses.rb	/^class CreateDiagnosticResponses < ActiveRecord::Migration[6.1]$/;"	c
@@ -49,6 +51,7 @@ CreateInvitations	./db/migrate/20200925053849_create_invitations.rb	/^class Crea
 CreateOrganizationUsers	./db/migrate/20201018201906_create_organization_users.rb	/^class CreateOrganizationUsers < ActiveRecord::Migration[6.0]$/;"	c
 CreateOrganizations	./db/migrate/20201018193638_create_organizations.rb	/^class CreateOrganizations < ActiveRecord::Migration[6.0]$/;"	c
 CreateParticipants	./db/migrate/20201212222139_create_participants.rb	/^class CreateParticipants < ActiveRecord::Migration[6.0]$/;"	c
+CreateProducts	./db/migrate/20220727231456_create_products.rb	/^class CreateProducts < ActiveRecord::Migration[6.1]$/;"	c
 CreateReportTemplatePages	./db/migrate/20211106225433_create_report_template_pages.rb	/^class CreateReportTemplatePages < ActiveRecord::Migration[6.1]$/;"	c
 CreateReportTemplates	./db/migrate/20210514045354_create_report_templates.rb	/^class CreateReportTemplates < ActiveRecord::Migration[6.1]$/;"	c
 CreateReports	./db/migrate/20210428003333_create_reports.rb	/^class CreateReports < ActiveRecord::Migration[6.1]$/;"	c
@@ -70,6 +73,7 @@ CsvExporter	./app/services/translation_services/csv_exporter.rb	/^  class CsvExp
 CsvImporter	./app/services/translation_services/csv_importer.rb	/^  class CsvImporter$/;"	c	class:TranslationServices
 DataGenerator	./app/services/report_services/data_generator.rb	/^  class DataGenerator$/;"	c	class:ReportServices
 DataGenerators	./app/services/report_services/data_generators/base.rb	/^  module DataGenerators$/;"	m	class:ReportServices
+DataGenerators	./app/services/report_services/data_generators/data_selection.rb	/^  module DataGenerators$/;"	m	class:ReportServices
 DataGenerators	./app/services/report_services/data_generators/highest_lowest_positivity_ratings.rb	/^  module DataGenerators$/;"	m	class:ReportServices
 DataGenerators	./app/services/report_services/data_generators/highest_lowest_productivity_ratings.rb	/^  module DataGenerators$/;"	m	class:ReportServices
 DataGenerators	./app/services/report_services/data_generators/least_agreement.rb	/^  module DataGenerators$/;"	m	class:ReportServices
@@ -78,6 +82,7 @@ DataGenerators	./app/services/report_services/data_generators/polar_chart.rb	/^ 
 DataGenerators	./app/services/report_services/data_generators/positivity_strengths.rb	/^  module DataGenerators$/;"	m	class:ReportServices
 DataGenerators	./app/services/report_services/data_generators/productivity_strengths.rb	/^  module DataGenerators$/;"	m	class:ReportServices
 DataGenerators	./app/services/report_services/data_generators/team_matrix_position.rb	/^  module DataGenerators$/;"	m	class:ReportServices
+DataSelection	./app/services/report_services/data_generators/data_selection.rb	/^    class DataSelection$/;"	c	class:ReportServices.DataGenerators
 DeploymentIssueError	./app/models/concerns/team_diagnostics/errors.rb	/^    class DeploymentIssueError < TeamDiagnosticError$/;"	c	class:TeamDiagnostics.Errors
 Devise	./app/models/concerns/users/devise.rb	/^  module Devise$/;"	m	class:Users
 DeviseCreateUsers	./db/migrate/20200815171158_devise_create_users.rb	/^class DeviseCreateUsers < ActiveRecord::Migration[6.0]$/;"	c
@@ -177,7 +182,9 @@ Pdf	./app/services/report_services/renderers/pdf.rb	/^    class Pdf < Base$/;"	c
 Png	./app/services/report_services/renderers/png.rb	/^    class Png < Base$/;"	c	class:ReportServices.Renderers
 PolarChart	./app/services/report_services/data_generators/polar_chart.rb	/^    class PolarChart < Base$/;"	c	class:ReportServices.DataGenerators
 PositivityStrengths	./app/services/report_services/data_generators/positivity_strengths.rb	/^    class PositivityStrengths < Base$/;"	c	class:ReportServices.DataGenerators
+Product	./app/models/product.rb	/^class Product < ApplicationRecord$/;"	c
 ProductivityStrengths	./app/services/report_services/data_generators/productivity_strengths.rb	/^    class ProductivityStrengths < Base$/;"	c	class:ReportServices.DataGenerators
+Products	./db/seed/products.rb	/^  class Products$/;"	c	class:Seeds
 Profiles	./app/models/concerns/users/profiles.rb	/^  module Profiles$/;"	m	class:Users
 QuestionAssignmentError	./app/models/concerns/team_diagnostics/errors.rb	/^    class QuestionAssignmentError < TeamDiagnosticError; end$/;"	c	class:TeamDiagnostics.Errors
 QuestionCreator	./app/services/team_diagnostic_services/question_creator.rb	/^  class QuestionCreator$/;"	c	class:TeamDiagnosticServices
@@ -193,6 +200,7 @@ Renderers	./app/services/report_services/renderers/png.rb	/^  module Renderers$/
 Report	./app/models/report.rb	/^class Report < ApplicationRecord$/;"	c
 ReportServices	./app/services/report_services/data_generator.rb	/^module ReportServices$/;"	m
 ReportServices	./app/services/report_services/data_generators/base.rb	/^module ReportServices$/;"	m
+ReportServices	./app/services/report_services/data_generators/data_selection.rb	/^module ReportServices$/;"	m
 ReportServices	./app/services/report_services/data_generators/highest_lowest_positivity_ratings.rb	/^module ReportServices$/;"	m
 ReportServices	./app/services/report_services/data_generators/highest_lowest_productivity_ratings.rb	/^module ReportServices$/;"	m
 ReportServices	./app/services/report_services/data_generators/least_agreement.rb	/^module ReportServices$/;"	m
@@ -245,6 +253,7 @@ Seeds	./db/seed/diagnostic_questions.rb	/^module Seeds$/;"	m
 Seeds	./db/seed/diagnostics.rb	/^module Seeds$/;"	m
 Seeds	./db/seed/entitlements.rb	/^module Seeds$/;"	m
 Seeds	./db/seed/globalize.rb	/^module Seeds$/;"	m
+Seeds	./db/seed/products.rb	/^module Seeds$/;"	m
 Seeds	./db/seed/report_template_pages.rb	/^module Seeds$/;"	m
 Seeds	./db/seed/report_templates.rb	/^module Seeds$/;"	m
 Seeds	./db/seed/roles.rb	/^module Seeds$/;"	m
@@ -469,6 +478,7 @@ call	./db/seed/diagnostic_questions.rb	/^    def call$/;"	f	class:Seeds.Diagnost
 call	./db/seed/diagnostics.rb	/^    def call$/;"	f	class:Seeds.Diagnostics
 call	./db/seed/entitlements.rb	/^    def call$/;"	f	class:Seeds.Entitlements
 call	./db/seed/globalize.rb	/^    def call$/;"	f	class:Seeds.Globalize
+call	./db/seed/products.rb	/^    def call$/;"	f	class:Seeds.Products
 call	./db/seed/report_template_pages.rb	/^    def call$/;"	f	class:Seeds.ReportTemplatePages
 call	./db/seed/report_templates.rb	/^    def call$/;"	f	class:Seeds.ReportTemplates
 call	./db/seed/roles.rb	/^    def call$/;"	f	class:Seeds.Roles
@@ -524,6 +534,8 @@ change	./db/migrate/20210517231742_add_weight_to_diagnostic_questions.rb	/^  def
 change	./db/migrate/20210929050820_add_metadata_to_participants.rb	/^  def change$/;"	f	class:AddMetadataToParticipants
 change	./db/migrate/20211106225433_create_report_template_pages.rb	/^  def change$/;"	f	class:CreateReportTemplatePages
 change	./db/migrate/20211127213425_add_options_to_report.rb	/^  def change$/;"	f	class:AddOptionsToReport
+change	./db/migrate/20220727231456_create_products.rb	/^  def change$/;"	f	class:CreateProducts
+change	./db/migrate/20220727233853_create_coupons.rb	/^  def change$/;"	f	class:CreateCoupons
 chart	./app/services/report_services/data_generators/least_agreement.rb	/^      def chart$/;"	f	class:ReportServices.DataGenerators.LeastAgreement
 chart	./app/services/report_services/data_generators/most_agreement.rb	/^      def chart$/;"	f	class:ReportServices.DataGenerators.MostAgreement
 chart_css	./app/services/report_services/renderers/png.rb	/^      def chart_css(chart_name)$/;"	f	class:ReportServices.Renderers.Png
@@ -626,7 +638,7 @@ current_step	./app/services/team_diagnostic_services/updater.rb	/^    def curren
 current_tenant	./app/controllers/application_controller.rb	/^  def current_tenant$/;"	f	class:ApplicationController
 current_tenant	./app/helpers/application_helper.rb	/^  def current_tenant$/;"	f	class:ApplicationHelper
 current_user_has_no_organizations_or_diagnostics?	./app/helpers/team_diagnostics_helper.rb	/^  def current_user_has_no_organizations_or_diagnostics?$/;"	f	class:TeamDiagnosticsHelper
-custom_pagination?	./app/services/team_diagnostic_services/reporter.rb	/^    def custom_pagination?$/;"	f	class:TeamDiagnosticServices.Reporter.available_pages
+custom_pagination?	./app/services/team_diagnostic_services/reporter.rb	/^    def custom_pagination?$/;"	f	class:TeamDiagnosticServices.Reporter
 customize_report	./app/controllers/team_diagnostics_controller.rb	/^  def customize_report$/;"	f	class:TeamDiagnosticsController
 customize_report	./app/policies/team_diagnostic_policy.rb	/^  def customize_report$/;"	f	class:TeamDiagnosticPolicy
 data_for_export	./app/services/team_diagnostic_services/csv_exporter.rb	/^    def data_for_export$/;"	f	class:TeamDiagnosticServices.CsvExporter
@@ -852,7 +864,7 @@ index?	./app/policies/user_policy.rb	/^  def index?$/;"	f	class:UserPolicy
 industry_options	./app/services/organization_services/creator.rb	/^    def industry_options$/;"	f	class:OrganizationServices.Creator
 industry_options	./app/services/organization_services/updater.rb	/^    def industry_options$/;"	f	class:OrganizationServices.Updater
 init_report	./app/models/team_diagnostic.rb	/^  def init_report(options: {})$/;"	f	class:TeamDiagnostic
-init_report	./app/services/team_diagnostic_services/reporter.rb	/^    def init_report(options: {})$/;"	f	class:TeamDiagnosticServices.Reporter.available_pages
+init_report	./app/services/team_diagnostic_services/reporter.rb	/^    def init_report(options: {})$/;"	f	class:TeamDiagnosticServices.Reporter
 init_stats	./app/services/participant_services/importer.rb	/^    def init_stats$/;"	f	class:ParticipantServices
 initialize	./app/models/concerns/team_diagnostics/errors.rb	/^      def initialize(msg)$/;"	f	class:TeamDiagnostics.Errors.DeploymentIssueError
 initialize	./app/policies/application_policy.rb	/^    def initialize(user, scope)$/;"	f	class:ApplicationPolicy.Scope
@@ -876,6 +888,7 @@ initialize	./app/services/participant_services/updater.rb	/^    def initialize(u
 initialize	./app/services/participant_services/validator.rb	/^    def initialize(service, action: :create)$/;"	f	class:ParticipantServices.Validator
 initialize	./app/services/report_services/data_generator.rb	/^    def initialize(report)$/;"	f	class:ReportServices.DataGenerator
 initialize	./app/services/report_services/data_generators/base.rb	/^      def initialize(team_diagnostic)$/;"	f	class:ReportServices.DataGenerators.Base
+initialize	./app/services/report_services/data_generators/data_selection.rb	/^      def initialize(team_diagnostic, selection_options)$/;"	f	class:ReportServices.DataGenerators.DataSelection
 initialize	./app/services/report_services/renderer.rb	/^    def initialize(report, formats: :standard, locale: nil)$/;"	f	class:ReportServices.Renderer
 initialize	./app/services/report_services/renderers/base.rb	/^      def initialize(report:, locale: nil, options: {})$/;"	f	class:ReportServices.Renderers.Base
 initialize	./app/services/team_diagnostic_services/creator.rb	/^    def initialize(user:, params: {})$/;"	f	class:TeamDiagnosticServices.Creator
@@ -896,6 +909,7 @@ initialize	./db/seed/diagnostic_questions.rb	/^    def initialize(message: nil, 
 initialize	./db/seed/diagnostics.rb	/^    def initialize(message: nil)$/;"	f	class:Seeds.Diagnostics
 initialize	./db/seed/entitlements.rb	/^    def initialize(message: nil)$/;"	f	class:Seeds.Entitlements
 initialize	./db/seed/globalize.rb	/^    def initialize(filename = nil)$/;"	f	class:Seeds.Globalize
+initialize	./db/seed/products.rb	/^    def initialize(message: nil)$/;"	f	class:Seeds.Products
 initialize	./db/seed/report_template_pages.rb	/^    def initialize(message: nil, filename: nil)$/;"	f	class:Seeds.ReportTemplatePages
 initialize	./db/seed/report_templates.rb	/^    def initialize(filename: nil, message: nil)$/;"	f	class:Seeds.ReportTemplates
 initialize	./db/seed/roles.rb	/^    def initialize(message: nil)$/;"	f	class:Seeds.Roles
@@ -951,6 +965,7 @@ log	./app/models/system_event.rb	/^  def self.log(event_source:, description:, i
 log	./db/seed/diagnostic_questions.rb	/^    def log(message)$/;"	f	class:Seeds
 log	./db/seed/diagnostics.rb	/^    def log(message)$/;"	f	class:Seeds.Diagnostics
 log	./db/seed/entitlements.rb	/^    def log(message)$/;"	f	class:Seeds.Entitlements
+log	./db/seed/products.rb	/^    def log(message)$/;"	f	class:Seeds.Products
 log	./db/seed/report_template_pages.rb	/^    def log(message)$/;"	f	class:Seeds.ReportTemplatePages
 log	./db/seed/report_templates.rb	/^    def log(message)$/;"	f	class:Seeds.ReportTemplates
 log	./db/seed/roles.rb	/^    def log(message)$/;"	f	class:Seeds.Roles
@@ -1048,7 +1063,7 @@ owner?	./app/policies/participant_policy.rb	/^  def owner?$/;"	f	class:Participa
 page_order	./app/models/concerns/reports/pages.rb	/^      def page_order$/;"	f	class:Reports.Pages
 page_order	./app/services/report_services/renderers/base.rb	/^      def page_order(locale)$/;"	f	class:ReportServices.Renderers.Base
 page_scope	./app/services/report_services/renderers/base.rb	/^      def page_scope(locale)$/;"	f	class:ReportServices.Renderers.Base
-page_selected?	./app/services/team_diagnostic_services/reporter.rb	/^    def page_selected?(page)$/;"	f	class:TeamDiagnosticServices.Reporter.available_pages
+page_selected?	./app/services/team_diagnostic_services/reporter.rb	/^    def page_selected?(page)$/;"	f	class:TeamDiagnosticServices.Reporter
 page_template_data	./app/services/report_services/renderers/html.rb	/^      def page_template_data(page, data, page_index)$/;"	f	class:ReportServices.Renderers.Html
 page_title	./app/helpers/application_helper.rb	/^  def page_title$/;"	f	class:ApplicationHelper
 paginate	./app/services/translation_services/search.rb	/^    def paginate$/;"	f	class:TranslationServices
@@ -1071,7 +1086,7 @@ pending_actions	./app/models/team_diagnostic.rb	/^  def pending_actions$/;"	f	cl
 pending_invitation?	./app/models/participant.rb	/^  def pending_invitation?$/;"	f	class:Participant
 perform_deployment	./app/models/team_diagnostic.rb	/^  def perform_deployment$/;"	f	class:TeamDiagnostic
 perform_report	./app/models/team_diagnostic.rb	/^  def perform_report(force: false, options: {})$/;"	f	class:TeamDiagnostic
-perform_report	./app/services/team_diagnostic_services/reporter.rb	/^    def perform_report(force: false, options: {})$/;"	f	class:TeamDiagnosticServices.Reporter.available_pages
+perform_report	./app/services/team_diagnostic_services/reporter.rb	/^    def perform_report(force: false, options: {})$/;"	f	class:TeamDiagnosticServices.Reporter
 permitted_params	./app/services/user_services/creator.rb	/^    def permitted_params(params)$/;"	f	class:UserServices
 permitted_state_events	./app/models/concerns/team_diagnostics/state_machine.rb	/^      def permitted_state_events$/;"	f	class:TeamDiagnostics.StateMachine
 permitted_states	./app/models/concerns/team_diagnostics/state_machine.rb	/^      def permitted_states$/;"	f	class:TeamDiagnostics.StateMachine
@@ -1175,7 +1190,7 @@ search	./app/services/translation_services/search.rb	/^    def search(search = n
 seed_keyed_value_conditions	./app/models/concerns/seeds/seedable.rb	/^      def seed_keyed_value_conditions(record, key)$/;"	f	class:Seeds.Seedable
 selected_entitlement	./app/services/entitlement_services/invitation_creator.rb	/^    def selected_entitlement(id)$/;"	f	class:EntitlementServices.InvitationCreator
 selected_pages	./app/models/concerns/reports/pages.rb	/^      def selected_pages(locale='en')$/;"	f	class:Reports.Pages
-selected_pages	./app/services/team_diagnostic_services/reporter.rb	/^		def selected_pages(locale='en')$/;"	f	class:TeamDiagnosticServices.Reporter.available_pages
+selected_pages	./app/services/team_diagnostic_services/reporter.rb	/^		def selected_pages(locale='en')$/;"	f	class:TeamDiagnosticServices.Reporter
 selected_team_diagnostic_open_ended_questions	./app/services/team_diagnostic_services/question_creator.rb	/^    def selected_team_diagnostic_open_ended_questions$/;"	f	class:TeamDiagnosticServices.QuestionCreator
 send_cancel_notification_message	./app/models/concerns/team_diagnostics/messaging.rb	/^      def send_cancel_notification_message$/;"	f	class:TeamDiagnostics.Messaging
 send_cancellation_message	./app/models/concerns/diagnostic_surveys/messaging.rb	/^      def send_cancellation_message$/;"	f	class:DiagnosticSurveys.Messaging

@@ -21,7 +21,7 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     # Remove test uploaded files before each run
-    FileUtils.rm_rf(Rails.root.join('tmp', 'storage'))
+    # FileUtils.rm_rf(Rails.root.join('tmp', 'storage'))
   end
 end
 

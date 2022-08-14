@@ -843,7 +843,6 @@ Layout/IndentationWidth:
   VersionAdded: '0.49'
   # Number of spaces for each indentation level.
   Width: 2
-  IgnoredPatterns: []
 
 Layout/InitialIndentation:
   Description: >-
@@ -887,7 +886,6 @@ Layout/LineLength:
   # The IgnoredPatterns option is a list of !ruby/regexp and/or string
   # elements. Strings will be converted to Regexp objects. A line that matches
   # any regular expression listed in this option will be ignored by LineLength.
-  IgnoredPatterns: []
 
 Layout/MultilineArrayBraceLayout:
   Description: >-
@@ -2122,7 +2120,6 @@ Naming/MethodName:
   #     - '\A\s*onSelectionBulkChange\s*'
   #     - '\A\s*onSelectionCleared\s*'
   #
-  IgnoredPatterns: []
 
 Naming/MethodParameterName:
   Description: >-
@@ -3071,7 +3068,6 @@ Style/MethodCallWithArgsParentheses:
   VersionChanged: '0.61'
   IgnoreMacros: true
   IgnoredMethods: []
-  IgnoredPatterns: []
   IncludedMacros: []
   AllowParenthesesInMultilineCall: false
   AllowParenthesesInChaining: false

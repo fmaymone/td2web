@@ -18,12 +18,13 @@
 class Organization < ApplicationRecord
   ### Constants
   ALLOWED_PARAMS = %i[name description url industry revenue locale].freeze
+  REVENUE_NONPROFIT = 'Non Profit Organization'
 
   ### Concerns
 
   ### Enums
   enum industry: ['Agriculture', 'Apparel', 'Banking', 'Biotechnology', 'Chemicals', 'Communication', 'Construction', 'Consulting', 'Education', 'Electronics', 'Energy', 'Engineering', 'Entertainment', 'Environmental', 'Finance', 'Food and Beverage', 'Government', 'Health Care Facilities', 'Hospitality', 'Insurance', 'Manufacturing', 'Media / Publishing', 'Medical / Pharmaceutical', 'Not for Profit / NGO', 'Recreation', 'Retail', 'Shipping', 'Technology / Software', 'Telecommunications', 'Transportation', 'Utilities', 'Other']
-  enum revenue: ['Non Profit Organization', 'For Profit Organization under US$1 million', 'For Profit Organization US$1-10 million', 'For Profit Organization US$10-25 million', 'For Profit Organization US$25-50 million', 'For Profit Organization US$50-100 million', 'For Profit Organization over US$100 million']
+  enum revenue: [REVENUE_NONPROFIT, 'For Profit Organization under US$1 million', 'For Profit Organization US$1-10 million', 'For Profit Organization US$10-25 million', 'For Profit Organization US$25-50 million', 'For Profit Organization US$50-100 million', 'For Profit Organization over US$100 million']
 
   ### Validations
   validates :name, presence: true
@@ -41,6 +42,7 @@ class Organization < ApplicationRecord
   has_many :organization_users, dependent: :destroy
   has_many :members, through: :organization_users, class_name: 'User', source: :user
   has_many :team_diagnostics
+  has_many :coupons, as: :owner, dependent: :destroy
 
   ### Class Methods
 
@@ -52,5 +54,9 @@ class Organization < ApplicationRecord
 
   def admin?(user)
     admins.where(user_id: user.id).any?
+  end
+
+  def nonprofit?
+    revenue == REVENUE_NONPROFIT
   end
 end

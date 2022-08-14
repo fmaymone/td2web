@@ -121,4 +121,42 @@ RSpec.describe OrganizationServices::Creator do
       end
     end
   end
+
+  describe 'nonprofit coupon assignment' do
+    let(:for_profit_attributes) do
+      {
+        name: 'Acme, Inc.',
+        description: 'Test organization',
+        url: 'https://www.example.com/',
+        industry: Organization.industries.keys.last,
+        revenue: Organization.revenues.keys.last,
+        locale: 'es'
+      }
+    end
+    let(:nonprofit_attributes) do
+      {
+        name: 'Acme, Inc.',
+        description: 'Test organization',
+        url: 'https://www.example.com/',
+        industry: Organization.industries.keys.last,
+        revenue: Organization::REVENUE_NONPROFIT,
+        locale: 'es'
+      }
+    end
+    let(:service) do
+      OrganizationServices::Creator.new(user: admin, params: valid_attributes)
+    end
+
+    describe 'when a for-profit organization is created' do
+      it 'does not assign a nonprofit coupon' do
+        service = OrganizationServices::Creator.new(user: admin, params: for_profit_attributes)
+        organization = service.call
+        refute(organization.coupons.any?)
+      end
+    end
+
+    describe 'when a non-profit organization is created' do
+      it 'assigns a nonprofit coupon'
+    end
+  end
 end

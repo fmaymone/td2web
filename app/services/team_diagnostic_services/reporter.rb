@@ -27,7 +27,7 @@ module TeamDiagnosticServices
     end
 
     def cancel
-      reject_report_states = Report::VALID_REPORT_STATES - [ :pending ]
+      reject_report_states = Report::VALID_REPORT_STATES - [:pending]
       @team_diagnostic.reports.where(state: reject_report_states).each do |report|
         report.reject
         report.save
@@ -67,28 +67,28 @@ module TeamDiagnosticServices
       status != :pending
     end
 
-    def all_pages(locale='en')
-			current_report.available_pages(locale)
+    def all_pages(locale = 'en')
+      current_report.available_pages(locale)
     end
 
-		def available_pages(locale='en')
+    def available_pages(locale = 'en')
       a = all_pages(locale).to_a
-      @available_pages = current_report.page_order.map{|index| a[index - 1] }.compact
+      @available_pages = current_report.page_order.map { |index| a[index - 1] }.compact
       @available_pages = (a - @available_pages) + @available_pages
 
       @available_pages
-		end
+    end
 
     def custom_pagination?
       all_pages.map(&:index) != selected_pages.map(&:index)
     end
 
-		def selected_pages(locale='en')
+    def selected_pages(locale = 'en')
       current_report.selected_pages(locale)
-		end
+    end
 
     def page_selected?(page)
-      page_index = ( page.respond_to?(:index) ? page.index : page ).to_i
+      page_index = (page.respond_to?(:index) ? page.index : page).to_i
       selected_pages.map(&:index).include?(page_index)
     end
 
@@ -110,7 +110,7 @@ module TeamDiagnosticServices
     # options: {page_order: :default || [2,5,6,10] }
     #
     def perform_report(force: false, options: {})
-      # TODO check for entitlements
+      # TODO: check for entitlements
       #
       @team_diagnostic.reports.stalled.map(&:reject)
       @team_diagnostic.reports.reload

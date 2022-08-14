@@ -16,23 +16,13 @@
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #
-class Product < ApplicationRecord
-  ### Constants
-  TLV_REPORT = 'tlv-report-standard'
-  TDA_REPORT = 'tda-report-standard'
-  T360_REPORT = 't360-report-standard'
-  ORG_REPORT = 'org-report-standard'
-
-  ### Concerns
-  include Seeds::Seedable
-
-  ### Enumerables
-  enum product_type: %i[standalone addon]
-
-  ### Validations
-  validates :active, presence: true
-  validates :name, presence: true
-  validates :price, presence: true
-  validates :product_type, presence: true
-  validates :slug, presence: true
+FactoryBot.define do
+  factory :product do
+    slug { Faker::Lorem.alphanumeric }
+    name { Faker::Lorem.sentence }
+    description { Faker::Lorem.sentence }
+    price { Faker::Commerce.price }
+    volume_pricing { {} }
+    entitlement_detail { {} }
+  end
 end
