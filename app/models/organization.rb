@@ -43,6 +43,7 @@ class Organization < ApplicationRecord
   has_many :members, through: :organization_users, class_name: 'User', source: :user
   has_many :team_diagnostics
   has_many :coupons, as: :owner, dependent: :destroy
+  has_many :orders, through: :team_diagnostics
 
   ### Class Methods
 

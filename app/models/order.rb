@@ -19,6 +19,9 @@
 #  updated_at     :datetime         not null
 #
 class Order < ApplicationRecord
+  include Orders::Coupons
+  include Orders::StateMachine
+
   ### Constants
 
   ### Enumerables
@@ -41,14 +44,25 @@ class Order < ApplicationRecord
   ### Callbacks
   before_validation :generate_orderid, on: :create
 
+  def reset_totals!
+    self.total = 0.0
+    self.tax = 0.0
+    self.subtotal = 0.0
+    save
+  end
+
   def items_total
     order_items.sum(:total)
   end
 
-  def calculate_total
-    self.subtotal = items_total
+  def discounts_total
+    order_discounts.sum(:total)
+  end
+
+  def calculate_total!
+    self.subtotal = items_total - discounts_total
     self.tax = 0.0 # TODO: tax definitions???
-    self.total = (subtotal * (1 + tax)).round(2)
+    self.total = subtotal + tax
     save
   end
 

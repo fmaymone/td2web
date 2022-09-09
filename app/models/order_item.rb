@@ -19,13 +19,15 @@ class OrderItem < ApplicationRecord
   ### Associations
   belongs_to :order
   belongs_to :product, optional: true
+  has_many :order_discounts, dependent: :destroy
 
   ### Validations
   validates :description, presence: true
+  validates :index, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :product_id, uniqueness: { scope: :order_id }, if: -> { product_id.present? }
   validates :quantity, presence: true, numericality: { greater_than: 0 }
   validates :total, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :unit_price, presence: true, numericality: { greater_than_or_equal_to: 0.0 }
-  validates :index, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
   ### Callbacks
   before_validation :generate_index, on: :create
@@ -33,7 +35,7 @@ class OrderItem < ApplicationRecord
   private
 
   def generate_index
-    last_index = order.present? ? order.order_items.pluck(:index).max : 0
+    last_index = order&.order_items&.pluck(:index)&.max || 0
     self.index = last_index + 1
   end
 end

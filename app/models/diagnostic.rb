@@ -65,4 +65,17 @@ class Diagnostic < ApplicationRecord
     conditions.merge!({ version: }) if version
     report_templates.where(conditions).order(version: :desc).first
   end
+
+  def product
+    case slug
+    when TDA_SLUG
+      Product.where(slug: Product::TDA_REPORT).first
+    when TLV_SLUG
+      Product.where(slug: Product::TLV_REPORT).first
+    when T360_SLUG
+      Product.where(slug: Product::T360_REPORT).first
+    when ORG_SLUG
+      Product.where(slug: Product::ORG_REPORT).first
+    end
+  end
 end

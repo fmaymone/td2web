@@ -12,15 +12,31 @@ module Orders
 
       aasm column: :state do
         state :pending
+        state :finalized
         state :submitted
         state :paid
         state :completed
         state :cancelled
 
-        event :submit do
-          transitions from: :pending, to: :submitted
+        event :finalize do
+          transitions from: :pending, to: :finalized
+        end
+
+        event :reset_to_pending do
+          transitions from: :finalized, to: :pending
           after do
-            save
+            reset_totals!
+            order_discounts.destroy_all
+            order_discounts.reload
+            true
+          end
+        end
+
+        event :submit do
+          transitions from: :finalized, to: :submitted
+          after do
+            apply_permanent_coupons!
+            calculate_total!
             SystemEvent.log(
               event_source: orderable,
               incidental: user,
@@ -32,9 +48,10 @@ module Orders
         end
 
         event :make_payment do
-          transition from: :submitted, to: :paid
-          guard do
-            # invoices.where(state: Invoice::ACTIVE_STATES).any?
+          transitions from: :submitted, to: :paid do
+            guard do
+              # invoices.where(state: Invoice::ACTIVE_STATES).any?
+            end
           end
         end
       end

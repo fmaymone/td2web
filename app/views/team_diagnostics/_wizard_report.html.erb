@@ -65,51 +65,106 @@
 <%= form_tag generate_report_team_diagnostic_path(id: @team_diagnostic.id), id: 'report--options-form', method: :post do %>
 
   <div class="row" id="report-options">
-    <div class="col-12">
+    <div class="col-6">
       <%= render partial: 'wizard_report_options', locals: {report_service: @report_service } %>
+
+      <div class="row">
+        <div class="col-6 text-right">
+        </div>
+        <div class="col-6 text-right">
+          <% if @report_service.status != :running %>
+            <% case @report_service.status 
+            when :pending %>
+          <button type"submit" class="btn btn-primary" id="create_report_button">
+            <%= 'Create Report'.t %>
+          </button>
+          <%  when :stalled %>
+            <button type"submit" class="btn btn-primary" id="create_report_button">
+              <%= 'Create Report'.t %>
+            </button>
+          <%  when :completed %>
+            <button type"submit" class="btn btn-primary" id="create_report_button">
+              <%= 'Regenerate Report'.t %>
+            </button>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
+
+    <div class="col-6">
+      <!-- order component mockup layout -->
+      <div class="card shadow">
+        <div class="card-body">
+          <h5 class="card-title">
+            Your Order
+          </h5>
+          <b>Diagnostic Reports</b>
+          <ul class="list-group border border-primary">
+            <li class="list-group-item bg-light">
+              <b><%= @team_diagnostic.diagnostic.name %>&trade;</b>
+              <em>for <%= @team_diagnostic.participants.count %> participants</em>
+              &mdash;
+              <span class="text-right">$150.00</span>
+            </li>
+          </ul>
+          <hr/>
+          <b>Applied Coupons and Discounts</b>
+          <ul class="list-group border border-success">
+            <li class="list-group-item">
+              <b>Non-profit Discount</b>
+              &mdash;
+              <span class="text-right"><em>(-$15.00)</em></span>
+            </li>
+          </ul>
+          <hr/>
+          <h5 class="text-right">
+            <b><em>Total:</em></b>
+            $135.00
+          </h5>
+          <p style="line-height: 0.9em; padding: 0.5em 1em;">
+            <small> 
+              <em>
+                No payment is required at this time.
+                Team Coaching International&trade; will email you an invoice.
+              </em>
+            </small>
+          </p>
+          <a href="#" class="btn btn-primary">Submit Order</a>
+          <br/>
+        </div>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+
+      <div class="card shadow">
+        <div class="card-body">
+          <h5 class="card-title">
+            Invoice
+            <em><a href="#">A1B2C4D3E4</a></em>
+            <span class="badge bg-info">Pending</span>
+          </h5>
+          <h5 class="text-right">
+            <b><em>Total:</em></b>
+            $135.00
+          </h5>
+          <p class="text-center" style="line-height: 0.9em;">
+            <small> 
+              <em>
+                Team Coaching International&trade; is awaiting payment for this invoice.<br/>
+                <span class="text-nowrap">If you have questions or need assistance,</span>
+                <span class="text-nowrap">please email <a href="mailto:info@teamcoachinginternational.com">info@teamcoachinginternational.com</a></span>
+                <span class="text-nowrap">or call us at 555-555-5555</span> 
+              </em>
+            </small>
+          </p>
+        </div>  
+      </div>
+      <!-- end order component mockup layout -->
+    </div>
+
   </div>
 
-  <div class="row">
-    <div class="col-6 text-right">
-    </div>
-    <div class="col-6 text-right">
-      <% if @report_service.status != :running %>
-        <% case @report_service.status 
-        when :pending %>
-      <button type"submit" class="btn btn-primary" id="create_report_button">
-        <%= 'Create Report'.t %>
-      </button>
-    <%  when :stalled %>
-      <button type"submit" class="btn btn-primary" id="create_report_button">
-        <%= 'Create Report'.t %>
-      </button>
-    <%  when :completed %>
-      <button type"submit" class="btn btn-primary" id="create_report_button">
-        <%= 'Regenerate Report'.t %>
-      </button>
-    <% end %>
-  <% end %>
-</div>
-</div>
 
 <% end %>
-
-<!-- 
-  <div class="row">
-    <div class="col-6 text-right">
-    </div>
-    <div class="col-6 text-right">
-      <% if @report_service.status != :running %>
-          <% case @report_service.status 
-              when :pending %>
-            <%= link_to('Create Report'.t, generate_report_team_diagnostic_path(id: @team_diagnostic.id), id: 'create_report_button', class: 'btn btn-primary', method: :post) %>  
-          <%  when :stalled %>
-            <%= link_to('Create Report'.t, generate_report_team_diagnostic_path(id: @team_diagnostic.id), id: 'create_report_button', class: 'btn btn-primary', method: :post) %> 
-          <%  when :completed %>
-            <%= link_to('Regenerate Report'.t, generate_report_team_diagnostic_path(id: @team_diagnostic.id), id: 'create_report_button', class: 'btn btn-small btn-warning', method: :post) %>  
-          <% end %>
-      <% end %>
-    </div>
-  </div>
--->

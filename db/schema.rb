@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_07_223954) do
+ActiveRecord::Schema.define(version: 2022_09_10_172319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 2022_09_07_223954) do
     t.string "description", null: false
     t.boolean "stackable", default: false, null: false
     t.boolean "active", default: true, null: false
+    t.boolean "reusable", default: false, null: false
     t.date "start_date"
     t.date "end_date"
     t.integer "discount", default: 0, null: false
@@ -262,12 +263,14 @@ ActiveRecord::Schema.define(version: 2022_09_07_223954) do
   create_table "order_discounts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "order_id", null: false
     t.uuid "coupon_id", null: false
+    t.uuid "order_item_id"
     t.string "description", null: false
     t.decimal "total", default: "0.0", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["coupon_id"], name: "index_order_discounts_on_coupon_id"
     t.index ["order_id"], name: "index_order_discounts_on_order_id"
+    t.index ["order_item_id"], name: "index_order_discounts_on_order_item_id"
   end
 
   create_table "order_items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -524,6 +527,7 @@ ActiveRecord::Schema.define(version: 2022_09_07_223954) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "phone_number", null: false
+    t.boolean "invoiceable", default: true, null: false
     t.index ["user_id"], name: "index_user_profiles_on_user_id"
     t.index ["ux_version"], name: "index_user_profiles_on_ux_version"
   end
@@ -563,6 +567,7 @@ ActiveRecord::Schema.define(version: 2022_09_07_223954) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "order_discounts", "coupons"
+  add_foreign_key "order_discounts", "order_items"
   add_foreign_key "order_discounts", "orders"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"

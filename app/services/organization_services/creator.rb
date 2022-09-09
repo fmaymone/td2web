@@ -94,8 +94,9 @@ module OrganizationServices
         description: Coupon::NONPROFIT_DISCOUNT_DESCRIPTION,
         stackable: false,
         active: true,
+        reusable: true,
         start_date: Time.current,
-        discount: 10
+        discount: Coupon::NONPROFIT_DISCOUNT
       )
     end
 

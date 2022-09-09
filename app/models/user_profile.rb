@@ -22,6 +22,7 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  phone_number :string           not null
+#  invoiceable  :boolean          default(TRUE), not null
 #
 class UserProfile < ApplicationRecord
   ### Constants

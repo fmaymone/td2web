@@ -49,12 +49,30 @@ RSpec.describe Order, type: :model do
         create(:order_item, order:, product: products.sample)
       ]
     end
+    let(:coupons) do
+      [
+        create(:coupon, product: products.sample, owner: team_diagnostic.user),
+        create(:coupon, product: products.sample, owner: team_diagnostic.user),
+        create(:coupon, product: products.sample, owner: team_diagnostic.user)
+      ]
+    end
+    let(:order_discounts) do
+      coupons.map do |coupon|
+        create(:order_discount, order:, coupon:)
+      end
+    end
     describe 'calculations' do
       before(:each) { order_items }
       it 'returns the total from all OrderItems' do
+        expect(order.items_total).to eq(order_items.map(&:total).sum)
+      end
+      # it 'returns the total from all OrderDiscounts' do
+      # expect(order.discounts_total).to eq(coupons.map(&:total).sum)
+      # end
+      it 'returns the total from all OrderItems and OrderDiscounts' do
         expect(order.subtotal).to eq(0.0)
         expect(order.total).to eq(0.0)
-        order.calculate_total
+        order.calculate_total!
         expect(order.subtotal).to_not eq(0.0)
         expect(order.total).to_not eq(0.0)
       end

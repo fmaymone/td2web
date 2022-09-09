@@ -80,6 +80,8 @@ class TeamDiagnostic < ApplicationRecord
   has_many :team_diagnostic_questions, dependent: :destroy
   has_many :system_events, as: :event_source
   has_many :reports
+  has_many :coupons, as: :owner, dependent: :destroy
+  has_many :orders, as: :orderable, dependent: :destroy
 
   attr_accessor :deployment_succeeded
 

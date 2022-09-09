@@ -5,6 +5,7 @@ class CreateCoupons < ActiveRecord::Migration[6.1]
       t.string :description, null: false
       t.boolean :stackable, null: false, default: false
       t.boolean :active, null: false, default: true
+      t.boolean :reusable, null: false, default: false
       t.date :start_date
       t.date :end_date
       t.integer :discount, null: false, default: 0

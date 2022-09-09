@@ -59,12 +59,27 @@ module OrganizationServices
         @errors << e.to_s
       end
       if valid? && @organization.save
+        add_nonprofit_coupon
         deactivate_nonprofit_coupon_if_profit
         @organization
       else
         @errors += @organization.errors.full_messages
         false
       end
+    end
+
+    def add_nonprofit_coupon
+      return true unless @organization.nonprofit?
+
+      Coupon.create(
+        owner: @organization,
+        description: Coupon::NONPROFIT_DISCOUNT_DESCRIPTION,
+        stackable: false,
+        active: true,
+        reusable: true,
+        start_date: Time.current,
+        discount: Coupon::NONPROFIT_DISCOUNT
+      )
     end
 
     def deactivate_nonprofit_coupon_if_profit

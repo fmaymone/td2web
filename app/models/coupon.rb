@@ -9,6 +9,7 @@
 #  description :string           not null
 #  stackable   :boolean          default(FALSE), not null
 #  active      :boolean          default(TRUE), not null
+#  reusable    :boolean          default(FALSE), not null
 #  start_date  :date
 #  end_date    :date
 #  discount    :integer          default(0), not null
@@ -34,6 +35,10 @@ class Coupon < ApplicationRecord
   belongs_to :owner, polymorphic: true, optional: true
   belongs_to :product, optional: true
 
+  ### Scopes
+  scope :active, -> { where(active: true) }
+  scope :reuseable, -> { where(reusable: true) }
+
   def usable?(for_owner: nil, for_product: nil)
     active? &&
       valid_date? &&
@@ -48,6 +53,10 @@ class Coupon < ApplicationRecord
   end
 
   def unused?
-    OrderDiscount.includes(order: { invoice: { state: Invoice::ACTIVE_STATES } }).where(coupon: self).none?
+    # TODO
+    # OrderDiscount.includes(order: { invoice: { state: Invoice::ACTIVE_STATES } })
+    # .where(coupon: self, coupons: { reusable: false })
+    # .none?
+    true
   end
 end

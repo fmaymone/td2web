@@ -22,6 +22,7 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  phone_number :string           not null
+#  invoiceable  :boolean          default(TRUE), not null
 #
 FactoryBot.define do
   factory :user_profile, class: UserProfile do
@@ -33,6 +34,7 @@ FactoryBot.define do
     phone_number { Faker::PhoneNumber.phone_number }
     pronoun { 'she' }
     country { 'US' }
+    invoiceable { true }
     consent do
       {
         'eula' => '1',
