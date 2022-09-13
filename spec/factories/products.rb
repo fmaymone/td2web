@@ -18,11 +18,11 @@
 #
 FactoryBot.define do
   factory :product do
-    slug { Faker::Lorem.alphanumeric }
+    slug { Faker::Alphanumeric.alphanumeric }
     name { Faker::Lorem.sentence }
     description { Faker::Lorem.sentence }
     price { Faker::Commerce.price }
-    volume_pricing { {} }
+    volume_pricing { { '1' => price, '50' => price * 0.75 } }
     entitlement_detail { {} }
   end
 end

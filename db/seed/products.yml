@@ -10,22 +10,22 @@
     :active: true
     :price: 60.0
     :volume_pricing:
-    - "1": 60.0
+      :"1": 60.0
     :entitlement_detail:
-    - "version": 1
-    - "index": [ "<%= Entitlement::REGISTER_AS_FACILITATOR %>", "<%= Entitlement::CREATE_ORGANIZATION %>", "<%= Entitlement::CREATE_DIAGNOSTIC_TLV %>", "<%= Entitlement::GENERATE_REPORT_STANDARD %>" ]
-    - "<%= Entitlement::REGISTER_AS_FACILITATOR %>":
-      - "quota": 1
-      - "stack": false
-    - "<%= Entitlement::CREATE_ORGANIZATION %>":
-      - "quota": 1
-      - "stack": false
-    - "<%= Entitlement::CREATE_DIAGNOSTIC_TLV %>":
-      - "quota": 1
-      - "stack": true
-    - "<%= Entitlement::GENERATE_REPORT_STANDARD %>":
-      - "quota": 1
-      - "stack": true
+      :"version": 1
+      :"index": [ "<%= Entitlement::REGISTER_AS_FACILITATOR %>", "<%= Entitlement::CREATE_ORGANIZATION %>", "<%= Entitlement::CREATE_DIAGNOSTIC_TLV %>", "<%= Entitlement::GENERATE_REPORT_STANDARD %>" ]
+      :"<%= Entitlement::REGISTER_AS_FACILITATOR %>":
+        :"quota": 1
+        :"stack": false
+      :"<%= Entitlement::CREATE_ORGANIZATION %>":
+        :"quota": 1
+        :"stack": false
+      :"<%= Entitlement::CREATE_DIAGNOSTIC_TLV %>":
+        :"quota": 1
+        :"stack": true
+      :"<%= Entitlement::GENERATE_REPORT_STANDARD %>":
+        :"quota": 1
+        :"stack": true
   - :slug: <%= Product::TDA_REPORT %>
     :product_type: standalone
     :name: Team Diagnostic
@@ -33,22 +33,22 @@
     :active: true
     :price: 125.0
     :volume_pricing:
-    - "1": 125.0
+      :"1": 125.0
     :entitlement_detail:
-    - "version": 1
-    - "index": [ "<%= Entitlement::REGISTER_AS_FACILITATOR %>", "<%= Entitlement::CREATE_ORGANIZATION %>", "<%= Entitlement::CREATE_DIAGNOSTIC_TDA %>", "<%= Entitlement::GENERATE_REPORT_STANDARD %>" ]
-    - "<%= Entitlement::REGISTER_AS_FACILITATOR %>":
-      - "quota": 1
-      - "stack": false
-    - "<%= Entitlement::CREATE_ORGANIZATION %>":
-      - "quota": 1
-      - "stack": false
-    - "<%= Entitlement::CREATE_DIAGNOSTIC_TDA %>":
-      - "quota": 1
-      - "stack": true
-    - "<%= Entitlement::GENERATE_REPORT_STANDARD %>":
-      - "quota": 1
-      - "stack": true
+      :"version": 1
+      :"index": [ "<%= Entitlement::REGISTER_AS_FACILITATOR %>", "<%= Entitlement::CREATE_ORGANIZATION %>", "<%= Entitlement::CREATE_DIAGNOSTIC_TDA %>", "<%= Entitlement::GENERATE_REPORT_STANDARD %>" ]
+      :"<%= Entitlement::REGISTER_AS_FACILITATOR %>":
+        :"quota": 1
+        :"stack": false
+      :"<%= Entitlement::CREATE_ORGANIZATION %>":
+        :"quota": 1
+        :"stack": false
+      :"<%= Entitlement::CREATE_DIAGNOSTIC_TDA %>":
+        :"quota": 1
+        :"stack": true
+      :"<%= Entitlement::GENERATE_REPORT_STANDARD %>":
+        :"quota": 1
+        :"stack": true
   - :slug: <%= Product::T360_REPORT %>
     :product_type: standalone
     :name: Team 360 View
@@ -56,22 +56,22 @@
     :active: true
     :price: 80.0
     :volume_pricing:
-    - "1": 80.0
+      :"1": 80.0
     :entitlement_detail:
-    - "version": 1
-    - "index": [ "<%= Entitlement::REGISTER_AS_FACILITATOR %>", "<%= Entitlement::CREATE_ORGANIZATION %>", "<%= Entitlement::CREATE_DIAGNOSTIC_T360 %>", "<%= Entitlement::GENERATE_REPORT_STANDARD %>" ]
-    - "<%= Entitlement::REGISTER_AS_FACILITATOR %>":
-      - "quota": 1
-      - "stack": false
-    - "<%= Entitlement::CREATE_ORGANIZATION %>":
-      - "quota": 1
-      - "stack": false
-    - "<%= Entitlement::CREATE_DIAGNOSTIC_T360 %>":
-      - "quota": 1
-      - "stack": true
-    - "<%= Entitlement::GENERATE_REPORT_STANDARD %>":
-      - "quota": 1
-      - "stack": true
+      :"version": 1
+      :"index": [ "<%= Entitlement::REGISTER_AS_FACILITATOR %>", "<%= Entitlement::CREATE_ORGANIZATION %>", "<%= Entitlement::CREATE_DIAGNOSTIC_T360 %>", "<%= Entitlement::GENERATE_REPORT_STANDARD %>" ]
+      :"<%= Entitlement::REGISTER_AS_FACILITATOR %>":
+        :"quota": 1
+        :"stack": false
+      :"<%= Entitlement::CREATE_ORGANIZATION %>":
+        :"quota": 1
+        :"stack": false
+      :"<%= Entitlement::CREATE_DIAGNOSTIC_T360 %>":
+        :"quota": 1
+        :"stack": true
+      :"<%= Entitlement::GENERATE_REPORT_STANDARD %>":
+        :"quota": 1
+        :"stack": true
   - :slug: <%= Product::ORG_REPORT %>
     :product_type: standalone
     :name: Organization View
@@ -79,19 +79,19 @@
     :active: true
     :price: 60.0
     :volume_pricing:
-    - "1": 60.0
+      :"1": 60.0
     :entitlement_detail:
-    - "version": 1
-    - "index": [ "<%= Entitlement::REGISTER_AS_FACILITATOR %>", "<%= Entitlement::CREATE_ORGANIZATION %>", "<%= Entitlement::CREATE_DIAGNOSTIC_ORG %>", "<%= Entitlement::GENERATE_REPORT_STANDARD %>" ]
-    - "<%= Entitlement::REGISTER_AS_FACILITATOR %>":
-      - "quota": 1
-      - "stack": false
-    - "<%= Entitlement::CREATE_ORGANIZATION %>":
-      - "quota": 1
-      - "stack": false
-    - "<%= Entitlement::CREATE_DIAGNOSTIC_ORG %>":
-      - "quota": 1
-      - "stack": true
-    - "<%= Entitlement::GENERATE_REPORT_STANDARD %>":
-      - "quota": 1
-      - "stack": true
+      :"version": 1
+      :"index": [ "<%= Entitlement::REGISTER_AS_FACILITATOR %>", "<%= Entitlement::CREATE_ORGANIZATION %>", "<%= Entitlement::CREATE_DIAGNOSTIC_ORG %>", "<%= Entitlement::GENERATE_REPORT_STANDARD %>" ]
+      :"<%= Entitlement::REGISTER_AS_FACILITATOR %>":
+        :"quota": 1
+        :"stack": false
+      :"<%= Entitlement::CREATE_ORGANIZATION %>":
+        :"quota": 1
+        :"stack": false
+      :"<%= Entitlement::CREATE_DIAGNOSTIC_ORG %>":
+        :"quota": 1
+        :"stack": true
+      :"<%= Entitlement::GENERATE_REPORT_STANDARD %>":
+        :"quota": 1
+        :"stack": true

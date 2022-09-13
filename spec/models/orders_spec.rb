@@ -44,9 +44,9 @@ RSpec.describe Order, type: :model do
     let(:order) { create(:order, user:, orderable: team_diagnostic, total: 0.0, subtotal: 0.0, tax: 0.0) }
     let(:order_items) do
       [
-        create(:order_item, order:, product: products.sample),
-        create(:order_item, order:, product: products.sample),
-        create(:order_item, order:, product: products.sample)
+        create(:order_item, order:, product: products[0]),
+        create(:order_item, order:, product: products[1]),
+        create(:order_item, order:, product: products[2])
       ]
     end
     let(:coupons) do

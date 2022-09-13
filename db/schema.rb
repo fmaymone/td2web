@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_10_172319) do
+ActiveRecord::Schema.define(version: 2022_09_12_225731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -258,6 +258,23 @@ ActiveRecord::Schema.define(version: 2022_09_10_172319) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["claimed_by_id"], name: "index_invitations_on_claimed_by_id"
     t.index ["tenant_id", "active", "token"], name: "index_invitations_on_tenant_id_and_active_and_token"
+  end
+
+  create_table "invoices", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "order_id", null: false
+    t.uuid "user_id", null: false
+    t.string "remoteid"
+    t.decimal "subtotal", default: "0.0", null: false
+    t.decimal "tax", default: "0.0", null: false
+    t.decimal "total", default: "0.0", null: false
+    t.datetime "accepted_at"
+    t.datetime "paid_at"
+    t.string "state", default: "pending", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id", "state"], name: "idx_invoices_order_and_state"
+    t.index ["order_id"], name: "index_invoices_on_order_id"
+    t.index ["user_id"], name: "index_invoices_on_user_id"
   end
 
   create_table "order_discounts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -566,6 +583,8 @@ ActiveRecord::Schema.define(version: 2022_09_10_172319) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "invoices", "orders"
+  add_foreign_key "invoices", "users"
   add_foreign_key "order_discounts", "coupons"
   add_foreign_key "order_discounts", "order_items"
   add_foreign_key "order_discounts", "orders"

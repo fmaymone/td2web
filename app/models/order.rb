@@ -19,7 +19,9 @@
 #  updated_at     :datetime         not null
 #
 class Order < ApplicationRecord
+  ### Concerns
   include Orders::Coupons
+  include Orders::Invoices
   include Orders::StateMachine
 
   ### Constants
@@ -64,21 +66,6 @@ class Order < ApplicationRecord
     self.tax = 0.0 # TODO: tax definitions???
     self.total = subtotal + tax
     save
-  end
-
-  def submit_invoice
-    # TODO
-
-    calculate_total
-    return false unless valid?
-
-    create_invoice
-  end
-
-  def create_invoice
-    # Generate Invoice
-    # Post invoice to accounting
-    true
   end
 
   private

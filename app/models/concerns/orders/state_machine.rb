@@ -6,9 +6,12 @@ module Orders
     extend ActiveSupport::Concern
 
     SUBMISSION_MESSAGE = 'Your order was submitted'
+    ACTIVE_STATES = %i[pending finalized submitted paid].freeze
 
     included do
       include AASM
+
+      scope :active, -> { where(state: ACTIVE_STATES).order(updated_at: :desc) }
 
       aasm column: :state do
         state :pending

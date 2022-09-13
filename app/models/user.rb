@@ -46,6 +46,7 @@ class User < ApplicationRecord
   has_many :team_diagnostics
   has_many :coupons, as: :owner, dependent: :destroy
   has_many :orders, dependent: :destroy
+  has_many :invoices, dependent: :destroy
 
   ### Attributes
 
