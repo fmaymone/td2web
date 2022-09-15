@@ -14,7 +14,7 @@ class TeamDiagnosticsController < ApplicationController
     set_organization
     skope = @organization ? record_scope.where(organization_id: @organization.id) : record_scope
     @team_diagnostics = skope.order(due_at: :desc)
-    @current_page = 'List'.t
+    @current_page = 'All'.t
   end
 
   # GET /team_diagnostics/1
