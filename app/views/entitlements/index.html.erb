@@ -7,7 +7,7 @@
   <div class="col-md-12">
     <h1>
       <%= 'Entitlements'.t %>
-      <small><%= link_to('Add'.t, new_entitlement_path, class: 'btn btn-sm btn-primary') %></small>
+      <small><%= link_to('Create'.t, new_entitlement_path, class: 'btn btn-sm btn-success') %></small>
     </h1>
   </div>
 </div>
@@ -22,7 +22,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <table class="table">
+    <table class="table shadow">
       <thead>
         <tr>
           <th><%= 'Name'.t %></th>
@@ -57,7 +57,7 @@
               <strong><%= 'Quota'.t %></strong>: <%= entitlement.quota || 'No'.t %>
             </td>
             <td class="text-nowrap">
-              <%= link_to 'Show'.t, entitlement, class: 'btn btn-sm btn-info' if policy(entitlement).show? %>
+              <%= link_to 'More'.t, entitlement, class: 'btn btn-sm btn-info' if policy(entitlement).show? %>
               <%= link_to 'Edit'.t, edit_entitlement_path(entitlement), class: 'btn btn-sm btn-primary' if policy(entitlement).edit? %>
               <%= link_to 'Destroy'.t, entitlement, { method: :delete, data: { confirm: 'Are you sure?'.t }, class: 'btn btn-sm btn-warning' } if policy(entitlement).destroy? %>
             </td>

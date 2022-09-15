@@ -3,7 +3,7 @@
     <%= render partial: 'breadcrumbs' %>
   </div>
 </div>
-<div class="jumbotron">
+<div class="jumbotron bg-white shadow">
   <%= invitation_claimed_badge(@invitation) %>
   <span class="badge badge-primary" title='Locale'.t><%= @invitation.locale %></span>
   <h1>
@@ -36,6 +36,6 @@
     <%= invitation_entitlement_list(@invitation) %>
   </p>
   <hr/>
-  <%= link_to('Edit'.t, edit_invitation_path(@invitation), class: 'btn btn-primary') %>
+  <%= link_to('Edit'.t, edit_invitation_path(@invitation), class: 'btn btn-primary') if policy(@invitation).edit? %>
   <%= link_to('Back'.t, invitations_path(@invitation), class: 'btn btn-light') %>
 </div>

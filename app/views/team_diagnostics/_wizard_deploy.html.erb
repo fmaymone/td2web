@@ -107,11 +107,11 @@
     <h3>
       <%= 'Participation'.t %>
       <% if TeamDiagnosticPolicy.new(current_user, @service.team_diagnostic).modify_participants? %>
-        <%= link_to('Edit'.t, wizard_team_diagnostic_path(id: @service.team_diagnostic.id, step: TeamDiagnostics::Wizard::PARTICIPANTS_STEP), class: 'btn btn-sm btn-primary') %>
+        <%= link_to('Manage'.t, wizard_team_diagnostic_path(id: @service.team_diagnostic.id, step: TeamDiagnostics::Wizard::PARTICIPANTS_STEP), class: 'btn btn-sm btn-success') %>
       <% end %>
     </h3>
 
-    <table class="table">
+    <table class="table shadow">
       <thead>
         <tr>
           <th scope="col">Status</th>

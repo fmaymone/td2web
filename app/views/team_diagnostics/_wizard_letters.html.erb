@@ -4,17 +4,22 @@
   </div>
 </div>
 
-<%= bootstrap_form_for(@service.team_diagnostic, remote: false) do |form| %>
-  <%= render partial: 'shared/form_errors', locals: { subject: @service.team_diagnostic } %>
+<div class="row">
+  <div class="col">
+    <%= bootstrap_form_for(@service.team_diagnostic, remote: false) do |form| %>
+      <%= render partial: 'shared/form_errors', locals: { subject: @service.team_diagnostic } %>
 
-  <%= hidden_field_tag :step, @service.step %>
+      <%= hidden_field_tag :step, @service.step %>
 
-  <%= render partial: 'team_diagnostic_letters', locals: { form: form, service: @service} %>
+      <%= render partial: 'team_diagnostic_letters', locals: { form: form, service: @service} %>
 
-  <% if TeamDiagnosticPolicy.new(current_user, @service.team_diagnostic).modify_letters? %>
-    <br/>
-    <div class="form-row">
-      <%= form.submit 'Submit'.t, class: 'btn btn-success' %>
-    </div>
-<% end %>
-<% end %>
+      <% if TeamDiagnosticPolicy.new(current_user, @service.team_diagnostic).modify_letters? %>
+        <br/>
+        <div class="form-row">
+          <%= form.submit 'Submit'.t, class: 'btn btn-success' %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+

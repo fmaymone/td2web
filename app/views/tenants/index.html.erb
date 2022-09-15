@@ -36,7 +36,7 @@
             <td><%= tenant.description %></td>
             <td><%= tenant.active %></td>
             <td class="text-nowrap">
-              <%= link_to 'Show'.t, tenant, class: 'btn btn-sm btn-info'%>
+              <%= link_to 'More'.t, tenant, class: 'btn btn-sm btn-info'%>
               <%= link_to 'Edit'.t, edit_tenant_path(tenant), class: 'btn btn-sm btn-primary' %>
               <%= link_to 'Destroy'.t, tenant, { method: :delete, data: { confirm: 'Are you sure?'.t }, class: 'btn btn-sm btn-warning' } %>
             </td>

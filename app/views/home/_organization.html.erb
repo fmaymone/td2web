@@ -1,8 +1,8 @@
-<div class="card mx-auto organization-card">
+<div class="card mx-auto organization-card shadow-sm">
   <div class="card-body">
     <h2 class="card-title">
       <%= organization.name %>
-      <%= link_to('Show'.t, organization_path(organization), class: 'btn btn-sm btn-info') %>
+      <%= link_to('More'.t, organization_path(organization), class: 'btn btn-sm btn-info') %>
     </h5>
     <%= render partial: 'organizations/team_diagnostics', locals: { organization: organization } %>
   </div>

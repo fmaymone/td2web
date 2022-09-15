@@ -1,0 +1,17 @@
+<footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+  <% if false %>
+    <!-- 
+      <% if user_signed_in? %>
+        <% cache([ @current_user || 'unknown', 'footer' ]) do %>
+          <li class="nav-item"><%= link_to('Dashboard'.t, root_path, class: 'nav-link px-2 text-muted') %></li>
+          <% if policy(TeamDiagnostic).index? %>
+            <li class="nav-item"><%= link_to('Diagnostics'.t, team_diagnostics_path, class: 'nav-link px-2 text-muted') %></li>
+          <% end %>
+        <% end %>
+      <% end %>
+    -->
+    <% end %>
+    </ul>
+    <p class="text-center text-muted">&copy;<%= Date.current.year %> Team Coaching International. All Rights Reserved.</p>
+  </footer>

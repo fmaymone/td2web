@@ -10,15 +10,19 @@
   </div>
 </div>
 
+
 <div class="row">
   <div class="col">
-    <p>
-      <% if policy(@team_diagnostic).modify_participants? %>
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#add_participant_section" aria-expanded="false" aria-controls="add_participant_section"><%= 'Add Participant'.t %></button>
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#import_section" aria-expanded="false" aria-controls="import_section"><%= 'Import'.t %></button>
-    <% end %>
-      <%= link_to('View All', team_diagnostic_participants_path(team_diagnostic_id: @service.team_diagnostic.id), class: 'btn btn-sm btn-info') if @service.team_diagnostic.participants.any? && policy(Participant).index? %>
-    </p>
+      <div class="row">
+        <div class="col">
+          <% if policy(@team_diagnostic).modify_participants? %>
+            <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#add_participant_section" aria-expanded="false" aria-controls="add_participant_section"><%= 'Add Participant'.t %></button>
+            <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#import_section" aria-expanded="false" aria-controls="import_section"><%= 'Import'.t %></button>
+            <%= link_to('View All', team_diagnostic_participants_path(team_diagnostic_id: @service.team_diagnostic.id), class: 'btn btn-sm btn-info') if @service.team_diagnostic.participants.any? && policy(Participant).index? %>
+          <% end %>
+        </p>
+      </div>
+    </div>
     <div class="row">
       <div class="col">
         <div class="collapse multi-collapse" id="add_participant_section">
@@ -33,18 +37,15 @@
         </div>
       </div>
     </div>
-
-
   </div>
 </div>
-<br/>
 
 <% participating = @service.team_diagnostic.participants.participating.order(last_name: :asc, first_name: :asc) %>
 
 <% if participating.any? %>
   <div class="row">
     <div class="col">
-      <table class="table">
+      <table class="table shadow">
         <thead>
           <tr>
             <th><%= 'Status'.t %></th>
@@ -62,6 +63,7 @@
 <% else %>
   <p class="lead"><%= 'None'.t %></p>
 <% end %>
+
 
 <div class="row">
   <div class="col">

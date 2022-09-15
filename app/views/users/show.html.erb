@@ -4,28 +4,24 @@
   </div>
 </div>
 
-<div class="jumbotron">
-  <h1>
-    <%= @user.username %>
-    <%= link_to('Edit'.t, edit_user_path(@user), class: 'btn btn-sm btn-primary') %>
-  </h1>
-  <p>
-  </p>
+<div class="jumbotron bg-white shadow">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col">
+      <h1>
+        <%= @user.username %>
+        <%= link_to('Edit'.t, edit_user_path(@user), class: 'btn btn-sm btn-primary') %>
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
       <%= render partial: 'account_card', locals: { user: @user } %>
+      <br/>
       <%= render partial: 'grants_card', locals: { user: @user } %>
       <br/>
       <%= render partial: 'consent_card', locals: { user: @user } %>
       <br/>
-    </div>
-    <div class="col-md-6">
       <%= render partial: 'organizations_card', locals: { user: @user } %>
     </div>
   </div>
-
-  <br/>
-
-  <hr/>
-  <%= link_to('Back'.t, :back, class: 'btn btn-light') %>
 </div>

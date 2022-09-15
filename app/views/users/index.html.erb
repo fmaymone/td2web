@@ -7,14 +7,14 @@
 <div class="row">
   <div class="col">
     <h1><%= 'Manage User Accounts'.t %>
-    <small><%= link_to('Add'.t, new_user_path, class: 'btn btn-sm btn-primary') %></small>
+    <small><%= link_to('Add'.t, new_user_path, class: 'btn btn-sm btn-success') %></small>
     </h1>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-    <table class="table table-striped users--table">
+    <table class="table shadow users--table">
       <thead>
         <tr>
           <th><%= 'Login'.t %></th>
@@ -52,7 +52,7 @@
             </td>
             <td>
               <p>
-                <%= link_to('Show'.t, user_path(user), class: 'btn btn-sm btn-info') %>
+                <%= link_to('More'.t, user_path(user), class: 'btn btn-sm btn-info') %>
                 <%= link_to('Edit'.t, edit_user_path(user), class: 'btn btn-sm btn-primary') if policy(user).edit? %>
                 <% if user.locked? %>
                   <%= link_to('Unlock'.t, user_path(user, unlock: true), method: :delete, class: 'btn btn-sm btn-warning', data: { confirm: 'Are you sure you want to unlock this account?'.t } ) %>

@@ -1,5 +1,5 @@
 <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
+  <ol class="breadcrumb bg-light shadow-sm rounded-3">
     <li class="breadcrumb-item"><%= link_to('Dashboard'.t, root_path) %></li>
     <% if @organization %>
       <li class="breadcrumb-item"><%= link_to(@organization.name, organization_path(@organization))%></li>

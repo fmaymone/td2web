@@ -1,5 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">TeamDiagnostic</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+  <a class="navbar-brand" href="/">
+    <%= image_tag 'tci_logo.png', height: '50px' %>
+    <h5 class="text-center">Team Diagnostic&trade;</h5>
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -8,9 +11,6 @@
 
       <% if user_signed_in? %>
         <% cache([ @current_user || 'unknown', 'nav' ]) do %>
-          <li class="nav-item <%= nav_item_class(:home) %>">
-            <%= link_to('Dashboard'.t, root_path, class: 'nav-link') %>
-          </li>
           <% if policy(Invitation).index? %>
             <li class="nav-item <%= nav_item_class(:invitations) %>">
               <%= link_to('Invitations'.t, invitations_path, class: 'nav-link')  %>
@@ -21,14 +21,14 @@
               <%= link_to('Users'.t, users_path, class: 'nav-link')  %>
             </li>
           <% end %>
-          <% if policy(Organization).index? %>
-            <li class="nav-item <%= nav_item_class(:organizations) %>">
-              <%= link_to('Organizations'.t, organizations_path, class: 'nav-link')  %>
-            </li>
-          <% end %>
           <% if policy(TeamDiagnostic).index? %>
             <li class="nav-item <%= nav_item_class(:team_diagnostics) %>">
               <%= link_to('Diagnostics'.t, team_diagnostics_path, class: 'nav-link')  %>
+            </li>
+          <% end %>
+          <% if policy(Organization).index? %>
+            <li class="nav-item <%= nav_item_class(:organizations) %>">
+              <%= link_to('Organizations'.t, organizations_path, class: 'nav-link')  %>
             </li>
           <% end %>
           <% if @current_user.admin? || @current_user.translator? %>
@@ -67,4 +67,4 @@
     </ul>
   </div>
 </nav>
-<hr/>
+<br/>

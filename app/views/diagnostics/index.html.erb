@@ -14,7 +14,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <table class="table">
+    <table class="table shadow">
       <thead>
         <tr>
           <th><%= 'Slug'.t %></th>
@@ -48,7 +48,7 @@
               <% end %>
             </td>
             <td class="text-nowrap">
-              <%= link_to 'Show'.t, diagnostic_path(diagnostic), class: 'btn btn-sm btn-info' if policy(diagnostic).show? %>
+            <%= link_to 'More'.t, diagnostic_path(diagnostic), class: 'btn btn-sm btn-info' if policy(diagnostic).show? %>
               <%= link_to 'Edit'.t, edit_diagnostic_path(diagnostic), class: 'btn btn-sm btn-primary' if policy(diagnostic).edit? %>
               <%= link_to 'Destroy'.t, diagnostic, { method: :delete, data: { confirm: 'Are you sure?'.t }, class: 'btn btn-sm btn-warning' } if policy(diagnostic).destroy? %>
             </td>

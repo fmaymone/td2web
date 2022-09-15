@@ -8,6 +8,8 @@ class TeamDiagnosticReportForm {
   }
 
   render() {
+    if (this.form === null) return(true)
+      
     this.handle_form_submission()
     this.page_orderer = new ReportPageOrder('list--report_pages')
     this.report_variation_selector = new ReportVariations()

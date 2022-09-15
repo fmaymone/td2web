@@ -7,21 +7,14 @@
 <div class="row">
   <div class="col">
     <h1><%= 'Organizations'.t %>
-    <small><%= link_to('Add'.t, new_organization_path, class: 'btn btn-sm btn-primary') if policy(Organization).new? %></small>
+    <small><%= link_to('New'.t, new_organization_path, class: 'btn btn-sm btn-success') if policy(Organization).new? %></small>
   </h1>
 </div>
 </div>
 
 <div class="row">
   <div class="col-sm-12">
-    <table class="table table-striped organizations--table">
-      <thead>
-        <tr>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
+    <table class="table shadow organizations--table">
       <tbody>
         <% @organizations.each do |organization| %>
           <tr>
@@ -30,13 +23,13 @@
               <%= link_to(organization.url, organization.url) %><br/>
               <%= organization.description %><br/>
             </td>
-            <td>
+            <td class="text-nowrap">
               <%= organization.industry %><br/>
               <%= organization.revenue %><br/>
               <span class="badge badge-light"><%= organization.locale %></span>
             </td>
             <td class="text-nowrap">
-              <%= link_to('Show'.t, organization, class: 'btn btn-sm btn-info') if policy(organization).show? %>
+              <%= link_to('More'.t, organization, class: 'btn btn-sm btn-info') if policy(organization).show? %>
               <%= link_to('Edit'.t, edit_organization_path(organization), class: 'btn btn-sm btn-primary' )if policy(organization).edit? %>
               <%= link_to('Delete'.t, organization, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger') if policy(organization).destroy? %>
             </td>

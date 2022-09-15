@@ -1,7 +1,7 @@
   <% if organization.team_diagnostics.any? %>
     <h4>
       <%= 'Team Diagnostics'.t %>
-      <%= link_to('New'.t, new_team_diagnostic_path, class: 'btn btn-sm btn-primary') if OrganizationPolicy.new(current_user, organization).new_diagnostic? %>
+      <%= link_to('New'.t, new_team_diagnostic_path, class: 'btn btn-sm btn-success') if OrganizationPolicy.new(current_user, organization).new_diagnostic? %>
     </h4>
     <% TeamDiagnosticPolicy::Scope.new(current_user, organization.team_diagnostics).resolve.order(created_at: :desc).each do |diagnostic| %>
       <p class="lead">

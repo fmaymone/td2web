@@ -75,7 +75,7 @@
           <% if @report_service.status != :running %>
             <% case @report_service.status 
             when :pending %>
-          <button type"submit" class="btn btn-primary" id="create_report_button">
+          <button type"submit" class="btn btn-success" id="create_report_button">
             <%= 'Create Report'.t %>
           </button>
           <%  when :stalled %>
@@ -130,7 +130,7 @@
               </em>
             </small>
           </p>
-          <a href="#" class="btn btn-primary">Submit Order</a>
+          <a href="#" class="btn btn-success">Submit Order</a>
           <br/>
         </div>
       </div>

@@ -5,16 +5,18 @@
 </div>
 
 <div class="row">
-  <div class="col">
+  <div class="col-6">
     <h1>
       <%= @service.team_diagnostic.name %>
-      <% if @service.team_diagnostic.diagnostic.present? %>
-        <span class="alert alert-<%= team_diagnostic_state_pill_class(@service.team_diagnostic) %> small">
-          <%= @service.team_diagnostic.diagnostic.name %>
-        </span>
-        &nbsp;
-      <% end %>
     </h1>
+  </div>
+  <div class="col-6 text-right">
+    <% if @service.team_diagnostic.diagnostic.present? %>
+      <span class="alert alert-<%= team_diagnostic_state_pill_class(@service.team_diagnostic) %>">
+        <%= @service.team_diagnostic.diagnostic.name %>&trade;
+      </span>
+      &nbsp;
+    <% end %>
   </div>
 </div>
 <br/>
