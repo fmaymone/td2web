@@ -8,6 +8,10 @@ module Orders
     included do
       has_many :invoices, dependent: :destroy
 
+      def allow_fulfillment?
+        invoices.where(state: Invoice::PAID_STATES).any?
+      end
+
       def active_invoice
         invoices
           .where(state: Invoice::ACTIVE_STATES)

@@ -5,11 +5,11 @@ module OrderServices
 
   # Order management class
   class TeamDiagnosticOrder
-    attr_reader :user, :team_diagnostic, :payment_method, :errors
+    attr_reader :user, :orderable, :team_diagnostic, :payment_method, :errors
 
-    def initialize(user:, team_diagnostic:, payment_method: :invoice, params: {})
+    def initialize(user:, orderable:, payment_method: :invoice, params: {})
       @user = user
-      @team_diagnostic = team_diagnostic
+      @orderable = @team_diagnostic = orderable
       @payment_method = payment_method
       @params = {}
       @errors = []
