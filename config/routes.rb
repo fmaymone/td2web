@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :team_diagnostic_letters
   root to: 'home#index'
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
@@ -20,6 +19,7 @@ Rails.application.routes.draw do
   post 'grant_consent', to: 'home#grant_consent'
   get 'after_registration', to: 'home#after_registration'
 
+  resources :team_diagnostic_letters
   resources :diagnostics do
     resources :diagnostic_questions
   end

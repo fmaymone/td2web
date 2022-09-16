@@ -16,14 +16,21 @@ module TeamDiagnosticServices
     # (re)Generate TeamDiagnostic Report
     def call(options: {})
       cancel
+      reset_current_report
       perform_report(force: true, options:)
     end
 
     # Latest report
     def current_report
-      skope = @team_diagnostic.reports.order(started_at: :desc)
-      skope.completed.first || skope.rendering.first || skope.running.first || skope.pending.first ||
-        init_report
+      @current_report ||= begin
+        skope = @team_diagnostic.reports.order(started_at: :desc)
+        skope.completed.first || skope.rendering.first || skope.running.first || skope.pending.first ||
+          init_report
+      end
+    end
+
+    def reset_current_report
+      @current_report = nil
     end
 
     def cancel
@@ -32,6 +39,7 @@ module TeamDiagnosticServices
         report.reject
         report.save
       end
+      reset_current_report
       @team_diagnostic.reports.reload
     end
 
@@ -113,6 +121,7 @@ module TeamDiagnosticServices
       # TODO: check for entitlements
       #
       @team_diagnostic.reports.stalled.map(&:reject)
+      reset_current_report
       @team_diagnostic.reports.reload
 
       running_reports = @team_diagnostic.reports.where(state: %i[running rendering])

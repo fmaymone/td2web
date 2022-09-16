@@ -36,6 +36,7 @@ module Reports
             service = ReportServices::DataGenerator.new(self)
             # Datagenerator SHOULD trigger the render event if successful
             service.delay.call
+            true
           end
         end
 

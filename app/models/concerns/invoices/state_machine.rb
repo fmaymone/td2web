@@ -6,7 +6,7 @@ module Invoices
     extend ActiveSupport::Concern
 
     ACTIVE_STATES = %i[pending accepted paid].freeze
-    PAID_STATES = %i[accepted paid]
+    PAID_STATES = %i[accepted paid].freeze
 
     included do
       include AASM

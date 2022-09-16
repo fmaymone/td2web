@@ -62,8 +62,7 @@
   </div>
 <% end %>
 
-<%= form_tag generate_report_team_diagnostic_path(id: @team_diagnostic.id), id: 'report--options-form', method: :post do %>
-
+<%= form_tag generate_report_team_diagnostic_path(id: @team_diagnostic.id), id: 'report--options-form', method: :post, authenticity_token: true do %>
   <div class="row" id="report-options">
     <div class="col-6">
       <%= render partial: 'wizard_report_options', locals: {report_service: @report_service } %>

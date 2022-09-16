@@ -39,7 +39,7 @@ module OrderServices
       )
       unless current_order.save
         @errors = current_order.errors.full_messages
-        return current_order
+        current_order
       end
     end
 
@@ -66,7 +66,7 @@ module OrderServices
           product = product_qty[:product]
           item = order.order_items.new(
             index:,
-            product: product,
+            product:,
             description: product.description,
             quantity: product_qty[:qty],
             unit_price: product.effective_price(product_qty[:qty])
@@ -90,7 +90,7 @@ module OrderServices
       product_qtys.uniq.each do |pq|
         product = pq.fetch(:product, Product.active.find(pq[:id]))
         products[product.id] = {
-          product: product,
+          product:,
           id: pq[:id],
           qty: pq[:qty]
         }
@@ -98,6 +98,5 @@ module OrderServices
 
       products
     end
-
   end
 end

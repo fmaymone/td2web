@@ -4,7 +4,7 @@
 class ApplicationController < ActionController::Base
   add_flash_types :info, :error, :warning, :notice
 
-  include Pundit
+  include Pundit::Authorization
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   rescue_from UserProfile::ConsentUnauthorizedError, with: :user_has_not_consented
