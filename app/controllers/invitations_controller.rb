@@ -3,7 +3,7 @@
 # Invitations CRUD
 class InvitationsController < ApplicationController
   before_action :authenticate_user!, except: %i[claim process_claim]
-  before_action :set_invitation, only: %i[show edit update destroy]
+  before_action :set_invitation, only: %i[show edit update destroy resend]
   after_action :verify_authorized
 
   def index
@@ -73,6 +73,12 @@ class InvitationsController < ApplicationController
       flash.now[:notice] = 'Invitation not found'.t
       render :claim
     end
+  end
+
+  def resend
+    authorize @invitation
+    InvitationMailer.entitlement_invitation(@invitation).deliver_later
+    redirect_to invitations_path, notice: 'Invitation resent'.t
   end
 
   private

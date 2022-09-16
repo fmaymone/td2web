@@ -4,6 +4,7 @@
 class TeamDiagnosticsController < ApplicationController
   before_action :authenticate_user!, except: [:report]
   after_action :verify_authorized, except: [:report]
+  skip_before_action :verify_authenticity_token, only: [:generate_report]
 
   layout 'report', only: [:report]
 

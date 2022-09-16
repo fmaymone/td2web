@@ -39,6 +39,7 @@
             <td class="text-nowrap">
               <%= link_to 'More'.t, invitation, class: 'btn btn-sm btn-info' if policy(invitation).show? %>
               <%= link_to 'Revoke'.t, invitation, { method: :delete, data: { confirm: 'Are you sure?'.t }, class: 'btn btn-sm btn-warning' } if policy(invitation).destroy? %>
+              <%= button_to 'Resend'.t, {action: :resend, method: :post, id: invitation.id}, { class: 'btn btn-sm btn-primary' } if policy(invitation).resend? %>
             </td>
           </tr>
         <% end %>

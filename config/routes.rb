@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     collection do
       get 'claim', to: 'invitations#claim'
       post 'process_claim', to: 'invitations#process_claim'
+      post 'resend', to: 'invitations#resend'
     end
   end
   resources :organizations

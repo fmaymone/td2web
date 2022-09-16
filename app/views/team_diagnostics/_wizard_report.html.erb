@@ -25,6 +25,7 @@
             <div class="card-body">
               <div class="alert alert-info card-text">
                 <%= 'reports--generation-in-progress'.t %>
+                <%= image_tag 'loading1.svg', height: '40px' %>
               </div>
             </div>
           </div>
@@ -62,7 +63,7 @@
   </div>
 <% end %>
 
-<%= form_tag generate_report_team_diagnostic_path(id: @team_diagnostic.id), id: 'report--options-form', method: :post, authenticity_token: true do %>
+<%= form_tag generate_report_team_diagnostic_path(id: @team_diagnostic.id), id: 'report--options-form', method: :post do %>
   <div class="row" id="report-options">
     <div class="col-6">
       <%= render partial: 'wizard_report_options', locals: {report_service: @report_service } %>

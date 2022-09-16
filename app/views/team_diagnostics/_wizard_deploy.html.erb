@@ -77,22 +77,18 @@
       <br/>
       <%= link_to('Complete Diagnostic'.t, complete_team_diagnostic_path(id: @service.team_diagnostic.id), { method: :post, class: 'btn btn-warning', data: {confirm: 'Are you sure?'.t} }) if policy(@service.team_diagnostic).complete? %>
       <%= link_to('Cancel Diagnostic'.t, cancel_team_diagnostic_path(id: @service.team_diagnostic.id), { method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure?'.t} }) if policy(@service.team_diagnostic).cancel? %>
+      <% if @service.team_diagnostic.completed? && @service.team_diagnostic.wizard == TeamDiagnostic::DEPLOY_STEP %>
+        <%= form_for(@service.team_diagnostic) do |form| %>
+          <%= hidden_field_tag :step, @service.step %>
+          <%= form.submit 'Continue'.t, class: 'btn btn-success' %>
+        <% end %>
+      <% end %>
     </p>
     <br/>
     <%= link_to('Export Data'.t, export_team_diagnostic_path(id: @service.team_diagnostic.id, format: :csv), class: 'btn btn btn-success') if policy(@service.team_diagnostic).export_data? %>
   </div>
 </div>
 
-<% if @service.team_diagnostic.completed? && @service.team_diagnostic.wizard == TeamDiagnostic::DEPLOY_STEP %>
-<div class="row">
-  <div class="col">
-    <%= form_for(@service.team_diagnostic) do |form| %>
-      <%= hidden_field_tag :step, @service.step %>
-      <%= form.submit 'Continue'.t, class: 'btn btn-success' %>
-    <% end %>
-  </div>
-</div>
-<% end %>
 
 <div class="row">
   <div id="team_diagnostic--wizard--step-attention_items" class="col">

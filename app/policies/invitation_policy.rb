@@ -55,6 +55,11 @@ class InvitationPolicy < ApplicationPolicy
     true
   end
 
+  def resend?
+    ( admin? || staff? ) &&
+      !record.claimed?
+  end
+
   def allowed_params
     params = EntitlementServices::InvitationCreator::PERMITTED_PARAMS.dup
 
