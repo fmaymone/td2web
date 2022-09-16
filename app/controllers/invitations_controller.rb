@@ -9,7 +9,7 @@ class InvitationsController < ApplicationController
   def index
     authorize Invitation
     @invitations = invitation_scope.order(created_at: :desc).page(@page)
-    @current_page = 'List'.t
+    @current_page = 'All'.t
   end
 
   def new

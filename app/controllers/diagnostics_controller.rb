@@ -11,7 +11,7 @@ class DiagnosticsController < ApplicationController
   def index
     authorize Diagnostic
     @diagnostics = diagnostic_scope.order(name: :asc)
-    @current_page = 'List'.t
+    @current_page = 'All'.t
   end
 
   # GET /diagnostics/1

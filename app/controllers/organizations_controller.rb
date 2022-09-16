@@ -10,7 +10,7 @@ class OrganizationsController < ApplicationController
   def index
     authorize Organization
     @organizations = record_scope
-    @current_page = 'List'.t
+    @current_page = 'All'.t
   end
 
   # GET /organizations/1

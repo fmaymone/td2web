@@ -12,7 +12,7 @@ class TenantsController < ApplicationController
     authorize Tenant
     @tenants = Tenant.all
     @page_title = 'TeamDiagnostic Tenants'.t
-    @current_page = 'List'.t
+    @current_page = 'All'.t
   end
 
   # GET /tenants/1

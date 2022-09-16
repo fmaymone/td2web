@@ -9,7 +9,7 @@ class EntitlementsController < ApplicationController
   def index
     authorize Entitlement
     @entitlements = entitlement_scope.order(reference: :asc)
-    @current_page = 'List'.t
+    @current_page = 'All'.t
   end
 
   def new

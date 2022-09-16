@@ -12,7 +12,7 @@ class ParticipantsController < ApplicationController
   def index
     authorize Participant
     @participants = record_scope.order('last_name ASC, first_name ASC')
-    @current_page = 'List'.t
+    @current_page = 'All'.t
   end
 
   # GET /participants/1

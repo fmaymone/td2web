@@ -9,7 +9,7 @@ class TeamDiagnosticQuestionsController < ApplicationController
   # def index
   # authorize  TeamDiagnosticQuestion
   # @team_diagnostic_questions = @team_diagnostic.questions
-  # @current_page = 'List'.t
+  # @current_page = 'All'.t
   # end
 
   def create

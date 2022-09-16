@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     search = UserServices::Search.new(params, policy_scope(User), current_user)
     @users = search.call
     @page_title = 'Manage User Accounts'.t
-    @current_page = 'List'.t
+    @current_page = 'All'.t
   end
 
   def new

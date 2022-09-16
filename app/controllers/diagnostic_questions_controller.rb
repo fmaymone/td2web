@@ -13,7 +13,7 @@ class DiagnosticQuestionsController < ApplicationController
     authorize DiagnosticQuestion
     @diagnostic_questions = diagnostic_question_scope.where(question_type: 'Rating').order(matrix: :asc)
     @open_ended_questions = diagnostic_question_scope.where(question_type: 'Open-Ended').order(matrix: :asc)
-    @current_page = 'List'.t
+    @current_page = 'All'.t
   end
 
   # GET /diagnostic_questions/1
