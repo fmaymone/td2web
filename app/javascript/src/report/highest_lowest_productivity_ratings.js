@@ -22,7 +22,7 @@ class HighestLowestProductivityRatings {
 
     var title
     try {
-      title = this.container.querySelector('h1.chart_title')
+      title = this.container.querySelector('div.chart_title')
     } catch(err) {
       console.log('ERROR! HighestLowestProductivityRatings chart container not found.')
       return(false)

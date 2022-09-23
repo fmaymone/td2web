@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 793.6 87.54">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-4 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-5 {
+        fill: #b0b3b6;
+      }
+
+      .cls-6 {
+        fill: #95989b;
+      }
+
+      .cls-7 {
+        fill: #6d6f72;
+      }
+
+      .cls-8 {
+        clip-path: url(#clippath-1);
+      }
+
+      .cls-2 {
+        stroke: #6d6f72;
+        stroke-miterlimit: 10;
+        stroke-width: 1.4px;
+      }
+
+      .cls-9 {
+        fill: url(#linear-gradient-2);
+      }
+    </style>
+    <clipPath id="clippath">
+      <polygon class="cls-1" points=".8 13.05 .8 77.05 257.08 77.05 320.48 13.05 .8 13.05"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="1.62" y1="612.93" x2="2.62" y2="612.93" gradientTransform="translate(-518.42 196474.12) scale(320.48 -320.48)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#005bab"/>
+      <stop offset=".52" stop-color="#008bcc"/>
+      <stop offset="1" stop-color="#00c1f3"/>
+    </linearGradient>
+    <clipPath id="clippath-1">
+      <polygon class="cls-1" points="549.33 0 515.29 34.38 792.8 34.38 792.8 0 549.33 0"/>
+    </clipPath>
+    <linearGradient id="linear-gradient-2" x1="1.62" y1="612.92" x2="2.62" y2="612.92" gradientTransform="translate(1268.41 -175344.01) rotate(-180) scale(286.11 -286.11)" xlink:href="#linear-gradient"/>
+  </defs>
+  <polygon class="cls-5" points="536.27 13.05 515.14 34.39 299.34 34.39 320.47 13.05 536.27 13.05"/>
+  <polygon class="cls-5" points="515.29 34.38 500.51 49.31 792.8 49.31 792.8 34.38 515.29 34.38"/>
+  <polygon class="cls-6" points="536.27 13.05 500.37 49.31 355.26 49.31 391.15 13.05 536.27 13.05"/>
+  <polygon class="cls-7" points="536.27 13.05 500.37 49.31 489.86 49.31 525.76 13.05 536.27 13.05"/>
+  <g class="cls-4">
+    <rect class="cls-3" x=".8" y="13.05" width="319.68" height="64"/>
+  </g>
+  <polyline class="cls-2" points="793.6 59.1 323.49 59.1 338.26 44.18 310.85 44.18 269.46 86.84 0 86.84"/>
+  <g class="cls-8">
+    <rect class="cls-9" x="515.29" y="0" width="277.51" height="34.38"/>
+  </g>
+</svg>

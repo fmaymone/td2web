@@ -22,7 +22,7 @@ class TeamMatrixPosition {
   }
 
   set_title() {
-    const title = this.container.querySelector('header h1.chart_title')
+    const title = this.container.querySelector('div.chart_title')
     title.textContent = this.definition["title"][this.locale]
   }
 

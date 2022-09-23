@@ -1,24 +1,11 @@
-$gold: #AC6D2E;
-$lightgold: #F3e8d3; 
-$purple: #281E53;
 
-@media only screen {
-  section.report_page, section.cover_page {
-    width: 1054px;
-    height: 816px;
-    position: relative;
-    border-bottom: 1px solid $purple;
-  }
+
+section.report_page, section.cover_page, section.report_cover {
+  width: 1060px;
+  height: 800px;
+  position: relative;
 }
 
-@media only print {
-  section.report_page, section.cover_page {
-    width: 100%;
-    height: 100%;
-    position: static;
-    border-bottom: 1px solid $purple;
-  }
-}
 
 article:after {
   content: "";
@@ -26,382 +13,192 @@ article:after {
   clear: both;
 }
 
-body {
-  font-family: Helvetica;
+section {
+  margin-bottom: 1em;
 }
 
-header {
-  h1 {
-    display: inline-block;
-    position: relative;
-    top: 40px;
-    left: 30px;
-    font-size: 2.5em;
-    font-weight: normal;
-    color: $gold
-  }
-}
+body { font-family: Helvetica; }
 
-section.cover_page, section.report_page {
+section.cover_page, section.report_page, section.report_cover {
   page-break-after: always;
-  article { height: 100%; width: 98%; }
-  div.copyright_notice {
-    @media only screen {
-      position: relative;
-      top: -40px;
-    }
-    @media only print {
-      position: static;
-      top: 700px;
-      left: 500px;
-    }
-    margin: 1em;
-    text-align: right;
-    font-size: 0.8em;
-  }
-  footer.page_footer {
-    @media only screen {
-      position: absolute;
-    }
-    @media only print {
-      position: relative;
-      bottom: 0px;
-    }
-    height: 20px;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-  }
-  div.diagnostic_type {
-    @media only screen {
-      position: absolute;
-      top: 175px;
-      right: 55px;
-    }
-    @media only print {
-      position: relative;
-      text-align: right;
-      top: 50px;
-    } 
-    font-size: 1em;
-    font-weight: bold;
-    font-family: sans-serif;
-    color: $purple;
-  }
-  img.logo_left_top {
-    @media screen {
-      position: absolute;
-      right: 30px;
-      top: 30px;
-    }
-    @media print {
-      position: relative;
-      left: 940px;
-      top: 10px;
-    }
-    width: 100px;
-  }
-  img.logo_left_bottom {
-    width: 100px;
-    @media screen {
-      position: absolute;
-    }
-    @media print {
-      position: relative;
-      left: 450px;
-      top: 160px;
-    }
-    right: 30px;
-    bottom: 20px;
-  }
-  div.chapter_page {
-    background-image: url("../images/report_introduction_cover_page");
-    width: 100%;
-    margin-top: 100px;
-    min-height: 600px;
-    background-repeat: no-repeat;
-    h1.chapter_title, h1.intro_chapter_title {
-      margin: 0 !important;
-      position: relative;
-      right: 50px;
-      top: 450px;
-      text-align: right;
-      font-size: 3em;
-      color: $purple;
-      span.subheading {
-        color: $gold;
-        font-size: 0.8em;
-      }
-    }
-    h1.intro_chapter_title {
-      top: 300px;
-    }
-  }
 }
-
 
 section.cover_page {
-  header, footer {
-    min-height: 20px;
-    background: $gold;
-  }
-  .coverleft {
-    float: left;
-    width: 45%;
-    height: 100%;
-    box-sizing: border-box;
-    padding: 2.5em;
-    padding-bottom: 0.5em;
-    color: white;
-    background-color: #362C66;
-    h1 { font-size: 3.0em; color: white; font-weight: bold; }
-    h2 { font-size: 2.0em; color: #E7D4BC; font-weight: normal; }
-    p { font-size: 1.2em; color: white; }
-  }
-  .coverright {
-    height: 100%;
-    float: left;
-    width: 45%;
-    padding: 2em;
-    padding-top: 16em;
-  }
-  p.report_for {
-    color: $gold;
-    font-size: 1.2em;
-    text-transform: uppercase;
-  }
-  h1.team_name {
-    font-size: 2em;
-    color: black;
-  }
-  div#report_welcome {
-    background-image: url("../images/report_cover_world");
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
+  background-image: linear-gradient(to right, #69AEE0, #027FC3);
 }
 
-section.report_page {
-  div.leftcol {
-    float: left;
-    width: 40%;
-		blockquote {
-			text-align: right;
-		}
-    img {
-      width: 95%;
-      padding-top: 20px;
-    }
-  }
-  div.rightcol {
-    float: left;
-    width: 60%;
-  }
-  p, li {
-    font-family: serif;
-    font-size: 1.3em;
-  }
-  p.summary {
-    color: $purple;
-    font-family: sans-serif;
-    font-size: 1.3em;
-    margin: auto 2em;
-  }
-	li {
-    line-height: 1.3em;
-	}
-  ul.wide li{
-    line-height: 3em;
-  }
-	em {
-		font-weight: bold;
-	}
-  header {
-    /* background image */
-    background-image: url("../images/report_header"); 
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 200px;
-    width: 100%;
-  }
-  blockquote {
-    font-size: 1.5em;
-    color: $purple;
-    font-weight: bold;
-    line-height: 1.2em;
-    footer {
-      height: auto;
-      position: relative;
-      margin-top: 1em;
-      font-size: 0.8em;
-      font-weight: normal;
-      font-style: italic;
-			line-height: 1em;
-			cite {
-				text-align: right;
-				font-size: 0.8em;
-				font-style: normal;
-			}
-    }
-    footer::before { content: '\2014' ; }
-  }
-  h2 {
-    font-size: 1.5em;
-    color: $purple;
-  }
-  h3 {
-    font-size: 1.2em;
-    color: $purple;
-    font-style: italic;
-  }
-  div.chart_container {
-    svg {
-      display: block;
-      margin: 0px auto;
-    }
-  }
-  img.centered {
-    display: block;
-    margin: 0px auto;
-    max-width: 800px;
-  }
+section.cover_page div.chapter_header {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  color: white;
 }
 
-article {
+div.chapter_header span.chapter_header_text {
+  font-size: 3em;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 70px;
+  vertical-align: top;
+}
+
+div.chapter_header img.chapter_header_graphic {
+  height: 60px;
+}
+
+section.cover_page div.chapter_name {
+  position: absolute;
+  height: 100px;
+  top: 250px;
+  left: 70px;
+  color: white;
+  font-size: 2.5em;
+  font-weight: bold;
+  border-left: 5px solid #FBE051;
+  padding-left: 30px;
+  padding-top: 20px;
+  vertical-align: top;
+}
+
+section.cover_page img.cover_image_right_bottom {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+
+section.report_page header {
+  background-image: url("../images/00-header.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 120px;
+}
+
+section.report_page div.report_page_content {
+  position: absolute;
+  top: 130px;
+  left: 50px;
+  width: 90%;
+}
+
+section.report_page div.report_page_title {
+  font-size: 3em;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+section.report_page div.report_page_leader {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #525252;
+}
+
+section.report_page div.report_page_content p {
+  font-size: 1.3em;
+  line-height: 1.3em;
+  color: #595959;
+}
+
+section.report_page footer {
+  background-image: url("../images/00-footer.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 75px;
   width: 100%;
-  font-size: 14px;
-  div.small_copyright {
-    line-height: 2em;
-    font-size: 0.8em;
-    position: absolute;
-    left: 2.5em;
-    bottom: 50px;
-    font-style: italic;
-  }
-  span.footer_separator {
-    color: $gold;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: 2em;
-    font-size: 1.2em;
-  }
-  span.footer_page_number {
-    display: inline-block;
-    vertical-align: middle;
-    line-height: 2em;
-    font-size: 1.2em;
-  }
-  header {
-    h1 {
-      color: $purple;
-      font-size: 1.5em;
-    }
-  }
-  .content_col {
-    float: left;
-    margin: 1em;
-    font-family: serif;
-    em { font-size: 1.3em }
-  }
-  h1.chart_title {
-    font-size: 1.5em;
-  }
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
-
-
-table#quadrants_figure {
-  font-family: sans-serif;
-  width: 75%;
-  margin: 0px auto;
-  .quadrant_strength {
-    font-weight: bold;
-    font-size: 1.3em;
-    text-align: center;
-  }
-  div.green { background: #496b4a; }
-  div.blue { background: #186ba0; }
-  div.brown { background: #87623d; }
-  div.red { background: #8f1f2b; }
-  div.quadrant_cell {
-    border-radius: 5px;
-    margin: 0.5em;
-    padding: 0.5em;
-    height: 11em;
-    width: 20em;
-    span.cellheader {
-      font-weight: bold;
-      font-size: 1.1em;
-      color: black;
-      span.positive {
-        color: white;
-      }
-    }
-    ul {
-      margin: 0.5em 0.5em 1em 0.5em;
-      padding-left: 1em;
-    }
-    li {
-      font-size: 0.8em;
-      color: white;
-      font-family: sans-serif;
-    }
-  }
-}
-
-div.action_plan {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-areas:
-    "summary challenges_header actions_header outcomes_header"
-    "summary challenges challenges challenges"
-    "summary actions actions actions"
-    "summary outcomes outcomes outcomes";
-  .challenges_header { grid-area: challenges_header; }
-  .actions_header { grid-area: actions_header; }
-  .actions_header { grid-area: actions_header; }
-  .outcomes_header { grid-area: outcomes_header; }
-  .summary {
-    grid-area: summary;
-    font-family: serif;
-    padding: 1em;
-    font-size: 1.2em;
-  }
-  .column_header {
-    padding: 1em;
-    background-color: $lightgold;
-    margin: 0.5em;
-    font-size: 0.8em;
-  }
-  .plancell {
-    border: 2px solid $gold;
-    margin: 0.5em;
-    padding: 0.25em;
-    height: 10em;
-  }
-  .column_header_title {
-    color: $purple;
-    font-weight: bold;
-    font-size: 1.2em;
-  }
-}
-
-
-// Team Matrix Position Chart
-.team_matrix_position_chart_labels text {
-  font-size: 1.2em;
+section.report_page footer div.footer_left {
+  float: left;
+  padding-left: 2em;
   font-weight: bold;
-  font-family: "Helvetica"
 }
 
-.team_matrix_position_chart_xaxis .tick text,
-  .team_matrix_position_chart_yaxis .tick text {
+section.report_page footer div.footer_right {
+  float: right;
+  padding-right: 2em;
+  font-size: 0.8em;
+}
+
+section.report_page img.cover_image_right_bottom {
+  position: absolute;
+  right: 50px;
+  bottom: 90px;
+}
+
+section.report_page div.quote {
+  position: relative;
+  margin-top: 4em;
+  padding-top: 10px;
+  padding-bottom: 2em;
+  width: 55%;
+  color: #555555;
+  font-size: 1.1em;
+  line-height: 1.5em;
+  font-style: italic;
+}
+
+div.quote span.attribution {
+  font-style: normal;
+}
+
+div.quote span.attribution:before {
+  content: "\2014";
+}
+
+div.quote span.citation {
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+div.quote img.open_quote {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+}
+
+div.quote img.close_quote {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  height: 30px;
+}
+
+ul.check_list li {
+  list-style: none;
+  color: #555555;
+  line-height: 1.3em;
+  font-size: 1em;
+  padding-bottom: 0.6em;
+}
+
+ul.check_list li:before {
+  content: '';
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background-image: url('../images/00-check.svg');
+}
+
+ul.check_list li.check_list-lg {
+  font-size: 1.5em;
+  line-height: 1.5em;
+  font-style: italic;
+}
+
+ul.check_list li.check_list-lg:before {
+  height: 25px;
+  width: 25px;
+}
+
+p.definition {
+  margin-top: 0;
   font-size: 1.2em;
-  font-weight: bold;
-  font-family: "Helvetica"
+  line-height: 1.2em;
+  margin-bottom: 0.6em;
 }
-// Team Matrix Position Chart
-
 
 // HighestLowest Charts
 table.highest_lowest_table {
@@ -440,7 +237,7 @@ table.highest_lowest_table tbody tr[data-highestlowestcategory="lowestpositivity
 }
 
 table.highest_lowest_table td {
-  padding: 1em 0.5em;
+  padding: 0.5em 0.5em;
 }
 table.highest_lowest_table td:first-child {
   width: 80%
@@ -451,6 +248,455 @@ table.highest_lowest_table td:last-child {
 }
 // HighestLowest Charts
 
+/* cover1: begin */
+section#cover1 {
+  background-image: url("../images/01-cover.svg");
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+section#cover1 div.report_cover_copyright {
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+}
+
+section#cover1 div.report_cover_title {
+  position: absolute;
+  width: 475px;
+  right: 10px;
+  top: 320px;
+  color: white;
+  font-size: 3.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+section#cover1 span.report_cover_product {
+  font-size: 2em;
+  font-weight: bold;
+}
+/* cover1:end */
+
+/* cover2:start */
+section#cover2 div.cover2_content {
+  color: white;
+  padding: 100px 50px 0 50px;
+  height: 100%;
+}
+
+section#cover2 div.cover_header1 {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+section#cover2 div.cover_header2 {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+section#cover2 div.cover_content {
+  width: 75%;
+  font-size: 1.5em;
+}
+
+section#cover2 img.cover_image_right_bottom {
+  height: 250px;
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+}
+/* cover2:end */
+
+/* introduction_model:start */
+img#introduction_model_graphic {
+  display: block;
+  position: absolute;
+  width: 300px;
+  top: -40px;
+  left: 300px;
+}
+/* introduction_goal2:start */
+
+/* page_introduction_four_quadrants:start */
+div.page_introduction_four_quadrants_graphic {
+  margin: 20px 0px 0px -55px;
+  position: relative;
+  width: 800px;
+  height: 400px;
+  font-size: 0.8em;
+  color: white;
+}
+
+div.page_introduction_four_quadrants_graphic_left {
+  position: absolute;
+  width: 270px;
+  height: 400px;
+  top: 0;
+  left: 10px;
+}
+
+div.page_introduction_four_quadrants_graphic_top {
+  position: absolute;
+  height: 50px;
+  width: 505px;
+  right: 0;
+  top: 15px;
+  font-size: 1.2em;
+  line-height: 2.5em;
+  color: #555555;
+  font-weight: bold;
+}
+div.page_introduction_four_quadrants_graphic_top_col1 {
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+
+div.page_introduction_four_quadrants_graphic_top_col2 {
+  float: right;
+  width: 50%;
+  text-align: center;
+}
+
+div.page_introduction_four_quadrants_graphic_left {
+  font-size: 1.2em;
+  color: #555555;
+  font-weight: bold;
+  width: 300px;
+}
+
+div.page_introduction_four_quadrants_graphic_left_top {
+  position: absolute;
+  right: 30px;
+  top: 115px;
+}
+
+div.page_introduction_four_quadrants_graphic_left_bottom {
+  position: absolute;
+  right: 30px;
+  top: 300px;
+}
+
+img#page_introduction_four_quadrants_background {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 350px;
+}
+
+div.page_introduction_four_quadrants_graphic_right {
+  position: absolute;
+  width: 505px;
+  height: 350px;
+  right: 0;
+  bottom: 0;
+}
+
+div.page_introduction_four_quadrants_graphic_right ul {
+  margin-block-start: 0.2em;
+  padding-inline-start: 1em;
+  font-size: 0.9em;
+}
+
+div.page_introduction_four_quadrants_graphic_right div.cell {
+  position: absolute;
+  padding: 0.75em 0 0 0.5em;
+  width: 230px;
+  height: 150px;
+}
+
+div.page_introduction_four_quadrants_graphic_right div.cell1 { }
+
+div.page_introduction_four_quadrants_graphic_right div.cell2 {
+  top: 0;
+  right: 0;
+}
+
+div.page_introduction_four_quadrants_graphic_right div.cell3 {
+  bottom: 5px;
+  left: 0;
+}
+
+div.page_introduction_four_quadrants_graphic_right div.cell4 {
+  bottom: 5px;
+  right: 0;
+}
+/* page_introduction_four_quadrants:end */
+
+/* page_introduction_model_productivity:start */
+
+/* page_introduction_model_productivity:end */
+
+/* page_introduction_model_productivity_strengths:start */
+section#page_introduction_model_productivity_strengths img.page_graphic {
+  position: absolute;
+  bottom: 80px;
+  right: 20px;
+  width: 550px;
+}
+section#page_introduction_model_productivity_strengths div.left_col {
+  width: 50%;
+}
+section#page_introduction_model_productivity_strengths div.left_col p {
+  font-size: 1.6em;
+  line-height: 1.2em;
+}
+/* page_introduction_model_productivity_strengths:end */
+
+
+/* page_introduction_model_positivity_strengths:start */
+section#page_introduction_model_positivity_strengths img.page_graphic {
+  position: absolute;
+  bottom: 80px;
+  right: 20px;
+  width: 550px;
+}
+section#page_introduction_model_positivity_strengths div.left_col {
+  width: 45%;
+}
+section#page_introduction_model_positivity_strengths div.left_col p {
+  font-size: 1.6em;
+  line-height: 1.2em;
+}
+/* page_introduction_model_positivity_strengths:end */
+
+
+/* page_introduction_model_productivity_positivity:start */
+section#page_introduction_model_productivity_positivity img.cover_image_right_bottom {
+  width: 450px !important;
+  bottom: 160px;
+}
+/* page_introduction_model_productivity_positivity:end */
+
+
+/* page_introduction_multiple_views1:start */
+
+section#page_introduction_multiple_views1 p {
+  line-height: 1.1em;
+  font-size: 1.3em;
+}
+section#page_introduction_multiple_views1 span.header {
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+section#page_introduction_multiple_views1 div.left_col {
+  float: left;
+  width: 45%;
+}
+
+section#page_introduction_multiple_views1 div.left_col img {
+  height: 500px;
+}
+
+section#page_introduction_multiple_views1 div.right_col {
+  float: right;
+  width: 45%;
+}
+/* page_introduction_multiple_views1:end */
+
+/* page_introduction_multiple_views2:start */
+section#page_introduction_multiple_views2 p {
+  font-size: 1.2em;
+  line-height: 1.2em;
+}
+section#page_introduction_multiple_views2 span.header {
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+section#page_introduction_multiple_views2 div.left_col {
+  float: left;
+  width: 45%;
+}
+
+section#page_introduction_multiple_views2 div.left_col img {
+  height: 500px;
+}
+
+section#page_introduction_multiple_views2 div.right_col {
+  float: right;
+  width: 45%;
+}
+/* page_introduction_multiple_views2:end */
+
+/* page_introduction_multiple_views3:start */
+section#page_introduction_multiple_views3 p {
+  font-size: 1.1em;
+  line-height: 1.1em;
+}
+section#page_introduction_multiple_views3 span.header {
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+section#page_introduction_multiple_views3 div.left_col {
+  float: left;
+  width: 45%;
+}
+
+section#page_introduction_multiple_views3 div.left_col img {
+  height: 500px;
+}
+
+section#page_introduction_multiple_views3 div.right_col {
+  float: right;
+  width: 45%;
+}
+/* page_introduction_multiple_views3:end */
+
+/* chapter_results:start */
+section#chapter_results img.cover_image_right_bottom {
+  height: 400px;
+  bottom: 20px;
+  right: 20px;
+}
+/* chapter_results:end */
+
+/* page_ongoing_coaching:start */
+section#page_ongoing_coaching div.left_col {
+  float: left;
+  width: 40%;
+}
+section#page_ongoing_coaching div.left_col img {
+  position: absolute;
+  height: 350px;
+  top: 170px;
+}
+
+section#page_ongoing_coaching div.right_col {
+  float: right;
+  width: 60%;
+  font-size: 0.9em;
+}
+
+section#page_ongoing_coaching div.right_col p.factors_header {
+  font-weight: bold;
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+section#page_ongoing_coaching div.right_col ul {
+  margin-block-start: 0.2em;
+  padding-inline-start: 1em;
+  font-size: 1.3em;
+}
+
+section#page_ongoing_coaching div.right_col ul li {
+  list-style: none;
+  color: #555555;
+  line-height: 1.1em;
+  font-size: 1em;
+  padding-bottom: 0.3em;
+}
+
+section#page_ongoing_coaching div.right_col ul li:before {
+  content: '';
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  background-image: url('../images/00-check.svg');
+}
+
+section#page_ongoing_coaching div.right_col div.productivity_factors {
+  float: left;
+  width: 48%;
+}
+
+section#page_ongoing_coaching div.right_col div.positivity_factors {
+  float: left;
+  width: 45%;
+}
+/* page_ongoing_coaching:end */
+
+/* page_ongoing_team_development:start */
+section#page_ongoing_team_development span.header {
+  font-weight: bold;
+  font-style: italic;
+}
+section#page_ongoing_team_development div.left_col {
+  float: left;
+  width: 45%;
+}
+section#page_ongoing_team_development div.right_col {
+  float: right;
+  width: 45%;
+}
+section#page_ongoing_team_development div.right_col p {
+  font-size: 1em;
+  line-height: 1.2em;
+}
+section#page_ongoing_team_development div.left_col img {
+  position: absolute;
+  top: 110px;
+  height: 420px;
+}
+/* page_ongoing_team_development:end */
+
+/* chapter_actions:begin */
+section#chapter_actions img.cover_image_right_bottom {
+  height: 300px;
+  right: 100px;
+  bottom: 75px;
+}
+/* chapter_actions:begin */
+
+/* page_action_plan:start */
+section#page_action_plan div.left_col {
+  float: left;
+  width: 25%;
+  font-size: 0.8em;
+}
+
+section#page_action_plan div.report_page_content{
+  width: 90%;
+}
+
+section#page_action_plan div.right_col {
+  float: right;
+}
+
+table.action_plan {
+  width: 680px;
+  font-size: 0.8em;
+  border-spacing: 10px;
+}
+
+table.action_plan th {
+  font-weight: normal;
+  background: #1A5394;
+  color: white;
+  padding: 5px 15px;
+  text-align: left;
+}
+
+table.action_plan td {
+  padding: 0.5em;
+  width: 33%;
+  height: 120px;
+  border: 3px solid #1A5394;
+  vertical-align: top;
+}
+
+table.action_plan span.number {
+  font-size: 0.8em;
+  background: #DE4969;
+  color: white;
+  padding: 0.2em 0.5em;
+  border-radius: 0px 7px;
+}
+/* page_action_plan:end */
+
+
+/* Team Matrix Position Chart */
+section#TeamMatrixPosition .chart_container svg {
+  position: absolute;
+  left: 100px;
+}
+/* Team Matrix Position Chart - END */
+
 // Most/Least Agreement
 .agreement_chart_drawing_container {
   width: 500px;
@@ -458,10 +704,10 @@ table.highest_lowest_table td:last-child {
 }
 
 .agreement_legend {
-  font-size: 0.8em;
+  font-size: 0.6em;
   background-color: #eee;
   padding: 0.25em 1em;
-  width: 600px;
+  width: 700px;
   font-family: Helvetica;
   margin: 0px auto;
 }
