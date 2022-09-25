@@ -13,7 +13,8 @@ module ReportServices
       DataGenerators::HighestLowestProductivityRatings,
       DataGenerators::HighestLowestPositivityRatings,
       DataGenerators::LeastAgreement,
-      DataGenerators::MostAgreement
+      DataGenerators::MostAgreement,
+      DataGenerators::OpenEndedQuestions
     ].freeze
 
     attr_reader :team_diagnostic, :locale

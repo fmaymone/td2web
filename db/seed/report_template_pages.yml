@@ -1120,7 +1120,7 @@
     :format: html
     :name: TDA Report - Open Ended Questions (en)
     :markup: |
-      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <section id="{{slug}}" class="report_page OpenEndedQuestions" data-page="{{page}}" data-oeqresponsepage="0">
         <header></header>
         <div class="report_page_content">
           <div class="report_page_title chart_title">

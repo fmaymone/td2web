@@ -6,6 +6,7 @@ import HighestLowestProductivityRatings from './highest_lowest_productivity_rati
 import HighestLowestPositivityRatings from './highest_lowest_positivity_ratings.js'
 import LeastAgreement from './least_agreement.js'
 import MostAgreement from './most_agreement.js'
+import OpenEndedQuestions from './open_ended_questions.js'
 
 const ReportCharts = [
   ['TeamMatrixPosition', TeamMatrixPosition],
@@ -15,7 +16,8 @@ const ReportCharts = [
   ['HighestLowestProductivityRatings', HighestLowestProductivityRatings],
   ['HighestLowestPositivityRatings', HighestLowestPositivityRatings],
   ['LeastAgreement', LeastAgreement],
-  ['MostAgreement', MostAgreement]
+  ['MostAgreement', MostAgreement],
+  ['OpenEndedQuestions', OpenEndedQuestions]
 ]
 
 export default ReportCharts

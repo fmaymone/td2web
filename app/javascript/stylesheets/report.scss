@@ -722,10 +722,21 @@ span.agreement_legend_item_number {
   height: 1.2em;
   width: 1.2em;
   border-radius: 50%;
+  padding: 0.2em;
   text-align: center;
-  padding: 0.3em;
-  color: white;
   font-size: 0.8em;
   font-weight: bold;
+  line-height: 1.3em;
+  color: white;
 }
 // Most/Least Agreement
+
+/* Open Ended Questions */
+p.open_ended_question_response {
+  margin: 0 !important;
+  padding: 0.5em !important;
+  font-size: 1em !important;
+  line-height: 1em !important;
+  border-bottom: 1px dashed lightgray;
+}
+/* Open Ended Questions - END */
