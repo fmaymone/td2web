@@ -17,12 +17,16 @@ module OrganizationServices
     end
 
     def call
-      service = EntitlementServices::GrantUsage.new(user: @grantor, reference: REFERENCE)
-      unless service.call { create_organization }
-        @errors ||= []
-        @errors += service.errors
-      end
-      valid? ? @organization : false
+      # !!! Entitlement usage disabled for the time being
+      #
+      #service = EntitlementServices::GrantUsage.new(user: @grantor, reference: REFERENCE)
+      #unless service.call { create_organization }
+        #@errors ||= []
+        #@errors += service.errors
+      #end
+      #valid? ? @organization : false
+      
+      create_organization
     end
 
     def valid?

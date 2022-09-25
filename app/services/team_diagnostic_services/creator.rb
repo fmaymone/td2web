@@ -22,11 +22,15 @@ module TeamDiagnosticServices
     end
 
     def call
-      service = EntitlementServices::GrantUsage.new(user: @user, reference: REFERENCE)
-      unless service.call { create_team_diagnostic }
-        @errors ||= []
-        @errors += service.errors
-      end
+      # !!! Entitlement usage disabled for the time being
+      #
+      #service = EntitlementServices::GrantUsage.new(user: @user, reference: REFERENCE)
+      #unless service.call { create_team_diagnostic }
+        #@errors ||= []
+        #@errors += service.errors
+      #end
+
+      create_team_diagnostic
 
       if valid?
         after_save
