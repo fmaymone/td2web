@@ -8,6 +8,7 @@ module ReportServices
       TITLE = 'Chart Image'
       VERSION = 1
       CONTENT_TYPE = 'image/png'
+      OMIT_CHARTS = ['OpenEndedQuestions']
 
       def call
         super
@@ -26,7 +27,7 @@ module ReportServices
 
       def chart_names
         @chart_names ||= ReportServices::DataGenerator::GENERATORS.map { |g| g.to_s.split('::').last }
-                                                                  .compact.uniq
+                                                                  .compact.uniq - OMIT_CHARTS
       end
 
       def png_files
