@@ -8,7 +8,8 @@ module TeamDiagnostics
     DEPLOY_NOTIFICATION_LETTER_SUBJECT_KEY = 'team_diagnostic-deploy_notification_letter-subject'
     DEPLOY_NOTIFICATION_LETTER_BODY_KEY = 'team_diagnostic-deploy_notification_letter-subject'
     CANCEL_NOTIFICATION_LETTER_SUBJECT_KEY = 'team_diagnostic-cancel_notification_letter-subject'
-    CANCEL_NOTIFICATION_LETTER_BODY_KEY = 'team_diagnostic-cancel_notification_letter-body'
+    COMPLETE_NOTIFICATION_LETTER_BODY_KEY = 'team_diagnostic-complete_notification_letter-body'
+    COMPLETE_NOTIFICATION_LETTER_SUBJECT_KEY = 'team_diagnostic-complete_notification_letter-subject'
 
     included do
       def template_data
@@ -53,6 +54,24 @@ module TeamDiagnostics
         template.render(template_data)
       rescue StandardError
         'Your Team Diagnostic Has Canceled!'
+      end
+
+      def send_complete_notification_message
+        TeamDiagnosticMailer.complete_notification_letter(self).deliver_later
+      end
+
+      def complete_notification_letter_subject
+        TeamDiagnostics::Messaging::COMPLETE_NOTIFICATION_LETTER_SUBJECT_KEY.t
+      rescue StandardError
+        'Your Team Diagnostic Has completeed!'
+      end
+
+      def complete_notification_letter_body
+        # TODO: Improve security: strip unnecessary html tags
+        template = Liquid::Template.parse(TeamDiagnostics::Messaging::COMPLETE_NOTIFICATION_LETTER_BODY_KEY.t)
+        template.render(template_data)
+      rescue StandardError
+        'Your Team Diagnostic Has completeed!'
       end
 
       def send_reminders

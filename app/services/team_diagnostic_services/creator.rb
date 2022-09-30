@@ -24,11 +24,11 @@ module TeamDiagnosticServices
     def call
       # !!! Entitlement usage disabled for the time being
       #
-      #service = EntitlementServices::GrantUsage.new(user: @user, reference: REFERENCE)
-      #unless service.call { create_team_diagnostic }
-        #@errors ||= []
-        #@errors += service.errors
-      #end
+      # service = EntitlementServices::GrantUsage.new(user: @user, reference: REFERENCE)
+      # unless service.call { create_team_diagnostic }
+      # @errors ||= []
+      # @errors += service.errors
+      # end
 
       create_team_diagnostic
 

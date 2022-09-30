@@ -8,7 +8,7 @@ module ReportServices
       TITLE = 'Chart Image'
       VERSION = 1
       CONTENT_TYPE = 'image/png'
-      OMIT_CHARTS = ['OpenEndedQuestions']
+      OMIT_CHARTS = ['OpenEndedQuestions'].freeze
 
       def call
         super

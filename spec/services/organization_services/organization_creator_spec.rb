@@ -89,7 +89,7 @@ RSpec.describe OrganizationServices::Creator do
         expect(Organization.count).to eq(org_count + 1)
         expect(user.organizations.pluck(:id)).to include(service.organization.id)
         grant_usages = user.grants.where(reference: OrganizationServices::Creator::REFERENCE).valid.first.usage_count
-        expect(grant_usages).to eq(1)
+        expect(grant_usages).to eq(0) # grant usages temporarily disabled
       end
     end
     describe 'with invalid params' do

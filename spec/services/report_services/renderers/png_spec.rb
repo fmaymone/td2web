@@ -16,12 +16,12 @@ RSpec.describe ReportServices::Renderers::Png do
   it 'creates png files for all charts for all teamdiagnostic locales' do
     locales = report.team_diagnostic.all_locales
     charts = ReportServices::DataGenerator::GENERATORS
-    expect(charts.size).to eq 8
+    expect(charts.size).to eq 9
     assert(locales.size > 1)
     service.call
     service.report.reload
     png_files = service.png_files
-    expect(png_files.size).to eq(charts.size)
+    expect(png_files.size).to eq(charts.size - 1) # omit OpenEndedQuestions
     expect(png_files.map { |f| f[:format] }.uniq).to eq(['image/png'])
   end
 end

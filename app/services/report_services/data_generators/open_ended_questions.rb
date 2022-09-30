@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ReportServices
   module DataGenerators
     # Open Ended Question Reponses
@@ -33,13 +35,13 @@ module ReportServices
       end
 
       def open_ended_responses
-        @open_ended_responses ||= all_responses.open_ended.to_a.
-          map{ |response|
-            {
-              question_id: response.team_diagnostic_question_id,
-              response: response.response
-            }
+        @open_ended_responses ||= all_responses.open_ended.to_a
+                                               .map do |response|
+          {
+            question_id: response.team_diagnostic_question_id,
+            response: response.response
           }
+        end
       end
 
       def open_ended_responses_data
@@ -49,7 +51,6 @@ module ReportServices
           memo[question_id] << obj[:response]
         end
       end
-
     end
   end
 end

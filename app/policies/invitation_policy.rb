@@ -56,7 +56,7 @@ class InvitationPolicy < ApplicationPolicy
   end
 
   def resend?
-    ( admin? || staff? ) &&
+    (admin? || staff?) &&
       !record.claimed?
   end
 

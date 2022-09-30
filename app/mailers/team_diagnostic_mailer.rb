@@ -15,4 +15,11 @@ class TeamDiagnosticMailer < ApplicationMailer
     @content = diagnostic.cancel_notification_letter_body
     mail(to: @email, subject: @subject)
   end
+
+  def complete_notification_letter(diagnostic)
+    @email = [diagnostic.contact_email, diagnostic.alternate_email]
+    @subject = diagnostic.complete_notification_letter_subject
+    @content = diagnostic.complete_notification_letter_body
+    mail(to: @email, subject: @subject)
+  end
 end
