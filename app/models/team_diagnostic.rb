@@ -269,7 +269,7 @@ class TeamDiagnostic < ApplicationRecord
 
   # Autofill diagnostic survey responses for use in development and test
   def auto_respond
-    # return if Rails.env.production?
+    return if Rails.env.production? && !Teamdiagnostic::DEBUG
 
     participants.each do |participant|
       next unless (diagnostic_survey = participant.active_survey)

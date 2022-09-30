@@ -83,14 +83,11 @@ module TeamDiagnostics
 
     class_methods do
       def self.send_reminders
-        # TODO: send team diagnostic reminders
-        false
-        # pending_reminder.each do |diagnostic|
-        # diagnostic.send_reminders
-        # rescue StandardError
-        ## TODO: log failure event
-        # SystemEvent.log(event_source: diagnostic, description: 'Error sending reminders')
-        # end
+        pending_reminder.each do |diagnostic|
+          diagnostic.send_reminders
+        rescue StandardError => e
+          SystemEvent.log(event_source: diagnostic, description: 'Error sending reminders', severity: :error, debug: e.message)
+        end
       end
     end
   end

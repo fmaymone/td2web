@@ -15,6 +15,8 @@ require 'dotenv/load'
 require 'csv'
 
 module Teamdiagnostic
+  DEBUG = ['true','t','1'].include?(ENV.fetch('DEBUG','false').to_s)
+
   # Base Application class
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -42,5 +44,6 @@ module Teamdiagnostic
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
   end
 end
