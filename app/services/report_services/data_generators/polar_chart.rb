@@ -7,7 +7,7 @@ module ReportServices
       TITLE = 'Polar Chart'
       ID = 'PolarChart'
       VERSION = 1
-      FACTORS = ['Constructive Interaction', 'Values Diversity', 'Optimism', 'Alignment', 'Goals & Strategies', 'Accountability', 'Proactive', 'Decision Making', 'Resources', 'Team Leadership', 'Trust', 'Respect', 'Camaraderie', 'Communication'].freeze
+      FACTORS = ['Communication', 'Constructive Interaction', 'Values Diversity', 'Optimism', 'Alignment', 'Goals & Strategies', 'Accountability', 'Proactive', 'Decision Making', 'Resources', 'Team Leadership', 'Trust', 'Respect', 'Camaraderie'].freeze
 
       def id
         ID

@@ -141,7 +141,7 @@ class PolarChart {
 
     let graph_points = []
     factors.forEach((factor, factor_index) => {
-      let point_radius = this.value(this.data[factor]) * radius / step_count
+      let point_radius = this.value(this.data[factor] - 1) * radius / step_count
       let point = [
         point_radius * Math.cos(angle * factor_index) + chart_center.x,
         point_radius * Math.sin(angle * factor_index) + chart_center.y
