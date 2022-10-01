@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'request_consent', to: 'home#request_consent'
   post 'grant_consent', to: 'home#grant_consent'
   get 'after_registration', to: 'home#after_registration'
+  get 'system_events', to: 'home#system_events'
 
   resources :team_diagnostic_letters
   resources :diagnostics do

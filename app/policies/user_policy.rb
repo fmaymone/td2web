@@ -76,6 +76,14 @@ class UserPolicy < ApplicationPolicy
     record.is_a?(User) && record.id == user.id
   end
 
+  def admin_preferences?
+    user.admin? || user.staff?
+  end
+
+  def admin_notify_errors?
+    admin_preferences? && user.notification_admin_errors?
+  end
+
   def allowed_params
     user_params = User::ALLOWED_PARAMS.dup
     profile_params = UserProfile::ALLOWED_PARAMS.dup
@@ -84,10 +92,10 @@ class UserPolicy < ApplicationPolicy
     case user
     when ->(u) { u.admin? }
       user_params << [:role_id]
-      profile_params << %i[staff_notes ux_version]
+      profile_params << %i[staff_notes ux_version notification_admin_errors]
     when ->(u) { u.staff? }
       user_params << [:role_id]
-      profile_params << %i[staff_notes ux_version]
+      profile_params << %i[staff_notes ux_version notification_admin_errors]
     when ->(u) { u.translator? }
       # noop
     when ->(u) { u.facilitator? }

@@ -17,6 +17,8 @@
     <div class="col">
       <%= render partial: 'account_card', locals: { user: @user } %>
       <br/>
+      <%= render partial: 'preferences_card', locals: { user: @user } %>
+      <br/>
       <%= render partial: 'grants_card', locals: { user: @user } %>
       <br/>
       <%= render partial: 'consent_card', locals: { user: @user } %>

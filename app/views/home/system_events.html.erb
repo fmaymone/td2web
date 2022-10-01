@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col">
+    <h1>Errors (Past <%= @days %> days)</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <%= render partial: 'system_events', locals: { system_events: @system_events } %>
+  </div>
+</div>

@@ -102,6 +102,19 @@
           </div>
         </div>
       <% end %>
+      <% if policy(user).admin_preferences? %>
+        <div class="row m-2 p-2 bg-light">
+          <div class="col">
+            <h5>Admin Preferences</h5>
+            <div class="form-row border">
+              <div class="col">
+                <%= profile.check_box :notification_admin_errors %>
+                <%= profile.label :notification_admin_errors, 'System Error Notifications'.t %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </fieldset>
 

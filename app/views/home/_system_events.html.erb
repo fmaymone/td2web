@@ -1,0 +1,47 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Severity</th>
+      <th>Source/Incidental</th>
+      <th>Description</th>
+      <th>Incidental</th>
+      <th>Debug</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% system_events.each do |event| %>
+      <tr>
+        <td class="text-nowrap"><%= event.created_at.strftime("%m/%d/%y %H:%M") %></td>
+        <td>
+          <span class="badge rounded-pill bg-<%= severity_class(event.severity) %>">
+            <%= event.severity %>
+          </span>
+        </td>
+        <td>
+          <p>
+            <b>Source:</b>
+            <%= link_to(event.event_source_type, ( url_for(event.event_source) rescue '#' )) %>
+            &mdash;
+            <%= event.event_source.name rescue '' %>
+          </p>
+          <% if event.incidental.present? %>
+            <hr/>
+            <p>
+              <b>Incidental:</b>
+              <%= link_to(event.incidental_type, url_for(event.incidental)) %>
+              &mdash;
+              <%= event.incidental.name rescue '' %>
+            </p>
+          <% end %>
+        </td>
+        <td><p><%= event.description %></p></td>
+        <td>
+          <tt>
+            <%= truncate(event.debug, length: 300) %>
+          </tt>
+        </td>
+      </tr>  
+    <% end %>
+  </tbody>
+</table>

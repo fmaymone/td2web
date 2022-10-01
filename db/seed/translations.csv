@@ -12446,3 +12446,6 @@ en,team_diagnostic-complete_notification_letter-body,"Hello {{facilitator_name}}
 
 Your {{assessment_name}} for {{team_name}} is completed!"
 en,team_diagnostic-complete_notification_letter-subject,Your Team Diagnostic Is Completed!
+en,System Events,System Events
+en,System Error Notifications,System Error Notifications
+en,Preferences,Preferences

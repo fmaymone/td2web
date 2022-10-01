@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title"><%= 'Preferences'.t %></h5>
+    <p class="card-text">
+      <% any_shown = false %>
+      <% if policy(user).admin_preferences? %>
+        <% any_shown = true %>
+        <strong>Admin Error Notifications</strong>: <%= user.user_profile.notification_admin_errors? ? 'Yes' : 'No' %>
+      <% end %>
+      <% unless any_shown %>
+        <strong><%= 'None'.t %></strong>
+      <% end %>
+
+    </p>
+  </div>
+</div>

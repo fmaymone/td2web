@@ -4,25 +4,26 @@
 #
 # Table name: user_profiles
 #
-#  id           :uuid             not null, primary key
-#  user_id      :uuid
-#  prefix       :string           default("")
-#  first_name   :string           default("")
-#  middle_name  :string           default("")
-#  last_name    :string
-#  suffix       :string           default("")
-#  pronoun      :string           default("they")
-#  country      :string
-#  company      :string
-#  department   :string
-#  title        :string
-#  ux_version   :integer          default(0)
-#  consent      :jsonb
-#  staff_notes  :text
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  phone_number :string           not null
-#  invoiceable  :boolean          default(TRUE), not null
+#  id                       :uuid             not null, primary key
+#  user_id                  :uuid
+#  prefix                   :string           default("")
+#  first_name               :string           default("")
+#  middle_name              :string           default("")
+#  last_name                :string
+#  suffix                   :string           default("")
+#  pronoun                  :string           default("they")
+#  country                  :string
+#  company                  :string
+#  department               :string
+#  title                    :string
+#  ux_version               :integer          default(0)
+#  consent                  :jsonb
+#  staff_notes              :text
+#  created_at               :datetime         not null
+#  updated_at               :datetime         not null
+#  phone_number             :string           not null
+#  invoiceable              :boolean          default(TRUE), not null
+#  notification_preferences :jsonb
 #
 FactoryBot.define do
   factory :user_profile, class: UserProfile do
