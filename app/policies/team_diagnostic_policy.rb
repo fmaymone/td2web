@@ -92,11 +92,19 @@ class TeamDiagnosticPolicy < ApplicationPolicy
   end
 
   def entitled_diagnostics
-    auth_service = EntitlementServices::Authorizer.new(user:, reference: TeamDiagnosticServices::Creator::REFERENCE)
-    return Diagnostic.active.all if auth_service.call("#{TeamDiagnosticServices::Creator::ENTITLEMENT_BASE}-any")
+    if begin
+      Rails.application.credentials.entitlements_active
+    rescue StandardError
+      false
+    end
+      auth_service = EntitlementServices::Authorizer.new(user:, reference: TeamDiagnosticServices::Creator::REFERENCE)
+      return Diagnostic.active.all if auth_service.call("#{TeamDiagnosticServices::Creator::ENTITLEMENT_BASE}-any")
 
-    Diagnostic.active.all.select do |diagnostic|
-      auth_service.call("#{TeamDiagnosticServices::Creator::ENTITLEMENT_BASE}-#{diagnostic.slug.downcase}")
+      Diagnostic.active.all.select do |diagnostic|
+        auth_service.call("#{TeamDiagnosticServices::Creator::ENTITLEMENT_BASE}-#{diagnostic.slug.downcase}")
+      end
+    else
+      Diagnostic.active
     end
   end
 

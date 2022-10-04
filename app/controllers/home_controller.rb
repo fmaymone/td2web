@@ -35,7 +35,7 @@ class HomeController < ApplicationController
     @page_title = 'System Events'
     # Errors from the past two days (minutes)
     @days = 30
-    @system_events = SystemEvent.notifiable.recent(60*24*@days).order(created_at: :desc)
+    @system_events = SystemEvent.notifiable.recent(60 * 24 * @days).order(created_at: :desc)
   end
 
   private

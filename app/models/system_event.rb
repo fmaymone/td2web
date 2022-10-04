@@ -26,8 +26,8 @@ class SystemEvent < ApplicationRecord
   belongs_to :incidental, polymorphic: true, required: false
 
   ### Scopes
-  scope :notifiable, -> { where(severity: %w[error fatal])}
-  scope :recent,  -> (minutes) { where(created_at: (minutes.minutes.ago..Time.current)) }
+  scope :notifiable, -> { where(severity: %w[error fatal]) }
+  scope :recent, ->(minutes) { where(created_at: (minutes.minutes.ago..Time.current)) }
 
   def self.log(event_source:, description:, incidental: nil, debug: nil, severity: :info)
     system_event = create(

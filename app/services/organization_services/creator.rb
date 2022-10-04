@@ -14,19 +14,23 @@ module OrganizationServices
       @grantor = grantor || @user
       @organization = initialize_organization
       @errors = nil
+      @use_entitlements = begin
+        Rails.application.credentials.entitlements_active
+      rescue StandardError
+        false
+      end
     end
 
     def call
-      # !!! Entitlement usage disabled for the time being
-      #
-      # service = EntitlementServices::GrantUsage.new(user: @grantor, reference: REFERENCE)
-      # unless service.call { create_organization }
-      # @errors ||= []
-      # @errors += service.errors
-      # end
-      # valid? ? @organization : false
-
-      create_organization
+      if use_entitlements?
+        service = EntitlementServices::GrantUsage.new(user: @grantor, reference: REFERENCE)
+        unless service.call { create_organization }
+          @errors ||= []
+          @errors += service.errors
+        end
+      else
+        create_organization
+      end
       valid? ? @organization : false
     end
 
@@ -52,6 +56,10 @@ module OrganizationServices
     end
 
     private
+
+    def use_entitlements?
+      @use_entitlements
+    end
 
     def initialize_organization
       organization = Organization.new(@params)

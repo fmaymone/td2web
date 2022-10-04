@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class HomePolicy < ApplicationPolicy
   def index?
     true
@@ -16,6 +18,6 @@ class HomePolicy < ApplicationPolicy
   end
 
   def system_events?
-    user.admin? || suer.staff?
+    user.admin? || user.staff?
   end
 end

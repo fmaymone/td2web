@@ -11,3 +11,8 @@
     :name: TDA Diagnostic Report (en)
     :state: published
     :version: 1
+  - :tenant_id: <%= Tenant.default_tenant.id %>
+    :diagnostic_id: <%= Diagnostic.where(slug: Diagnostic::ORG_SLUG).first&.id %>
+    :name: ORG View Diagnostic Report (en)
+    :state: published
+    :version: 1

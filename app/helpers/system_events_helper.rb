@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SystemEventsHelper
   def severity_class(severity)
     {
@@ -6,6 +8,6 @@ module SystemEventsHelper
       warn: 'primary',
       error: 'warning',
       fatal: 'danger'
-    }.fetch(severity.to_sym, 'info') 
+    }.fetch(severity.to_sym, 'info')
   end
 end
