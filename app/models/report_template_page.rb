@@ -34,7 +34,7 @@ class ReportTemplatePage < ApplicationRecord
   scope :layout_page, -> { where(slug: LAYOUT_PAGE_SLUG) }
   scope :content_pages, -> { where.not(slug: LAYOUT_PAGE_SLUG) }
 
-  validates :index, uniqueness: { scope: %i[locale format] }
+  validates :index, uniqueness: { scope: %i[locale format report_template_id] }
 
   ### Associations
   belongs_to :report_template

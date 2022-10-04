@@ -43,11 +43,12 @@
         <div class="report_cover_copyright">
           <div class="report_cover_copyright_product">
             <span class="report_cover_product">
-            Team Diagnostic&trade; | 2022
+              Team Diagnostic&trade; | 2022
             </span><br/>
             <span class="report_cover_website">
               www.teamcoachinginternational.com
             </span>
+          </div>
         </div>
       </section>
   - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'TDA Diagnostic Report (en)') %>
@@ -1379,6 +1380,1435 @@
     :locale: en
     :format: html
     :name: TDA Conclusion - Notes (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+        <header></header>
+        <div class="report_page_content">
+          <div class="report_page_title">
+            Notes
+          </div>
+        </div>
+        <footer>
+          <div class="footer_left">
+            Team Diagnostic&trade;
+          </div>
+          <div class="footer_right">
+            &copy; Team Coaching International 2022 All Rights Reserved.
+          </div>
+        </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: layout
+    :index: 0
+    :locale: en
+    :format: html
+    :name: ORG View Report Layout (en)
+    :markup: |
+      <!doctype html>
+      <html lang="{{locale}}">
+        <head>
+          <title>{{report_title}}</title> 
+          <meta charset="utf-8">
+          <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          [[ASSET_TAGS_HERE]]
+        </head>
+        <body>
+        <div id="report_content">
+          [[REPORT_CONTENT_HERE]]
+        </div>
+        </body>
+      </html>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: cover1
+    :index: 1
+    :locale: en
+    :format: html
+    :name: ORG View Report Cover Page (en)
+    :markup: |
+      <section id="{{slug}}" class="report_cover" data-page="{{page}}">
+        <div class="report_cover_title">
+          Team Coaching International
+        </div>
+        <div class="report_cover_copyright">
+          <div class="report_cover_copyright_product">
+          <span class="report_cover_product">
+            Team Diagnostic&trade; | 2022
+          </span><br/>
+          <span class="report_cover_website">
+          www.teamcoachinginternational.com
+          </span>
+        </div>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: cover2
+    :index: 2
+    :locale: en
+    :format: html
+    :name: ORG View Report Welcome Page (en)
+    :markup: |
+      <section id="{{slug}}" class="cover_page" data-page="{{page}}">
+        <div class="cover2_content">
+          <img class="cover_logo" src="{{base_url}}/images/00-tci-logo-white.svg" height=100px /><br/><br/>
+          <div class="cover_header1">
+            Welcome to the Team Diagnostic&trade;
+          </div><br/><br/>
+          <div class="cover_content">
+            <p>
+              The report you are holding contains a picture of this organization. In fact, the report contains a number of different pictures, each one more detailed.
+            </p>
+            <p>
+              This collection of pictures provides a way to see beneath the surface, beneath the everyday activity of the organization and get a much better understanding of the health of the organization — where it is strong and where the organization needs to get stronger.
+            </p>
+            <p>
+              This is a report created by the most qualified experts available: the people who work here. The diagnostic questions provide a structure. When all of the answers from all of the people are compiled, the pictures in this report are prepared. In the end this is a self-portrait, in detail, by those closest to the real world of this organization.
+            </p>
+          </div>
+        </div>
+        <img class="cover_image_right_bottom" src="{{base_url}}/images/02-gears.svg" style="height: 200px;"/>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: chapter_introduction
+    :index: 3
+    :locale: en
+    :format: html
+    :name: ORG View Report Introduction Chapter Page (en)
+    :markup: |
+      <section id="{{slug}}" class="cover_page" data-page="{{page}}">
+        <div class="chapter_header">
+          <span class="chapter_header_text">Section 01</span>
+          <img class="chapter_header_graphic" src="{{base_url}}/images/03-lightbulb.svg" />
+        </div>
+        <div class="chapter_name">
+          Organization View Introduction
+        </div>
+        <img class="cover_image_right_bottom" src="{{base_url}}/images/03-section-graphic.svg" height='700px'/>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: page_introduction
+    :index: 4
+    :locale: en
+    :format: html
+    :name: ORG View Report Introduction (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+        <header></header>
+        <div class="report_page_content orgview">
+          <div class="report_page_title">
+            Overview
+          </div>
+          <div class="left_col" style="float: left; width: 45%;">
+            <div class="quote" style="width: 100%;">
+              <img class="open_quote" src="{{base_url}}/images/00-open_quote.svg" height="30px" /><br/>
+              If you have been trying to make changes in how your organization works, you need to find out how the existing culture aids or hinders you.
+              <br/>
+              <span class="attribution">
+                Edgar Schein, professor MIT Sloan School of Management
+              </span>
+              <img class="close_quote" src="{{base_url}}/images/00-close_quote.svg" height="30px" />
+            </div>
+          </div>
+          <div style="width: 50%; float: right; font-size: 0.75em;">
+            <p>
+              The Organization View&trade; report is based on a model of organizational effectiveness that was first created for teams. What we have learned over the years is that the model applies to an extraordinary range of human work groups including teams of all kinds, non-profit or NGO boards, and organizations. In every case we start with a very fundamental question: when human beings work together in community, what are the conditions necessary for success? This report describes that model and provides guidelines for using the material contained in the report.
+            </p>
+            <p>
+              The picture of the organization that exists today is a snapshot in time. It is a starting point for conversation. The report gives you and others in the organization an opportunity to stop, look and listen. In other words, to pause from every day activity, take a step back and look at the organization with curiosity — how are we doing? Then engage with each other in meaningful dialogue: Where are we strong? Where could we be stronger and what would the impact be? For the sake of our common enterprise, where do we need to focus our attention and effort?
+            </p>
+            <p>
+              The model on which this diagnostic is built provides a map of the landscape. The report you are holding gives you a point of reference. You are "here" on the map.
+              <i>
+                What is your destination and how will you get there?
+              </i>
+            </p>
+          </div>
+        </div>
+        <footer>
+          <div class="footer_left">
+            Team Diagnostic&trade;
+          </div>
+          <div class="footer_right">
+            &copy; Team Coaching International 2022 All Rights Reserved.
+          </div>
+        </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: page_introduction_goal
+    :index: 5
+    :locale: en
+    :format: html
+    :name: ORG View Report Introduction (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content orgview">
+      <div class="report_page_title">
+      The Goal: A Thriving Organization
+      </div>
+      <p>
+      Every organization has a unique mission and purpose. Every organization faces the perpetual need to optimize resources as it strives to fulfill that mission and purpose. The quest has always been to find the balance between maximizing excellent results and maintaining a thriving organizational culture. The very best organizations know that high performance and a sustainable culture are of equal importance and they know how to find that balance.
+      </p>
+      <p>We believe:</p>
+      <ol>
+      <li>
+      Human beings in community want to contribute to a successful endeavor and,
+      </li>
+      <li>
+      An organization is simply a form of human community.
+      </li>
+      </ol>
+      <p>
+      Employee engagement research reinforces the common sense idea that when conditions favor contribution, when there is a good fit and a healthy environment, individuals perform at a higher level and organizations achieve superior results.
+      </p>
+      <p>
+      The model in this report recognizes both aspects of the success formula: the need for highly productive performance, and the benefit of an empowered, sustainable environment where individuals can, and do contribute their best. A thriving organization achieves both goals.
+      </p>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: page_introduction_goal_2
+    :index: 6
+    :locale: en
+    :format: html
+    :name: ORG View Report Introduction - An Organization Is (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content orgview">
+      <div class="report_page_title">
+      An Organization is...
+      </div>
+      <div style="float: left; width: 45%;">
+      <div class="quote" style="width: 100%;">
+      <img class="open_quote" src="{{base_url}}/images/00-open_quote.svg" height="30px" /><br/>
+      A corporation is a living organism; it has to continue to shed its skin. Methods have to change. Focus has to change. Values have to change. The sum total of those changes is transformation.
+      <br/>
+      <span class="attribution">
+      Andrew Grove, former Chairman and CEO of Intel Corporation
+      </span>
+      <img class="close_quote" src="{{base_url}}/images/00-close_quote.svg" height="30px" />
+      </div>
+      </div>
+      <div style="float: right; width: 50%; font-size: 0.75em;">
+      <p>
+      An organization is a living system. It makes sense to talk about "the health" of the organization because the organization is like a living organism. The analogy with the human body is obvious. Within the organization are different components with different functions — similar to the hands and feet, heart and lungs of a human body. All of the parts working together make it possible for the organization to perform. If any part of the organism/system is underperforming, the whole system suffers. Therefore when the whole system is involved in progressive development, all parts are exponentially improved. Back to our human body analogy, a broken bone does not heal in isolation. When the whole body is utilized in the recovery process, the healing is faster and more complete.
+      </p>
+      <p>
+      What's important to highlight about organizations as systems is, it is natural for every living organism to grow. The urge to grow and develop is part of our survival. We become stronger and smarter and therefore more adaptable and more effective. What is equally true: every living thing resists change. The pressure to resist change is part of our survival too. Change produces vulnerability and risk.
+      </p>
+      <p>
+      So here you are as an organization holding this report with strengths to celebrate, and clear opportunities to grow, develop and change. How will you respond?
+      </p>
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: page_introduction_goal_3
+    :index: 7
+    :locale: en
+    :format: html
+    :name: ORG View Report Introduction - Getting Stronger (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content orgview">
+      <div class="report_page_title">
+      Getting Stronger Starts with Awareness
+      </div>
+      <div style="font-size: 1.2em;">
+      <p>
+      It is the nature of all living systems that they are: dynamic, never standing still, constantly changing, growing, adapting; sometimes getting stronger, and healthier and sometimes headed in the opposite direction. That’s true of organizations as well.
+      </p>
+      <p>
+      Systems change by incorporating information from the environment, both internal information and external information. The Organization ViewTM provides an internal scan of the health of the organization from
+      14 different angles. With that information the organization and the people within it can make choices needed to sustain and build strength. Awareness enables clarity; clarity enables choice; choice enables action; action enables growth.
+      </p>
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: page_introduction_goal_4
+    :index: 8
+    :locale: en
+    :format: html
+    :name: ORG View Report Introduction - Every Individual Counts (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content orgview">
+      <div class="report_page_title">
+      Every Individual Counts
+      </div>
+      <div style="float: left; width: 45%;">
+      <div class="quote" style="width: 100%;">
+      <img class="open_quote" src="{{base_url}}/images/00-open_quote.svg" height="30px" /><br/>
+      People don’t resist change. They resist being changed.
+      <br/>
+      <span class="attribution">
+      Peter Senge, Director of the Center for Organizational Learning at the MIT Sloan School of Management
+      </span>
+      <img class="close_quote" src="{{base_url}}/images/00-close_quote.svg" height="30px" />
+      </div>
+      </div>
+      <div style="float: right; width: 50%; font-size: 0.8em;">
+      <p>
+      It is true as we have said that the organization is a large, dynamic system. Every organization has a collective personality, an attitude and reputation; it has a past and an anticipated future. The organization has moods, a vision, a legacy. And it is made up of many individuals.
+      </p>
+      <p>
+      It is essential to keep in mind both the knowledge that the organization is a system and the awareness that it is made up of many individual contributors. Every individual has influence and impact. The growth and change that this organization wants in order to be stronger, more effective for the future, will be built one by one, and one-on-one in interaction. Change happens at the cellular level.
+      </p>
+      <p>
+      This report provides the means for the conversations that will lead to a stronger and more vibrant, thriving organization. The necessary steps in order for this organization to reach its potential and fulfill its mission begin with observing "this is who we are today." And that is the benefit of the Organization View&trade;. It gives you a series of pictures to frame the ongoing conversation, "where do we go from here?"
+      </p>
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: page_introduction_model
+    :index: 9
+    :locale: en
+    :format: html
+    :name: ORG View Report Introduction - The Model (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <img id="introduction_model_graphic" src="{{base_url}}/images/10-graphic.svg" />
+      <div class="report_page_title">
+      The Model
+      </div>
+      <div style="float: left; width: 45%; margin-top: 60px;">
+      <div class="quote" style="width: 100%;">
+      <img class="open_quote" src="{{base_url}}/images/00-open_quote.svg" height="30px" /><br/>
+      The Fundamental task of leaders is to prime good feeling in those they lead. That occurs when a leader creates resonance - a reservoir of positivity that frees the best in people. At its root, then, the primal job of leadership is emotional.
+      <br/>
+      <span class="citation">
+      &mdash; from Primal Leadership by Daniel Goleman, Richard Boyatzis and Annie Mckee
+      </span>
+      <img class="close_quote" src="{{base_url}}/images/00-close_quote.svg" height="30px" style="bottom: 30px; right: 10px;"/><br/>
+      </div>
+      </div>
+      <div style="float: right; width: 50%; margin-top: 60px; font-size: 0.7em;">
+      <p>
+      Organizations exist for a purpose. Within the large organization are many smaller, interconnected and interdependent work groups, and teams and each one has its own special purpose to contribute. Fulfilling that purpose is essential to the success of the organization as a whole.
+      </p>
+      <p>
+      To achieve the results necessary to fulfill the organization’s mission and purpose we look at two dimensions:
+      <i>
+      Productivity
+      </i>
+      and
+      <i>
+      Positivity.
+      </i>
+      </p>
+      <p>
+      In this Organization View&trade; model, the attributes necessary for the organization to do its work effectively are its Productivity strengths. The Productivity factors affect the ability of the organization to perform functionally. Positivity describes the cultural or environmental conditions necessary in order for the people in the organization to work together effectively. The word "positivity" is derived from Daniel Goleman’s work with Emotional Intelligence.
+      </p>
+      <p>
+      When we put Productivity on a horizontal axis and Positivity on the vertical axis we create a four quadrant matrix for the organization that is characterized by:
+      </p>
+      <ul style="font-weight: bold; font-size: 1.2em; font-style: italic;">
+      <li>
+      Low Productivity and Low Positivity
+      </li>
+      <li>
+      Low Productivity and High Positivity
+      </li>
+      <li>
+      High Productivity and Low Positivity
+      </li>
+      <li>
+      High Productivity and High Positivity
+      </li>
+      </ul>
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: page_introduction_four_quadrants
+    :index: 10 
+    :locale: en
+    :format: html
+    :name: ORG View Report Introduction - The Four Quadrants (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      The Four Quadrants
+      </div>
+      <div class="report_page_leader" style="font-weight: normal;">
+      If we put "productivity" on a horizontal axis and "positivity" on the vertical axis we create a four quadrant matrix with teams that are characterized by:
+      </div>
+      <div class="page_introduction_four_quadrants_graphic">
+      <img id="page_introduction_four_quadrants_background" src="{{base_url}}/images/11-graphic.svg" />
+      <div class="page_introduction_four_quadrants_graphic_right">
+      <div class="cell cell1">
+      <b>
+      High Positivity / Low Productivity
+      </b>
+      <ul>
+      <li>
+      Collegial, Friendship Based
+      </li>
+      <li>
+      Lack of Effective Focus
+      </li>
+      <li>
+      Collegial, Friendship Based
+      </li>
+      <li>
+      Insufficient Sense of Urgency
+      </li>
+      <li>
+      Change Resident - Don’t "Rock the Boat" Incompetence Tolerated
+      </li>
+      <li>
+      Not Results Oriented
+      </li>
+      <li>
+      Sense of Connection and Fun
+      </li>
+      <ul>
+      </div>
+      <div class="cell cell2">
+      <b>
+      High Positivity / High Productivity
+      </b>
+      <ul>
+      <li>
+      Successful, Fun
+      </li>
+      <li>
+      Synchronicity, Flow
+      </li>
+      <li>
+      Challenging Goals, Inspiring Vision
+      </li>
+      <li>
+      Change Proactive
+      </li>
+      <li>
+      Open Communication
+      </li>
+      <li>
+      Great Teamwork - "How do we continue to improve?"
+      </li>
+      <ul>
+      </div>
+      <div class="cell cell3">
+      <b>
+      Low Positivity / Low Productivity
+      </b>
+      <ul>
+      <li>
+      Atmosphere of Criticism, Blame & Cynicism
+      </li>
+      <li>
+      Overwhelm
+      </li>
+      <li>
+      No Fun
+      </li>
+      <li>
+      Fear of Job Loss and/or Company Failure
+      </li>
+      <li>
+      "Firefighting", Short-Term Orientation
+      </li>
+      <li>
+      Turf Protection
+      </li>
+      <li>
+      One Step Forward; Two Steps Back
+      </li>
+      <li>
+      Poor Teamwork
+      </li>
+      <ul>
+      </div>
+      <div class="cell cell4">
+      <b>
+      Low Positivity / High Productivity
+      </b>
+      <ul>
+      <li>
+      Focus Is Efficiency
+      </li>
+      <li>
+      "Just Do It!", Bottom - Line Orientation
+      </li>
+      <li>
+      Retention Problems, High Turnover, Burnout
+      </li>
+      <li>
+      Guarded
+      </li>
+      <li>
+      Clear Objectives
+      </li>
+      <li>
+      Driven
+      </li>
+      <li>
+      Competitive
+      </li>
+      <ul>
+      </div>
+      </div>
+      <div class="page_introduction_four_quadrants_graphic_top">
+      <div class="page_introduction_four_quadrants_graphic_top_col1">
+      Low Productivity
+      </div>
+      <div class="page_introduction_four_quadrants_graphic_top_col2">
+      High Productivity
+      </div>
+      </div>
+      <div class="page_introduction_four_quadrants_graphic_left">
+      <div class="page_introduction_four_quadrants_graphic_left_top">
+      High Positivity
+      </div>
+      <div class="page_introduction_four_quadrants_graphic_left_bottom">
+      Low Positivity
+      </div>
+      </div>
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: page_introduction_model_productivity
+    :index: 11 
+    :locale: en
+    :format: html
+    :name: ORG View Report Introduction - The Model - Productivity (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      The Model - Productivity
+      </div>
+      <p class="definition">
+      <b>
+      Alignment:
+      </b>
+      There is a sense of common mission and purpose. We value cooperation, cohesion and interdependence. The team collectively owns their results.
+      </p>
+      <p class="definition">
+      <b>
+      Goals & Strategies:
+      </b>
+      The team has clear, challenging objectives; there is alignment on strategies and priorities. Ob- jectives are linked to recognition, rewards and compensation. The team is highly resilient and not easily defeated in its goals.
+      </p>
+      <p class="definition">
+      <b>
+      Accountability:
+      </b>
+      There is clarity of roles and responsibilities with high follow through. When Problems arise the team responds. Team members actively hold each other accountable for team agreements.
+      </p>
+      <p class="definition">
+      <b>
+      Proactive:
+      </b>
+      Change is embraced and seen as viral to this team and to the larger organization.
+      The team is nimble and flexible in addressing opportunities for change, responding positively and creatively.
+      </p>
+      <p class="definition">
+      <b>
+      Decision Making:
+      </b>
+      The team has clear and efficient decision-making process, which have proven effective over time.
+      </p>
+      <p class="definition">
+      <b>
+      Resources:
+      </b>
+      The team manages adequate resources to meet its objectives. There is sufficient expertise to accomplish the team’s objectives.
+      </p>
+      <p class="definition">
+      <b>
+      Team Leadership:
+      </b>
+      The team leader’s role is clear and supportive of the team as a whole. There is a strong sense of team leadership; team members take initiative to provide leadership as the need for initiative arises.
+      </p>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: page_introduction_model_productivity_strengths
+    :index: 12 
+    :locale: en
+    :format: html
+    :name: ORG View Report Introduction - The Model - Productivity Strengths (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      The Model - Productivity Strengths
+      </div>
+      <div class="left_col">
+      <p>
+      Productivity Strengths support the team in achieving results, accomplishing tasks, staying on course to reach goals and objectives.
+      </p>
+      <p>
+      The Team Diagnostic&trade; model identifies seven attributes necessary for teams to achieve high performance.
+      </p>
+      </div>
+      </div>
+      <img class="page_graphic" src="{{base_url}}/images/13-graphic-en.svg" />
+      <footer>
+      <div class="footer_left">
+      Team Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: page_introduction_model_positivity
+    :index: 13 
+    :locale: en
+    :format: html
+    :name: ORG View Report Introduction - The Model - Positivity (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      The Model - Positivity
+      </div>
+      <p class="definition">
+      <b>
+      Trust:
+      </b>
+      It is safe on this team to speak your mind, openly. We can count on each other; we are reliable. The team does not operate in a fear-based environment.
+      </p>
+      <p class="definition">
+      <b>
+      Respect:
+      </b>
+      There is an atmosphere of mutual respect and genuine positive regard. Contempt and hostility are not tolerated. We empower other members of the team to contribute.
+      </p>
+      <p class="definition">
+      <b>
+      Camaraderie:
+      </b>
+      There is a strong sense of belonging to the team. The team celebrates and acknowledges accomplishments. Empathy, playfulness and humor are present.
+      </p>
+      <p class="definition">
+      <b>
+      Communication:
+      </b>
+      Clear and efficient communication is valued over less direct approaches such as politicizing, gossiping, or consistently avoiding necessary conversation.
+      </p>
+      <p class="definition">
+      <b>
+      Constructive Interaction:
+      </b>
+      Conflict is seen as an opportunity for discovery, growth and creativity. The Team avoids criticizing, defensiveness and finger pointing. We give and receive feedback well.
+      </p>
+      <p class="definition">
+      <b>
+      Values Diversity:
+      </b>
+      The team is open-minded and values differences in ideas, backgrounds, perspectives, personalities, approaches and lifestyles. Diversity is considered vital.
+      </p>
+      <p class="definition">
+      <b>
+      Optimism:
+      </b>
+      The team has an inspiring shared vision. They are enthusiastic, forward looking and appreciative of each other. There are low levels of cynicism, pessimism, helplessness, hopelessness or dwelling in the past.
+      </p>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: page_introduction_model_positivity_strengths
+    :index: 14 
+    :locale: en
+    :format: html
+    :name: ORG View Report Introduction - The Model - Positivity Strengths (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      The Model - Positivity Strengths
+      </div>
+      <div class="left_col">
+      <p>
+      Positivity Strengths focus on the interrelationships between team members and the spirit or tone of the team as a system.
+      </p>
+      <p>
+      The seven strengths in the Team Diagnostic&trade; model are drawn from a number of research sources including Emotional Intelligence, Positive Psychology, and academic research into relationships that work.
+      </p>
+      </div>
+      </div>
+      <img class="page_graphic" src="{{base_url}}/images/15-graphic-en.svg" />
+      <footer>
+      <div class="footer_left">
+      Team Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: page_introduction_model_productivity_positivity
+    :index: 15
+    :locale: en
+    :format: html
+    :name: ORG View Report Introduction - The Model - Productivity/Positivity (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      The Model - Productivity/Positivity
+      </div>
+      <div class="report_page_leader">
+      The fuel that Carnegie refers to is a high-energy mixture of equal parts Productivity Strengths and Positivity Strengths. Typically, organizations focus on the Productivity measures; they are a clear, direct way to impact results. Research continues to show however, that organizations that focus on Positivity, improve Productivity.
+      </div>
+      <div class="quote">
+      <img class="open_quote" src="{{base_url}}/images/00-open_quote.svg" height="30px" /><br/>
+      Teamwork is the ability to work together toward a common vision. The ability to direct individual accomplishments toward organizational objectives. It is the fuel that allows common people to attain uncommon results.
+      <br/>
+      <span class="attribution">
+      Andrew Carnegie
+      </span>
+      <img class="close_quote" src="{{base_url}}/images/00-close_quote.svg" height="30px" />
+      </div>
+      </div>
+      <img class="cover_image_right_bottom" src="{{base_url}}/images/16-graphic.svg" />
+      <footer>
+      <div class="footer_left">
+      Team Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: page_introduction_multiple_views1
+    :index: 16
+    :locale: en
+    :format: html
+    :name: ORG View Report Introduction - Multiple Views 1 (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      Multiple Views
+      </div>
+      <div class="left_col">
+      <img src="{{base_url}}/images/17-graphic.svg" />
+      </div>
+      <div class="right_col">
+      <p>
+      The Team Diagnostic provides multiple views of the team created from the collected data. Each view adds to the total picture of the team; the different layers allow the team to mine deeply from the instrument.
+      </p>
+      <p>
+      <span class="header">
+      Quad Diagram. The "Footprint"
+      </span><br/>
+      Shows the range of the highest and lowest scores on statements in the diagnostic: Productivity on one axis and Positivity on the other. The box created by this selection shows the orientation of the team on this matrix.
+      </p>
+      <p>
+      <span class="header">
+      Polar Diagram
+      </span><br/>
+      The Polar Diagram provides the first composite view of the team using scores from seven Productivity Strengths and weakest areas and see the potential for improvement. The ideal team would score at "9" all around the outer circumference. The various shapes that appear often start the early conversation.
+      </p>
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: page_introduction_multiple_views2
+    :index: 17
+    :locale: en
+    :format: html
+    :name: ORG View Report Introduction - Multiple Views 2 (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      Multiple Views
+      </div>
+      <div class="left_col">
+      <img src="{{base_url}}/images/18-graphic.jpg" />
+      </div>
+      <div class="right_col">
+      <p>
+      <span class="header">
+      Bar Charts
+      </span><br/>
+      The bar charts break out the seven Productivity Strengths and seven Positivity Strengths and put them in rank order from highest score to lowest. The bar charts are also a quick visual reference to "the gap" - the distance between the team scores of today and the “9” that is the ideal and goal to strive for.
+      </p>
+      <p>
+      <span class="header">
+      High 5 and Low 5 for Productivity and Positivity
+      </span><br/>
+      This table shows the five items from the diagnostic that received the highest team score abd the five items with the lowest team score in both the Productivity and Positivity categories.
+      </p>
+      <p>
+      Comparing the top 5 and bottom 5: on the left or "high" scoring side are the strengths and reputation of the organization. This is what the team is known for. The right or "low" scoring side reveals prime areas for ongoing development.
+      </p>
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: page_introduction_multiple_views3
+    :index: 18
+    :locale: en
+    :format: html
+    :name: ORG View Report Introduction - Multiple Views 3 (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      Multiple Views
+      </div>
+      <div class="left_col">
+      <img src="{{base_url}}/images/19-graphic.jpg" />
+      </div>
+      <div class="right_col">
+      <p>
+      <span class="header">
+      Least Agreement/Most Agreement
+      </span><br/>
+      These two graphs show where the team is having very different perceptions and where there is general agreement. The least Agreement graph shows the widest range of divergent openion on a short selection of questions. The second graph, Most Agreement, shows a high level of congruence on a short selection of questions. On this second graph, even if the scores are low there is more nearly consensus about the team’s opinion in these areas. The statements on these two graphs reveal another layer of information about the team.
+      </p>
+      <p>
+      <span class="header">
+      Open-Ended Questions
+      </span><br/>
+      We have now moved from the high-altitude meta view of this team to hearing from individual voices. The identity of the voices is still hidden but individual voices are represented - and because they are anonymous, each voice is given equal weight.
+      </p>
+      <p>
+      <i>
+      The different views provide different angles on the system, and different lenses to view that system. Combined, these elements create an extraordinarily deep portrait of the team.
+      </i>
+      </p>
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: chapter_results
+    :index: 19
+    :locale: en
+    :format: html
+    :name: ORG View Report Results Chapter Page (en)
+    :markup: |
+      <section id="{{slug}}" class="cover_page" data-page="{{page}}">
+      <div class="chapter_header">
+      <span class="chapter_header_text">Section 02</span>
+      <img class="chapter_header_graphic" src="{{base_url}}/images/20-graphic2.svg" />
+      </div>
+      <div class="chapter_name">
+      {{team_name}} Results
+      </div>
+      <img class="cover_image_right_bottom" src="{{base_url}}/images/20-graphic.svg" />
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: TeamMatrixPosition
+    :index: 20
+    :locale: en
+    :format: html
+    :name: ORG View Report - Team Matrix Position (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+        <header></header>
+        <div class="report_page_content">
+          <div class="report_page_title chart_title">
+            Team Matrix Position
+          </div>
+          <div class="chart_container"></div>
+        </div>
+        <footer>
+          <div class="footer_left">
+            Team Diagnostic&trade;
+          </div>
+          <div class="footer_right">
+            &copy; Team Coaching International 2022 All Rights Reserved.
+          </div>
+        </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: PolarChart
+    :index: 21
+    :locale: en
+    :format: html
+    :name: ORG View Report - Polar Chart (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+        <header></header>
+        <div class="report_page_content">
+          <div class="report_page_title chart_title">
+            Polar Chart
+          </div>
+          <div class="chart_container"></div>
+        </div>
+        <footer>
+          <div class="footer_left">
+            Team Diagnostic&trade;
+          </div>
+          <div class="footer_right">
+            &copy; Team Coaching International 2022 All Rights Reserved.
+          </div>
+        </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: ProductivityStrengths
+    :index: 22
+    :locale: en
+    :format: html
+    :name: ORG View Report - Productivity Strengths (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+        <header></header>
+        <div class="report_page_content">
+          <div class="report_page_title chart_title">
+            Productivity Strengths
+          </div>
+          <div class="chart_container"></div>
+        </div>
+        <footer>
+          <div class="footer_left">
+            Team Diagnostic&trade;
+          </div>
+          <div class="footer_right">
+            &copy; Team Coaching International 2022 All Rights Reserved.
+          </div>
+        </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: HighestLowestProductivityRatings
+    :index: 23
+    :locale: en
+    :format: html
+    :name: ORG View Report - Measuring the System - Productivity (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+        <header></header>
+        <div class="report_page_content">
+          <div class="report_page_title chart_title">
+            Measuring the System - Productivity
+          </div>
+          <p>
+            Team goal is a score of "9" = Completely Describes Our Team
+          </p>
+          <div class="chart_container"></div>
+        </div>
+        <footer>
+          <div class="footer_left">
+            Team Diagnostic&trade;
+          </div>
+          <div class="footer_right">
+            &copy; Team Coaching International 2022 All Rights Reserved.
+          </div>
+        </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: PositivityStrengths
+    :index: 24
+    :locale: en
+    :format: html
+    :name: ORG View Report - Positivity Strengths (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+        <header></header>
+        <div class="report_page_content">
+          <div class="report_page_title chart_title">
+            Positivity Strengths
+          </div>
+          <div class="chart_container"></div>
+        </div>
+        <footer>
+          <div class="footer_left">
+            Team Diagnostic&trade;
+          </div>
+          <div class="footer_right">
+            &copy; Team Coaching International 2022 All Rights Reserved.
+          </div>
+        </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: HighestLowestProductivityRatings
+    :index: 25
+    :locale: en
+    :format: html
+    :name: ORG View Report - Measuring the System - Productivity (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+        <header></header>
+        <div class="report_page_content">
+          <div class="report_page_title chart_title">
+            Measuring the System - Productivity
+          </div>
+          <p>
+            Team goal is a score of "9" = Completely Describes Our Team
+          </p>
+          <div class="chart_container"></div>
+        </div>
+        <footer>
+          <div class="footer_left">
+            Team Diagnostic&trade;
+          </div>
+          <div class="footer_right">
+            &copy; Team Coaching International 2022 All Rights Reserved.
+          </div>
+        </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: LeastAgreement
+    :index: 26
+    :locale: en
+    :format: html
+    :name: ORG View Report - Least Agreement (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+        <header></header>
+        <div class="report_page_content">
+          <div class="report_page_title chart_title">
+            Least Agreement
+          </div>
+          <div class="chart_container"></div>
+        </div>
+        <footer>
+          <div class="footer_left">
+            Team Diagnostic&trade;
+          </div>
+          <div class="footer_right">
+            &copy; Team Coaching International 2022 All Rights Reserved.
+          </div>
+        </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: MostAgreement
+    :index: 27
+    :locale: en
+    :format: html
+    :name: ORG View Report - Most Agreement (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+        <header></header>
+        <div class="report_page_content">
+          <div class="report_page_title chart_title">
+            Most Agreement
+          </div>
+          <div class="chart_container"></div>
+        </div>
+        <footer>
+          <div class="footer_left">
+            Team Diagnostic&trade;
+          </div>
+          <div class="footer_right">
+            &copy; Team Coaching International 2022 All Rights Reserved.
+          </div>
+        </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: OpenEndedQuestions
+    :index: 28
+    :locale: en
+    :format: html
+    :name: ORG View Report - Open Ended Questions (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page OpenEndedQuestions" data-page="{{page}}" data-oeqresponsepage="0">
+        <header></header>
+        <div class="report_page_content">
+          <div class="report_page_title chart_title">
+            Open-Ended Questions
+          </div>
+          <div class="chart_container"></div>
+        </div>
+        <footer>
+          <div class="footer_left">
+            Team Diagnostic&trade;
+          </div>
+          <div class="footer_right">
+            &copy; Team Coaching International 2022 All Rights Reserved.
+          </div>
+        </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: page_ongoing_coaching
+    :index: 29
+    :locale: en
+    :format: html
+    :name: ORG View Conclusion - Next Steps (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      Next Steps
+      </div>
+      <div style="">
+      <div class="quote" style="width: 50%;">
+      <img class="open_quote" src="{{base_url}}/images/00-open_quote.svg" height="30px" /><br/>
+      Whatever we accomplish is due to the combined effort. The organization must be with you or you don’t get it done.
+      <br/>
+      <span class="attribution">
+      Walt Disney
+      </span>
+      <img class="close_quote" src="{{base_url}}/images/00-close_quote.svg" height="30px" />
+      </div>
+      </div>
+      <div style="padding-top: 2em;">
+      <p>
+      The Organization View&trade; diagnostic report is an enormously valuable way to build awareness of the organization’s strengths and opportunities. As an organization you now have a shared picture and common language for the conversations that will follow. But the analysis and the insight will be wasted unless there is action for change and accountability for that change. The real impact of this process will be seen in new or different behavior. In a sense, the fundamental question at the end of all the analysis is "where do we go from here?"
+      </p>
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: page_ongoing_team_development
+    :index: 30
+    :locale: en
+    :format: html
+    :name: ORG View Conclusion - Ongoing Development (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      Ongoing Development
+      </div>
+      <div>
+      <div class="quote" style="width: 50%;">
+      <img class="open_quote" src="{{base_url}}/images/00-open_quote.svg" height="30px" /><br/>
+      Coming together is a beginning. Keeping together is progress. Working together is success.
+      <br/>
+      <span class="attribution">
+      Henry Ford, Founder of the Ford Motor Company
+      </span>
+      <img class="close_quote" src="{{base_url}}/images/00-close_quote.svg" height="30px" />
+      </div>
+      </div>
+      <div style="padding-top: 50px;">
+      <p>
+      The Organization View&trade; provides metrics that paint a portrait of the organization; the report gives you detailed ways to measure and describe that system. What you have in your hands is an in-depth profile and an excellent reference point for starting or continuing a process of development, but as of now it is just data. It is what you do with the data that will make all the difference.
+      </p>
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: chapter_actions
+    :index: 31
+    :locale: en
+    :format: html
+    :name: ORG View Conclusion - Actions Chapter Page (en)
+    :markup: |
+      <section id="{{slug}}" class="cover_page" data-page="{{page}}">
+      <div class="chapter_header">
+      <span class="chapter_header_text">Section 03</span>
+      <img class="chapter_header_graphic" src="{{Base_url}}/images/33-graphic2.svg" />
+      </div>
+      <div class="chapter_name">
+      Your Actions
+      </div>
+      <img class="cover_image_right_bottom" src="{{base_url}}/images/33-graphic.svg" height='300px'/>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: page_action_plan1
+    :index: 32
+    :locale: en
+    :format: html
+    :name: ORG View Conclusion - Action Plan 1 (en)
+    :markup: |
+      <section id="{{slug}]" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      Your Action Plan
+      </div>
+      <div>
+      <p>
+      Your commitment to excel as an organization begins here. Based on what you now know:
+      </p>
+      </div>
+      <div>
+      <table class="orgview_action_plan">
+      <tr>
+      <td class="head">
+      What is one area you want to focus on?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="head">
+      What is your goal for that area?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="head">
+      What is one initial action step you want to take?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="head">
+      Who will take it?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="head">
+      By when?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="head">
+      How will you know it happened?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="head">
+      How will you measure the impact?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="head">
+      How will you sustain the momentum?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      </table>
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: page_action_plan2
+    :index: 33
+    :locale: en
+    :format: html
+    :name: ORG View Conclusion - Action Plan 2 (en)
+    :markup: |
+      <section id="{{slug}]" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      Your Action Plan
+      </div>
+      <div>
+      <p>
+      Your commitment to excel as an organization begins here. Based on what you now know:
+      </p>
+      </div>
+      <div>
+      <table class="orgview_action_plan">
+      <tr>
+      <td class="head">
+      What is one area you want to focus on?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="head">
+      What is your goal for that area?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="head">
+      What is one initial action step you want to take?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="head">
+      Who will take it?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="head">
+      By when?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="head">
+      How will you know it happened?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="head">
+      How will you measure the impact?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="head">
+      How will you sustain the momentum?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      </table>
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: page_notes1
+    :index: 34
+    :locale: en
+    :format: html
+    :name: ORG View Conclusion - Notes 1 (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+        <header></header>
+        <div class="report_page_content">
+          <div class="report_page_title">
+            Notes
+          </div>
+        </div>
+        <footer>
+          <div class="footer_left">
+            Team Diagnostic&trade;
+          </div>
+          <div class="footer_right">
+            &copy; Team Coaching International 2022 All Rights Reserved.
+          </div>
+        </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: page_notes2
+    :index: 35
+    :locale: en
+    :format: html
+    :name: ORG View Conclusion - Notes 2 (en)
     :markup: |
       <section id="{{slug}}" class="report_page" data-page="{{page}}">
         <header></header>
