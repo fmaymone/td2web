@@ -2,7 +2,7 @@
   "cron": [
     {
       "command": "rake team_diagnostics:deploy",
-      "schedule": "*/5"
+      "schedule": "*/5 * * * *"
     },
     {
       "command": "rake team_diagnostics:remind",
@@ -10,11 +10,11 @@
     },
     {
       "command": "rake team_diagnostics:complete",
-      "schedule": "*/5"
+      "schedule": "*/5 * * * *"
     },
     {
       "command": "rake 'system:send_error_digest[30]'",
-      "schedule": "*/30"
+      "schedule": "*/30 * * * *"
     }
   ]
 }
