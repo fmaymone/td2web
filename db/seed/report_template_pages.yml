@@ -2427,8 +2427,35 @@
         </footer>
       </section>
   - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
-    :slug: LeastAgreement
+    :slug: HighestLowestPositivityRatings
     :index: 25
+    :locale: en
+    :format: html
+    :name: ORG View Report - Measuring the System - Positivity (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+        <header></header>
+        <div class="report_page_content">
+          <div class="report_page_title chart_title">
+            Measuring the System - Positivity
+          </div>
+          <p>
+            Team goal is a score of "9" = Completely Describes Our Team
+          </p>
+          <div class="chart_container"></div>
+        </div>
+        <footer>
+          <div class="footer_left">
+            Team Diagnostic&trade;
+          </div>
+          <div class="footer_right">
+            &copy; Team Coaching International 2022 All Rights Reserved.
+          </div>
+        </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
+    :slug: LeastAgreement
+    :index: 26
     :locale: en
     :format: html
     :name: ORG View Report - Least Agreement (en)
@@ -2452,7 +2479,7 @@
       </section>
   - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
     :slug: MostAgreement
-    :index: 26
+    :index: 27
     :locale: en
     :format: html
     :name: ORG View Report - Most Agreement (en)
@@ -2476,7 +2503,7 @@
       </section>
   - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
     :slug: OpenEndedQuestions
-    :index: 27
+    :index: 28
     :locale: en
     :format: html
     :name: ORG View Report - Open Ended Questions (en)
@@ -2500,7 +2527,7 @@
       </section>
   - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
     :slug: page_ongoing_coaching
-    :index: 28
+    :index: 29
     :locale: en
     :format: html
     :name: ORG View Conclusion - Next Steps (en)
@@ -2539,7 +2566,7 @@
       </section>
   - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
     :slug: page_ongoing_team_development
-    :index: 29
+    :index: 30
     :locale: en
     :format: html
     :name: ORG View Conclusion - Ongoing Development (en)
@@ -2578,7 +2605,7 @@
       </section>
   - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
     :slug: chapter_actions
-    :index: 30
+    :index: 31
     :locale: en
     :format: html
     :name: ORG View Conclusion - Actions Chapter Page (en)
@@ -2595,7 +2622,7 @@
       </section>
   - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
     :slug: page_action_plan1
-    :index: 31
+    :index: 32
     :locale: en
     :format: html
     :name: ORG View Conclusion - Action Plan 1 (en)
@@ -2675,7 +2702,7 @@
       </section>
   - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
     :slug: page_action_plan2
-    :index: 32
+    :index: 33
     :locale: en
     :format: html
     :name: ORG View Conclusion - Action Plan 2 (en)
@@ -2755,7 +2782,7 @@
       </section>
   - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
     :slug: page_notes1
-    :index: 33
+    :index: 34
     :locale: en
     :format: html
     :name: ORG View Conclusion - Notes 1 (en)
@@ -2778,7 +2805,7 @@
       </section>
   - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'ORG View Diagnostic Report (en)') %>
     :slug: page_notes2
-    :index: 34
+    :index: 35
     :locale: en
     :format: html
     :name: ORG View Conclusion - Notes 2 (en)
