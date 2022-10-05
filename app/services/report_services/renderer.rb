@@ -35,6 +35,7 @@ module ReportServices
         renderer.new(report: @report, locale: @locale).call
       rescue StandardError => e
         log_rendering_error(e, renderer)
+        @report.fail!
       end
       complete_report
     end

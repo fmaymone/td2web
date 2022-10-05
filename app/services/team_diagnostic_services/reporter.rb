@@ -51,6 +51,12 @@ module TeamDiagnosticServices
       :pending
     end
 
+    def failures?
+      @team_diagnostic.reports.reload
+      skope = @team_diagnostic.reports
+      !skope.where(state: %i[completed rendering running]).any? && skope.failed.any?
+    end
+
     def status_css_class
       {
         stalled: 'danger',

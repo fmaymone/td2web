@@ -59,6 +59,17 @@
           </div>
         <% end %>
     <% end %>
+
+    </div>
+  </div>
+<% end %>
+
+<% if @report_service.failures? %>
+  <div class="card">
+    <div class="card-body">
+      <div class="alert alert-danger card-text">
+        <%= 'reports--failed-message'.t %>
+      </div>
     </div>
   </div>
 <% end %>

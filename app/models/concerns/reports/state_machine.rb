@@ -9,7 +9,8 @@ module Reports
       start: 'Starting report generation',
       render: 'Creating report files',
       complete: 'Report generation is complete',
-      reject: 'Report cancelled'
+      reject: 'Report cancelled',
+      fail: 'Report generation failed'
     }.freeze
 
     VALID_REPORT_STATES = %i[pending running rendering completed].freeze
@@ -26,6 +27,7 @@ module Reports
         state :rendering
         state :completed
         state :rejected
+        state :failed
 
         event :start do
           transitions from: [:pending], to: :running
@@ -63,6 +65,15 @@ module Reports
           transitions from: %i[pending running rendering completed], to: :rejected
           after do
             log_report_event(:reject)
+            reset_token
+            save
+          end
+        end
+
+        event :fail do
+          transitions from: %i[running rendering], to: :failed
+          after do
+            log_report_event(:fail)
             reset_token
             save
           end
