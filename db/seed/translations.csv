@@ -12449,3 +12449,5 @@ en,team_diagnostic-complete_notification_letter-subject,Your Team Diagnostic Is 
 en,System Events,System Events
 en,System Error Notifications,System Error Notifications
 en,Preferences,Preferences
+en,Problem generating html,Problem generating html
+en,reports--failed-message,There was an error generating your report. Please contact support.
