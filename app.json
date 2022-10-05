@@ -13,7 +13,7 @@
       "schedule": "*/5"
     },
     {
-      "command": "rake system:send_error_digest[30]",
+      "command": "rake 'system:send_error_digest[30]'",
       "schedule": "*/30"
     }
   ]
