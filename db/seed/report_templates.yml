@@ -16,3 +16,8 @@
     :name: ORG View Diagnostic Report (en)
     :state: published
     :version: 1
+  - :tenant_id: <%= Tenant.default_tenant.id %>
+    :diagnostic_id: <%= Diagnostic.where(slug: Diagnostic::TLV_SLUG).first&.id %>
+    :name: Team Leader View Diagnostic Report (en)
+    :state: published
+    :version: 1

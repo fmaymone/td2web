@@ -119,7 +119,7 @@ module ReportServices
         template = Liquid::Template.parse(page.markup)
         template.render(page_template_data(page, template_data(locale), page_index))
       rescue => e
-        msg = "Error parsing markup in ReportPageTemplate[#{page.id}]: #{e.to_s}"
+        msg = "Error parsing markup in ReportTemplatePage[#{page.id}]: #{e.to_s}"
         raise msg
       end
 

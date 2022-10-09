@@ -17,6 +17,10 @@ class MostAgreement {
 
   render() {
     console.log('- Init MostAgreement...')
+    if (this.container == null) {
+      console.log('- Init MostAgreement [NOT FOUND]')
+      return(false)
+    }
     this.set_title()
     this.render_chart()
     console.log('- Init MostAgreement [OK]')

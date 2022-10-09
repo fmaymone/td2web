@@ -17,6 +17,10 @@ class LeastAgreement {
 
   render() {
     console.log('- Init LeastAgreement...')
+    if (this.container == null) {
+      console.log('- Init LeastAgreement [NOT FOUND]')
+      return(false)
+    }
     this.set_title()
     this.render_chart()
     console.log('- Init LeastAgreement [OK]')
