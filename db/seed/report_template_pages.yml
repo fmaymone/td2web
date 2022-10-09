@@ -3672,7 +3672,7 @@
       <img src="{{base_url}}/images/bar_high_open_examples-en.png" style="padding-top: 20px;" width=400 />
       </div>
       <div style="float: right; width: 47%; font-size: 0.7em; line-height: 1em;">
-      <h1>Polar Diagram</h1>
+      <h1>Bar Charts</h1>
       <p>
       The bar charts break out the seven Productivity Strengths and seven Positivity Strengths in rank order from highest average team score to lowest.
       </p>
@@ -4063,7 +4063,7 @@
       </div>
       <div>
       <p>
-      Your commitment to excel as an organization begins here. Based on what you now know:
+      Your commitment to excel as a Team Leader begins here. Based on what you now know:
       </p>
       </div>
       <div>
@@ -4134,6 +4134,1331 @@
     :locale: en
     :format: html
     :name: Team Leader View Report Results - Notes (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      Notes
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: layout
+    :index: 0
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Layout (en)
+    :markup: |
+      <!doctype html>
+      <html lang="{{locale}}">
+        <head>
+          <title>{{report_title}}</title> 
+          <meta charset="utf-8">
+          <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          [[ASSET_TAGS_HERE]]
+        </head>
+        <body>
+        <div id="report_content">
+          [[REPORT_CONTENT_HERE]]
+        </div>
+        </body>
+      </html>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: cover1
+    :index: 1
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Cover Page (en)
+    :markup: |
+      <section id="{{slug}}" class="report_cover" data-page="{{page}}">
+      <div class="report_cover_title">
+      Team Coaching International
+      </div>
+      <div class="report_cover_copyright">
+      <div class="report_cover_copyright_product">
+      <span class="report_cover_product">
+      Team Leader View Diagnostic&trade; | 2022
+      </span><br/>
+      <span class="report_cover_website">
+      www.teamcoachinginternational.com
+      </span>
+      </div>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: cover2
+    :index: 2
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Cover Page 2 (en)
+    :markup: |
+      <section id="{{slug}}" class="cover_page" data-page="{{page}}">
+      <div class="cover2_content">
+      <img class="cover_logo" src="{{base_url}}/images/00-tci-logo-white.svg" height=100px /><br/><br/>
+      <div class="cover_header1">
+      Welcome to the Team Leader View&trade;
+      </div>
+      <div class="cover_content" style="font-size: 1.2em;">
+      <p>
+      Years ago, management guru Peter Drucker said, "Effective leadership is not about making speeches or being liked; leadership is defined by results not attributes."
+      </p>
+      <p>
+      This report is a stepping stone in the development of leadership through impact on team performance. The report is based on the Team Diagnostic&trade; model and diagnostic report, used by thousands of teams worldwide. The report provides you, the leader, with a way to measure your view of the strengths of the team based on 14 factors in the model; these are common sense, research-verified qualities necessary for effective leadership and effective team results.
+      </p>
+      <p>
+      Teams of course, come in a variety of forms and structures; they are dynamic systems of individuals, interacting to achieve a common mission. The more aware you are of the strengths and challenges of your team the more effective you can be in your role as leader.
+      </p>
+      <p>
+      It’s been said many times, "What gets measured gets done." This Team Leader View&trade; provides a baseline and map for team development and in the process, your leadership development. It gives you a point in time reference, insight, and direction for improving team results and your practice of leadership.
+      </p>
+      </div>
+      </div>
+      <img class="cover_image_right_bottom" src="{{base_url}}/images/02-gears.svg" style="height: 200px;"/>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: chapter_introduction
+    :index: 3
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Introduction Cover Page (en)
+    :markup: |
+      <section id="{{slug}}" class="cover_page" data-page="{{page}}">
+      <div class="chapter_header">
+      <span class="chapter_header_text">Section 01</span>
+      <img class="chapter_header_graphic" src="{{base_url}}/images/03-lightbulb.svg" />
+      </div>
+      <div class="chapter_name">
+      Team Leader View Introduction
+      </div>
+      <img class="cover_image_right_bottom" src="{{base_url}}/images/03-section-graphic.svg" height='700px'/>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: page_introduction
+    :index: 4
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Introduction Page 1 (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content tlv">
+      <div class="report_page_title">
+      Introduction
+      </div>
+      <div class="left_col" style="float: left; width: 45%;">
+      <div class="quote" style="width: 100%;">
+      <img class="open_quote" src="{{base_url}}/images/00-open_quote.svg" height="30px" /><br/>
+      What sets apart high-performance teams, however, is the degree of commitment, particularly how deeply committed the members are to one another.
+      <br/>
+      <span class="attribution">
+      Edgar Schein, professor MIT Sloan School of Management
+      </span><br/>
+      <span class="citation">
+      The Wisdom of Teams: Creating the High-Performance Organization
+      </span>
+      <img class="close_quote" src="{{base_url}}/images/00-close_quote.svg" height="30px" />
+      </div>
+      </div>
+      <div style="width: 50%; float: right; font-size: 0.9em;">
+      <p>
+      The results you are holding reveal a portrait of how you view your team as it is today. This is not a report created from outside analysis. This report reveals your assessment of the team in multiple layers from the high-altitude meta view of your team as a whole to specific areas of focus. Each layer adds to your picture of the team and the total picture creates rich territory for exploration and action steps.
+      </p>
+      <p>
+      As you review your Team Leader View&trade; it is important to notice the emphasis on strengths. This is fundamental to the approach taken with the Team Diagnostic&trade; model. No matter what the scores are, every team has strengths to acknowledge and lean into as the team addresses its needs and opportunities for ongoing development. The intention is to substitute judgment with curiosity. Given the information available from this report, what does it indicate for this team? For you as leader?
+      </p>
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: page_introduction_goal
+    :index: 5
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Introduction - The Goal (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content tlv">
+      <div class="report_page_title">
+      The Goal
+      </div>
+      <h1>
+      Strong teams through strong team leadership
+      </h1>
+      <p>
+      From the organization’s point of view, teams exist to produce results. That is the measure that makes a difference. It is this goal that drives every aspect of the team’s life from inception onward. Teams are constantly monitored against results delivered. But a focus on output alone tells only half of the story for high performing. The most successful and most effective teams in producing results are teams that have developed the ability to be sustainable as well. There are times in the life of any team when 100% of the focus must be on the task, the deadline and the deliverables. But the intensity of the heat of that focus is not sustainable. Burn out is the predictable result and teams that are burned out eventually disappoint when it comes to achieving results.
+      </p>
+      <p>
+      The question to ask then is, "What are the essential factors that go into creating a high-performing sustainable team?"
+      </p>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: page_introduction_what_is_team
+    :index: 6
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Introduction - What is a Team (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content tlv">
+      <div class="report_page_title">
+      What is a Team?
+      </div>
+      <div style="float: left; width: 45%;">
+      <p>
+      Every team creates its own unique culture; that culture exerts tremendous influence on the team’s ability to perform. On great teams, the culture and spirit of excellence motivate team members to contribute their best. The opposite is also true; when teams are adrift, team members drift. It is our belief that team members want to be on great teams and want to contribute their best. The goal then is to create the conditions where that can happen.
+      </p>
+      </div>
+      <div style="float: right; width: 50%; font-size: 1.1em; color: #595959;">
+      <h1 style="font-style: italic;">
+      Characteristics of effective teams:
+      </h1>
+      <ul>
+      <li>
+      <span class="definition">
+      Identity
+      </span>
+      A team is more than a collection of individuals. It is a dynamic, living entity with a past, a present, and an anticipated future. A team has an identity, a personality, a reputation.
+      </li>
+      <li>
+      <span class="definition">
+      Mission / Purpose
+      </span>
+      There is a reason for this team’s existence and team members are clear about that reason; they also know how they contribute to the achievement of that team mission.
+      </li>
+      <li>
+      <span class="definition">
+      Goals
+      </span>
+      There are goals and milestones that provide a measurable way for the team to know it is fulfilling its mission.
+      </li>
+      <li>
+      <span class="definition">
+      Roles
+      </span>
+      The team and each member of the team make an essential contribution in support of the team’s mission; team members are interdependent. Roles and responsibilities are clear.
+      </li>
+      <li>
+      <span class="definition">
+      Agreements
+      </span>
+      The team has clear, behavioral agreements and a process for updating or negotiating agreements.
+      </li>
+      </ul>
+      When the conditions are right a sixth, and invaluable characteristic emerges and that is
+      <span class="definition">
+      Commitment.
+      </span>
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: page_introduction_model_dimensions
+    :index: 7
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Introduction - The Model Dimensions (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content tlv">
+      <div class="report_page_title">
+      The Model Dimensions
+      </div>
+      <div style="float: left; width: 48%;">
+      The model describes the essential qualities for an effective team, in two dimensions.
+      <ol>
+      <li>
+      <span class="definition">
+      Productivity Dimension
+      </span><br/>
+      Conditions necessary for a team to be productive.
+      </li>
+      <li>
+      <span class="definition">
+      Positivity Dimension
+      </span><br/>
+      The conditions necessary for engaged, collaborative team performance. The word "Positivity" is borrowed from Daniel Goleman’s work with Emotional Intelligence. It means the ground conditions support team interaction; it does not mean everyone is happy.
+      </li>
+      </ol>
+      We put Productivity on a horizontal axis and Positivity on the vertical axis.
+      <br/><br/>
+      Teams on the right have the qualities that deliver high productivity. Teams to the left do not. Teams above the midline have attributes that support collaboration and engagement. Teams below the midline are low positivity.
+      <br/><br/>
+      This gives us:
+      <ul>
+      <li>
+      <span class="definition">
+      Low Productivity and Low Positivity
+      </span>
+      (brown)
+      </li>
+      <li>
+      <span class="definition">
+      Low Productivity and High Positivity
+      </span>
+      (green)
+      </li>
+      <li>
+      <span class="definition">
+      High Productivity and Low Positivity
+      </span>
+      (red)
+      </li>
+      <li>
+      <span class="definition">
+      High Productivity and High Positivity
+      </span>
+      (blue)
+      </li>
+      </ul>
+      The goal is to create the conditions that enable
+      <span class="definition">
+      High
+      </span>
+      Productivity and
+      <span class="definition">
+      High
+      </span>
+      Positivity.
+      </div>
+      <div style="float: right; width: 48%;">
+      <div class="quote" style="width: 100%;">
+        <img class="open_quote" src="{{base_url}}/images/00-open_quote.svg" height="30px" /><br/>
+      The fundamental task of leaders is to prime good feeling in those they lead. That occurs when a leader creates resonance &mdash; a reservoir of positivity that frees the best in people. At its root, then, the primal job of leadership is emotional.
+      <br/>
+      <span class="attribution">
+      From Primal Leadership by Daniel Goleman, Richard Boyatzis and Annie McKee
+      </span>
+      <img class="close_quote" src="{{base_url}}/images/00-close_quote.svg" height="30px" />
+      </div>
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: page_introduction_four_quadrants
+    :index: 8
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Introduction - The Four Quadrants (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      The Four Quadrants &mdash; <br/>Team Diagnostic&trade; Model
+      </div>
+      <div class="page_introduction_four_quadrants_graphic">
+        <img id="page_introduction_four_quadrants_background" src="{{base_url}}/images/11-graphic.svg" />
+      <div class="page_introduction_four_quadrants_graphic_right">
+      <div class="cell cell1">
+      <b>
+      High Positivity / Low Productivity
+      </b>
+      <ul>
+      <li>
+      Collegial, Friendship Based
+      </li>
+      <li>
+      Lack of Effective Focus
+      </li>
+      <li>
+      Collegial, Friendship Based
+      </li>
+      <li>
+      Insufficient Sense of Urgency
+      </li>
+      <li>
+      Change Resident - Don’t “Rock the Boat” Incompetence Tolerated
+      </li>
+      <li>
+      Not Results Oriented
+      </li>
+      <li>
+      Sense of Connection and Fun
+      </li>
+      <ul>
+      </div>
+      <div class="cell cell2">
+      <b>
+      High Positivity / High Productivity
+      </b>
+      <ul>
+      <li>
+      Successful, Fun
+      </li>
+      <li>
+      Synchronicity, Flow
+      </li>
+      <li>
+      Challenging Goals, Inspiring Vision
+      </li>
+      <li>
+      Change Proactive
+      </li>
+      <li>
+      Open Communication
+      </li>
+      <li>
+      Great Teamwork - "How do we continue to improve?"
+      </li>
+      <ul>
+      </div>
+      <div class="cell cell3">
+      <b>
+      Low Positivity / Low Productivity
+      </b>
+      <ul>
+      <li>
+      Atmosphere of Criticism, Blame & Cynicism
+      </li>
+      <li>
+      Overwhelm
+      </li>
+      <li>
+      No Fun
+      </li>
+      <li>
+      Fear of Job Loss and/or Company Failure
+      </li>
+      <li>
+      "Firefighting", Short-Term Orientation
+      </li>
+      <li>
+      Turf Protection
+      </li>
+      <li>
+      One Step Forward; Two Steps Back
+      </li>
+      <li>
+      Poor Teamwork
+      </li>
+      <ul>
+      </div>
+      <div class="cell cell4">
+      <b>
+      Low Positivity / High Productivity
+      </b>
+      <ul>
+      <li>
+      Focus Is Efficiency
+      </li>
+      <li>
+      "Just Do It!"", Bottom - Line Orientation
+      </li>
+      <li>
+      Retention Problems, High Turnover, Burnout
+      </li>
+      <li>
+      Guarded
+      </li>
+      <li>
+      Clear Objectives
+      </li>
+      <li>
+      Driven
+      </li>
+      <li>
+      Competitive
+      </li>
+      <ul>
+      </div>
+      </div>
+      <div class="page_introduction_four_quadrants_graphic_top">
+      <div class="page_introduction_four_quadrants_graphic_top_col1">
+      Low Productivity
+      </div>
+      <div class="page_introduction_four_quadrants_graphic_top_col2">
+      High Productivity
+      </div>
+      </div>
+      <div class="page_introduction_four_quadrants_graphic_left">
+      <div class="page_introduction_four_quadrants_graphic_left_top">
+      High Positivity
+      </div>
+      <div class="page_introduction_four_quadrants_graphic_left_bottom">
+      Low Positivity
+      </div>
+      </div>
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: page_introduction_model_productivity
+    :index: 9
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Introduction - The Model - Productivity (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      The Model - Productivity
+      </div>
+      <div style="float: left; width: 45%;">
+      <p>
+      Productivity Strengths support the team in achieving results, accomplishing tasks, staying on course to reach goals and objectives. The Team DiagnosticTM model identifies seven attributes necessary for teams to achieve high performance.
+      </p>
+      </div>
+      <div style="float: right; width: 50%; font-size: 0.75em;">
+      <p class="definition">
+      <b>
+      Alignment:
+      </b>
+      There is a sense of common mission and purpose. We value cooperation, cohesion and interdependence. The team collectively owns their results.
+      </p>
+      <p class="definition">
+      <b>
+      Goals & Strategies:
+      </b>
+      The team has clear, challenging objectives; there is alignment on strategies and priorities. Ob- jectives are linked to recognition, rewards and compensation. The team is highly resilient and not easily defeated in its goals.
+      </p>
+      <p class="definition">
+      <b>
+      Accountability:
+      </b>
+      There is clarity of roles and responsibilities with high follow through. When Problems arise the team responds. Team members actively hold each other accountable for team agreements.
+      </p>
+      <p class="definition">
+      <b>
+      Proactive:
+      </b>
+      Change is embraced and seen as viral to this team and to the larger organization.
+      The team is nimble and flexible in addressing opportunities for change, responding positively and creatively.
+      </p>
+      <p class="definition">
+      <b>
+      Decision Making:
+      </b>
+      The team has clear and efficient decision-making process, which have proven effective over time.
+      </p>
+      <p class="definition">
+      <b>
+      Resources:
+      </b>
+      The team manages adequate resources to meet its objectives. There is sufficient expertise to accomplish the team’s objectives.
+      </p>
+      <p class="definition">
+      <b>
+      Team Leadership:
+      </b>
+      The team leader’s role is clear and supportive of the team as a whole. There is a strong sense of team leadership; team members take initiative to provide leadership as the need for initiative arises.
+      </p>
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade; Diagnostic
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: page_introduction_model_productivity_strengths
+    :index: 10
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Introduction - The Model - Productivity Strengths (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      The Model - Productivity Strengths
+      </div>
+      <div class="left_col">
+      <p>
+      Productivity Strengths support the team in achieving results, accomplishing tasks, staying on course to reach goals and objectives.
+      </p>
+      <p>
+      The Team Diagnostic&trade; model identifies seven attributes necessary for teams to achieve high performance.
+      </p>
+      </div>
+      </div>
+      <img class="page_graphic" src="{{base_url}}/images/13-graphic-en.svg" />
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade; 
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: page_introduction_model_positivity
+    :index: 11
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Introduction - The Model - Positivity (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      The Model - Positivity
+      </div>
+      <div style="float: left; width: 45%;">
+      <p>
+      Positivity Strengths focus on the interrelationships between team members and the spirit or tone of the team. The Positivity Strengths create the culture, the ground conditions for the work of the team.
+      </p>
+      </div>
+      <div style="float: right; width: 50%; font-size: 0.75em;">
+      <p class="definition">
+      <b>
+      Trust:
+      </b>
+      It is safe on this team to speak your mind, openly. We can count on each other; we are reliable. The team does not operate in a fear-based environment.
+      </p>
+      <p class="definition">
+      <b>
+      Respect:
+      </b>
+      There is an atmosphere of mutual respect and genuine positive regard. Contempt and hostility are not tolerated. We empower other members of the team to contribute.
+      </p>
+      <p class="definition">
+      <b>
+      Camaraderie:
+      </b>
+      There is a strong sense of belonging to the team. The team celebrates and acknowledges accomplishments. Empathy, playfulness and humor are present.
+      </p>
+      <p class="definition">
+      <b>
+      Communication:
+      </b>
+      Clear and efficient communication is valued over less direct approaches such as politicizing, gossiping, or consistently avoiding necessary conversation.
+      </p>
+      <p class="definition">
+      <b>
+      Constructive Interaction:
+      </b>
+      Conflict is seen as an opportunity for discovery, growth and creativity. The Team avoids criticizing, defensiveness and finger pointing. We give and receive feedback well.
+      </p>
+      <p class="definition">
+      <b>
+      Values Diversity:
+      </b>
+      The team is open-minded and values differences in ideas, backgrounds, perspectives, personalities, approaches and lifestyles. Diversity is considered vital.
+      </p>
+      <p class="definition">
+      <b>
+      Optimism:
+      </b>
+      The team has an inspiring shared vision. They are enthusiastic, forward looking and appreciative of each other. There are low levels of cynicism, pessimism, helplessness, hopelessness or dwelling in the past.
+      </p>
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: page_introduction_model_positivity_strengths
+    :index: 12
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Introduction - The Model - Positivity Strengths (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      The Model - Positivity Strengths
+      </div>
+      <div class="left_col">
+      <p>
+      Positivity Strengths focus on the interrelationships between team members and the spirit or tone of the team as a system.
+      </p>
+      <p>
+      The seven strengths in the Team Diagnostic&trade; model are drawn from a number of research sources including Emotional Intelligence, Positive Psychology, and academic research into relationships that work.
+      </p>
+      </div>
+      </div>
+      <img class="page_graphic" src="{{base_url}}/images/15-graphic-en.svg" />
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: page_introduction_model_productivity_positivity
+    :index: 13
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Introduction - The Model - Productivity/Positivity (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      The Model - Productivity/Positivity
+      </div>
+      <div class="report_page_leader">
+      The fuel that Carnegie refers to is a high-energy mixture of equal parts Productivity Strengths and Positivity Strengths. Typically, organizations focus on the Productivity measures; they are a clear, direct way to impact results. Research continues to show however, that organizations that focus on Positivity, improve Productivity.
+      </div>
+      <div class="quote">
+      <img class="open_quote" src="{{base_url}}/images/00-open_quote.svg" height="30px" /><br/>
+      Teamwork is the ability to work together toward a common vision. The ability to direct individual accomplishments toward organizational objectives. It is the fuel that allows common people to attain uncommon results.
+      <br/>
+      <span class="attribution">
+      Andrew Carnegie
+      </span>
+      <img class="close_quote" src="{{base_url}}/images/00-close_quote.svg" height="30px" />
+      </div>
+      </div>
+      <img class="cover_image_right_bottom" src="{{base_url}}/images/16-graphic.svg" />
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: page_introduction_report_overview_quad
+    :index: 14
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Introduction - Report Page Overview (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      Report Page Overview
+      </div>
+      <div class="report_page_leader">
+      Quad Diagram Showing Best Team Results
+      </div>
+      <div style="float: left; width: 47%; font-size: 0.8em;">
+      <p>
+      Based on many years of data from more than a thousand teams, here is the range of scores for the high-performing teams in our database.
+      </p>
+      <p>
+      Worth noting: before engaging in team development,
+      <span style="font-weight: bold; font-style: italic;">
+      less than 10%
+      </span>
+      of teams score themselves as High Productivity/High Positivity.
+      </p>
+      <img src="{{base_url}}/images/quad_overview_1-en.png" height=300 />
+      </div>
+      <div style="float: right; width: 47%; font-size: 0.8em;">
+      <p>
+      In this report where your results are displayed you will see a Quad diagram that shows your view of the team superimposed on the Best Teams graphic.
+      </p>
+      <p>
+      This graphic is a sample of that comparison; your results can be later in the report.
+      </p>
+      <img src="{{base_url}}/images/quad_overview_2-en.png" height=300 />
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: page_introduction_report_overview_polar
+    :index: 15
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Introduction - Report Page Overview 2 (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      Report Page Overview
+      </div>
+      <div style="float: left; width: 47%; padding-top: 40px;">
+        <img src="{{base_url}}/images/polar_diagram_example-en.png" width=450 />
+      </div>
+      <div style="float: right; width: 47%; font-size: 0.7em;">
+      <h1>Polar Diagram</h1>
+      <p>
+      The Polar Diagram provides the first view of the team using scores from seven Productivity Strengths and seven Positivity Strengths.
+      </p>
+      <p>
+      The Polar Diagram is oriented so that the Productivity Strengths are on the left side of the graph, counterclockwise from "Team Leadership" down to "Alignment."
+      </p>
+      <p>
+      The Positivity Strengths are on the right side, clockwise from "Trust" around to "Optimism."
+      </p>
+      <p>
+      The ideal team would score at "9" all around the outer circumference.
+      </p>
+      <p>
+      Start with your first impression. How is this weighted? Toward Productivity? Toward Positivity?
+      </p>
+      <p>
+      Note the tendency to look first at the valleys, the low scores. This is normal. However, start by looking at what is working. Where is this team already strong? Where does that show up on this team in every day action?
+      </p>
+      <p>
+      Then look at the areas that are not so strong. How can the team use its strengths to address the areas the team wants to work on?
+      </p>
+      <p>
+      For example, if "Goals & Strategies" scores high and "Communication" is an area for focus, how can this team create clear goals for improving communication?
+      </p>
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: page_introduction_report_overview_3
+    :index: 16
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Introduction - Report Page Overview 3 (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      Report Page Overview
+      </div>
+      <div style="float: left; width: 47%;">
+      <img src="{{base_url}}/images/bar_high_open_examples-en.png" style="padding-top: 20px;" width=400 />
+      </div>
+      <div style="float: right; width: 47%; font-size: 0.7em; line-height: 1em;">
+      <h1>Bar Charts</h1>
+      <p>
+      The bar charts break out the seven Productivity Strengths and seven Positivity Strengths in rank order from highest average team score to lowest.
+      </p>
+      <p>
+      The bar charts provide an easy way for teams to separate Productivity from Positivity and start a conversation about the relative strengths within each dimension.
+      </p>
+      <p>
+      The visuals also provide a clear picture of "the gap" — the distance between the team scores of today and the "9" that is the ideal and goal to strive for.
+      </p>
+      <h1>
+      High 5 and Low 5 for Productivity and Positivity
+      </h1>
+      <p>
+      The results show the five responses that received the highest team scores and the five responses with the lowest team scores in both the Productivity and Positivity categories.
+      </p>
+      <p>
+      On the "high side," you will encounter the reputation of the team and the inspiration that keeps them together. "We’re proud of these."
+      </p>
+      <p>
+      The "low side" consistently reveals prime areas for ongoing team development.
+      </p>
+      <h1>
+      Open-Ended Questions
+      </h1>
+      <p>
+      Provides an ability to go deeper and more specific in communicating responses.
+      </p>
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: chapter_results
+    :index: 17
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Results - Chapter Page (en)
+    :markup: |
+      <section id="{{slug}}" class="cover_page" data-page="{{page}}">
+      <div class="chapter_header">
+      <span class="chapter_header_text">Section 02</span>
+      <img class="chapter_header_graphic" src="{{base_url}}/images/20-graphic2.svg" />
+      </div>
+      <div class="chapter_name">
+      Team Leader View&trade; &mdash;
+      <br/>
+      Your Results
+      </div>
+      <img class="cover_image_right_bottom" src="{{base_url}}/images/20-graphic.svg" />
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: TeamMatrixPosition
+    :index: 18
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Results - Team Matrix Position (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title chart_title">
+      Team Grid
+      </div>
+      <img src="{{base_url}}/images/best_team_results-en.png" style="width: 200px; position: absolute; top: 100px; right: 40px;" />
+      <div class="chart_container"></div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: PolarChart
+    :index: 19
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Results - Polar Chart (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title chart_title">
+      Polar Chart
+      </div>
+      <div class="chart_container"></div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: ProductivityStrengths
+    :index: 20
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Results - Productivity Strengths (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title chart_title">
+      Productivity Strengths
+      </div>
+      <div class="chart_container"></div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: HighestLowestProductivityRatings
+    :index: 21
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Results - Measuring the System Productivity (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title chart_title">
+      Measuring the System
+      </div>
+      <p>
+      Team goal is a score of "9" = Completely Describes Our Team
+      </p>
+      <div class="chart_container"></div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: PositivityStrengths
+    :index: 22
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Results - Positivity Strengths (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title chart_title">
+      Positivity Strengths
+      </div>
+      <div class="chart_container"></div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: HighestLowestPositivityRatings
+    :index: 23
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Results - Highest/Lowest Positivity Ratings (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title chart_title">
+      HighestLowestPositivityRatings
+      </div>
+      <p>
+      Team goal is a score of "9" = Completely Describes Our Team
+      </p>
+      <div class="chart_container"></div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: OpenEndedQuestions
+    :index: 24
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Results - Open-Ended Questions (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{slug}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title chart_title">
+      Open-Ended Questions
+      </div>
+      <div class="chart_container"></div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: chapter_actions
+    :index: 25
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Results - Actions Chapter (en)
+    :markup: |
+      <section id="{{slug}}" class="cover_page" data-page="{{page}}">
+      <div class="chapter_header">
+      <span class="chapter_header_text">Section 03</span>
+      <img class="chapter_header_graphic" src="{{base_url}}/images/33-graphic2.svg" />
+      </div>
+      <div class="chapter_name">
+      Your Actions
+      </div>
+      <img class="cover_image_right_bottom" src="{{base_url}}/images/33-graphic.svg" height='300px'/>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: page_ongoing_coaching1
+    :index: 26
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Results - Growing as a Team Leader (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content tlv">
+      <div class="report_page_title">
+      Growing as a Team Leader
+      </div>
+      <div class="report_page_leader">
+      As a Team Leader, you want to be aware that the most successful teams are characterized by an effective balance of Productivity and Positivity:
+      </div>
+      <div>
+      <div class="productivity_factors">
+      <p class="factors_header">
+      Productivity
+      </p>
+      <ul>
+      <li>
+      Team Leadership
+      </li>
+      <li>
+      Alignment
+      </li>
+      <li>
+      Decision Making
+      </li>
+      <li>
+      Goals & Strategies
+      </li>
+      <li>
+      Accountability
+      </li>
+      <li>
+      Resources
+      </li>
+      <li>
+      Proactive
+      </li>
+      </ul>
+      </div>
+      <div class="positivity_factors">
+      <p class="factors_header">
+      Positivity
+      </p>
+      <ul>
+      <li>
+      Trust
+      </li>
+      <li>
+      Respect
+      </li>
+      <li>
+      Constructive Interaction
+      </li>
+      <li>
+      Camaraderie
+      </li>
+      <li>
+      Communication
+      </li>
+      <li>
+      Optimism
+      </li>
+      <li>
+      Values Diversity
+      </li>
+      </ul>
+      </div>
+      <div style="clear:both;"></div>
+      <p>
+      The result is a team that is high performing and sustainable.
+      </p>
+      <p>
+      The essential strengths of Positivity, combined with the important strengths of Productivity create teams that get results; just as important, these are teams that are creative, adaptable and resilient over time.
+      </p>
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: page_ongoing_coaching2
+    :index: 27
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Results - Ongoing Team Development (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content tlv">
+      <div class="report_page_title">
+      Ongoing Team Development
+      </div>
+      <h1>
+      Next Steps
+      </h1>
+      <p>
+      The Team Leader View&trade; provides a way for you to look at your team through 14 different factors. You now have your personal view of the team. The next step will be to have the whole team take the Team Diagnostic&trade;. This will give you a way to compare your perspective to that of the team, to find alignment where that exists, and opportunities to build stronger performance.
+      </p>
+      <p>
+      The Team Diagnostic&trade; process provides metrics to paint a portrait of the team as a system and gives you detailed ways to measure and describe that system. But until action is taken it will only be data. It is what you and your team development professional do with it together that will make all the difference.
+      </p>
+      <p>
+      With results from your Team Leader View&trade; and the Team Diagnostic&trade;, you will have a shared picture and common language for the conversations that will follow. But the analysis and the insight will be wasted unless there is action for change and accountability for that change. The real impact of this process will be seen in new or different behavior. In a sense, the fundamental question at the end of all the analysis is, "Where do we go from here?"
+      </p>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: page_action_plan
+    :index: 28
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Results - Action Plan (en)
+    :markup: |
+      <section id="{{slug}}" class="report_page" data-page="{{page}}">
+      <header></header>
+      <div class="report_page_content">
+      <div class="report_page_title">
+      Your Action Plan
+      </div>
+      <div>
+      <p>
+      Your commitment to excel as a Team Leader begins here. Based on what you now know:
+      </p>
+      </div>
+      <div>
+      <table class="orgview_action_plan">
+      <tr>
+      <td class="head">
+      What is one area you want to focus on?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="head">
+      What is your goal for that area?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="head">
+      What is one initial action step you want to take?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="head">
+      Who will take it?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="head">
+      By when?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="head">
+      How will you know it happened?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="head">
+      How will you measure the impact?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      <tr>
+      <td class="head">
+      How will you sustain the momentum?
+      </td>
+      <td>&nbsp;</td>
+      </tr>
+      </table>
+      </div>
+      </div>
+      <footer>
+      <div class="footer_left">
+      Team Leader View Diagnostic&trade;
+      </div>
+      <div class="footer_right">
+      &copy; Team Coaching International 2022 All Rights Reserved.
+      </div>
+      </footer>
+      </section>
+  - :report_template_id: <%= Seeds::ReportTemplatePages.template_id(name: 'Team Leader 360 View Diagnostic Report (en)') %>
+    :slug: page_notes
+    :index: 29
+    :locale: en
+    :format: html
+    :name: Team Leader 360 View Report Results - Notes (en)
     :markup: |
       <section id="{{slug}}" class="report_page" data-page="{{page}}">
       <header></header>

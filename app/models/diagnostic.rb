@@ -44,7 +44,7 @@ class Diagnostic < ApplicationRecord
 
   def minimum_participants
     case slug
-    when TLV_SLUG, LEAD_360_SLUG
+    when TLV_SLUG, LEAD_360_SLUG, T360_SLUG
       1
     else
       2

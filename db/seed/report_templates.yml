@@ -21,3 +21,8 @@
     :name: Team Leader View Diagnostic Report (en)
     :state: published
     :version: 1
+  - :tenant_id: <%= Tenant.default_tenant.id %>
+    :diagnostic_id: <%= Diagnostic.where(slug: Diagnostic::T360_SLUG).first&.id %>
+    :name: Team Leader 360 View Diagnostic Report (en)
+    :state: published
+    :version: 1
