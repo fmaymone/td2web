@@ -13,6 +13,7 @@ module OrderServices
       @payment_method = payment_method
       @params = {}
       @errors = []
+      @order = nil
     end
 
     def errors?
@@ -22,28 +23,20 @@ module OrderServices
     def order
       return @order if @order.present?
 
-      if (current_order = orders.active.first).present?
+      current_order = @team_diagnostic.orders.active.order(created_at: :asc).first
+      if current_order.present?
         @order = current_order
         return @order
       end
 
-      @order = generate_order
+      generate
     end
 
-    def generate_order
-      current_order = orders.new(
-        user: @user,
-        orderable: @team_diagnostic,
-        payment_method: @payment_method,
-        state: :pending
-      )
-      unless current_order.save
-        @errors = current_order.errors.full_messages
-        current_order
-      end
+    def finalize
+
     end
 
-    def submit_order
+    def submit
       case order.state.to_sym
       when :pending
         # TODO
@@ -60,23 +53,51 @@ module OrderServices
 
     private
 
+    def generate
+      reset_errors
+
+      new_order = Order.new(
+        user: @user,
+        orderable: @team_diagnostic,
+        payment_method: @payment_method,
+        state: :pending
+      )
+      if new_order.save
+        assign_items(new_order)
+        new_order.reload
+      else
+        @errors = new_order.errors.full_messages
+      end
+      @order = new_order
+    end
+
     def assign_items(order)
+      unless order.pending?
+        @errors = ["Can't modify a finalized order"]
+        return false
+      end
+
       OrderItem.transaction do
+        order_items = []
         order_products.each_with_index do |product_qty, index|
           product = product_qty[:product]
-          item = order.order_items.new(
+          item = OrderItem.new(
+            order: order,
             index:,
             product:,
             description: product.description,
             quantity: product_qty[:qty],
             unit_price: product.effective_price(product_qty[:qty])
           )
-          unless item.save
+          if item.save
+            order_items << item
+          else
             @errors = item.errors.full_messages
             raise ItemCreationError, 'Error adding items to the order'
           end
         end
       end
+      order_items
     end
 
     def order_products
@@ -97,6 +118,10 @@ module OrderServices
       end
 
       products
+    end
+
+    def reset_errors
+      @errors = []
     end
   end
 end
