@@ -114,7 +114,8 @@ ActiveRecord::Schema.define(version: 2022_10_01_203625) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.decimal "weight", default: "0.0", null: false
-    t.index ["active", "category", "question_type", "factor", "matrix", "weight"], name: "general_idx"
+    t.index ["active", "category", "question_type", "factor", "matrix", "weight"], name: "diagq_general_idx"
+    t.index ["active", "category", "question_type", "factor", "matrix"], name: "general_idx"
     t.index ["diagnostic_id"], name: "index_diagnostic_questions_on_diagnostic_id"
     t.index ["slug"], name: "index_diagnostic_questions_on_slug", unique: true
   end
