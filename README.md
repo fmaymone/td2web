@@ -46,6 +46,14 @@ Edit credentials with `bundle exec rails credentials:edit --environment RAILS_EN
 
 ## Database
 
+```
+# Development
+bundle exec rake db:create
+bunzip2 -k db/seed/tdv1_i18n_data-utf8.sql.bz2
+psql tdv2_dev < db/seed/tdv1_i18n_data-utf8.sql
+bundle exec rake db:setup db:migrate db:seed
+```
+
 ### Backups
 
 Database backup dumps are stored encrypted in Digital Ocean Spaces.

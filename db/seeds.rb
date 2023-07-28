@@ -9,17 +9,15 @@ SEED_MODULES = [
   Seeds::Tenants,
   Seeds::Translations,
   Seeds::Roles,
-  Seeds::Users,
   Seeds::Entitlements,
   Seeds::Diagnostics,
   Seeds::DiagnosticQuestions,
   Seeds::ReportTemplates,
-  Seeds::ReportTemplatePages
+  Seeds::ReportTemplatePages,
+  Seeds::Products,
+  Seeds::Users
 ].freeze
 ###
-
-puts "=== Seeding Database ===\n\n"
-SEED_MODULES.map { |seeder| run_seeder(seeder) }
 
 # Call the Seeder Module
 def run_seeder(seeder)
@@ -29,3 +27,6 @@ def run_seeder(seeder)
     puts "FAILED: #{s.errors.join(', ')}"
   end
 end
+
+puts "=== Seeding Database ===\n\n"
+SEED_MODULES.map { |seeder| run_seeder(seeder) }
