@@ -11,7 +11,7 @@
 <% if @report_service.status != :pending %>
   <div class="row">
     <div class="col-sm-12">
-    <% case @report_service.status 
+    <% case @report_service.status
         when :stalled %>
           <div class="card">
             <div class="card-body">
@@ -84,27 +84,27 @@
         </div>
         <div class="col-6 text-right">
           <% if @report_service.status != :running %>
-            <% case @report_service.status 
-            when :pending %>
-          <button type"submit" class="btn btn-success" id="create_report_button">
-            <%= 'Create Report'.t %>
-          </button>
-          <%  when :stalled %>
-            <button type"submit" class="btn btn-primary" id="create_report_button">
-              <%= 'Create Report'.t %>
-            </button>
-          <%  when :completed %>
-            <button type"submit" class="btn btn-primary" id="create_report_button">
-              <%= 'Regenerate Report'.t %>
-            </button>
-          <% end %>
+            <% case @report_service.status %>
+            <% when :pending %>
+              <button type"submit" class="btn btn-success" id="create_report_button">
+                <%= 'Create Report'.t %>
+              </button>
+            <% when :stalled %>
+              <button type"submit" class="btn btn-primary" id="create_report_button">
+                <%= 'Create Report'.t %>
+              </button>
+            <% when :completed %>
+              <button type"submit" class="btn btn-primary" id="create_report_button">
+                <%= 'Regenerate Report'.t %>
+              </button>
+            <% end %>
           <% end %>
         </div>
       </div>
     </div>
 
     <div class="col-6">
-      <!-- order component mockup layout 
+      <!-- order component mockup layout
       <div class="card shadow">
         <div class="card-body">
           <h5 class="card-title">
@@ -134,7 +134,7 @@
             $135.00
           </h5>
           <p style="line-height: 0.9em; padding: 0.5em 1em;">
-            <small> 
+            <small>
               <em>
                 No payment is required at this time.
                 Team Coaching International&trade; will email you an invoice.
@@ -161,16 +161,16 @@
             $135.00
           </h5>
           <p class="text-center" style="line-height: 0.9em;">
-            <small> 
+            <small>
               <em>
                 Team Coaching International&trade; is awaiting payment for this invoice.<br/>
                 <span class="text-nowrap">If you have questions or need assistance,</span>
                 <span class="text-nowrap">please email <a href="mailto:info@teamcoachinginternational.com">info@teamcoachinginternational.com</a></span>
-                <span class="text-nowrap">or call us at 555-555-5555</span> 
+                <span class="text-nowrap">or call us at 555-555-5555</span>
               </em>
             </small>
           </p>
-        </div>  
+        </div>
       </div>
        end order component mockup layout -->
     </div>

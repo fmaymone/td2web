@@ -33,15 +33,15 @@ module OrderServices
     end
 
     def finalize
-
+      order.finalize
     end
 
     def submit
       case order.state.to_sym
       when :pending
-        # TODO
+        order.finalize
       when :finalized
-        # TODO
+        order.submit
       when :submitted
         # TODO
       when :paid
@@ -49,6 +49,10 @@ module OrderServices
       else
         # TODO
       end
+    end
+
+    def delete_order
+      @team_diagnostic.orders.incomplete.map(&:cancel)
     end
 
     private

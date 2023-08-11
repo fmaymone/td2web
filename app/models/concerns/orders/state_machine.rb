@@ -7,11 +7,13 @@ module Orders
 
     SUBMISSION_MESSAGE = 'Your order was submitted'
     ACTIVE_STATES = %i[pending finalized submitted paid].freeze
+    INCOMPLETE_STATES = %i[pending finalized submitted].freeze
 
     included do
       include AASM
 
       scope :active, -> { where(state: ACTIVE_STATES).order(updated_at: :desc) }
+      scope :incomplete, -> { where(state: INCOMPLETE_STATES).order(updated_at: :desc)}
 
       aasm column: :state do
         state :pending
@@ -56,6 +58,10 @@ module Orders
               # invoices.where(state: Invoice::ACTIVE_STATES).any?
             end
           end
+        end
+
+        event :cancel do
+          transitions from: INCOMPLETE_STATES, to: :cancelled
         end
       end
 
