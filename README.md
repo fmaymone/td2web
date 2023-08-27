@@ -4,6 +4,30 @@ TeamDiagnosticV2: A fresh start to TeamDiagnostic.
 
 Rails conventions are followed as well as possible.
 
+# Development Quickstart
+
+```
+# Install nvm (Node version manager) from https://nodejs.org/en/download.
+# Install Node.js Version 14 and npm dependencies
+nvm install 14
+nvm use 14
+npm install yarn
+
+# Install rbenv (Ruby version manager) from https://github.com/rbenv/rbenv
+rbenv install 3.1.4
+rbenv local 3.1.4
+gem install bundler
+bundle install
+yarn
+bundle exec rake db:create
+bunzip2 -k db/seed/tdv1_i18n_data-utf8.sql.bz2
+psql tdv2_dev < db/seed/tdv1_i18n_data-utf8.sql
+bundle exec rake db:setup db:migrate db:seed
+
+# Start the Rails application server
+bin/server
+```
+
 # Dependencies
 
 * Ruby 2.7.0
