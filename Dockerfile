@@ -5,6 +5,7 @@ FROM ruby:$RUBY_VERSION-slim-$DISTRO_NAME as dev
 
 ARG DISTRO_NAME
 
+RUN chmod 1777 /tmp
 RUN mkdir -p /app
 WORKDIR /app
 

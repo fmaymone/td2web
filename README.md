@@ -16,19 +16,11 @@ FIRST!:
 * Install docker, docker-compose
 * Create `.env` file based on `env.example` (Ask for development `RAILS_MASTER_KEY` value from other developer)
 * First time use/setup:
-```
-docker-compose build
-docker-compose run web bin/dev_setup
-docker-compose run test rake db:test:prepare
-```
 
 ```
 docker-compose build
-docker-compose run web rake db:create
-bunzip2 db/seed/tdv1_i18n_data-utf8.sql.bz2
-cat db/seed/tdv1_i18n_data-utf8.sql | docker-compose exec -T postgres psql -U postgres
-docker-compose run web rake db:setup db:schema:load db:seed
-docker-compose run test rake db:test:prepare
+docker-compose run web bin/dev_setup
+docker-compose run test rake db:create db:test:prepare
 ```
 
 ## General Use Commands

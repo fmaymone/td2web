@@ -18,6 +18,7 @@ x-backend: &backend
   <<: *app
   stdin_open: true
   tty: true
+  working_dir: /app
   volumes:
     - .:/app:cached
     - app_log:/app/log
@@ -54,7 +55,7 @@ services:
       - '3000:3000'
   worker:
     <<: *backend
-    command: rake jobs:work
+    command: bundle exec rake jobs:work
   clock:
     <<: *backend
     command: bundle exec clockwork clock.rb

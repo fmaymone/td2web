@@ -10,9 +10,9 @@ if [[ -z "${DATABASE_URL}" ]]; then
     exit 1
 fi
 
-cd /app
 seed_sql=db/seed/tdv1_i18n_data-utf8.sql
 rake db:create db:schema:load
-[[ ! -f $seed_sql ]] && bunzip2 $seed_sql.bz2
+[[ ! -f $seed_sql ]] && bunzip2 -k $seed_sql.bz2
 psql -q $DATABASE_URL < $seed_sql
+rm $seed_sql
 rake db:seed
