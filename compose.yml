@@ -2,7 +2,7 @@ x-app: &app
   build:
     context: .
     args:
-      RUBY_VERSION: '3.1.2'
+      RUBY_VERSION: '3.1.4'
       PG_MAJOR: '15'
       NODE_MAJOR: '14'
       YARN_VERSION: '1.22.19'
@@ -32,7 +32,7 @@ x-backend: &backend
     - coverage:/app/coverage
   environment: &backend_environment
     <<: *env
-    DATABASE_URL: postgres://postgres:postgres@postgres:5432/tdv2_development
+    DATABASE_URL: postgres://postgres:postgres@postgres:5432/tdv2_dev
     MALLOC_ARENA_MAX: 2
     WEB_CONCURRENCY: ${WEB_CONCURRENCY:-1}
     BOOTSNAP_CACHE_DIR: /usr/local/bundle/_bootsnap
@@ -54,7 +54,7 @@ services:
       - '3000:3000'
   worker:
     <<: *backend
-    command: bin/delayed_job -n 2 start
+    command: rake jobs:work
   clock:
     <<: *backend
     command: bundle exec clockwork clock.rb
@@ -63,7 +63,7 @@ services:
     command: "echo 'NOOP (temporary)'"
     environment:
       <<: *env
-      DATABASE_URL: postgres://postgres:postgres@postgres:5432/drafter_test
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/tdv2_test
       RAILS_ENV: test
   postgres:
     image: postgres:15.3

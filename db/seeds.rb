@@ -9,12 +9,12 @@ SEED_MODULES = [
   Seeds::Tenants,
   Seeds::Translations,
   Seeds::Roles,
-  Seeds::Users,
   Seeds::Entitlements,
   Seeds::Diagnostics,
   Seeds::DiagnosticQuestions,
   Seeds::ReportTemplates,
-  Seeds::ReportTemplatePages
+  Seeds::ReportTemplatePages,
+  Seeds::Users,
 ].freeze
 ###
 

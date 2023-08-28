@@ -6,7 +6,7 @@ module Seeds
     attr_reader :errors
 
     def initialize(message: nil, filename: nil)
-      default_filename = File.join(__dir__, 'translations.csv')
+      default_filename = File.join(Rails.root, 'db/seed/translations.csv')
       @message = message || 'Load Translations...'
       @filename = filename || default_filename
       @errors = []

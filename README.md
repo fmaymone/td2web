@@ -18,8 +18,15 @@ FIRST!:
 * First time use/setup:
 ```
 docker-compose build
+docker-compose run web bin/dev_setup
+docker-compose run test rake db:test:prepare
+```
+
+```
+docker-compose build
 docker-compose run web rake db:create
-cat dump.sql | docker-compose exec -T postgres psql -U postgres
+bunzip2 db/seed/tdv1_i18n_data-utf8.sql.bz2
+cat db/seed/tdv1_i18n_data-utf8.sql | docker-compose exec -T postgres psql -U postgres
 docker-compose run web rake db:setup db:schema:load db:seed
 docker-compose run test rake db:test:prepare
 ```
@@ -67,6 +74,7 @@ RAILS_MIN_THERADS=5
 RAILS_SERVE_STATIC_FILES=enabled
 WEB_CONCURRENCY=2
 RAILS_MASTER_KEY=XXX   # see config/credentials/ENVIRONMENT.key
+COMPOSE_PROJECT_NAME=tdv2
 ```
 
 ### Rails credentials

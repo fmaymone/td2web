@@ -23,7 +23,7 @@ namespace :i18n do
 
   desc 'Export View Translations to CSV'
   task export: :environment do
-    filename = ENV.fetch('FILE', 'db/seed/translations.csv')
+    filename = ENV.fetch('FILE', File.join(Rails.root, 'db/seed/translations.csv'))
     puts "*** Exporting translations to #{filename}..."
     File.open(filename, 'w') do |f|
       f.puts(
@@ -34,8 +34,10 @@ namespace :i18n do
 
   desc 'Import View Translations from CSV'
   task import: :environment do
-    filename = ENV.fetch('FILE', 'db/seed/translations.csv')
+    filename = ENV.fetch('FILE', File.join(Rails.root, 'db/seed/translations.csv'))
     puts "*** Import translations from #{filename}..."
+    raise "#{filename} not found!" unless File.exist?(filename)
+
     initial_count = Translation.count
     report = []
     begin

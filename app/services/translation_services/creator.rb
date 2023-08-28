@@ -23,7 +23,7 @@ module TranslationServices
     end
 
     def call
-      @object.save
+      @object.save!
     end
 
     def locale_options
