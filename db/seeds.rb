@@ -15,7 +15,7 @@ SEED_MODULES = [
   Seeds::ReportTemplates,
   Seeds::ReportTemplatePages,
   Seeds::Products,
-  Seeds::Users
+  Seeds::Users,
 ].freeze
 ###
 

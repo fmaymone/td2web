@@ -28,3 +28,4 @@ db/seed/*.sql
 yarn-debug.log*
 public/test_coverage
 .vectordatadb/
+spring-0/

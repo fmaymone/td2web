@@ -30,9 +30,41 @@ bin/server
 
 # Dependencies
 
-* Ruby 2.7.0
-* Rails 6.0
-* NodeJS 10-13
+* Ruby 3.1.2
+* Rails 6.1
+* NodeJS 14
+
+# Development
+
+FIRST!:
+* Install docker, docker-compose
+* Create `.env` file based on `env.example` (Ask for development `RAILS_MASTER_KEY` value from other developer)
+* First time use/setup:
+
+```
+docker-compose build
+docker-compose run web bin/dev_setup
+docker-compose run test rake db:create db:test:prepare
+```
+
+## General Use Commands
+
+* Start the stack: `docker-compose up`
+* Stop the stack `docker-compose down`
+* Run tests: `docker-compose run test rspec` for a single run -or- `docker-compose run test guard` to continuously test
+* View/tail logs `docker-compose run web bin/tail_logs`
+* Run a command against a service: `docker-compose run web XXXX`
+  * Open a console: `docker-compose run web rails console`
+  * Open a database console: `docker-compose run web rails dbconsole`
+* Fix local file permissions after running a Rails generator within a Docker container: `bin/fix_perms`
+  * NOTE: files generated using docker will be owned by root. You will have to change file ownership manually.
+
+## Cleanup
+* List running containers: `docker ps`
+* Stop running containers: `docker stop XXX`
+* Stop the stack and remove containers: `docker-compose down`
+* Delete data volumes: `docker volume ls | grep tdv2 | awk '{print $2}' | xargs docker volume rm`
+* Delete webapp image: `docker images | grep tdv2-dev | awk '{print $3}' | xargs docker rm`
 
 # Configuration
 
@@ -58,6 +90,7 @@ RAILS_MIN_THERADS=5
 RAILS_SERVE_STATIC_FILES=enabled
 WEB_CONCURRENCY=2
 RAILS_MASTER_KEY=XXX   # see config/credentials/ENVIRONMENT.key
+COMPOSE_PROJECT_NAME=tdv2
 ```
 
 ### Rails credentials

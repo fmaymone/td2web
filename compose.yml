@@ -1,0 +1,93 @@
+x-app: &app
+  build:
+    context: .
+    args:
+      RUBY_VERSION: '3.1.4'
+      PG_MAJOR: '15'
+      NODE_MAJOR: '14'
+      YARN_VERSION: '1.22.19'
+  image: tdv2-dev:0.0.1
+  environment: &env
+    NODE_ENV: ${NODE_ENV:-development}
+    RAILS_ENV: ${RAILS_ENV:-development}
+  tmpfs:
+    - /tmp
+    - /app/tmp/pids
+
+x-backend: &backend
+  <<: *app
+  stdin_open: true
+  tty: true
+  working_dir: /app
+  volumes:
+    - .:/app:cached
+    - app_log:/app/log
+    - app_tmp:/app/tmp:cached
+    - bundle:/usr/local/bundle
+    - history:/usr/local/hist
+    - node_modules:/app/node_modules
+    - packs-test:/app/public/packs-test
+    - packs:/app/public/packs
+    - storage:/app/storage
+    - coverage:/app/public/coverage
+    - coverage:/app/coverage
+  environment: &backend_environment
+    <<: *env
+    DATABASE_URL: postgres://postgres:postgres@postgres:5432/tdv2_dev
+    MALLOC_ARENA_MAX: 2
+    WEB_CONCURRENCY: ${WEB_CONCURRENCY:-1}
+    BOOTSNAP_CACHE_DIR: /usr/local/bundle/_bootsnap
+    XDG_DATA_HOME: /app/tmp/caches
+    YARN_CACHE_FOLDER: /app/node_modules/.yarn-cache
+    HISTFILE: /usr/local/hist/.bash_history
+    PSQL_HISTFILE: /usr/local/hist/.psql_history
+    IRB_HISTFILE: /usr/local/hist/.irb_history
+    EDITOR: vim
+  depends_on: &backend_depends_on
+    postgres:
+      condition: service_healthy
+
+services:
+  web:
+    <<: *backend
+    command: bin/docker_web_entrypoint.sh
+    ports:
+      - '3000:3000'
+  worker:
+    <<: *backend
+    command: bundle exec rake jobs:work
+  clock:
+    <<: *backend
+    command: bundle exec clockwork clock.rb
+  test:
+    <<: *backend
+    command: "echo 'NOOP (temporary)'"
+    environment:
+      <<: *env
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/tdv2_test
+      RAILS_ENV: test
+  postgres:
+    image: postgres:15.3
+    volumes:
+      - postgres:/var/lib/postgresql/data
+      - history:/user/local/hist
+    environment:
+      PSQL_HISTFILE: /user/local/hist/.psql_history
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432
+    healthcheck:
+      test: pg_isready -U postgres -h 127.0.0.1
+      interval: 5s
+
+volumes:
+  app_log:
+  app_tmp:
+  bundle:
+  coverage:
+  history:
+  node_modules:
+  packs-test:
+  packs:
+  postgres:
+  storage:

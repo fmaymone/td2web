@@ -11,6 +11,14 @@ GIT
       warden (~> 1.2.3)
 
 GIT
+  remote: https://github.com/Rykian/clockwork.git
+  revision: 7ed9042e49cd841e41fe516f74ffd290fcb2105f
+  specs:
+    clockwork (3.0.2)
+      activesupport
+      tzinfo
+
+GIT
   remote: https://github.com/rails/sprockets-rails.git
   revision: 065cbe83989c44019eca7161782ed4fdb6473517
   specs:
@@ -139,6 +147,7 @@ GEM
     countries (5.6.0)
       unaccent (~> 0.3)
     crass (1.0.6)
+    daemons (1.4.1)
     dalli (3.2.5)
     date (3.3.3)
     delayed_job (4.1.11)
@@ -513,7 +522,9 @@ DEPENDENCIES
   bundler-audit
   byebug
   capybara
+  clockwork!
   countries
+  daemons
   dalli
   delayed_job_active_record
   delayed_job_web
