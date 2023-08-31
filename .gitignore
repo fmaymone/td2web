@@ -29,3 +29,4 @@ yarn-debug.log*
 public/test_coverage
 .vectordatadb/
 spring-0/
+guard_rubocop*

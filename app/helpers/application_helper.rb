@@ -14,7 +14,7 @@ module ApplicationHelper
   def page_title
     return @page_title if @page_title.present?
 
-    pt2 = params[:controller].gsub(/_controller/, '').humanize.capitalize
+    pt2 = params[:controller].gsub('_controller', '').humanize.capitalize
     action = params[:action].downcase
     pt1 = case action
           when 'index'

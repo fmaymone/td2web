@@ -35,6 +35,7 @@ AutoIncrementGlobalizeLanguagesId	./db/migrate/20200808191107_auto_increment_glo
 Base	./app/services/report_services/data_generators/base.rb	/^    class Base$/;"	c	class:ReportServices.DataGenerators
 Base	./app/services/report_services/renderers/base.rb	/^    class Base$/;"	c	class:ReportServices.Renderers
 Channel	./app/channels/application_cable/channel.rb	/^  class Channel < ActionCable::Channel::Base$/;"	c	class:ApplicationCable
+Clockwork	./clock.rb	/^module Clockwork$/;"	m
 Connection	./app/channels/application_cable/connection.rb	/^  class Connection < ActionCable::Connection::Base$/;"	c	class:ApplicationCable
 Consent	./app/models/concerns/user_profiles/consent.rb	/^  module Consent$/;"	m	class:UserProfiles
 ConsentUnauthorizedError	./app/models/concerns/user_profiles/consent.rb	/^    class ConsentUnauthorizedError < StandardError; end$/;"	c	class:UserProfiles.Consent
@@ -421,6 +422,7 @@ all_questions_completed?	./app/services/diagnostic_survey_services/question_serv
 all_responses	./app/services/diagnostic_survey_services/question_service.rb	/^    def all_responses$/;"	f	class:DiagnosticSurveyServices.QuestionService
 all_responses	./app/services/report_services/data_generators/base.rb	/^      def all_responses$/;"	f	class:ReportServices.DataGenerators.Base
 allow_add_coupon?	./app/models/concerns/orders/coupons.rb	/^      def allow_add_coupon?$/;"	f	class:Orders.Coupons
+allow_complete_order?	./app/models/invoice.rb	/^  def allow_complete_order?$/;"	f	class:Invoice
 allow_completion?	./app/models/concerns/team_diagnostics/state_machine.rb	/^      def allow_completion?$/;"	f	class:TeamDiagnostics.StateMachine
 allow_fulfillment?	./app/models/concerns/orders/invoices.rb	/^      def allow_fulfillment?$/;"	f	class:Orders.Invoices
 allow_reporting?	./app/models/concerns/team_diagnostics/state_machine.rb	/^      def allow_reporting?$/;"	f	class:TeamDiagnostics.StateMachine
@@ -673,6 +675,7 @@ create_grant_authorized?	./app/policies/team_diagnostic_policy.rb	/^  def create
 create_import	./app/controllers/participants_controller.rb	/^  def create_import$/;"	f	class:ParticipantsController
 create_import	./app/services/participant_services/importer.rb	/^    def create_import$/;"	f	class:ParticipantServices.Importer
 create_import?	./app/policies/team_diagnostic_policy.rb	/^  def create_import?$/;"	f	class:TeamDiagnosticPolicy
+create_invitation	./app/services/entitlement_services/invitation_creator.rb	/^    def create_invitation$/;"	f	class:EntitlementServices.InvitationCreator
 create_invoice	./app/models/concerns/orders/invoices.rb	/^      def create_invoice$/;"	f	class:Orders.Invoices
 create_organization	./app/services/organization_services/creator.rb	/^    def create_organization$/;"	f	class:OrganizationServices.Creator
 create_participant	./app/services/participant_services/creator.rb	/^    def create_participant$/;"	f	class:ParticipantServices.Creator
@@ -708,6 +711,7 @@ default_cover_letter	./app/models/team_diagnostic_letter.rb	/^  def self.default
 default_cover_letter_subject	./app/models/team_diagnostic_letter.rb	/^  def self.default_cover_letter_subject(locale:)$/;"	F	class:TeamDiagnosticLetter
 default_filename	./db/seed/globalize.rb	/^    def default_filename$/;"	f	class:Seeds.Globalize
 default_grantor	./app/services/entitlement_services/grant.rb	/^    def default_grantor$/;"	f	class:EntitlementServices.Grant
+default_invitation_entitlements	./app/services/entitlement_services/invitation_creator.rb	/^    def default_invitation_entitlements$/;"	f	class:EntitlementServices.InvitationCreator
 default_letter	./app/models/team_diagnostic_letter.rb	/^  def self.default_letter(type:, locale:, team_diagnostic: nil)$/;"	F	class:TeamDiagnosticLetter
 default_options	./app/services/report_services/renderers/base.rb	/^      def default_options$/;"	f	class:ReportServices.Renderers.Base
 default_reminder_letter	./app/models/team_diagnostic_letter.rb	/^  def self.default_reminder_letter(locale:, team_diagnostic: nil)$/;"	F	class:TeamDiagnosticLetter
@@ -813,7 +817,7 @@ entitled_diagnostics	./app/services/team_diagnostic_services/updater.rb	/^    de
 entitled_diagnostics_options	./app/services/team_diagnostic_services/creator.rb	/^    def entitled_diagnostics_options$/;"	f	class:TeamDiagnosticServices.Creator
 entitled_diagnostics_options	./app/services/team_diagnostic_services/updater.rb	/^    def entitled_diagnostics_options$/;"	f	class:TeamDiagnosticServices.Updater
 entitlement_invitation	./app/mailers/invitation_mailer.rb	/^  def entitlement_invitation(invitation)$/;"	f	class:InvitationMailer
-entitlement_options	./app/services/entitlement_services/invitation_creator.rb	/^    def entitlement_options$/;"	f	class:EntitlementServices.InvitationCreator
+entitlement_options	./app/services/entitlement_services/invitation_creator.rb	/^    def entitlement_options(entitlements=nil)$/;"	f	class:EntitlementServices.InvitationCreator
 entitlement_params	./app/controllers/entitlements_controller.rb	/^  def entitlement_params$/;"	f	class:EntitlementsController
 entitlement_scope	./app/controllers/entitlements_controller.rb	/^  def entitlement_scope(skope = Entitlement)$/;"	f	class:EntitlementsController
 entitlements_are_valid	./app/models/invitation.rb	/^  def entitlements_are_valid$/;"	f	class:Invitation.assigned_entitlements.email_body
@@ -879,56 +883,12 @@ get_diagnostic_question	./app/services/team_diagnostic_services/question_creator
 get_formats	./app/services/report_services/renderer.rb	/^    def get_formats(formats)$/;"	f	class:ReportServices.Renderer
 get_renderers	./app/services/report_services/renderer.rb	/^    def get_renderers(formats)$/;"	f	class:ReportServices.Renderer
 get_step	./app/services/team_diagnostic_services/updater.rb	/^    def get_step(step_number = nil)$/;"	f	class:TeamDiagnosticServices.Updater
-globalize_countries	./db/seed/tdv1_i18n_data-utf8.sql	/^CREATE TABLE public.globalize_countries ($/;"	t
-globalize_countries.code	./db/seed/tdv1_i18n_data-utf8.sql	/^    code character(2),$/;"	F
-globalize_countries.currency_code	./db/seed/tdv1_i18n_data-utf8.sql	/^    currency_code character(3),$/;"	F
-globalize_countries.currency_decimal_sep	./db/seed/tdv1_i18n_data-utf8.sql	/^    currency_decimal_sep character(2),$/;"	F
-globalize_countries.currency_format	./db/seed/tdv1_i18n_data-utf8.sql	/^    currency_format character varying(255),$/;"	F
-globalize_countries.date_format	./db/seed/tdv1_i18n_data-utf8.sql	/^    date_format character varying(255),$/;"	F
-globalize_countries.decimal_sep	./db/seed/tdv1_i18n_data-utf8.sql	/^    decimal_sep character(2),$/;"	F
-globalize_countries.english_name	./db/seed/tdv1_i18n_data-utf8.sql	/^    english_name character varying(255),$/;"	F
-globalize_countries.id	./db/seed/tdv1_i18n_data-utf8.sql	/^    id bigint NOT NULL,$/;"	F
-globalize_countries.idx_4871306_globalize_countries_code_index	./db/seed/tdv1_i18n_data-utf8.sql	/^CREATE INDEX idx_4871306_globalize_countries_code_index ON public.globalize_countries USING btree (code);$/;"	i
-globalize_countries.number_grouping_scheme	./db/seed/tdv1_i18n_data-utf8.sql	/^    number_grouping_scheme character varying(255)$/;"	F
-globalize_countries.thousands_sep	./db/seed/tdv1_i18n_data-utf8.sql	/^    thousands_sep character(2),$/;"	F
-globalize_languages	./db/seed/tdv1_i18n_data-utf8.sql	/^CREATE TABLE public.globalize_languages ($/;"	t
-globalize_languages.direction	./db/seed/tdv1_i18n_data-utf8.sql	/^    direction character varying(255),$/;"	F
-globalize_languages.english_name	./db/seed/tdv1_i18n_data-utf8.sql	/^    english_name character varying(255),$/;"	F
-globalize_languages.english_name_locale	./db/seed/tdv1_i18n_data-utf8.sql	/^    english_name_locale character varying(255),$/;"	F
-globalize_languages.english_name_modifier	./db/seed/tdv1_i18n_data-utf8.sql	/^    english_name_modifier character varying(255),$/;"	F
-globalize_languages.id	./db/seed/tdv1_i18n_data-utf8.sql	/^    id bigint NOT NULL,$/;"	F
-globalize_languages.idx_4871315_globalize_languages_iso_639_1_index	./db/seed/tdv1_i18n_data-utf8.sql	/^CREATE INDEX idx_4871315_globalize_languages_iso_639_1_index ON public.globalize_languages USING btree (iso_639_1);$/;"	i
-globalize_languages.idx_4871315_globalize_languages_iso_639_2_index	./db/seed/tdv1_i18n_data-utf8.sql	/^CREATE INDEX idx_4871315_globalize_languages_iso_639_2_index ON public.globalize_languages USING btree (iso_639_2);$/;"	i
-globalize_languages.idx_4871315_globalize_languages_iso_639_3_index	./db/seed/tdv1_i18n_data-utf8.sql	/^CREATE INDEX idx_4871315_globalize_languages_iso_639_3_index ON public.globalize_languages USING btree (iso_639_3);$/;"	i
-globalize_languages.idx_4871315_globalize_languages_rfc_3066_index	./db/seed/tdv1_i18n_data-utf8.sql	/^CREATE INDEX idx_4871315_globalize_languages_rfc_3066_index ON public.globalize_languages USING btree (rfc_3066);$/;"	i
-globalize_languages.iso_639_1	./db/seed/tdv1_i18n_data-utf8.sql	/^    iso_639_1 character(2),$/;"	F
-globalize_languages.iso_639_2	./db/seed/tdv1_i18n_data-utf8.sql	/^    iso_639_2 character(3),$/;"	F
-globalize_languages.iso_639_3	./db/seed/tdv1_i18n_data-utf8.sql	/^    iso_639_3 character(3),$/;"	F
-globalize_languages.macro_language	./db/seed/tdv1_i18n_data-utf8.sql	/^    macro_language boolean,$/;"	F
-globalize_languages.native_name	./db/seed/tdv1_i18n_data-utf8.sql	/^    native_name character varying(255),$/;"	F
-globalize_languages.native_name_locale	./db/seed/tdv1_i18n_data-utf8.sql	/^    native_name_locale character varying(255),$/;"	F
-globalize_languages.native_name_modifier	./db/seed/tdv1_i18n_data-utf8.sql	/^    native_name_modifier character varying(255),$/;"	F
-globalize_languages.pluralization	./db/seed/tdv1_i18n_data-utf8.sql	/^    pluralization character varying(255),$/;"	F
-globalize_languages.rfc_3066	./db/seed/tdv1_i18n_data-utf8.sql	/^    rfc_3066 character varying(255),$/;"	F
-globalize_languages.scope	./db/seed/tdv1_i18n_data-utf8.sql	/^    scope character(1)$/;"	F
-globalize_translations	./db/seed/tdv1_i18n_data-utf8.sql	/^CREATE TABLE public.globalize_translations ($/;"	t
-globalize_translations.built_in	./db/seed/tdv1_i18n_data-utf8.sql	/^    built_in boolean,$/;"	F
-globalize_translations.facet	./db/seed/tdv1_i18n_data-utf8.sql	/^    facet character varying(255),$/;"	F
-globalize_translations.id	./db/seed/tdv1_i18n_data-utf8.sql	/^    id bigint NOT NULL,$/;"	F
-globalize_translations.idx_4871324_globalize_translations_table_name_index	./db/seed/tdv1_i18n_data-utf8.sql	/^CREATE INDEX idx_4871324_globalize_translations_table_name_index ON public.globalize_translations USING btree (table_name, item_id, language_id);$/;"	i
-globalize_translations.idx_4871324_globalize_translations_tr_key_index	./db/seed/tdv1_i18n_data-utf8.sql	/^CREATE INDEX idx_4871324_globalize_translations_tr_key_index ON public.globalize_translations USING btree (tr_key, language_id);$/;"	i
-globalize_translations.item_id	./db/seed/tdv1_i18n_data-utf8.sql	/^    item_id bigint,$/;"	F
-globalize_translations.language_id	./db/seed/tdv1_i18n_data-utf8.sql	/^    language_id bigint,$/;"	F
-globalize_translations.namespace	./db/seed/tdv1_i18n_data-utf8.sql	/^    namespace character varying(255)$/;"	F
-globalize_translations.pluralization_index	./db/seed/tdv1_i18n_data-utf8.sql	/^    pluralization_index bigint,$/;"	F
-globalize_translations.table_name	./db/seed/tdv1_i18n_data-utf8.sql	/^    table_name character varying(255),$/;"	F
-globalize_translations.text	./db/seed/tdv1_i18n_data-utf8.sql	/^    text text,$/;"	F
-globalize_translations.tr_key	./db/seed/tdv1_i18n_data-utf8.sql	/^    tr_key character varying(512),$/;"	F
 grant_consent	./app/controllers/home_controller.rb	/^  def grant_consent$/;"	f	class:HomeController
 grant_consent	./app/models/concerns/user_profiles/consent.rb	/^      def grant_consent(key)$/;"	f	class:UserProfiles.Consent
 grant_consent?	./app/policies/home_policy.rb	/^  def grant_consent?$/;"	f	class:HomePolicy
 grant_params	./app/controllers/grants_controller.rb	/^  def grant_params$/;"	f	class:GrantsController
 grant_scope	./app/controllers/grants_controller.rb	/^  def grant_scope$/;"	f	class:GrantsController
+grantor_entitlements	./app/services/entitlement_services/invitation_creator.rb	/^    def grantor_entitlements$/;"	f	class:EntitlementServices.InvitationCreator
 grantor_role_ids	./app/services/entitlement_services/invitation_creator.rb	/^    def grantor_role_ids$/;"	f	class:EntitlementServices.InvitationCreator.selected_entitlement
 grants_for_invitation	./app/services/entitlement_services/invitation_claim.rb	/^    def grants_for_invitation$/;"	f	class:EntitlementServices.InvitationClaim
 guard_deploy_step	./app/services/team_diagnostic_services/updater.rb	/^    def guard_deploy_step$/;"	f	class:TeamDiagnosticServices.Updater
@@ -995,7 +955,7 @@ initialize	./app/services/entitlement_services/authorizer.rb	/^    def initializ
 initialize	./app/services/entitlement_services/grant.rb	/^    def initialize(user:, entitlement:, grantor: nil, quota: nil)$/;"	f	class:EntitlementServices.Grant
 initialize	./app/services/entitlement_services/grant_usage.rb	/^    def initialize(user:, reference:)$/;"	f	class:EntitlementServices.GrantUsage
 initialize	./app/services/entitlement_services/invitation_claim.rb	/^    def initialize(tenant:, token:, user: nil)$/;"	f	class:EntitlementServices.InvitationClaim
-initialize	./app/services/entitlement_services/invitation_creator.rb	/^    def initialize(grantor:, params: {})$/;"	f	class:EntitlementServices.InvitationCreator
+initialize	./app/services/entitlement_services/invitation_creator.rb	/^    def initialize(grantor:, params: {}, role: false)$/;"	f	class:EntitlementServices.InvitationCreator
 initialize	./app/services/entitlement_services/invitation_deactivator.rb	/^    def initialize(invitation)$/;"	f	class:EntitlementServices.InvitationDeactivator
 initialize	./app/services/entitlement_services/revocation.rb	/^    def initialize(grant:, grantor: nil)$/;"	f	class:EntitlementServices.Revocation
 initialize	./app/services/order_services/team_diagnostic_order.rb	/^    def initialize(user:, orderable:, payment_method: :invoice, params: {})$/;"	f	class:OrderServices.TeamDiagnosticOrder
@@ -1176,6 +1136,7 @@ open_ended_responses	./app/services/report_services/data_generators/open_ended_q
 open_ended_responses_data	./app/services/report_services/data_generators/open_ended_questions.rb	/^      def open_ended_responses_data$/;"	f	class:ReportServices.DataGenerators.OpenEndedQuestions
 optional_style	./app/services/report_services/renderers/html.rb	/^      def optional_style$/;"	f	class:ReportServices.Renderers.Html
 options_for_accessible_to	./app/services/app_context.rb	/^    def options_for_accessible_to(user)$/;"	f
+options_for_entitlement	./app/services/entitlement_services/invitation_creator.rb	/^    def options_for_entitlement(entitlement:, quota: , selected: )$/;"	f	class:EntitlementServices.InvitationCreator
 options_for_invitation_redirect	./app/helpers/invitations_helper.rb	/^  def options_for_invitation_redirect(invitation)$/;"	f	class:InvitationsHelper
 order	./app/services/order_services/team_diagnostic_order.rb	/^    def order$/;"	f	class:OrderServices.TeamDiagnosticOrder
 order_products	./app/services/order_services/team_diagnostic_order.rb	/^    def order_products$/;"	f	class:OrderServices.TeamDiagnosticOrder

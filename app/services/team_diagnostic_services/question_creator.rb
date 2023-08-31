@@ -36,7 +36,7 @@ module TeamDiagnosticServices
     end
 
     def available_team_diagnostic_open_ended_questions
-      selected =  selected_team_diagnostic_open_ended_questions.map { |q| q[:body] }
+      selected = selected_team_diagnostic_open_ended_questions.map { |q| q[:body] }
       @team_diagnostic.diagnostic.diagnostic_questions.open_ended
                       .map { |q| { id: q.id, body: q.body } }
                       .reject { |q| selected.include?(q[:body]) }

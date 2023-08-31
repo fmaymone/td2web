@@ -52,12 +52,12 @@ docker-compose run test rake db:create db:test:prepare
 * Start the stack: `docker-compose up`
 * Stop the stack `docker-compose down`
 * Run tests: `docker-compose run test rspec` for a single run -or- `docker-compose run test guard` to continuously test
-* View/tail logs `docker-compose run web bin/tail_logs`
 * Run a command against a service: `docker-compose run web XXXX`
   * Open a console: `docker-compose run web rails console`
   * Open a database console: `docker-compose run web rails dbconsole`
+  * View/tail logs `docker-compose run web bin/tail_logs`
 * Fix local file permissions after running a Rails generator within a Docker container: `bin/fix_perms`
-  * NOTE: files generated using docker will be owned by root. You will have to change file ownership manually.
+  * NOTE: files generated using Docker will be owned by root. You will have to change file ownership manually.
 
 ## Cleanup
 * List running containers: `docker ps`

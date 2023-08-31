@@ -119,7 +119,7 @@ RSpec.describe TeamDiagnostic, type: :model do
         # Here we test deployment failure due to a missing Diagnostic association
         diagnostic = subject.diagnostic
         subject.diagnostic = nil
-        expect  do
+        expect do
           subject.deploy!
         end.to raise_error(AASM::InvalidTransition)
         refute(subject.deployed?)

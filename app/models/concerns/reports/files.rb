@@ -23,7 +23,7 @@ module Reports
       def rendered_files(format: nil)
         service = ReportServices::Renderers::Base.new(report: self)
         files = service.files
-        format_sym = format ? format.to_sym : nil
+        format_sym = format&.to_sym
         case format_sym
         when :html
           files.select { |f| f[:format] == ReportServices::Renderers::Html::CONTENT_TYPE }

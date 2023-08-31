@@ -11,6 +11,10 @@ test:
   <<: *default
   database: tdv2_test
 
+staging:
+  <<: *default
+  database: tdv2_staging
+
 production:
   <<: *default
   database: tdv2_prod

@@ -5,7 +5,7 @@ module OrderServices
 
   # Order management class
   class TeamDiagnosticOrder
-    attr_reader :user, :orderable, :team_diagnostic, :payment_method, :errors
+    attr_reader :user, :orderable, :team_diagnostic, :payment_method, :errors, :notices
 
     def initialize(user:, orderable:, payment_method: :invoice, params: {})
       @user = user
@@ -13,7 +13,9 @@ module OrderServices
       @payment_method = payment_method
       @params = {}
       @errors = []
+      @notices = []
       @order = nil
+      @order_products = nil
     end
 
     def errors?
@@ -43,11 +45,13 @@ module OrderServices
       when :finalized
         order.submit
       when :submitted
-        # TODO
+        @notices << 'Your order has been submitted and payment is being processed.'.t
       when :paid
-        # TODO
-      else
-        # TODO
+        @notices << 'Your order has been submitted and payment is complete.'.t
+      when :completed
+        @notices << 'Your order is complete.'.t
+      when :cancelled
+        @errors << 'This order was cancelled.'.t
       end
     end
 
@@ -77,7 +81,7 @@ module OrderServices
 
     def assign_items(order)
       unless order.pending?
-        @errors = ["Can't modify a finalized order"]
+        @errors = ["You can't modify a finalized order.".t]
         return false
       end
 
@@ -86,7 +90,7 @@ module OrderServices
         order_products.each_with_index do |product_qty, index|
           product = product_qty[:product]
           item = OrderItem.new(
-            order: order,
+            order:,
             index:,
             product:,
             description: product.description,
@@ -97,7 +101,7 @@ module OrderServices
             order_items << item
           else
             @errors = item.errors.full_messages
-            raise ItemCreationError, 'Error adding items to the order'
+            raise ItemCreationError, 'Error adding items to the order.'.t
           end
         end
       end
@@ -106,6 +110,8 @@ module OrderServices
 
     def order_products
       # @params[:products] = [{ id: 'ABC', qty: 1}, ...]
+      return @order_products if @order_products.any?
+
       product_qtys = @params.fetch(:products, [])
 
       diagnostic_product = @team_diagnostic.diagnostic.product
@@ -121,7 +127,7 @@ module OrderServices
         }
       end
 
-      products
+      @order_products = products
     end
 
     def reset_errors

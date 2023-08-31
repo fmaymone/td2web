@@ -13,7 +13,7 @@ module Orders
       include AASM
 
       scope :active, -> { where(state: ACTIVE_STATES).order(updated_at: :desc) }
-      scope :incomplete, -> { where(state: INCOMPLETE_STATES).order(updated_at: :desc)}
+      scope :incomplete, -> { where(state: INCOMPLETE_STATES).order(updated_at: :desc) }
 
       aasm column: :state do
         state :pending

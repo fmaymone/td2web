@@ -3,7 +3,12 @@
 module EntitlementServices
   # Helper Class for creating Entitlement Invitations
   class InvitationCreator
-    PERMITTED_PARAMS = [:email, :description, :i18n_key, { entitlements: [] }].freeze
+    # PERMITTED_PARAMS = [:email, :description, :i18n_key, { entitlements: [] }].freeze
+    DEFAULT_FACILITATOR_ENTITLEMENTS = %w{
+          create-diagnostic-any
+          create-organization
+          register-facilitator
+    }.freeze
 
     attr_reader :invitation, :grantor, :params, :errors
 
@@ -23,12 +28,11 @@ module EntitlementServices
     #   }
     # }
     # grantor: User | ???Order???
-    def initialize(grantor:, params: {})
+    def initialize(grantor:, params: {}, role: )
       @params = sanitize_params(params)
       @grantor = grantor
-      @invitation = Invitation.new(@params)
-      @invitation.grantor = @grantor
-      @invitation.tenant = @grantor.tenant
+      @role = role
+      create_invitation
       @errors = []
     end
 
@@ -45,19 +49,50 @@ module EntitlementServices
       @errors.none?
     end
 
-    def entitlement_options
+    def create_invitation
+      @invitation = Invitation.new(@params)
+      @invitation.grantor = @grantor
+      @invitation.tenant = @grantor.tenant
+      @invitation.entitlements = default_invitation_entitlements
+      @invitation
+    end
+
+    def entitlement_options(entitlements = nil)
+      (entitlements || grantor_entitlements).map do |entitlement|
+        selected = selected_entitlement(entitlement.id)
+        options_for_entitlement(
+          entitlement:,
+          quota: (selected&.fetch('quota') || entitlement.quota),
+          selected: selected.present?
+        )
+      end
+    end
+
+    def options_for_entitlement(entitlement:, quota:, selected:)
+      {
+        id: entitlement.id,
+        slug: entitlement.slug,
+        name: format('%<description>s (%<slug>s)', description: entitlement.description, slug: entitlement.slug),
+        quota:,
+        selected:
+      }
+    end
+
+    def grantor_entitlements
       Entitlement.active
                  .where(role_id: grantor_role_ids)
                  .order(slug: :asc)
-                 .map do |entitlement|
-        selected = selected_entitlement(entitlement.id)
-        {
-          id: entitlement.id,
-          slug: entitlement.slug,
-          name: format('%<description>s (%<slug>s)', description: entitlement.description, slug: entitlement.slug),
-          quota: (selected&.fetch('quota') || entitlement.quota),
-          selected: selected_entitlement(entitlement.id).present?
-        }
+    end
+
+    def default_invitation_entitlements
+      default_slugs = case @role
+      when :facilitator
+        DEFAULT_FACILITATOR_ENTITLEMENTS
+      else
+        []
+      end
+      grantor_entitlements.where(slug: default_slugs).map do |entitlement|
+        options_for_entitlement(entitlement:, quota: entitlement.quota, selected: true)
       end
     end
 

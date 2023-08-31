@@ -14,13 +14,12 @@ class InvitationsController < ApplicationController
 
   def new
     authorize Invitation
-    @service = EntitlementServices::InvitationCreator.new(grantor: current_user, params: {})
+    @service = EntitlementServices::InvitationCreator.new(grantor: current_user, role: :facilitator)
     @invitation = @service.invitation
   end
 
   def create
     authorize Invitation
-    # logger.info "Allowed ==> " + allowed_params.inspect
     @service = EntitlementServices::InvitationCreator.new(grantor: current_user, params:)
     @service.call
     if @service.success?

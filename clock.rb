@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'clockwork'
 require './config/boot'
 require './config/environment'
@@ -8,5 +10,5 @@ module Clockwork
     puts "Running #{job}, at #{time}"
   end
 
-#  every(1.minute, 'jobname') { print "Do task"}
+  #  every(1.minute, 'jobname') { print "Do task"}
 end

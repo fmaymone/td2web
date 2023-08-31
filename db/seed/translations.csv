@@ -9192,6 +9192,7 @@ fx,Cynicism is not prevalent on this team.,Il n’y a pas de cynisme dans cette 
 en,Creativity is a strength on this team.,Creativity is a strength on this team.
 ar,Creativity is a strength on this team.,الإبداع هو نقطة قوة لدى هذا الفريق.
 da,Creativity is a strength on this team.,Kreativitet er en af teamets styrker.
+en,Your order is complete.,Your order is complete.
 fi,Creativity is a strength on this team.,Luovuus on yksi tämän tiimin vahvuuksista.
 it,Creativity is a strength on this team.,La creatività è uno dei punti di forza del team.
 nl,Creativity is a strength on this team.,Creativiteit is een kracht van dit team.
@@ -9431,6 +9432,7 @@ fi,Exhaustion is an issue on this team.,Uupumus on ongelma tässä tiimissä.
 it,Exhaustion is an issue on this team.,La stanchezza è un tema presente nel team.
 nl,Exhaustion is an issue on this team.,Uitputting is iets wat binnen dit team speelt.
 pl,Exhaustion is an issue on this team.,Wyczerpanie jest poważnym problemem w tym zespole.
+en,This order was cancelled.,This order was cancelled.
 pt,Exhaustion is an issue on this team.,Exaustão é uma questão neste time.
 es,Exhaustion is an issue on this team.,El agotamiento es un tema en este equipo.
 sv,Exhaustion is an issue on this team.,Det finns utmattningstendenser i det här teamet.
@@ -9837,6 +9839,7 @@ pt,There seems to be a strong sense of camaraderie on that team.,No time existe 
 es,There seems to be a strong sense of camaraderie on that team.,Hay un gran sentido de compañerismo y pertenencia al equipo.
 fx,There seems to be a strong sense of camaraderie on that team.,Il y a un sens très développé de camaraderie et d’appartenance dans l’équipe.
 en,Team members criticize other team members behind their backs.,Team members criticize other team members behind their backs.
+en,Error adding items to the order.,Error adding items to the order.
 ar,Team members criticize other team members behind their backs.,يقوم أعضاء الفريق بانتقاد بعضهم بعضاً في غيبتهم.
 da,Team members criticize other team members behind their backs.,Folk i teamet går bag om ryggen på hinanden med kritik.
 it,Team members criticize other team members behind their backs.,I membri del team criticano gli altri membri alle loro spalle.
@@ -12452,3 +12455,6 @@ en,Preferences,Preferences
 en,Problem generating html,Problem generating html
 en,reports--failed-message,There was an error generating your report. Please contact support.
 en,Team Leader View Diagnostic,Team Leader View Diagnostic
+en,Your order has been submitted and payment is being processed.,Your order has been submitted and payment is being processed.
+en,Your order has been submitted and payment is complete.,Your order has been submitted and payment is complete.
+en,You can't modify a finalized order.,You can't modify a finalized order.

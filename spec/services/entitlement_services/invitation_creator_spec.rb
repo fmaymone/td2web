@@ -4,12 +4,14 @@ require 'rails_helper'
 
 RSpec.describe EntitlementServices::InvitationCreator do
   include_context 'users'
+
   let(:grantor) { facilitator }
-  let(:entitlements) { [create(:entitlement), create(:entitlement)] }
-  let(:entitlement_options) { entitlements.map { |e| { id: e.id, quota: 5 } } }
+  let(:entitlements) { [create(:entitlement, role: grantor.role), create(:entitlement, role: grantor.role)] }
+  let(:entitlement_options) { entitlements.map { |e| { id: e.id, quota: 5, slug: e.slug } } }
   let(:invitation_message_translation) { ApplicationTranslation.new(locale: 'en', key: "invitation-message-#{entitlements.first.slug}", value: 'Foobar') }
   let(:invitation_message_subject_translation) { ApplicationTranslation.new(locale: 'en', key: 'invitation-message-subject', value: 'Foobar') }
   let(:sample_email) { Faker::Internet.email }
+  let(:sample_invitation_role) { :facilitator }
   let(:sample) do
     EntitlementServices::InvitationCreator.new(
       grantor:,
@@ -18,7 +20,8 @@ RSpec.describe EntitlementServices::InvitationCreator do
         description: 'Test invitation',
         entitlements: entitlement_options,
         i18n_key: invitation_message_translation.key
-      }
+      },
+      role: sample_invitation_role
     )
   end
   let(:invalid_sample) do
@@ -29,7 +32,8 @@ RSpec.describe EntitlementServices::InvitationCreator do
         description: nil,
         entitlements: entitlement_options,
         i18n_key: invitation_message_translation.key
-      }
+      },
+      role: sample_invitation_role
     )
   end
 
@@ -44,7 +48,7 @@ RSpec.describe EntitlementServices::InvitationCreator do
     end
   end
 
-  describe 'Creating an Invitation' do
+  describe 'Creating an Invitation for a facilitator' do
     describe 'with valid attributes' do
       it 'should create an invitation' do
         count = Invitation.count
@@ -55,6 +59,7 @@ RSpec.describe EntitlementServices::InvitationCreator do
         expect(invitation.grantor).to eq(grantor)
         expect(invitation.email).to eq(sample_email)
         expect(invitation.tenant).to eq(grantor.tenant)
+        expect(invitation.entitlements.map{|e| e.fetch(:slug)}).to eq(EntitlementServices::InvitationCreator::DEFAULT_FACILITATOR_ENTITLEMENTS)
       end
     end
 

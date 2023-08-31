@@ -182,7 +182,7 @@ ActiveRecord::Schema.define(version: 2022_10_01_203625) do
     t.index ["code"], name: "idx_4871306_globalize_countries_code_index"
   end
 
-  create_table "globalize_languages", force: :cascade do |t|
+  create_table "globalize_languages", id: :bigint, default: nil, force: :cascade do |t|
     t.string "iso_639_1", limit: 2
     t.string "iso_639_2", limit: 3
     t.string "iso_639_3", limit: 3

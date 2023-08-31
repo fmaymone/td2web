@@ -22,6 +22,7 @@
 #
 FactoryBot.define do
   factory :globalize_language do
+    sequence(:id, &:to_i)
     sequence(:english_name, &:to_s)
     sequence(:iso_639_1, &:to_s)
     sequence(:iso_639_2, &:to_s)

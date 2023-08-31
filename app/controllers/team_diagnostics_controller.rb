@@ -203,7 +203,7 @@ class TeamDiagnosticsController < ApplicationController
                       OrganizationPolicy::Scope.new(current_user, Organization).resolve
                                                .where(id: organization_id).first
                     else
-                      @team_diagnostic ? @team_diagnostic.organization : nil
+                      @team_diagnostic&.organization
                     end
   end
 end

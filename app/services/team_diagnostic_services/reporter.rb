@@ -5,11 +5,12 @@ module TeamDiagnosticServices
   class Reporter
     REFERENCE = 'TeamDiagnostics#report'
 
-    attr_reader :team_diagnostic
+    attr_reader :team_diagnostic, :errors
 
     def initialize(team_diagnostic)
       raise 'Must initialize with a TeamDiagnostic' unless team_diagnostic.is_a?(TeamDiagnostic)
 
+      @errors = nil
       @team_diagnostic = team_diagnostic
     end
 
@@ -54,7 +55,7 @@ module TeamDiagnosticServices
     def failures?
       @team_diagnostic.reports.reload
       skope = @team_diagnostic.reports
-      !skope.where(state: %i[completed rendering running]).any? && skope.failed.any?
+      skope.where(state: %i[completed rendering running]).none? && skope.failed.any?
     end
 
     def status_css_class

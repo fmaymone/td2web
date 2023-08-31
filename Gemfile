@@ -13,7 +13,9 @@ gem 'aws-sdk-s3', require: false
 gem 'bcrypt'
 gem 'bootsnap', require: false
 gem 'bootstrap_form', '~> 4.0'
+gem 'clockwork', github: 'Rykian/clockwork'
 gem 'countries'
+gem 'daemons'
 gem 'dalli'
 gem 'delayed_job_active_record'
 gem 'delayed_job_web'
@@ -52,12 +54,10 @@ gem 'roo'
 gem 'roo-xls'
 gem 'sass-rails'
 gem 'sprockets-rails', git: 'https://github.com/rails/sprockets-rails.git'
+gem 'thor', '~> 1.2'
 gem 'turbolinks'
 gem 'webpacker'
 gem 'wkhtmltopdf-heroku'
-gem 'clockwork', github: 'Rykian/clockwork'
-gem 'daemons'
-gem 'thor', '~> 1.2'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

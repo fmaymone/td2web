@@ -12,7 +12,7 @@ module ParticipantServices
       @data = data
       @options = options
       @import = nil
-      @tmpfile = @data ? @data.path : nil
+      @tmpfile = @data&.path
       @valid = false
       @participants = []
       @errors = []

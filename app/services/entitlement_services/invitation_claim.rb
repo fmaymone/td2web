@@ -25,7 +25,7 @@ module EntitlementServices
     end
 
     def valid?(params = nil)
-      return @invitation.present? if params.nil?
+      @invitation.present? if params.nil?
     end
 
     def limited?

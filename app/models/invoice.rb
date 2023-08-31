@@ -35,4 +35,8 @@ class Invoice < ApplicationRecord
     accept!
     self
   end
+
+  def allow_complete_order?
+    # paid?
+  end
 end

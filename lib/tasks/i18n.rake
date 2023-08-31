@@ -7,6 +7,18 @@ namespace :i18n do
     Translation.transaction do
       args.extras.each do |arg|
         locale, key, value = arg.split(':').map { |a| a.chomp.strip }
+
+        # Default to English if only a key is provided
+        if locale.length > 2 && !key.present?
+          key = locale
+          locale = 'en'
+        end
+
+        raise 'Missing locale' unless locale.present?
+        raise 'Missing key' unless key.present?
+
+        value = key unless value.present?
+
         xltn = Translation.new(
           locale:,
           key:,

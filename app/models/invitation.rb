@@ -130,7 +130,7 @@ class Invitation < ApplicationRecord
       assoc_entitlement = Entitlement.where(id: data[:id]).first
       assoc_quota = data[:quota]
       errors.add(:entitlements, 'has an invalid reference'.t) unless assoc_entitlement.present?
-      errors.add(:entitlements, 'must have a quota') unless assoc_quota&.to_i&.positive?
+      errors.add(:entitlements, 'must have a quota'.t) unless assoc_quota&.to_i&.positive?
     end
   end
 
