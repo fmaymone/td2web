@@ -20,11 +20,12 @@ RUN apt-get update -qq \
     libvips \
     libjpeg62-turbo-dev \
     poppler-utils \
-    #libpoppler-dev \
-    #libpoppler-glib-dev \
+    libpoppler-dev \
+    libpoppler-glib-dev \
     libcairo2-dev \
     libglib2.0-dev \
     libgirepository1.0-dev \
+    wget \
   && apt-get clean \
   && rm -rf /var/cache/apt/archives/* \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
@@ -71,6 +72,10 @@ RUN apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get -yq dist-upgrad
 
 RUN apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get -yq dist-upgrade && \
   DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends python2
+
+RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.bullseye_amd64.deb && \
+  apt install -yf ./wkhtmltox_0.12.6.1-2.bullseye_amd64.deb && \
+  rm ./wkhtmltox_0.12.6.1-2.bullseye_amd64.deb
 
 # Configure bundler
 ENV LANG=C.UTF-8 \

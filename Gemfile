@@ -57,6 +57,7 @@ gem 'webpacker'
 gem 'wkhtmltopdf-heroku'
 gem 'clockwork', github: 'Rykian/clockwork'
 gem 'daemons'
+gem 'thor', '~> 1.2'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
