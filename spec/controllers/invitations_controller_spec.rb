@@ -28,6 +28,9 @@ RSpec.describe InvitationsController, type: :controller do
       it 'should succeed' do
         get :new
         expect(response).to be_successful
+        invitation = assigns(:invitation)
+
+        expect(invitation.entitlements.size).to be > (1)
       end
     end
 

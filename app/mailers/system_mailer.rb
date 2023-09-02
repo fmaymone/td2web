@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# System Mailer class
 class SystemMailer < ApplicationMailer
   helper :system_events
 

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Devise Mailer class
 class DeviseMailer < Devise::Mailer
   before_action :include_layout_images
 

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# View Helper for System Events
 module SystemEventsHelper
   def severity_class(severity)
     {

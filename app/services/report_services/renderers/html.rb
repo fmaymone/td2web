@@ -118,8 +118,8 @@ module ReportServices
         apply_liquid_config
         template = Liquid::Template.parse(page.markup)
         template.render(page_template_data(page, template_data(locale), page_index))
-      rescue => e
-        msg = "Error parsing markup in ReportTemplatePage[#{page.id}]: #{e.to_s}"
+      rescue StandardError => e
+        msg = "Error parsing markup in ReportTemplatePage[#{page.id}]: #{e}"
         raise msg
       end
 

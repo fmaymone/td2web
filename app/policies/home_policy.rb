@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Home Controller Access Policy
 class HomePolicy < ApplicationPolicy
   def index?
     true

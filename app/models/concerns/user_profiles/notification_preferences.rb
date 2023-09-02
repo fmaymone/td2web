@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+# User Profile Notification Preferences concern
 module UserProfiles
+  # User Profile Notification Preferences concern
   module NotificationPreferences
     extend ActiveSupport::Concern
 

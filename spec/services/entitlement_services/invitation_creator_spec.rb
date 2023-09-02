@@ -59,7 +59,7 @@ RSpec.describe EntitlementServices::InvitationCreator do
         expect(invitation.grantor).to eq(grantor)
         expect(invitation.email).to eq(sample_email)
         expect(invitation.tenant).to eq(grantor.tenant)
-        expect(invitation.entitlements.map{|e| e.fetch(:slug)}).to eq(EntitlementServices::InvitationCreator::DEFAULT_FACILITATOR_ENTITLEMENTS)
+        expect(invitation.entitlements.map { |e| e.fetch(:slug) }).to eq(EntitlementServices::InvitationCreator::DEFAULT_FACILITATOR_ENTITLEMENTS)
       end
     end
 

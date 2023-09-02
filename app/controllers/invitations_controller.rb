@@ -14,7 +14,7 @@ class InvitationsController < ApplicationController
 
   def new
     authorize Invitation
-    @service = EntitlementServices::InvitationCreator.new(grantor: current_user, role: :facilitator)
+    @service = EntitlementServices::InvitationCreator.new(grantor: current_user, role: params[:role])
     @invitation = @service.invitation
   end
 

@@ -4,11 +4,12 @@ module EntitlementServices
   # Helper Class for creating Entitlement Invitations
   class InvitationCreator
     # PERMITTED_PARAMS = [:email, :description, :i18n_key, { entitlements: [] }].freeze
-    DEFAULT_FACILITATOR_ENTITLEMENTS = %w{
-          create-diagnostic-any
-          create-organization
-          register-facilitator
-    }.freeze
+    DEFAULT_INVITATION_ROLE = :facilitator
+    DEFAULT_FACILITATOR_ENTITLEMENTS = %w[
+      create-diagnostic-any
+      create-organization
+      register-facilitator
+    ].freeze
 
     attr_reader :invitation, :grantor, :params, :errors
 
@@ -28,7 +29,7 @@ module EntitlementServices
     #   }
     # }
     # grantor: User | ???Order???
-    def initialize(grantor:, params: {}, role: )
+    def initialize(grantor:, params: {}, role: DEFAULT_INVITATION_ROLE)
       @params = sanitize_params(params)
       @grantor = grantor
       @role = role
@@ -53,7 +54,7 @@ module EntitlementServices
       @invitation = Invitation.new(@params)
       @invitation.grantor = @grantor
       @invitation.tenant = @grantor.tenant
-      @invitation.entitlements = default_invitation_entitlements
+      @invitation.entitlements = default_invitation_entitlements unless @invitation.entitlements.present?
       @invitation
     end
 
@@ -86,11 +87,11 @@ module EntitlementServices
 
     def default_invitation_entitlements
       default_slugs = case @role
-      when :facilitator
-        DEFAULT_FACILITATOR_ENTITLEMENTS
-      else
-        []
-      end
+                      when :facilitator
+                        DEFAULT_FACILITATOR_ENTITLEMENTS
+                      else
+                        []
+                      end
       grantor_entitlements.where(slug: default_slugs).map do |entitlement|
         options_for_entitlement(entitlement:, quota: entitlement.quota, selected: true)
       end
