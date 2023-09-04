@@ -4,7 +4,20 @@ TeamDiagnosticV2: A fresh start to TeamDiagnostic.
 
 Rails conventions are followed as well as possible.
 
-# Development Quickstart
+# Development
+
+FIRST!:
+* Install docker, docker-compose
+* Create `.env` file based on `env.example` (Ask for development `RAILS_MASTER_KEY` value from other developer)
+* First time use/setup:
+
+```
+docker-compose build
+docker-compose run web bin/dev_setup
+docker-compose run test rake db:create db:test:prepare
+```
+
+# Development without Docker
 
 ```
 # Install nvm (Node version manager) from https://nodejs.org/en/download.
@@ -34,18 +47,6 @@ bin/server
 * Rails 6.1
 * NodeJS 14
 
-# Development
-
-FIRST!:
-* Install docker, docker-compose
-* Create `.env` file based on `env.example` (Ask for development `RAILS_MASTER_KEY` value from other developer)
-* First time use/setup:
-
-```
-docker-compose build
-docker-compose run web bin/dev_setup
-docker-compose run test rake db:create db:test:prepare
-```
 
 ## General Use Commands
 
