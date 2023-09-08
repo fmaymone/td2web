@@ -8,6 +8,7 @@ RSpec.describe EntitlementServices::InvitationCreator do
   let(:grantor) { facilitator }
   let(:entitlements) { [create(:entitlement, role: grantor.role), create(:entitlement, role: grantor.role)] }
   let(:entitlement_options) { entitlements.map { |e| { id: e.id, quota: 5, slug: e.slug } } }
+  let(:facilitator_default_entitlements) { Entitlement.where(slug: EntitlementServices::InvitationCreator::DEFAULT_FACILITATOR_ENTITLEMENTS) }
   let(:invitation_message_translation) { ApplicationTranslation.new(locale: 'en', key: "invitation-message-#{entitlements.first.slug}", value: 'Foobar') }
   let(:invitation_message_subject_translation) { ApplicationTranslation.new(locale: 'en', key: 'invitation-message-subject', value: 'Foobar') }
   let(:sample_email) { Faker::Internet.email }
@@ -49,6 +50,15 @@ RSpec.describe EntitlementServices::InvitationCreator do
   end
 
   describe 'Creating an Invitation for a facilitator' do
+    describe 'initialization without attributes' do
+      it 'should init a facilitator invitation' do
+        service = EntitlementServices::InvitationCreator.new(
+          grantor:,
+          role: sample_invitation_role
+        )
+        refute(service.errors.any?)
+      end
+    end
     describe 'with valid attributes' do
       it 'should create an invitation' do
         count = Invitation.count
@@ -60,7 +70,7 @@ RSpec.describe EntitlementServices::InvitationCreator do
         expect(invitation.email).to eq(sample_email)
         expect(invitation.tenant).to eq(grantor.tenant)
         expected_entitlements = Entitlement.where(slug: EntitlementServices::InvitationCreator::DEFAULT_FACILITATOR_ENTITLEMENTS)
-        expect(invitation.entitlements.map { |e| e.fetch(:id) }.sort).to eq(expected_entitlements.pluck(:id).sort)
+        expect(invitation.entitlements.map { |e| e.fetch(:id) }.sort).to eq(entitlement_options.map{|e| e.fetch(:id)}.sort)
       end
     end
 

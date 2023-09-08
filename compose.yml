@@ -61,7 +61,8 @@ services:
     command: bundle exec clockwork clock.rb
   test:
     <<: *backend
-    command: "echo 'NOOP (temporary)'"
+    command: "echo 'Test service working'"
+    restart: "no"
     environment:
       <<: *env
       DATABASE_URL: postgres://postgres:postgres@postgres:5432/tdv2_test

@@ -11,7 +11,7 @@ module EntitlementServices
       register-facilitator
     ].freeze
 
-    attr_reader :invitation, :grantor, :params, :errors
+    attr_reader :invitation, :grantor, :params, :errors, :role
 
     # Init Service
     #
@@ -32,7 +32,7 @@ module EntitlementServices
     def initialize(grantor:, params: {}, role: DEFAULT_INVITATION_ROLE)
       @params = sanitize_params(params)
       @grantor = grantor
-      @role = role
+      @role = role.present? ? role : DEFAULT_INVITATION_ROLE
       create_invitation
       @errors = []
     end
@@ -61,15 +61,15 @@ module EntitlementServices
     def entitlement_options(entitlements = nil)
       (entitlements || grantor_entitlements).map do |entitlement|
         selected = selected_entitlement(entitlement.id)
-        options_for_entitlement(
+        entitlement_hash(
           entitlement:,
-          quota: (selected&.fetch('quota') || entitlement.quota),
+          quota: (selected&.fetch(:quota) || entitlement.quota),
           selected: selected.present?
         )
       end
     end
 
-    def options_for_entitlement(entitlement:, quota:, selected:)
+    def entitlement_hash(entitlement:, quota:, selected:)
       {
         id: entitlement.id,
         slug: entitlement.slug,
@@ -86,20 +86,20 @@ module EntitlementServices
     end
 
     def default_invitation_entitlements
-      default_slugs = case @role
+      default_slugs = case @role&.to_sym
                       when :facilitator
                         DEFAULT_FACILITATOR_ENTITLEMENTS
                       else
                         []
                       end
       grantor_entitlements.where(slug: default_slugs).map do |entitlement|
-        options_for_entitlement(entitlement:, quota: entitlement.quota, selected: true)
+        entitlement_hash(entitlement:, quota: entitlement.quota, selected: true)
       end
     end
 
     def selected_entitlement(id)
       (invitation.entitlements || []).select do |e|
-        e['id'] == id
+        e[:id] == id
       end.first
     end
 
@@ -147,10 +147,7 @@ module EntitlementServices
       (entitlements || []).map do |entitlement|
         next unless entitlement[:id].present?
 
-        {
-          id: entitlement[:id],
-          quota: entitlement[:quota]
-        }
+        entitlement.slice(:id, :quota, :selected)
       end.compact
     end
   end

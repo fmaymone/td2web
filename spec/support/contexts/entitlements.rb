@@ -3,7 +3,10 @@
 require_relative '../../../db/seed/entitlements'
 
 RSpec.shared_context 'entitlements', shared_context: :metadate do
-  let(:entitlement_seed_data) { Seeds::Entitlements.new.call }
+  let(:entitlement_seed_data) {
+    Entitlement.where(slug: Entitlement::REGISTER_AS_FACILITATOR).any? || 
+    Seeds::Entitlements.new.call
+  }
 
   let(:registration_entitlement) do
     entitlement_seed_data

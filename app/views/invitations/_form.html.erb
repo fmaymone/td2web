@@ -5,19 +5,17 @@
       <%= form.email_field :email, label: 'Email'.t, required: true, autofocus: true %>
     </div>
   </div>
-  <div class="form-row">
+  <div class="form-row ">
     <div class="col-sm-6">
       <%= form.select :i18n_key, invitatation_message_template_options(service), label: 'Message Template'.t, required: true %>
     </div>
-  </div>
-  <div class="form-row">
     <div class="col-sm-6">
-      <%= form.text_area :description, label: 'Description'.t, required: false %>
+      <%= form.select :redirect, options_for_invitation_redirect(service.invitation), label: 'Redirect'.t, required: false %>
     </div>
   </div>
   <div class="form-row">
-    <div class="col-sm-6">
-      <%= form.select :redirect, options_for_invitation_redirect(service.invitation), label: 'Redirect'.t, required: false %>
+    <div class="col">
+      <%= form.text_area :description, label: 'Notes'.t, required: false %>
     </div>
   </div>
   <fieldset>
