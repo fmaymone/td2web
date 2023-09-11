@@ -11,7 +11,7 @@ x-app: &app
     NODE_ENV: ${NODE_ENV:-development}
     RAILS_ENV: ${RAILS_ENV:-development}
   tmpfs:
-    - /tmp
+    - /tmp:rw,noexec,nosuid,mode=1770
     - /app/tmp/pids
 
 x-backend: &backend
