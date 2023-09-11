@@ -24,7 +24,9 @@ module ReportServices
       def build_for_locale(locale)
         filename = "#{report.team_diagnostic.name}-#{title}---#{locale}---#{Time.now.strftime('%Y%m%d%H%M')}.pdf"
         pdf_data = StringIO.new(generate(locale))
-        @report.report_files.attach(io: pdf_data, filename:, content_type: CONTENT_TYPE)
+        #@report.report_files.attach(io: pdf_data, filename:, content_type: CONTENT_TYPE)
+        blob = ActiveStorage::Blob.create_and_upload!(io: pdf_data, filename:, content_type: CONTENT_TYPE)
+        @report.report_files.attach(blob)
         pdf_data.rewind
       end
 

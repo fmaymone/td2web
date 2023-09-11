@@ -53,7 +53,9 @@ module ReportServices
           image_service.stylesheets = []
           image_service.stylesheets << chart_css_file
           png_file = StringIO.new(image_service.to_png)
-          @report.report_files.attach(io: png_file, filename:, content_type: CONTENT_TYPE)
+          #@report.report_files.attach(io: png_file, filename:, content_type: CONTENT_TYPE)
+          blob = ActiveStorage::Blob.create_and_upload!(io: png_file, filename:, content_type: CONTENT_TYPE)
+          @report.report_files.attach(blob)
           png_file.rewind
         end
       end
