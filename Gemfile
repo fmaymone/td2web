@@ -40,7 +40,7 @@ gem 'net-imap'
 gem 'net-pop'
 gem 'net-smtp'
 gem 'pdfkit'
-gem 'pg'
+gem 'pg', '~> 1.4.0'
 gem 'pg_search'
 gem 'pry'
 gem 'pry-inline'
@@ -57,7 +57,7 @@ gem 'sprockets-rails', git: 'https://github.com/rails/sprockets-rails.git'
 gem 'thor', '~> 1.2'
 gem 'turbolinks'
 gem 'webpacker'
-gem 'wkhtmltopdf-heroku'
+#gem 'wkhtmltopdf-heroku'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
