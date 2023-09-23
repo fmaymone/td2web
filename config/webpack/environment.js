@@ -11,7 +11,7 @@ const { environment } = require('@rails/webpacker')
 // Bootstrap v4 compatibility
 //  * include jQuery and Popper.js
 const webpack = require('webpack')
-environment.plugins.append('Provide', new webpack.ProvidePlugin({
+environment.plugins.prepend('Provide', new webpack.ProvidePlugin({
   $: 'jquery',
   jQuery: 'jquery',
   Popper: ['popper.js', 'default']
