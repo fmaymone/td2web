@@ -82,7 +82,7 @@ RUN bundle config set --local without 'development test'
 RUN bundle config set --local path 'vendor/bundle'
 
 # Install Javascript and Ruby dependencies
-COPY package.json yarn.lock
+COPY package.json yarn.lock .
 RUN yarn install
 COPY Gemfile Gemfile.lock .
 RUN bundle install
@@ -93,7 +93,7 @@ COPY . .
 ARG RAILS_ENV
 ARG RAILS_MASTER_KEY
 RUN bundle exec rake assets:precompile
-RUN chmod ugo+rx bin/docker_web_entrypoint.sh
+RUN chmod ugo+rx bin/* bin/*.sh
 
 EXPOSE 3000
 CMD ["/usr/bin/bash"]

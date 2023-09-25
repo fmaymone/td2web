@@ -156,6 +156,15 @@ During development, run `bundle exec guard` in a dedicated terminal for automate
 
 # Deployment instructions
 
+## Build Staging Containers
+
+```
+# Copy/create .env.staging
+docker-compose -f compose-staging.yml --env-file .env.staging build
+docker-compose -f compose-staging.yml --env-file .env.staging run web bin/docker_db_init
+docker-compose -f compose-staging.yml --env-file .env.staging up
+```
+
 Update constants in `bin/deploy` as needed for  configuration:
 
 * PASS_COMMAND_STAGING

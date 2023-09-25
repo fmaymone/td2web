@@ -1,0 +1,26 @@
+#!/bin/bash
+
+function setup_database {
+  cd /app
+  seed_sql=/app/db/seed/tdv1_i18n_data-utf8.sql
+  DISABLE_DATABASE_ENVIRONMENT_CHECK=1 rake db:create db:schema:load
+  [[ ! -f $seed_sql ]] && bunzip2 -k $seed_sql.bz2
+  psql -q $DATABASE_URL < $seed_sql
+  rm $seed_sql
+  rake db:seed
+}
+if [[ -z "${DATABASE_URL}" ]]; then
+  echo "DATABASE_URL is not set"
+  exit 1
+fi
+
+echo "This script initializes the Database and WILL CAUSE DATA LOSS!!! Do you wish to continue? [Y/n]"
+read -r answer
+case $answer in
+  [yY]* ) echo "Proceeding..."; 
+    setup_database
+    ;;
+  [nN]* ) echo "You chose not to continue. The script will now exit."; exit;;
+  * )     echo "Please answer yes (Y/y) or no (N/n).";;
+esac
+
