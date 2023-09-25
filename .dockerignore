@@ -1,3 +1,4 @@
 db/seed/*.sql
 db/seed/*.bz2
 spring-0/
+.vactordatadb

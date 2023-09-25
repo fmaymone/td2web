@@ -40,6 +40,9 @@ module Teamdiagnostic
     config.autoload_paths += %w[app/services]
     config.active_record.use_yaml_unsafe_load = true
 
+    # HACK
+    config.sass.warn_status = false
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

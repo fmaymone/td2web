@@ -1,15 +1,21 @@
 x-app: &app
+  image: tdv2-prod:0.0.1
   build:
     context: .
+    dockerfile: Dockerfile.prod
     args:
       RUBY_VERSION: '3.1.4'
       PG_MAJOR: '15'
       NODE_MAJOR: '18'
       YARN_VERSION: '1.22.19'
-  image: tdv2-dev:0.0.1
+      NODE_ENV: production
+      RAILS_ENV: production
+      RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
   environment: &env
-    NODE_ENV: ${NODE_ENV:-production}
-    RAILS_ENV: ${RAILS_ENV:-production}
+    NODE_ENV: production
+    RAILS_ENV: production
+  env_file:
+    - .env.staging
   tmpfs:
     - /tmp:rw,noexec,nosuid,mode=1770
     - /app/tmp/pids
@@ -20,20 +26,13 @@ x-backend: &backend
   tty: true
   working_dir: /app
   volumes:
-    - .:/app:cached
     - app_log:/app/log
     - app_tmp:/app/tmp:cached
-    - bundle:/usr/local/bundle
     - history:/usr/local/hist
-    - node_modules:/app/node_modules
-    - packs-test:/app/public/packs-test
-    - packs:/app/public/packs
     - storage:/app/storage
-    - coverage:/app/public/coverage
-    - coverage:/app/coverage
   environment: &backend_environment
     <<: *env
-    DATABASE_URL: postgres://postgres:postgres@postgres:5432/tdv2_prod
+    DATABASE_URL: postgres://postgres:postgres@postgres:5432/tdv2
     MEMCACHED_URL: memcached://memcached:11211
     MALLOC_ARENA_MAX: 2
     WEB_CONCURRENCY: ${WEB_CONCURRENCY:-2}
@@ -43,7 +42,8 @@ x-backend: &backend
     HISTFILE: /usr/local/hist/.bash_history
     PSQL_HISTFILE: /usr/local/hist/.psql_history
     IRB_HISTFILE: /usr/local/hist/.irb_history
-    EDITOR: vim
+    NODE_ENV: ${RAILS_ENV:-production}
+    RAILS_ENV: ${RAILS_ENV:-production}
   depends_on: &backend_depends_on
     postgres:
       condition: service_healthy
@@ -52,22 +52,16 @@ services:
   web:
     <<: *backend
     command: bin/docker_web_entrypoint.sh
+    deploy:
+      replicas: 2
     ports:
-      - '3000:3000'
+      - '3000'
   worker:
     <<: *backend
     command: bundle exec rake jobs:work
   clock:
     <<: *backend
     command: bundle exec clockwork clock.rb
-  test:
-    <<: *backend
-    command: "echo 'Test service working'"
-    restart: "no"
-    environment:
-      <<: *env
-      DATABASE_URL: postgres://postgres:postgres@postgres:5432/tdv2_test
-      RAILS_ENV: test
   postgres:
     image: postgres:15.3
     volumes:
@@ -85,16 +79,17 @@ services:
     image: memcached:latest
     command: memcached -m 64
     ports:
-      - "11211:11211"
+      - '11211'
+  nginx:
+    image: nginx
+    ports:
+      - '80:80'
+    volumes:
+      - ./containers/nginx/nginx.conf:/etc/nginx/nginx.conf
 
 volumes:
   app_log:
   app_tmp:
-  bundle:
-  coverage:
   history:
-  node_modules:
-  packs-test:
-  packs:
   postgres:
   storage:

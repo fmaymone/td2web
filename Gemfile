@@ -35,6 +35,7 @@ gem 'jbuilder'
 gem 'kaminari'
 gem 'kaminari-i18n'
 gem 'liquid'
+gem 'listen'
 gem 'mini_magick'
 gem 'net-imap'
 gem 'net-pop'
@@ -77,7 +78,6 @@ group :development do
   gem 'bundler-audit', require: false
   gem 'guard-rspec', require: false
   gem 'guard-rubocop', require: false
-  gem 'listen'
   gem 'pessimize', require: false
   gem 'rack-mini-profiler', require: false
   gem 'spring'

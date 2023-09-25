@@ -1,4 +1,5 @@
 x-app: &app
+  image: tdv2-dev:0.0.1
   build:
     context: .
     args:
@@ -6,10 +7,11 @@ x-app: &app
       PG_MAJOR: '15'
       NODE_MAJOR: '18'
       YARN_VERSION: '1.22.19'
-  image: tdv2-dev:0.0.1
   environment: &env
     NODE_ENV: ${NODE_ENV:-development}
     RAILS_ENV: ${RAILS_ENV:-development}
+  env_file:
+    - .env
   tmpfs:
     - /tmp:rw,noexec,nosuid,mode=1770
     - /app/tmp/pids

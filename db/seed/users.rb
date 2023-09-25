@@ -4,6 +4,7 @@
 module Seeds
   # User seed data
   class Users
+    DEFAULT_ADMIN_PASSWORD='Password1.'
     attr_reader :success, :errors
 
     def initialize(message: nil)
@@ -16,7 +17,8 @@ module Seeds
       log(@message) if @message
 
       username = 'administrator'
-      password = Array.new(12) { rand(32..125).chr }.join
+      #password = Array.new(12) { rand(32..125).chr }.join
+      password = DEFAULT_ADMIN_PASSWORD
       log('*** Creating "administrator" Admin account...')
 
       if User.where(username:).exists?
