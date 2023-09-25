@@ -124,6 +124,7 @@ Rails.application.configure do
   }
 
   config.action_mailer.default_url_options = { host: ENV.fetch('APPLICATION_HOST') }
+  config.action_controller.asset_host = ENV.fetch('APPLICATION_HOST')
 
   # config.hosts = [ ENV.fetch('APPLICATION_DOMAIN') ]
 end
