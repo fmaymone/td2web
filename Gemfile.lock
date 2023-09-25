@@ -580,7 +580,7 @@ DEPENDENCIES
   rubocop-faker
   rubocop-rails
   rubocop-rspec
-  sass-rails
+  sass-rails (~> 6.0)
   simplecov
   spring
   spring-watcher-listen

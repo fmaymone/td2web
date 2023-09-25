@@ -7,6 +7,7 @@ x-app: &app
       PG_MAJOR: '15'
       NODE_MAJOR: '18'
       YARN_VERSION: '1.22.19'
+      NODE_OPTIONS: '--openssl-legacy-provider'
   environment: &env
     NODE_ENV: ${NODE_ENV:-development}
     RAILS_ENV: ${RAILS_ENV:-development}
@@ -45,6 +46,7 @@ x-backend: &backend
     HISTFILE: /usr/local/hist/.bash_history
     PSQL_HISTFILE: /usr/local/hist/.psql_history
     IRB_HISTFILE: /usr/local/hist/.irb_history
+    NODE_OPTIONS: '--openssl-legacy-provider'
     EDITOR: vim
   depends_on: &backend_depends_on
     postgres:
