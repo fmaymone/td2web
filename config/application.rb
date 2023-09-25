@@ -2,7 +2,6 @@
 
 require_relative 'version'
 require_relative 'boot'
-require_relative '../lib/middleware/forwarded_port'
 
 require 'rails/all'
 
@@ -43,8 +42,6 @@ module Teamdiagnostic
 
     # HACK
     config.sass.warn_status = false
-
-    config.middleware.insert_after Rack::Runtime, ForwardedPort
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
