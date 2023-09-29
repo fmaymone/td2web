@@ -1,3 +1,5 @@
+import * as d3 from 'd3'
+
 class PositivityStrengths {
 	constructor(locale, id, data) {
 		this.chart_height = 400

@@ -51,6 +51,8 @@ x-backend: &backend
   depends_on: &backend_depends_on
     postgres:
       condition: service_healthy
+    memcached:
+      condition: service_healthy
 
 services:
   web:
@@ -90,6 +92,9 @@ services:
     command: memcached -m 64
     ports:
       - "11211:11211"
+    healthcheck:
+      test: ["CMD", "echo", "stats", "|", "nc", "localhost", "11211"]
+      interval: 5s
 
 volumes:
   app_log:

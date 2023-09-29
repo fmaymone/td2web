@@ -79,7 +79,7 @@ RUN gem update --system && \
 
 # Install Javascript and Ruby dependencies
 COPY package.json yarn.lock
-RUN yarn
+RUN yarn install
 COPY Gemfile Gemfile.lock .
 RUN bundle install
 
