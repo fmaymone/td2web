@@ -63,6 +63,10 @@ services:
   worker:
     <<: *backend
     command: bundle exec rake jobs:work
+    environment:
+      <<: *backend_environment
+      APPLICATION_HOST: "web:3000"
+      APPLICATION_PROTOCOL: http
   clock:
     <<: *backend
     command: bundle exec clockwork clock.rb
