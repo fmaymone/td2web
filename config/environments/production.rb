@@ -56,7 +56,7 @@ Rails.application.configure do
   config.log_tags = [:request_id]
 
   # Use a different cache store in production.
-  config.cache_store = :mem_cache_store, ENV.fetch('MEMCACHED_URL','')
+  config.cache_store = :mem_cache_store, ENV.fetch('MEMCACHED_URL', '')
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
@@ -113,15 +113,15 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address: Rails.application.credentials.config[:smtp][:address],
-    port: Rails.application.credentials.config[:smtp][:port],
-    domain: Rails.application.credentials.config[:smtp][:domain],
-    user_name: Rails.application.credentials.config[:smtp][:user_name],
-    password: Rails.application.credentials.config[:smtp][:password],
-    authentication: 'plain',
-    enable_starttls_auto: true
-  }
+  # config.action_mailer.smtp_settings = {
+  #   address: Rails.application.credentials.config[:smtp][:address],
+  #   port: Rails.application.credentials.config[:smtp][:port],
+  #   domain: Rails.application.credentials.config[:smtp][:domain],
+  #   user_name: Rails.application.credentials.config[:smtp][:user_name],
+  #   password: Rails.application.credentials.config[:smtp][:password],
+  #   authentication: 'plain',
+  #   enable_starttls_auto: true
+  # }
 
   config.action_mailer.default_url_options = { host: ENV.fetch('APPLICATION_HOST') }
   config.action_controller.asset_host = ENV.fetch('APPLICATION_HOST')
