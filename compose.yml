@@ -29,10 +29,10 @@ x-backend: &backend
     - bundle:/usr/local/bundle
     - history:/usr/local/hist
     - node_modules:/app/node_modules
-    - packs-test:/app/public/packs-test
+    - packs-test:/app/public/packs-test:q
     - packs:/app/public/packs
     - storage:/app/storage
-    - coverage:/app/public/coverage
+    - coverage_public:/app/public/coverage
     - coverage:/app/coverage
   environment: &backend_environment
     <<: *env
