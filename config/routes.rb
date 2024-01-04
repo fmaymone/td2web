@@ -3,7 +3,8 @@
 Rails.application.routes.draw do
   root to: 'home#index'
 
-  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
+  # TODO: - remove or add this line locally.
+  # mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
   authenticated :user, ->(user) { user.admin? } do
     mount DelayedJobWeb, at: '/delayed_job'
