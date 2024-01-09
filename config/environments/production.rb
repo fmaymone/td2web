@@ -113,15 +113,15 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
   config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #   address: Rails.application.credentials.config[:smtp][:address],
-  #   port: Rails.application.credentials.config[:smtp][:port],
-  #   domain: Rails.application.credentials.config[:smtp][:domain],
-  #   user_name: Rails.application.credentials.config[:smtp][:user_name],
-  #   password: Rails.application.credentials.config[:smtp][:password],
-  #   authentication: 'plain',
-  #   enable_starttls_auto: true
-  # }
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    domain: 'yourdomain.com',
+    user_name: 'apikey',
+    password: ENV.fetch('SENDGRID_API_KEY', nil),
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
 
   config.action_mailer.default_url_options = { host: ENV.fetch('APPLICATION_HOST') }
   config.action_controller.asset_host = ENV.fetch('APPLICATION_HOST')

@@ -438,6 +438,7 @@ GEM
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     ruby2_keywords (0.0.5)
+    ruby_http_client (3.5.5)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -450,6 +451,8 @@ GEM
       sprockets-rails
       tilt
     semantic_range (3.0.0)
+    sendgrid-ruby (6.7.0)
+      ruby_http_client (~> 3.4)
     shellany (0.0.1)
     simplecov (0.22.0)
       docile (~> 1.1)
@@ -581,6 +584,7 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec
   sass-rails (~> 6.0)
+  sendgrid-ruby
   simplecov
   spring
   spring-watcher-listen

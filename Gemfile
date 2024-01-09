@@ -54,11 +54,12 @@ gem 'rexml'
 gem 'roo'
 gem 'roo-xls'
 gem 'sass-rails', '~> 6.0'
+gem 'sendgrid-ruby'
 gem 'sprockets-rails', git: 'https://github.com/rails/sprockets-rails.git'
 gem 'thor', '~> 1.2'
 gem 'turbolinks'
 gem 'webpacker'
-#gem 'wkhtmltopdf-heroku'
+# gem 'wkhtmltopdf-heroku'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
