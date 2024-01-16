@@ -34,8 +34,10 @@ module Teamdiagnostic
     config.hosts = nil # Allow any domain (see: https://github.com/rails/rails/pull/33145)
 
     config.active_job.queue_adapter = :delayed_job
-
-    config.action_mailer.default_url_options = { host: application_host, port: application_port }
+    # TODO: trying to fix production heroku
+    # config.action_mailer.default_url_options = { host: application_host, port: application_port }
+    config.action_mailer.default_url_options = { host: 'http://localhost:3000' }
+    config.action_mailer.asset_host = 'http://localhost:3000'
 
     config.autoload_paths += %w[app/services]
     config.active_record.use_yaml_unsafe_load = true
