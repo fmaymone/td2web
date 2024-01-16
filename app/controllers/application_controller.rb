@@ -31,7 +31,9 @@ class ApplicationController < ActionController::Base
   end
 
   def current_locale
-    @current_locale ||= set_locale
+    # TODO: remove it. Testing only
+    # @current_locale ||= set_locale
+    @current_locale = 'en'
   end
 
   # globalization locale set
