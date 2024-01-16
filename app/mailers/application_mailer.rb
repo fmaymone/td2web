@@ -2,7 +2,7 @@
 
 # Mailer base class
 class ApplicationMailer < ActionMailer::Base
-  default from: ENV.fetch('EMAIL_REPLY_TO', 'info@teamcoachinginternational.com')
+  default from: ENV.fetch('EMAIL_REPLY_TO', 'support@teamcoachinginternational.com')
   layout 'mailer'
   before_action :include_layout_images
 
