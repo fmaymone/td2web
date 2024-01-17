@@ -111,17 +111,18 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+  config.middleware.delete(ActionDispatch::DebugExceptions)
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.sendgrid.net',
-    port: 587,
-    domain: 'https://team-coaching-ba8fa90a2744.herokuapp.com',
-    user_name: 'apikey',
-    password: ENV.fetch('SENDGRID_API_KEY', nil),
-    authentication: :plain,
-    enable_starttls_auto: true
-  }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   address: 'smtp.sendgrid.net',
+  #   port: 587,
+  #   domain: 'https://team-coaching-ba8fa90a2744.herokuapp.com',
+  #   user_name: 'apikey',
+  #   password: ENV.fetch('SENDGRID_API_KEY', nil),
+  #   authentication: :plain,
+  #   enable_starttls_auto: true
+  # }
 
   # config.action_mailer.default_url_options = { host: ENV.fetch('APPLICATION_HOST') }
   config.action_controller.asset_host = ENV.fetch('APPLICATION_HOST')

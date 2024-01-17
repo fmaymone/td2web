@@ -74,4 +74,8 @@ Rails.application.routes.draw do
       post :complete, to: 'diagnostic_surveys#complete'
     end
   end
+  # Error pages
+  %w[404 422 500].each do |code|
+    get code, to: 'errors#show', code:
+  end
 end
