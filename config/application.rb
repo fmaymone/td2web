@@ -35,7 +35,9 @@ module Teamdiagnostic
 
     config.active_job.queue_adapter = :delayed_job
     # TODO: trying to fix production heroku
-    config.action_mailer.default_url_options = { host: application_host, port: application_port }
+    # config.action_mailer.default_url_options = { host: application_host, port: application_port }
+    config.action_mailer.default_url_options = { host: ENV.fetch('APPLICATION_HOST') }
+
     # config.action_mailer.default_url_options = { host: 'http://localhost:3000' }
     # config.action_mailer.asset_host = 'http://localhost:3000'
 
