@@ -19,7 +19,7 @@ module TeamDiagnosticServices
       @team_diagnostic = initialize_team_diagnostic
       @step = get_step(params[:step])
       @updated = false
-      Rails.logger.info(`TeamDiagnosticServices::Updater initialized`)
+      Rails.logger.info('TeamDiagnosticServices::Updater finished')
     end
 
     def call
