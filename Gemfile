@@ -14,7 +14,6 @@ gem 'bcrypt'
 gem 'bootsnap', require: false
 gem 'bootstrap_form', '~> 4.0'
 gem 'clockwork', github: 'Rykian/clockwork'
-gem 'connection_pool', '~> 2.4', '>= 2.4.1'
 gem 'countries'
 gem 'daemons'
 gem 'dalli'
