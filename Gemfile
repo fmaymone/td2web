@@ -14,6 +14,7 @@ gem 'bcrypt'
 gem 'bootsnap', require: false
 gem 'bootstrap_form', '~> 4.0'
 gem 'clockwork', github: 'Rykian/clockwork'
+gem 'connection_pool'
 gem 'countries'
 gem 'daemons'
 gem 'dalli'
@@ -59,6 +60,7 @@ gem 'sprockets-rails', git: 'https://github.com/rails/sprockets-rails.git'
 gem 'thor', '~> 1.2'
 gem 'turbolinks'
 gem 'webpacker'
+
 # gem 'wkhtmltopdf-heroku'
 
 group :development, :test do
