@@ -12,4 +12,4 @@ digital_ocean:
   secret_access_key: <%= ENV.fetch('ACTIVESTORAGE_SECRET_ACCESS_KEY', 'XXX') %>
   region: sfo2
   bucket: <%= ENV.fetch('ACTIVESTORAGE_BUCKET', 'XXX') %>
-  endpoint: 'https://sfo2.digitaloceanspaces.com'
+  endpoint: 'https://tdv2staging.nyc3.digitaloceanspaces.com'
