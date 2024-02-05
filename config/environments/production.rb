@@ -57,12 +57,24 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store, ENV.fetch('MEMCACHED_URL', '')
-  config.cache_store = :dalli_store, (ENV['MEMCACHIER_SERVERS'] || '').split(','),
+  config.cache_store = :mem_cache_store, (ENV['MEMCACHIER_SERVERS'] || '').split(','),
                        { username: ENV.fetch('MEMCACHIER_USERNAME', nil),
                          password: ENV.fetch('MEMCACHIER_PASSWORD', nil),
                          failover: true,
                          socket_timeout: 1.5,
-                         socket_failure_delay: 0.2 }
+                         socket_failure_delay: 0.2,
+                         value_max_bytes: 10_485_760,
+                         pool_size: Rails.env.production? ? 5 : 1,
+                         expires_in: 1.day,
+                         compress: true,
+                         down_retry_delay: 60,
+                         error_handler: lambda { |method:, returning:, exception:|
+                           # Custom error handling code here...
+                         },
+                         compress_threshold: 64.kilobytes,
+                         namespace: 'app_v1',
+                         read_only: false,
+                         serializer: JSON }
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
