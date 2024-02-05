@@ -526,7 +526,7 @@ DEPENDENCIES
   byebug
   capybara
   clockwork!
-  connection_pool
+  connection_pool (~> 2.4, >= 2.4.1)
   countries
   daemons
   dalli
