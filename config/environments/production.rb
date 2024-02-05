@@ -56,7 +56,13 @@ Rails.application.configure do
   config.log_tags = [:request_id]
 
   # Use a different cache store in production.
-  config.cache_store = :mem_cache_store, ENV.fetch('MEMCACHED_URL', '')
+  # config.cache_store = :mem_cache_store, ENV.fetch('MEMCACHED_URL', '')
+  config.cache_store = :dalli_store, (ENV['MEMCACHIER_SERVERS'] || '').split(','),
+                       { username: ENV.fetch('MEMCACHIER_USERNAME', nil),
+                         password: ENV.fetch('MEMCACHIER_PASSWORD', nil),
+                         failover: true,
+                         socket_timeout: 1.5,
+                         socket_failure_delay: 0.2 }
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
@@ -124,7 +130,7 @@ Rails.application.configure do
   #   enable_starttls_auto: true
   # }
 
-  # config.action_mailer.default_url_options = { host: ENV.fetch('APPLICATION_HOST') }
+  config.action_mailer.default_url_options = { host: ENV.fetch('APPLICATION_HOST') }
   config.action_controller.asset_host = ENV.fetch('APPLICATION_HOST')
 
   # config.hosts = [ ENV.fetch('APPLICATION_DOMAIN') ]
