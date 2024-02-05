@@ -167,15 +167,20 @@ class TeamDiagnosticsController < ApplicationController
   end
 
   def generate_report
+    Rails.logger.info('START - Generate Report---------')
+    Rails.logger.info(`PARAMS: #{params}`)
     @service = TeamDiagnosticServices::Updater.new(user: @current_user, id: record_scope.find(params[:id]), params:)
     @team_diagnostic = @service.team_diagnostic
     authorize @team_diagnostic
+    Rails.logger.info('Generate Report was authorized')
 
     @report_service = TeamDiagnosticServices::Reporter.new(@team_diagnostic)
 
     options = { page_order: params[:page_order], report_variation: params[:report_variation] }
     @report_service.call(options:)
     notice = 'Your report is being generated'.t
+    Rails.logger.info('STOP - Generate Report---------')
+
     redirect_to wizard_team_diagnostic_path(@team_diagnostic, step: @team_diagnostic.wizard), notice:
   end
 

@@ -9,6 +9,7 @@ module TeamDiagnosticServices
     attr_reader :params, :user, :team_diagnostic, :errors, :step, :updated
 
     def initialize(user:, id:, params: {})
+      Rails.logger.info(`TeamDiagnosticServices::Updater initializing #{params}`)
       @errors = []
       @user = user
       @id = id
@@ -18,6 +19,7 @@ module TeamDiagnosticServices
       @team_diagnostic = initialize_team_diagnostic
       @step = get_step(params[:step])
       @updated = false
+      Rails.logger.info(`TeamDiagnosticServices::Updater initialized`)
     end
 
     def call

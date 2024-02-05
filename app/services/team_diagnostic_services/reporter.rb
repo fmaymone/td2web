@@ -10,15 +10,19 @@ module TeamDiagnosticServices
     def initialize(team_diagnostic)
       raise 'Must initialize with a TeamDiagnostic' unless team_diagnostic.is_a?(TeamDiagnostic)
 
+      Rails.logger.info('TeamDiagnosticServices::Reporter initializing')
+
       @errors = nil
       @team_diagnostic = team_diagnostic
     end
 
     # (re)Generate TeamDiagnostic Report
     def call(options: {})
+      Rails.logger.info('TeamDiagnosticServices::Reporter - start call')
       cancel
       reset_current_report
       perform_report(force: true, options:)
+      Rails.logger.info('TeamDiagnosticServices::Reporter - finished call')
     end
 
     # Latest report
@@ -127,6 +131,7 @@ module TeamDiagnosticServices
     def perform_report(force: false, options: {})
       # TODO: check for entitlements
       #
+      Rails.logger.info('TeamDiagnosticServices::Reporter start - perform_report')
       @team_diagnostic.reports.stalled.map(&:reject)
       reset_current_report
       @team_diagnostic.reports.reload
@@ -137,6 +142,8 @@ module TeamDiagnosticServices
       running_reports.all.map(&:reject)
       report = init_report(options:)
       report.start
+      Rails.logger.info('TeamDiagnosticServices::Reporter end - perform_report')
+
       report
     end
   end
