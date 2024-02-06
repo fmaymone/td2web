@@ -59,7 +59,7 @@ gem 'sprockets-rails', git: 'https://github.com/rails/sprockets-rails.git'
 gem 'thor', '~> 1.2'
 gem 'turbolinks'
 gem 'webpacker'
-gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf-binary', '~> 0.12.6.6'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
