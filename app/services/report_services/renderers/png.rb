@@ -60,8 +60,11 @@ module ReportServices
             blob = ActiveStorage::Blob.create_and_upload!(io: png_file, filename:, content_type: CONTENT_TYPE)
             @report.report_files.attach(blob)
           rescue StandardError => e
+            # Handle the error accordingly
             Rails.logger.error "Failed to create and upload blob for #{filename}: #{e.message}"
+            # You can also notify a monitoring service, retry the operation, or take other appropriate actions here
           ensure
+            Rails.logger.info 'Finished png generation'
             png_file.rewind
           end
         end
