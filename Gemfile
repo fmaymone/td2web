@@ -59,7 +59,6 @@ gem 'sprockets-rails', git: 'https://github.com/rails/sprockets-rails.git'
 gem 'thor', '~> 1.2'
 gem 'turbolinks'
 gem 'webpacker'
-gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
 group :development, :test do

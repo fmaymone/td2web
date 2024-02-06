@@ -8,3 +8,4 @@ libvips
 libvips-dev
 poppler-utils
 vim
+wkhtmltopdf
