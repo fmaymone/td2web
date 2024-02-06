@@ -45,18 +45,25 @@ module ReportServices
       def build_for_locale(locale)
         html_service = ReportServices::Renderers::Html.new(report: @report, locale:, options: @options)
         html_data = html_service.generate(locale)
+
         chart_names.each do |chart_name|
           html_copy = html_data.dup
           filename = "#{title(chart_name)}---#{locale}---#{Time.now.strftime('%Y%m%d%H%M')}.png"
+
           image_service = IMGKit.new(html_copy, quality: 95)
           chart_css_file = StringIO.new(chart_css(chart_name))
           image_service.stylesheets = []
           image_service.stylesheets << chart_css_file
           png_file = StringIO.new(image_service.to_png)
-          #@report.report_files.attach(io: png_file, filename:, content_type: CONTENT_TYPE)
-          blob = ActiveStorage::Blob.create_and_upload!(io: png_file, filename:, content_type: CONTENT_TYPE)
-          @report.report_files.attach(blob)
-          png_file.rewind
+
+          begin
+            blob = ActiveStorage::Blob.create_and_upload!(io: png_file, filename:, content_type: CONTENT_TYPE)
+            @report.report_files.attach(blob)
+          rescue StandardError => e
+            Rails.logger.error "Failed to create and upload blob for #{filename}: #{e.message}"
+          ensure
+            png_file.rewind
+          end
         end
       end
 
