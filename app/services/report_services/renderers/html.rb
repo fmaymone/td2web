@@ -31,7 +31,7 @@ module ReportServices
       def build_for_locale(locale)
         filename = "#{report.team_diagnostic.name}-#{title}---#{locale}---#{Time.now.strftime('%Y%m%d%H%M')}.html"
         html_data = StringIO.new(generate(locale))
-        #@report.report_files.attach(io: html_data, filename:, content_type: CONTENT_TYPE)
+        # @report.report_files.attach(io: html_data, filename:, content_type: CONTENT_TYPE)
         blob = ActiveStorage::Blob.create_and_upload!(io: html_data, filename:, content_type: CONTENT_TYPE)
         @report.report_files.attach(blob)
         html_data.rewind
@@ -76,6 +76,10 @@ module ReportServices
         tags = []
         LAYOUT_ASSET_PACKS.each do |packname|
           css_path = Webpacker.manifest.lookup("#{packname}.css")
+          Rails.logger.info 'css_path'
+          Rails.logger.info css_path
+          Rails.logger.info 'css_path'
+
           if css_path
             tags << <<~END_OF_TAGS
               <link rel="stylesheet" href="#{host_prefix}#{css_path}"></link>

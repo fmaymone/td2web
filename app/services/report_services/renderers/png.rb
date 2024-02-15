@@ -52,6 +52,10 @@ module ReportServices
 
           image_service = IMGKit.new(html_copy, quality: 95)
           chart_css_file = StringIO.new(chart_css(chart_name))
+          Rails.logger.info 'chart_css_file'
+          content = chart_css_file.read
+          Rails.logger.info content
+          Rails.logger.info 'chart_css_file'
           image_service.stylesheets = []
           image_service.stylesheets << chart_css_file
           png_file = StringIO.new(image_service.to_png)
