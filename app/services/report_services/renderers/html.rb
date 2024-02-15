@@ -76,9 +76,6 @@ module ReportServices
         tags = []
         LAYOUT_ASSET_PACKS.each do |packname|
           css_path = Webpacker.manifest.lookup("#{packname}.css")
-          Rails.logger.info 'css_path'
-          Rails.logger.info css_path
-          Rails.logger.info 'css_path'
 
           if css_path
             tags << <<~END_OF_TAGS
