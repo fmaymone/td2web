@@ -8,6 +8,7 @@ default: &default
   cache_path: tmp/cache/webpacker
   check_yarn_integrity: false
   webpack_compile_output: true
+  https: false
 
   # Additional paths webpack should lookup modules
   # ['app/assets', 'engine/foo/app/assets']
@@ -95,3 +96,7 @@ production:
 
   # Cache manifest.json for performance
   cache_manifest: true
+
+  headers:
+  'Access-Control-Allow-Origin': '*'
+
